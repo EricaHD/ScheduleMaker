@@ -25,5 +25,3 @@
 @interface AppDelegate : NSObject <NSApplicationDelegate>
 
 @end
-
-// Ready for first commit!
