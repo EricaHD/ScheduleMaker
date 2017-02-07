@@ -783,7 +783,7 @@
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowHeight="75" headerView="Ecr-eQ-AL9" viewBased="YES" id="suB-S0-0Pw">
-                                            <rect key="frame" x="0.0" y="0.0" width="915.5073449672534" height="376"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="915" height="376"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <size key="intercellSpacing" width="3" height="2"/>
                                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -1056,7 +1056,7 @@
                                     </subviews>
                                     <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </clipView>
-                                <scroller key="horizontalScroller" verticalHuggingPriority="750" doubleValue="0.011976047904191617" horizontal="YES" id="wly-zU-VfH">
+                                <scroller key="horizontalScroller" verticalHuggingPriority="750" doubleValue="0.012048192771084338" horizontal="YES" id="wly-zU-VfH">
                                     <rect key="frame" x="1" y="383" width="749" height="16"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
@@ -1065,7 +1065,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <tableHeaderView key="headerView" id="Ecr-eQ-AL9">
-                                    <rect key="frame" x="0.0" y="1" width="915.5073449672534" height="23"/>
+                                    <rect key="frame" x="0.0" y="1" width="915" height="23"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableHeaderView>
                             </scrollView>
@@ -1387,16 +1387,21 @@
                         </subviews>
                     </view>
                     <connections>
+                        <outlet property="birthday" destination="OCg-dC-5HB" id="Vvt-dL-mTu"/>
                         <outlet property="elevenAM" destination="CV8-h4-bfc" id="50c-We-aS9"/>
                         <outlet property="fourPM" destination="4nW-Kk-Drd" id="7Ve-vd-n6W"/>
-                        <outlet property="galleryCheckbox" destination="bkz-xm-AGq" id="Ht9-96-WcT"/>
+                        <outlet property="gallery" destination="bkz-xm-AGq" id="5Ou-K5-mxh"/>
+                        <outlet property="greeting" destination="xJt-ob-CZ1" id="d0z-ga-pG6"/>
+                        <outlet property="lesson" destination="aEg-bz-3eH" id="KGb-g7-wtm"/>
+                        <outlet property="manager" destination="H0M-FH-4lJ" id="Den-ox-HY9"/>
                         <outlet property="onePM" destination="eQB-ay-uCw" id="25Y-kt-EX1"/>
-                        <outlet property="securityCheckbox" destination="aEg-bz-3eH" id="TAK-zm-Dbe"/>
-                        <outlet property="station1Checkbox" destination="aiA-es-Duv" id="M0P-FR-SmV"/>
-                        <outlet property="station2Checkbox" destination="xJt-ob-CZ1" id="MGb-7P-9is"/>
+                        <outlet property="other" destination="twC-WO-PFf" id="hth-Ke-nAR"/>
+                        <outlet property="project" destination="RR1-34-xVh" id="tgX-AP-x69"/>
+                        <outlet property="security" destination="aiA-es-Duv" id="tIi-1y-reV"/>
                         <outlet property="table" destination="suB-S0-0Pw" id="6mm-VV-JVr"/>
                         <outlet property="tenAM" destination="5Pq-Jh-zPv" id="fIq-Ik-8XJ"/>
                         <outlet property="threePM" destination="xUx-Ap-96H" id="xhG-hf-aUT"/>
+                        <outlet property="tours" destination="dny-xy-97i" id="7e4-qf-Ifh"/>
                         <outlet property="twelvePM" destination="0WB-fj-0K9" id="mgd-lZ-FOg"/>
                         <outlet property="twoPM" destination="o83-f4-rbv" id="6hK-cW-pkX"/>
                     </connections>

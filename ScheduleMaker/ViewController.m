@@ -31,7 +31,18 @@
 	hourLunchData = [NSMutableArray arrayWithObjects:[NSNumber numberWithInt:0], [NSNumber numberWithInt:0], [NSNumber numberWithInt:0], [NSNumber numberWithInt:0], [NSNumber numberWithInt:0], nil];
 	mayBePlacedData = [NSMutableArray arrayWithObjects:[NSNumber numberWithInt:0], [NSNumber numberWithInt:0], [NSNumber numberWithInt:0], [NSNumber numberWithInt:0], [NSNumber numberWithInt:0], nil];
 	
-	// Checkbox states
+	// Station checkbox states
+	birthday.state = NSOffState;
+	gallery.state = NSOnState;
+	greeting.state = NSOffState;
+	lesson.state = NSOffState;
+	manager.state = NSOffState;
+	other.state = NSOffState;
+	project.state = NSOffState;
+	security.state = NSOffState;
+	tours.state = NSOffState;
+	
+	// Half hour checkbox states
 	tenAM.state = NSOffState;
 	elevenAM.state = NSOffState;
 	twelvePM.state = NSOffState;
@@ -39,12 +50,6 @@
 	twoPM.state = NSOnState;
 	threePM.state = NSOnState;
 	fourPM.state = NSOnState;
-	
-	// Checkbox states
-	galleryCheckbox.state = NSOnState;
-	securityCheckbox.state = NSOffState;
-	station1Checkbox.state = NSOffState;
-	station2Checkbox.state = NSOffState;
 	
 }
 
@@ -108,26 +113,26 @@
 	
 	// Update array of hour lunches: 1 if checked, 0 if not
 	for (int i = 0; i < hourLunchData.count; i++) {
-		int hourlunch = (int) ((HourLunchTableCellView *) [table viewAtColumn:3 row:i makeIfNecessary:NO]).hourlunch.state;
-		if (hourlunch) { // do not insert nil object into array
-			hourLunchData[i] = [NSNumber numberWithInt:hourlunch];
+		int hourlunch_state = (int) ((HourLunchTableCellView *) [table viewAtColumn:3 row:i makeIfNecessary:NO]).hourlunch.state;
+		if (hourlunch_state) { // do not insert nil object into array
+			hourLunchData[i] = [NSNumber numberWithInt:hourlunch_state];
 		}
 	}
 	
 	// Update array of may be placed qualifications
 	// In MayBePlacedTableCellView.h, read about how the state of the entire cell (including 9 checkboxes) is represented as a single integer
 	for (int i = 0; i < mayBePlacedData.count; i++) {
-		int birthday = (int) ((MayBePlacedTableCellView *) [table viewAtColumn:4 row:i makeIfNecessary:NO]).birthday.state;
-		int gallery = (int) ((MayBePlacedTableCellView *) [table viewAtColumn:4 row:i makeIfNecessary:NO]).gallery.state;
-		int greeting = (int) ((MayBePlacedTableCellView *) [table viewAtColumn:4 row:i makeIfNecessary:NO]).greeting.state;
-		int lesson = (int) ((MayBePlacedTableCellView *) [table viewAtColumn:4 row:i makeIfNecessary:NO]).lesson.state;
-		int manager = (int) ((MayBePlacedTableCellView *) [table viewAtColumn:4 row:i makeIfNecessary:NO]).manager.state;
-		int other = (int) ((MayBePlacedTableCellView *) [table viewAtColumn:4 row:i makeIfNecessary:NO]).other.state;
-		int project = (int) ((MayBePlacedTableCellView *) [table viewAtColumn:4 row:i makeIfNecessary:NO]).project.state;
-		int security = (int) ((MayBePlacedTableCellView *) [table viewAtColumn:4 row:i makeIfNecessary:NO]).security.state;
-		int tours = (int) ((MayBePlacedTableCellView *) [table viewAtColumn:4 row:i makeIfNecessary:NO]).tours.state;
-		int descriptive_int = birthday + (gallery * 2) + (greeting * 4) + (lesson * 8)
-			+ (manager * 16) + (other * 32) + (project * 64) + (security * 128) + (tours * 256);
+		int birthday_state = (int) ((MayBePlacedTableCellView *) [table viewAtColumn:4 row:i makeIfNecessary:NO]).birthday.state;
+		int gallery_state = (int) ((MayBePlacedTableCellView *) [table viewAtColumn:4 row:i makeIfNecessary:NO]).gallery.state;
+		int greeting_state = (int) ((MayBePlacedTableCellView *) [table viewAtColumn:4 row:i makeIfNecessary:NO]).greeting.state;
+		int lesson_state = (int) ((MayBePlacedTableCellView *) [table viewAtColumn:4 row:i makeIfNecessary:NO]).lesson.state;
+		int manager_state = (int) ((MayBePlacedTableCellView *) [table viewAtColumn:4 row:i makeIfNecessary:NO]).manager.state;
+		int other_state = (int) ((MayBePlacedTableCellView *) [table viewAtColumn:4 row:i makeIfNecessary:NO]).other.state;
+		int project_state = (int) ((MayBePlacedTableCellView *) [table viewAtColumn:4 row:i makeIfNecessary:NO]).project.state;
+		int security_state = (int) ((MayBePlacedTableCellView *) [table viewAtColumn:4 row:i makeIfNecessary:NO]).security.state;
+		int tours_state = (int) ((MayBePlacedTableCellView *) [table viewAtColumn:4 row:i makeIfNecessary:NO]).tours.state;
+		int descriptive_int = birthday_state + (gallery_state * 2) + (greeting_state * 4) + (lesson_state * 8)
+			+ (manager_state * 16) + (other_state * 32) + (project_state * 64) + (security_state * 128) + (tours_state * 256);
 		if (descriptive_int) { // do not insert nil object into array
 			mayBePlacedData[i] = [NSNumber numberWithInt:descriptive_int];
 		}
@@ -238,18 +243,25 @@
 	[self scrapeData];
 	// Everything from scrape Data
 	//
-	// Checkbox states:
+	// Station checkbox states:
+	//  birthday.state
+	//  gallery.state
+	//  greeting.state
+	//  lesson.state
+	//  manager.state
+	//  other.state
+	//  project.state
+	//  security.state
+	//  tours.state
+	//
+	// Half hour checkbox states:
 	//	tenAM.state
 	//	elevenAM.state
-	//	twelvePM.state = NSOffState;
-	//	onePM.state = NSOnState;
-	//	twoPM.state = NSOnState;
-	//	threePM.state = NSOnState;
-	//	fourPM.state = NSOnState;
-	//	galleryCheckbox.state = NSOnState;
-	//	securityCheckbox.state = NSOffState;
-	//	station1Checkbox.state = NSOffState;
-	//	station2Checkbox.state = NSOffState;
+	//	twelvePM.state
+	//	onePM.state
+	//	twoPM.state
+	//	threePM.state
+	//	fourPM.state
 	
 }
 
