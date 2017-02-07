@@ -673,13 +673,136 @@
                         <rect key="frame" x="0.0" y="0.0" width="800" height="500"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <scrollView fixedFrame="YES" autohidesScrollers="YES" horizontalLineScroll="26" horizontalPageScroll="10" verticalLineScroll="26" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QEc-ay-4Ed">
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bXJ-bI-aI6">
+                                <rect key="frame" x="60" y="12" width="47" height="32"/>
+                                <buttonCell key="cell" type="push" title="-" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="biN-Tu-Jph">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="deleteRow:" target="XfG-lQ-9wD" id="g6b-P8-3Fq"/>
+                                </connections>
+                            </button>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oYn-kZ-7Uy">
+                                <rect key="frame" x="653" y="12" width="133" height="32"/>
+                                <buttonCell key="cell" type="push" title="Make Schedule" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="egh-rD-4wH">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="makeSchedule:" target="XfG-lQ-9wD" id="bUJ-9e-ex4"/>
+                                </connections>
+                            </button>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eMV-XV-m8t">
+                                <rect key="frame" x="14" y="12" width="49" height="32"/>
+                                <buttonCell key="cell" type="push" title="+" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="d2X-gy-BFo">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="addRow:" target="XfG-lQ-9wD" id="03R-jb-ZJy"/>
+                                </connections>
+                            </button>
+                            <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xJt-ob-CZ1">
+                                <rect key="frame" x="521" y="17" width="77" height="25"/>
+                                <buttonCell key="cell" type="check" title="Station 2" bezelStyle="regularSquare" imagePosition="left" inset="2" id="w7P-xP-l9O">
+                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                            </button>
+                            <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aiA-es-Duv">
+                                <rect key="frame" x="442" y="17" width="75" height="25"/>
+                                <buttonCell key="cell" type="check" title="Station 1" bezelStyle="regularSquare" imagePosition="left" inset="2" id="6Ef-SS-uhF">
+                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                            </button>
+                            <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aEg-bz-3eH">
+                                <rect key="frame" x="521" y="44" width="73" height="25"/>
+                                <buttonCell key="cell" type="check" title="Security" bezelStyle="regularSquare" imagePosition="left" inset="2" id="yIT-vW-m01">
+                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                            </button>
+                            <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bkz-xm-AGq">
+                                <rect key="frame" x="442" y="44" width="65" height="25"/>
+                                <buttonCell key="cell" type="check" title="Gallery" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="q2O-ht-RDE">
+                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                            </button>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Bmi-LL-hQk">
+                                <rect key="frame" x="442" y="75" width="58" height="17"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Stations:" id="avX-WE-SNK">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="njC-IB-Swv">
+                                <rect key="frame" x="156" y="75" width="73" height="17"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Half Hours:" id="38z-Uf-Kkc">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eQB-ay-uCw">
+                                <rect key="frame" x="156" y="20" width="51" height="18"/>
+                                <buttonCell key="cell" type="check" title="1 pm" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="WcF-y8-wUi">
+                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                            </button>
+                            <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="o83-f4-rbv">
+                                <rect key="frame" x="219" y="20" width="53" height="18"/>
+                                <buttonCell key="cell" type="check" title="2 pm" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="FIj-7z-JDx">
+                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                            </button>
+                            <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xUx-Ap-96H">
+                                <rect key="frame" x="279" y="20" width="53" height="18"/>
+                                <buttonCell key="cell" type="check" title="3 pm" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="o8X-G5-YCD">
+                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                            </button>
+                            <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4nW-Kk-Drd">
+                                <rect key="frame" x="336" y="20" width="53" height="18"/>
+                                <buttonCell key="cell" type="check" title="4 pm" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="nj5-gI-Luf">
+                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                            </button>
+                            <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5Pq-Jh-zPv">
+                                <rect key="frame" x="183" y="47" width="59" height="18"/>
+                                <buttonCell key="cell" type="check" title="10 am" bezelStyle="regularSquare" imagePosition="left" inset="2" id="w9Y-qy-64s">
+                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                            </button>
+                            <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CV8-h4-bfc">
+                                <rect key="frame" x="246" y="47" width="56" height="18"/>
+                                <buttonCell key="cell" type="check" title="11 am" bezelStyle="regularSquare" imagePosition="left" inset="2" id="98s-Za-iaD">
+                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                            </button>
+                            <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0WB-fj-0K9">
+                                <rect key="frame" x="306" y="47" width="59" height="18"/>
+                                <buttonCell key="cell" type="check" title="12 pm" bezelStyle="regularSquare" imagePosition="left" inset="2" id="iMg-oT-0vk">
+                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                            </button>
+                            <scrollView fixedFrame="YES" autohidesScrollers="YES" horizontalLineScroll="52" horizontalPageScroll="10" verticalLineScroll="52" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QEc-ay-4Ed">
                                 <rect key="frame" x="0.0" y="100" width="800" height="400"/>
                                 <clipView key="contentView" ambiguous="YES" id="bfI-Oq-UgF">
                                     <rect key="frame" x="1" y="0.0" width="798" height="399"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowHeight="24" headerView="Ecr-eQ-AL9" viewBased="YES" id="suB-S0-0Pw">
+                                        <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowHeight="50" headerView="Ecr-eQ-AL9" viewBased="YES" id="suB-S0-0Pw">
                                             <rect key="frame" x="0.0" y="0.0" width="798" height="376"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <size key="intercellSpacing" width="3" height="2"/>
@@ -818,7 +941,7 @@
                                                         </tableCellView>
                                                     </prototypeCellViews>
                                                 </tableColumn>
-                                                <tableColumn identifier="hour_lunch_col" width="40" minWidth="40" maxWidth="1000" id="8YP-3S-aPW" userLabel="Hour Lunch">
+                                                <tableColumn identifier="hour_lunch_col" width="100" minWidth="40" maxWidth="1000" id="8YP-3S-aPW" userLabel="Hour Lunch">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" title="Hour Lunch">
                                                         <font key="font" metaFont="smallSystem"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -832,7 +955,7 @@
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
                                                         <tableCellView identifier="hour_lunch_cell" id="Hhv-hX-dr9" customClass="HourLunchTableCellView">
-                                                            <rect key="frame" x="310" y="1" width="40" height="25"/>
+                                                            <rect key="frame" x="310" y="1" width="100" height="25"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FkR-Hr-sXg">
@@ -845,6 +968,101 @@
                                                             </subviews>
                                                             <connections>
                                                                 <outlet property="hourlunch" destination="FkR-Hr-sXg" id="idS-3j-2PM"/>
+                                                            </connections>
+                                                        </tableCellView>
+                                                    </prototypeCellViews>
+                                                </tableColumn>
+                                                <tableColumn identifier="may_be_placed_col" width="300" minWidth="40" maxWidth="1000" id="9nd-NP-ZDj" userLabel="May Be Placed">
+                                                    <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" title="May Be Placed">
+                                                        <font key="font" metaFont="smallSystem"/>
+                                                        <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
+                                                    </tableHeaderCell>
+                                                    <textFieldCell key="dataCell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="v1n-1T-HCe">
+                                                        <font key="font" metaFont="system"/>
+                                                        <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                    </textFieldCell>
+                                                    <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
+                                                    <prototypeCellViews>
+                                                        <tableCellView identifier="may_be_placed_cell" id="icz-1M-5P4" userLabel="May Be Placed Table Cell View" customClass="MayBePlacedTableCellView">
+                                                            <rect key="frame" x="413" y="1" width="300" height="75"/>
+                                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                            <subviews>
+                                                                <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aBo-Up-i0L">
+                                                                    <rect key="frame" x="1" y="53" width="65" height="18"/>
+                                                                    <buttonCell key="cell" type="check" title="Gallery" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="0lw-f9-GVY">
+                                                                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                                        <font key="font" metaFont="system"/>
+                                                                    </buttonCell>
+                                                                </button>
+                                                                <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="S7H-si-YHP">
+                                                                    <rect key="frame" x="86" y="53" width="65" height="18"/>
+                                                                    <buttonCell key="cell" type="check" title="Lesson" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="83P-Qi-ddZ">
+                                                                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                                        <font key="font" metaFont="system"/>
+                                                                    </buttonCell>
+                                                                </button>
+                                                                <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Eqc-wo-642">
+                                                                    <rect key="frame" x="1" y="13" width="65" height="18"/>
+                                                                    <buttonCell key="cell" type="check" title="Project" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="UoB-JS-XtJ">
+                                                                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                                        <font key="font" metaFont="system"/>
+                                                                    </buttonCell>
+                                                                </button>
+                                                                <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IED-hk-Rdc">
+                                                                    <rect key="frame" x="86" y="33" width="75" height="18"/>
+                                                                    <buttonCell key="cell" type="check" title="Greeting" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="kCX-Kz-iBc">
+                                                                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                                        <font key="font" metaFont="system"/>
+                                                                    </buttonCell>
+                                                                </button>
+                                                                <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9um-Vq-QpC">
+                                                                    <rect key="frame" x="86" y="13" width="56" height="18"/>
+                                                                    <buttonCell key="cell" type="check" title="Tours" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="RlV-dY-xtJ">
+                                                                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                                        <font key="font" metaFont="system"/>
+                                                                    </buttonCell>
+                                                                </button>
+                                                                <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mVv-js-qYs">
+                                                                    <rect key="frame" x="1" y="33" width="73" height="18"/>
+                                                                    <buttonCell key="cell" type="check" title="Security" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="xbz-Yi-yX1">
+                                                                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                                        <font key="font" metaFont="system"/>
+                                                                    </buttonCell>
+                                                                </button>
+                                                                <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="g0m-1x-afF">
+                                                                    <rect key="frame" x="174" y="53" width="73" height="18"/>
+                                                                    <buttonCell key="cell" type="check" title="Birthday" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="5gX-v4-BKg">
+                                                                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                                        <font key="font" metaFont="system"/>
+                                                                    </buttonCell>
+                                                                </button>
+                                                                <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BKd-FO-VgN">
+                                                                    <rect key="frame" x="174" y="33" width="76" height="18"/>
+                                                                    <buttonCell key="cell" type="check" title="Manager" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="ecJ-6K-Z6q">
+                                                                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                                        <font key="font" metaFont="system"/>
+                                                                    </buttonCell>
+                                                                </button>
+                                                                <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="W7l-3m-8eD">
+                                                                    <rect key="frame" x="174" y="13" width="57" height="18"/>
+                                                                    <buttonCell key="cell" type="check" title="Other" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="5ZZ-fO-7on">
+                                                                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                                        <font key="font" metaFont="system"/>
+                                                                    </buttonCell>
+                                                                </button>
+                                                            </subviews>
+                                                            <connections>
+                                                                <outlet property="birthday" destination="g0m-1x-afF" id="cqg-rp-8yn"/>
+                                                                <outlet property="gallery" destination="aBo-Up-i0L" id="rjb-Np-e9c"/>
+                                                                <outlet property="greeting" destination="IED-hk-Rdc" id="Yzz-h3-6L5"/>
+                                                                <outlet property="lesson" destination="S7H-si-YHP" id="F3X-4Y-ass"/>
+                                                                <outlet property="manager" destination="BKd-FO-VgN" id="a2U-9I-j6L"/>
+                                                                <outlet property="other" destination="W7l-3m-8eD" id="7Wz-ic-6cY"/>
+                                                                <outlet property="project" destination="Eqc-wo-642" id="pQu-fh-hz0"/>
+                                                                <outlet property="security" destination="mVv-js-qYs" id="IUa-1O-GDK"/>
+                                                                <outlet property="tours" destination="9um-Vq-QpC" id="Lqz-H6-Nvk"/>
                                                             </connections>
                                                         </tableCellView>
                                                     </prototypeCellViews>
@@ -871,129 +1089,6 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableHeaderView>
                             </scrollView>
-                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bXJ-bI-aI6">
-                                <rect key="frame" x="60" y="12" width="47" height="32"/>
-                                <buttonCell key="cell" type="push" title="-" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="biN-Tu-Jph">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                                <connections>
-                                    <action selector="deleteRow:" target="XfG-lQ-9wD" id="g6b-P8-3Fq"/>
-                                </connections>
-                            </button>
-                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oYn-kZ-7Uy">
-                                <rect key="frame" x="653" y="12" width="133" height="32"/>
-                                <buttonCell key="cell" type="push" title="Make Schedule" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="egh-rD-4wH">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                                <connections>
-                                    <action selector="makeSchedule:" target="XfG-lQ-9wD" id="bUJ-9e-ex4"/>
-                                </connections>
-                            </button>
-                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eMV-XV-m8t">
-                                <rect key="frame" x="14" y="12" width="49" height="32"/>
-                                <buttonCell key="cell" type="push" title="+" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="d2X-gy-BFo">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                                <connections>
-                                    <action selector="addRow:" target="XfG-lQ-9wD" id="03R-jb-ZJy"/>
-                                </connections>
-                            </button>
-                            <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xJt-ob-CZ1">
-                                <rect key="frame" x="521" y="17" width="77" height="25"/>
-                                <buttonCell key="cell" type="check" title="Station 2" bezelStyle="regularSquare" imagePosition="left" inset="2" id="w7P-xP-l9O">
-                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                            </button>
-                            <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aiA-es-Duv">
-                                <rect key="frame" x="442" y="17" width="75" height="25"/>
-                                <buttonCell key="cell" type="check" title="Station 1" bezelStyle="regularSquare" imagePosition="left" inset="2" id="6Ef-SS-uhF">
-                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                            </button>
-                            <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aEg-bz-3eH">
-                                <rect key="frame" x="521" y="44" width="73" height="25"/>
-                                <buttonCell key="cell" type="check" title="Security" bezelStyle="regularSquare" imagePosition="left" inset="2" id="yIT-vW-m01">
-                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                            </button>
-                            <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bkz-xm-AGq">
-                                <rect key="frame" x="442" y="44" width="65" height="25"/>
-                                <buttonCell key="cell" type="check" title="Gallery" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="q2O-ht-RDE">
-                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                            </button>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Bmi-LL-hQk">
-                                <rect key="frame" x="442" y="75" width="58" height="17"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Stations:" id="avX-WE-SNK">
-                                    <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="njC-IB-Swv">
-                                <rect key="frame" x="156" y="75" width="73" height="17"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Half Hours:" id="38z-Uf-Kkc">
-                                    <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
-                            <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eQB-ay-uCw">
-                                <rect key="frame" x="156" y="20" width="51" height="18"/>
-                                <buttonCell key="cell" type="check" title="1 pm" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="WcF-y8-wUi">
-                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                            </button>
-                            <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="o83-f4-rbv">
-                                <rect key="frame" x="219" y="20" width="53" height="18"/>
-                                <buttonCell key="cell" type="check" title="2 pm" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="FIj-7z-JDx">
-                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                            </button>
-                            <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xUx-Ap-96H">
-                                <rect key="frame" x="279" y="20" width="53" height="18"/>
-                                <buttonCell key="cell" type="check" title="3 pm" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="o8X-G5-YCD">
-                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                            </button>
-                            <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4nW-Kk-Drd">
-                                <rect key="frame" x="336" y="20" width="53" height="18"/>
-                                <buttonCell key="cell" type="check" title="4 pm" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="nj5-gI-Luf">
-                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                            </button>
-                            <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5Pq-Jh-zPv">
-                                <rect key="frame" x="183" y="47" width="59" height="18"/>
-                                <buttonCell key="cell" type="check" title="10 am" bezelStyle="regularSquare" imagePosition="left" inset="2" id="w9Y-qy-64s">
-                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                            </button>
-                            <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CV8-h4-bfc">
-                                <rect key="frame" x="246" y="47" width="56" height="18"/>
-                                <buttonCell key="cell" type="check" title="11 am" bezelStyle="regularSquare" imagePosition="left" inset="2" id="98s-Za-iaD">
-                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                            </button>
-                            <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0WB-fj-0K9">
-                                <rect key="frame" x="306" y="47" width="59" height="18"/>
-                                <buttonCell key="cell" type="check" title="12 pm" bezelStyle="regularSquare" imagePosition="left" inset="2" id="iMg-oT-0vk">
-                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                            </button>
                         </subviews>
                     </view>
                     <connections>

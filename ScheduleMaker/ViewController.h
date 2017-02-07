@@ -15,6 +15,7 @@
 	NSMutableArray *startTimeData;
 	NSMutableArray *endTimeData;
 	NSMutableArray *hourLunchData;
+	NSMutableArray *mayBePlacedData;
 	IBOutlet NSTableView *table;
 
 	// Half hours

@@ -11,6 +11,7 @@
 #import "StartTimeTableCellView.h"
 #import "EndTimeTableCellView.h"
 #import "HourLunchTableCellView.h"
+#import "MayBePlacedTableCellView.h"
 
 @implementation ViewController
 
@@ -20,11 +21,15 @@
 	// Super
 	[super viewDidLoad];
 	
+	// Set table row height
+	table.rowHeight = 75.0;
+	
 	// Initialize arrays and keep track of numRows
 	nameData = [NSMutableArray arrayWithObjects:@"", @"", @"", @"", @"", nil];
 	startTimeData = [NSMutableArray arrayWithObjects:@"", @"", @"", @"", @"", nil];
 	endTimeData = [NSMutableArray arrayWithObjects:@"", @"", @"", @"", @"", nil];
 	hourLunchData = [NSMutableArray arrayWithObjects:[NSNumber numberWithInt:0], [NSNumber numberWithInt:0], [NSNumber numberWithInt:0], [NSNumber numberWithInt:0], [NSNumber numberWithInt:0], nil];
+	mayBePlacedData = [NSMutableArray arrayWithObjects:[NSNumber numberWithInt:0], [NSNumber numberWithInt:0], [NSNumber numberWithInt:0], [NSNumber numberWithInt:0], [NSNumber numberWithInt:0], nil];
 	
 	// Checkbox states
 	tenAM.state = NSOffState;
@@ -98,6 +103,25 @@
 			hourLunchData[i] = [NSNumber numberWithInt:hourlunch];
 		}
 	}
+	
+	// Update array of may be placed qualifications
+	// In MayBePlacedTableCellView.h, read about how the state of the entire cell (including 9 checkboxes) is represented as a single integer
+	for (int i = 0; i < mayBePlacedData.count; i++) {
+		int birthday = (int) ((MayBePlacedTableCellView *) [table viewAtColumn:4 row:i makeIfNecessary:NO]).birthday.state;
+		int gallery = (int) ((MayBePlacedTableCellView *) [table viewAtColumn:4 row:i makeIfNecessary:NO]).gallery.state;
+		int greeting = (int) ((MayBePlacedTableCellView *) [table viewAtColumn:4 row:i makeIfNecessary:NO]).greeting.state;
+		int lesson = (int) ((MayBePlacedTableCellView *) [table viewAtColumn:4 row:i makeIfNecessary:NO]).lesson.state;
+		int manager = (int) ((MayBePlacedTableCellView *) [table viewAtColumn:4 row:i makeIfNecessary:NO]).manager.state;
+		int other = (int) ((MayBePlacedTableCellView *) [table viewAtColumn:4 row:i makeIfNecessary:NO]).other.state;
+		int project = (int) ((MayBePlacedTableCellView *) [table viewAtColumn:4 row:i makeIfNecessary:NO]).project.state;
+		int security = (int) ((MayBePlacedTableCellView *) [table viewAtColumn:4 row:i makeIfNecessary:NO]).security.state;
+		int tours = (int) ((MayBePlacedTableCellView *) [table viewAtColumn:4 row:i makeIfNecessary:NO]).tours.state;
+		int descriptive_int = birthday + (gallery * 2) + (greeting * 4) + (lesson * 8)
+			+ (manager * 16) + (other * 32) + (project * 64) + (security * 128) + (tours * 256);
+		if (descriptive_int) { // do not insert nil object into array
+			mayBePlacedData[i] = [NSNumber numberWithInt:descriptive_int];
+		}
+	}
 
 }
 
@@ -134,10 +158,26 @@
 		return cell;
 	}
 	
-	else { //if ([tableColumn.identifier isEqualToString:@"hour_lunch_col"]) {
+	else if ([tableColumn.identifier isEqualToString:@"hour_lunch_col"]) {
 		HourLunchTableCellView *cell = (HourLunchTableCellView *) [tableView makeViewWithIdentifier:@"hour_lunch_cell" owner:self];
 		if (row < hourLunchData.count) {
 			[cell.hourlunch setState:[hourLunchData[row] integerValue]];
+		}
+		return cell;
+	}
+	
+	else { // if ([tableColumn.identifier isEqualToString:@"may_be_placed_col"])
+		MayBePlacedTableCellView *cell = (MayBePlacedTableCellView *)[tableView makeViewWithIdentifier:@"may_be_placed_cell" owner:self];
+		if (row < mayBePlacedData.count) {
+			[cell.birthday setState:(1 & [mayBePlacedData[row] integerValue])];
+			[cell.gallery setState:(2 & [mayBePlacedData[row] integerValue])];
+			[cell.greeting setState:(4 & [mayBePlacedData[row] integerValue])];
+			[cell.lesson setState:(8 & [mayBePlacedData[row] integerValue])];
+			[cell.manager setState:(16 & [mayBePlacedData[row] integerValue])];
+			[cell.other setState:(32 & [mayBePlacedData[row] integerValue])];
+			[cell.project setState:(64 & [mayBePlacedData[row] integerValue])];
+			[cell.security setState:(128 & [mayBePlacedData[row] integerValue])];
+			[cell.tours setState:(256 & [mayBePlacedData[row] integerValue])];
 		}
 		return cell;
 	}
@@ -153,6 +193,7 @@
 	[startTimeData addObject:@""];
 	[endTimeData addObject:@""];
 	[hourLunchData addObject:[NSNumber numberWithInt:0]];
+	[mayBePlacedData addObject:[NSNumber numberWithInt:0]];
 	
 	[table reloadData];
 	
@@ -171,6 +212,7 @@
 	[startTimeData removeLastObject];
 	[endTimeData removeLastObject];
 	[hourLunchData removeLastObject];
+	[mayBePlacedData removeLastObject];
 	
 	[table reloadData];
 	
