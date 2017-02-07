@@ -43,8 +43,24 @@
 	tours.state = NSOffState;
 	
 	// Station times checkbox states
-	//[cell.starttime selectItemAtIndex:0];
-	//[cell.endtime selectItemAtIndex:cell.endtime.menu.numberOfItems - 1];
+	[birthday_starttime selectItemAtIndex:0];
+	[birthday_endtime selectItemAtIndex:birthday_endtime.menu.numberOfItems - 1];
+	[gallery_starttime selectItemAtIndex:0];
+	[gallery_endtime selectItemAtIndex:birthday_endtime.menu.numberOfItems - 1];
+	[greeting_starttime selectItemAtIndex:0];
+	[greeting_endtime selectItemAtIndex:birthday_endtime.menu.numberOfItems - 1];
+	[lesson_starttime selectItemAtIndex:0];
+	[lesson_endtime selectItemAtIndex:birthday_endtime.menu.numberOfItems - 1];
+	[manager_starttime selectItemAtIndex:0];
+	[manager_endtime selectItemAtIndex:birthday_endtime.menu.numberOfItems - 1];
+	[other_starttime selectItemAtIndex:0];
+	[other_endtime selectItemAtIndex:birthday_endtime.menu.numberOfItems - 1];
+	[project_starttime selectItemAtIndex:0];
+	[project_endtime selectItemAtIndex:birthday_endtime.menu.numberOfItems - 1];
+	[security_starttime selectItemAtIndex:0];
+	[security_endtime selectItemAtIndex:birthday_endtime.menu.numberOfItems - 1];
+	[tours_starttime selectItemAtIndex:0];
+	[tours_endtime selectItemAtIndex:birthday_endtime.menu.numberOfItems - 1];
 	
 	// Half hour checkbox states
 	tenAM.state = NSOffState;

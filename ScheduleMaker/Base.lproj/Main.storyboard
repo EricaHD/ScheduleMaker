@@ -1286,7 +1286,7 @@
                                     <font key="font" metaFont="menu"/>
                                     <menu key="menu" id="h8W-Kd-mdO">
                                         <items>
-                                            <menuItem title="10:00 am" state="on" id="K6S-oj-G81" userLabel="10:00 am"/>
+                                            <menuItem title="10:00 am" id="K6S-oj-G81" userLabel="10:00 am"/>
                                             <menuItem title="10:30 am" id="Cq5-Y8-SBs" userLabel="10:30 am"/>
                                             <menuItem title="11:00 am" id="U33-nc-cw8" userLabel="11:00 am"/>
                                             <menuItem title="11:30 am" id="6Ak-Xp-Juc" userLabel="11:30 am"/>
@@ -1359,7 +1359,7 @@
                                             <menuItem title="3:30 pm" id="s0Q-hM-3gH" userLabel="3:30 pm"/>
                                             <menuItem title="4:00 pm" id="w6D-AS-C6I" userLabel="4:00 pm"/>
                                             <menuItem title="4:30 pm" id="NY1-9y-BJn" userLabel="4:30 pm"/>
-                                            <menuItem title="5:00 pm" state="on" id="e2f-rR-C2q" userLabel="5:00 pm"/>
+                                            <menuItem title="5:00 pm" id="e2f-rR-C2q" userLabel="5:00 pm"/>
                                         </items>
                                     </menu>
                                 </popUpButtonCell>
@@ -1385,7 +1385,7 @@
                                             <menuItem title="3:30 pm" id="wBn-lN-loP" userLabel="3:30 pm"/>
                                             <menuItem title="4:00 pm" id="eAK-26-49K" userLabel="4:00 pm"/>
                                             <menuItem title="4:30 pm" id="kvi-ZJ-Tl0" userLabel="4:30 pm"/>
-                                            <menuItem title="5:00 pm" state="on" id="cXQ-I1-I0A" userLabel="5:00 pm"/>
+                                            <menuItem title="5:00 pm" id="cXQ-I1-I0A" userLabel="5:00 pm"/>
                                         </items>
                                     </menu>
                                 </popUpButtonCell>
@@ -1411,7 +1411,7 @@
                                             <menuItem title="3:30 pm" id="3Fp-fV-fNt" userLabel="3:30 pm"/>
                                             <menuItem title="4:00 pm" id="fCg-aX-U1A" userLabel="4:00 pm"/>
                                             <menuItem title="4:30 pm" id="aeU-Jc-tTD" userLabel="4:30 pm"/>
-                                            <menuItem title="5:00 pm" state="on" id="lDD-Dz-5TW" userLabel="5:00 pm"/>
+                                            <menuItem title="5:00 pm" id="lDD-Dz-5TW" userLabel="5:00 pm"/>
                                         </items>
                                     </menu>
                                 </popUpButtonCell>
@@ -1437,7 +1437,7 @@
                                             <menuItem title="3:30 pm" id="Svt-G2-EzI" userLabel="3:30 pm"/>
                                             <menuItem title="4:00 pm" id="5GB-Bj-zvR" userLabel="4:00 pm"/>
                                             <menuItem title="4:30 pm" id="NiD-54-t8U" userLabel="4:30 pm"/>
-                                            <menuItem title="5:00 pm" state="on" id="siz-Tz-Ggj" userLabel="5:00 pm"/>
+                                            <menuItem title="5:00 pm" id="siz-Tz-Ggj" userLabel="5:00 pm"/>
                                         </items>
                                     </menu>
                                 </popUpButtonCell>
@@ -1463,7 +1463,7 @@
                                             <menuItem title="3:30 pm" id="wd6-yI-PAL" userLabel="3:30 pm"/>
                                             <menuItem title="4:00 pm" id="Bkb-7c-F90" userLabel="4:00 pm"/>
                                             <menuItem title="4:30 pm" id="dgt-8q-TIs" userLabel="4:30 pm"/>
-                                            <menuItem title="5:00 pm" state="on" id="KqM-2N-cmG" userLabel="5:00 pm"/>
+                                            <menuItem title="5:00 pm" id="KqM-2N-cmG" userLabel="5:00 pm"/>
                                         </items>
                                     </menu>
                                 </popUpButtonCell>
@@ -1489,7 +1489,7 @@
                                             <menuItem title="3:30 pm" id="gi6-Jk-CUZ" userLabel="3:30 pm"/>
                                             <menuItem title="4:00 pm" id="RSm-xz-eIq" userLabel="4:00 pm"/>
                                             <menuItem title="4:30 pm" id="T6j-qe-doF" userLabel="4:30 pm"/>
-                                            <menuItem title="5:00 pm" state="on" id="mkV-GG-aci" userLabel="5:00 pm"/>
+                                            <menuItem title="5:00 pm" id="mkV-GG-aci" userLabel="5:00 pm"/>
                                         </items>
                                     </menu>
                                 </popUpButtonCell>
@@ -1515,7 +1515,7 @@
                                             <menuItem title="3:30 pm" id="sge-L8-6UI" userLabel="3:30 pm"/>
                                             <menuItem title="4:00 pm" id="rZ2-Ib-0s0" userLabel="4:00 pm"/>
                                             <menuItem title="4:30 pm" id="EXB-c3-Rzy" userLabel="4:30 pm"/>
-                                            <menuItem title="5:00 pm" state="on" id="BnT-dt-hJp" userLabel="5:00 pm"/>
+                                            <menuItem title="5:00 pm" id="BnT-dt-hJp" userLabel="5:00 pm"/>
                                         </items>
                                     </menu>
                                 </popUpButtonCell>
@@ -1541,7 +1541,7 @@
                                             <menuItem title="3:30 pm" id="BJP-jJ-nEj" userLabel="3:30 pm"/>
                                             <menuItem title="4:00 pm" id="Ins-kk-B0q" userLabel="4:00 pm"/>
                                             <menuItem title="4:30 pm" id="Jrt-bc-PpT" userLabel="4:30 pm"/>
-                                            <menuItem title="5:00 pm" state="on" id="nLr-Za-khd" userLabel="5:00 pm"/>
+                                            <menuItem title="5:00 pm" id="nLr-Za-khd" userLabel="5:00 pm"/>
                                         </items>
                                     </menu>
                                 </popUpButtonCell>
@@ -1567,7 +1567,7 @@
                                             <menuItem title="3:30 pm" id="cOZ-J0-UMX" userLabel="3:30 pm"/>
                                             <menuItem title="4:00 pm" id="7fs-c1-Q2O" userLabel="4:00 pm"/>
                                             <menuItem title="4:30 pm" id="bx7-PR-VVP" userLabel="4:30 pm"/>
-                                            <menuItem title="5:00 pm" state="on" id="5BM-2N-ugf" userLabel="5:00 pm"/>
+                                            <menuItem title="5:00 pm" id="5BM-2N-ugf" userLabel="5:00 pm"/>
                                         </items>
                                     </menu>
                                 </popUpButtonCell>
@@ -1604,20 +1604,38 @@
                     </view>
                     <connections>
                         <outlet property="birthday" destination="OCg-dC-5HB" id="Vvt-dL-mTu"/>
+                        <outlet property="birthday_endtime" destination="978-Hs-5yf" id="aXy-Wi-MNg"/>
+                        <outlet property="birthday_starttime" destination="d0x-of-YdJ" id="rSw-zI-ZLh"/>
                         <outlet property="elevenAM" destination="CV8-h4-bfc" id="50c-We-aS9"/>
                         <outlet property="fourPM" destination="4nW-Kk-Drd" id="7Ve-vd-n6W"/>
                         <outlet property="gallery" destination="bkz-xm-AGq" id="5Ou-K5-mxh"/>
+                        <outlet property="gallery_endtime" destination="Yf5-oS-5Ja" id="1wl-0F-b1G"/>
+                        <outlet property="gallery_starttime" destination="ii0-uX-ohq" id="FTV-l6-3QD"/>
                         <outlet property="greeting" destination="xJt-ob-CZ1" id="d0z-ga-pG6"/>
+                        <outlet property="greeting_endtime" destination="WSy-I9-2qP" id="7nk-aP-3qC"/>
+                        <outlet property="greeting_starttime" destination="Rmy-EK-6qj" id="F4a-PN-hd0"/>
                         <outlet property="lesson" destination="aEg-bz-3eH" id="KGb-g7-wtm"/>
+                        <outlet property="lesson_endtime" destination="ZOp-mi-W7d" id="ZP3-l1-WO0"/>
+                        <outlet property="lesson_starttime" destination="nas-PR-8zK" id="715-Cp-cHO"/>
                         <outlet property="manager" destination="H0M-FH-4lJ" id="Den-ox-HY9"/>
+                        <outlet property="manager_endtime" destination="2Sl-L5-pif" id="d9Z-Z9-woe"/>
+                        <outlet property="manager_starttime" destination="l4k-Vq-Z78" id="vqN-Ll-QyX"/>
                         <outlet property="onePM" destination="eQB-ay-uCw" id="25Y-kt-EX1"/>
                         <outlet property="other" destination="twC-WO-PFf" id="hth-Ke-nAR"/>
+                        <outlet property="other_endtime" destination="kDX-fc-RyI" id="HDZ-d2-WA9"/>
+                        <outlet property="other_starttime" destination="5My-Gh-Vmc" id="t2B-gH-WkE"/>
                         <outlet property="project" destination="RR1-34-xVh" id="tgX-AP-x69"/>
+                        <outlet property="project_endtime" destination="aRc-Pz-3FY" id="OqF-Uq-dxN"/>
+                        <outlet property="project_starttime" destination="rly-8O-6rc" id="Dug-Fc-an9"/>
                         <outlet property="security" destination="aiA-es-Duv" id="tIi-1y-reV"/>
+                        <outlet property="security_endtime" destination="loP-VG-ETS" id="stc-3N-bYg"/>
+                        <outlet property="security_starttime" destination="SKi-HZ-lms" id="lgR-Ae-AFM"/>
                         <outlet property="table" destination="suB-S0-0Pw" id="6mm-VV-JVr"/>
                         <outlet property="tenAM" destination="5Pq-Jh-zPv" id="fIq-Ik-8XJ"/>
                         <outlet property="threePM" destination="xUx-Ap-96H" id="xhG-hf-aUT"/>
                         <outlet property="tours" destination="dny-xy-97i" id="7e4-qf-Ifh"/>
+                        <outlet property="tours_endtime" destination="Nox-hi-M3E" id="668-KB-ZDv"/>
+                        <outlet property="tours_starttime" destination="fdy-3o-XJX" id="Mwf-E2-2CW"/>
                         <outlet property="twelvePM" destination="0WB-fj-0K9" id="mgd-lZ-FOg"/>
                         <outlet property="twoPM" destination="o83-f4-rbv" id="6hK-cW-pkX"/>
                     </connections>
