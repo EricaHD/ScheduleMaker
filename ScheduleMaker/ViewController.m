@@ -42,6 +42,10 @@
 	security.state = NSOffState;
 	tours.state = NSOffState;
 	
+	// Station times checkbox states
+	//[cell.starttime selectItemAtIndex:0];
+	//[cell.endtime selectItemAtIndex:cell.endtime.menu.numberOfItems - 1];
+	
 	// Half hour checkbox states
 	tenAM.state = NSOffState;
 	elevenAM.state = NSOffState;

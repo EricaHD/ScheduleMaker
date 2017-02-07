@@ -1,0 +1,759 @@
+
+/* Class = "NSMenuItem"; title = "Item 1"; ObjectID = "098-50-lca"; */
+"098-50-lca.title" = "Item 1";
+
+/* Class = "NSButtonCell"; title = "Gallery"; ObjectID = "0lw-f9-GVY"; */
+"0lw-f9-GVY.title" = "Gallery";
+
+/* Class = "NSMenuItem"; title = "1:30 pm"; ObjectID = "14W-TM-alX"; */
+"14W-TM-alX.title" = "1:30 pm";
+
+/* Class = "NSMenuItem"; title = "Item 1"; ObjectID = "16F-Q2-3Rb"; */
+"16F-Q2-3Rb.title" = "Item 1";
+
+/* Class = "NSMenuItem"; title = "3:00 pm"; ObjectID = "1BS-OI-QwC"; */
+"1BS-OI-QwC.title" = "3:00 pm";
+
+/* Class = "NSMenuItem"; title = "Customize Toolbar…"; ObjectID = "1UK-8n-QPP"; */
+"1UK-8n-QPP.title" = "Customize Toolbar…";
+
+/* Class = "NSMenuItem"; title = "ScheduleMaker"; ObjectID = "1Xt-HY-uBw"; */
+"1Xt-HY-uBw.title" = "ScheduleMaker";
+
+/* Class = "NSMenu"; title = "Find"; ObjectID = "1b7-l0-nxx"; */
+"1b7-l0-nxx.title" = "Find";
+
+/* Class = "NSMenuItem"; title = "10:00 am"; ObjectID = "1s1-TZ-g6I"; */
+"1s1-TZ-g6I.title" = "10:00 am";
+
+/* Class = "NSMenuItem"; title = "Lower"; ObjectID = "1tx-W0-xDw"; */
+"1tx-W0-xDw.title" = "Lower";
+
+/* Class = "NSMenuItem"; title = "Item 2"; ObjectID = "220-3d-aG3"; */
+"220-3d-aG3.title" = "Item 2";
+
+/* Class = "NSMenuItem"; title = "Raise"; ObjectID = "2h7-ER-AoG"; */
+"2h7-ER-AoG.title" = "Raise";
+
+/* Class = "NSMenuItem"; title = "Transformations"; ObjectID = "2oI-Rn-ZJC"; */
+"2oI-Rn-ZJC.title" = "Transformations";
+
+/* Class = "NSTextFieldCell"; title = "Half Hours:"; ObjectID = "38z-Uf-Kkc"; */
+"38z-Uf-Kkc.title" = "Half Hours:";
+
+/* Class = "NSMenu"; title = "Spelling"; ObjectID = "3IN-sU-3Bg"; */
+"3IN-sU-3Bg.title" = "Spelling";
+
+/* Class = "NSMenuItem"; title = "Use Default"; ObjectID = "3Om-Ey-2VK"; */
+"3Om-Ey-2VK.title" = "Use Default";
+
+/* Class = "NSMenuItem"; title = "12:00 pm"; ObjectID = "3Wh-Wn-2Yt"; */
+"3Wh-Wn-2Yt.title" = "12:00 pm";
+
+/* Class = "NSMenuItem"; title = "10:30 am"; ObjectID = "3qP-2o-5iu"; */
+"3qP-2o-5iu.title" = "10:30 am";
+
+/* Class = "NSMenu"; title = "Speech"; ObjectID = "3rS-ZA-NoH"; */
+"3rS-ZA-NoH.title" = "Speech";
+
+/* Class = "NSMenuItem"; title = "Tighten"; ObjectID = "46P-cB-AYj"; */
+"46P-cB-AYj.title" = "Tighten";
+
+/* Class = "NSMenuItem"; title = "Find"; ObjectID = "4EN-yA-p0u"; */
+"4EN-yA-p0u.title" = "Find";
+
+/* Class = "NSMenuItem"; title = "1:30 pm"; ObjectID = "4WE-Y3-wrH"; */
+"4WE-Y3-wrH.title" = "1:30 pm";
+
+/* Class = "NSMenuItem"; title = "Quit ScheduleMaker"; ObjectID = "4sb-4s-VLi"; */
+"4sb-4s-VLi.title" = "Quit ScheduleMaker";
+
+/* Class = "NSTableColumn"; headerCell.title = "Start Time"; ObjectID = "54J-iD-old"; */
+"54J-iD-old.headerCell.title" = "Start Time";
+
+/* Class = "NSMenuItem"; title = "Edit"; ObjectID = "5QF-Oa-p0T"; */
+"5QF-Oa-p0T.title" = "Edit";
+
+/* Class = "NSMenuItem"; title = "Copy Style"; ObjectID = "5Vv-lz-BsD"; */
+"5Vv-lz-BsD.title" = "Copy Style";
+
+/* Class = "NSButtonCell"; title = "Other"; ObjectID = "5ZZ-fO-7on"; */
+"5ZZ-fO-7on.title" = "Other";
+
+/* Class = "NSButtonCell"; title = "Birthday"; ObjectID = "5gX-v4-BKg"; */
+"5gX-v4-BKg.title" = "Birthday";
+
+/* Class = "NSMenuItem"; title = "About ScheduleMaker"; ObjectID = "5kV-Vb-QxS"; */
+"5kV-Vb-QxS.title" = "About ScheduleMaker";
+
+/* Class = "NSButtonCell"; title = "Security"; ObjectID = "6Ef-SS-uhF"; */
+"6Ef-SS-uhF.title" = "Security";
+
+/* Class = "NSMenuItem"; title = "Item 3"; ObjectID = "6Fe-Qg-aGd"; */
+"6Fe-Qg-aGd.title" = "Item 3";
+
+/* Class = "NSMenuItem"; title = "Redo"; ObjectID = "6dh-zS-Vam"; */
+"6dh-zS-Vam.title" = "Redo";
+
+/* Class = "NSMenuItem"; title = "Correct Spelling Automatically"; ObjectID = "78Y-hA-62v"; */
+"78Y-hA-62v.title" = "Correct Spelling Automatically";
+
+/* Class = "NSMenuItem"; title = "11:00 am"; ObjectID = "7e0-zU-jMR"; */
+"7e0-zU-jMR.title" = "11:00 am";
+
+/* Class = "NSMenuItem"; title = "Item 3"; ObjectID = "7oh-ek-Zar"; */
+"7oh-ek-Zar.title" = "Item 3";
+
+/* Class = "NSButtonCell"; title = "Lesson"; ObjectID = "83P-Qi-ddZ"; */
+"83P-Qi-ddZ.title" = "Lesson";
+
+/* Class = "NSMenuItem"; title = "Item 2"; ObjectID = "87R-tH-2fg"; */
+"87R-tH-2fg.title" = "Item 2";
+
+/* Class = "NSTableColumn"; headerCell.title = "Hour Lunch"; ObjectID = "8YP-3S-aPW"; */
+"8YP-3S-aPW.headerCell.title" = "Hour Lunch";
+
+/* Class = "NSTextFieldCell"; title = "Text"; ObjectID = "8hP-pr-dIi"; */
+"8hP-pr-dIi.title" = "Text";
+
+/* Class = "NSMenu"; title = "Writing Direction"; ObjectID = "8mr-sm-Yjd"; */
+"8mr-sm-Yjd.title" = "Writing Direction";
+
+/* Class = "NSButtonCell"; title = "11 am"; ObjectID = "98s-Za-iaD"; */
+"98s-Za-iaD.title" = "11 am";
+
+/* Class = "NSButtonCell"; title = "Other"; ObjectID = "9Dv-J1-v8v"; */
+"9Dv-J1-v8v.title" = "Other";
+
+/* Class = "NSMenuItem"; title = "Substitutions"; ObjectID = "9ic-FL-obx"; */
+"9ic-FL-obx.title" = "Substitutions";
+
+/* Class = "NSTableColumn"; headerCell.title = "May Be Placed"; ObjectID = "9nd-NP-ZDj"; */
+"9nd-NP-ZDj.headerCell.title" = "May Be Placed";
+
+/* Class = "NSMenuItem"; title = "Smart Copy/Paste"; ObjectID = "9yt-4B-nSM"; */
+"9yt-4B-nSM.title" = "Smart Copy/Paste";
+
+/* Class = "NSMenuItem"; title = "Item 2"; ObjectID = "AHP-if-5JK"; */
+"AHP-if-5JK.title" = "Item 2";
+
+/* Class = "NSMenuItem"; title = "Item 1"; ObjectID = "AJF-LU-L4Q"; */
+"AJF-LU-L4Q.title" = "Item 1";
+
+/* Class = "NSMenu"; title = "Main Menu"; ObjectID = "AYu-sK-qS6"; */
+"AYu-sK-qS6.title" = "Main Menu";
+
+/* Class = "NSTableColumn"; headerCell.title = "Name"; ObjectID = "Abe-SX-MzP"; */
+"Abe-SX-MzP.headerCell.title" = "Name";
+
+/* Class = "NSMenuItem"; title = "2:30 pm"; ObjectID = "BDd-Nd-ON3"; */
+"BDd-Nd-ON3.title" = "2:30 pm";
+
+/* Class = "NSMenuItem"; title = "Preferences…"; ObjectID = "BOF-NM-1cW"; */
+"BOF-NM-1cW.title" = "Preferences…";
+
+/* Class = "NSMenuItem"; title = "\tLeft to Right"; ObjectID = "BgM-ve-c93"; */
+"BgM-ve-c93.title" = "\tLeft to Right";
+
+/* Class = "NSMenuItem"; title = "Save As…"; ObjectID = "Bw7-FT-i3A"; */
+"Bw7-FT-i3A.title" = "Save As…";
+
+/* Class = "NSMenuItem"; title = "1:00 pm"; ObjectID = "BxF-fq-CgX"; */
+"BxF-fq-CgX.title" = "1:00 pm";
+
+/* Class = "NSMenuItem"; title = "2:00 pm"; ObjectID = "C17-Kc-cyV"; */
+"C17-Kc-cyV.title" = "2:00 pm";
+
+/* Class = "NSMenuItem"; title = "Close"; ObjectID = "DVo-aG-piG"; */
+"DVo-aG-piG.title" = "Close";
+
+/* Class = "NSMenuItem"; title = "Spelling and Grammar"; ObjectID = "Dv1-io-Yv7"; */
+"Dv1-io-Yv7.title" = "Spelling and Grammar";
+
+/* Class = "NSMenuItem"; title = "Item 2"; ObjectID = "E4s-HH-ChX"; */
+"E4s-HH-ChX.title" = "Item 2";
+
+/* Class = "NSMenuItem"; title = "Item 2"; ObjectID = "Ecb-nr-kN8"; */
+"Ecb-nr-kN8.title" = "Item 2";
+
+/* Class = "NSMenuItem"; title = "Item 2"; ObjectID = "Emp-Io-1a8"; */
+"Emp-Io-1a8.title" = "Item 2";
+
+/* Class = "NSMenu"; title = "Help"; ObjectID = "F2S-fz-NVQ"; */
+"F2S-fz-NVQ.title" = "Help";
+
+/* Class = "NSButtonCell"; title = "2 pm"; ObjectID = "FIj-7z-JDx"; */
+"FIj-7z-JDx.title" = "2 pm";
+
+/* Class = "NSMenuItem"; title = "ScheduleMaker Help"; ObjectID = "FKE-Sm-Kum"; */
+"FKE-Sm-Kum.title" = "ScheduleMaker Help";
+
+/* Class = "NSMenuItem"; title = "5:00 pm"; ObjectID = "FUn-4K-DPZ"; */
+"FUn-4K-DPZ.title" = "5:00 pm";
+
+/* Class = "NSMenuItem"; title = "Text"; ObjectID = "Fal-I4-PZk"; */
+"Fal-I4-PZk.title" = "Text";
+
+/* Class = "NSMenu"; title = "Substitutions"; ObjectID = "FeM-D8-WVr"; */
+"FeM-D8-WVr.title" = "Substitutions";
+
+/* Class = "NSMenuItem"; title = "Item 3"; ObjectID = "FxP-YV-a3D"; */
+"FxP-YV-a3D.title" = "Item 3";
+
+/* Class = "NSMenuItem"; title = "3:00 pm"; ObjectID = "G8m-Rm-J1K"; */
+"G8m-Rm-J1K.title" = "3:00 pm";
+
+/* Class = "NSMenuItem"; title = "Bold"; ObjectID = "GB9-OM-e27"; */
+"GB9-OM-e27.title" = "Bold";
+
+/* Class = "NSMenu"; title = "Format"; ObjectID = "GEO-Iw-cKr"; */
+"GEO-Iw-cKr.title" = "Format";
+
+/* Class = "NSMenuItem"; title = "Use Default"; ObjectID = "GUa-eO-cwY"; */
+"GUa-eO-cwY.title" = "Use Default";
+
+/* Class = "NSMenuItem"; title = "Font"; ObjectID = "Gi5-1S-RQB"; */
+"Gi5-1S-RQB.title" = "Font";
+
+/* Class = "NSMenuItem"; title = "Writing Direction"; ObjectID = "H1b-Si-o9J"; */
+"H1b-Si-o9J.title" = "Writing Direction";
+
+/* Class = "NSMenuItem"; title = "View"; ObjectID = "H8h-7b-M4v"; */
+"H8h-7b-M4v.title" = "View";
+
+/* Class = "NSMenuItem"; title = "Text Replacement"; ObjectID = "HFQ-gK-NFA"; */
+"HFQ-gK-NFA.title" = "Text Replacement";
+
+/* Class = "NSMenuItem"; title = "Show Spelling and Grammar"; ObjectID = "HFo-cy-zxI"; */
+"HFo-cy-zxI.title" = "Show Spelling and Grammar";
+
+/* Class = "NSMenu"; title = "View"; ObjectID = "HyV-fh-RgO"; */
+"HyV-fh-RgO.title" = "View";
+
+/* Class = "NSMenuItem"; title = "Subscript"; ObjectID = "I0S-gh-46l"; */
+"I0S-gh-46l.title" = "Subscript";
+
+/* Class = "NSMenuItem"; title = "Open…"; ObjectID = "IAo-SY-fd9"; */
+"IAo-SY-fd9.title" = "Open…";
+
+/* Class = "NSWindow"; title = "Window"; ObjectID = "IQv-IB-iLA"; */
+"IQv-IB-iLA.title" = "Window";
+
+/* Class = "NSButtonCell"; title = "Project"; ObjectID = "IvV-yJ-lQC"; */
+"IvV-yJ-lQC.title" = "Project";
+
+/* Class = "NSMenuItem"; title = "11:30 am"; ObjectID = "Iyr-Y4-EpI"; */
+"Iyr-Y4-EpI.title" = "11:30 am";
+
+/* Class = "NSMenuItem"; title = "Justify"; ObjectID = "J5U-5w-g23"; */
+"J5U-5w-g23.title" = "Justify";
+
+/* Class = "NSMenuItem"; title = "Use None"; ObjectID = "J7y-lM-qPV"; */
+"J7y-lM-qPV.title" = "Use None";
+
+/* Class = "NSTextFieldCell"; title = "Floor Staff:"; ObjectID = "JeP-eE-6ch"; */
+"JeP-eE-6ch.title" = "Floor Staff:";
+
+/* Class = "NSMenuItem"; title = "1:00 pm"; ObjectID = "KAk-2p-5Dv"; */
+"KAk-2p-5Dv.title" = "1:00 pm";
+
+/* Class = "NSMenuItem"; title = "Revert to Saved"; ObjectID = "KaW-ft-85H"; */
+"KaW-ft-85H.title" = "Revert to Saved";
+
+/* Class = "NSMenuItem"; title = "Item 3"; ObjectID = "Kbx-gw-9iZ"; */
+"Kbx-gw-9iZ.title" = "Item 3";
+
+/* Class = "NSMenuItem"; title = "Show All"; ObjectID = "Kd2-mp-pUS"; */
+"Kd2-mp-pUS.title" = "Show All";
+
+/* Class = "NSMenuItem"; title = "Bring All to Front"; ObjectID = "LE2-aR-0XJ"; */
+"LE2-aR-0XJ.title" = "Bring All to Front";
+
+/* Class = "NSMenuItem"; title = "Paste Ruler"; ObjectID = "LVM-kO-fVI"; */
+"LVM-kO-fVI.title" = "Paste Ruler";
+
+/* Class = "NSMenuItem"; title = "\tLeft to Right"; ObjectID = "Lbh-J2-qVU"; */
+"Lbh-J2-qVU.title" = "\tLeft to Right";
+
+/* Class = "NSMenuItem"; title = "Item 2"; ObjectID = "M2k-gj-FcU"; */
+"M2k-gj-FcU.title" = "Item 2";
+
+/* Class = "NSMenuItem"; title = "12:00 pm"; ObjectID = "MBd-ya-g8Q"; */
+"MBd-ya-g8Q.title" = "12:00 pm";
+
+/* Class = "NSMenuItem"; title = "Copy Ruler"; ObjectID = "MkV-Pr-PK5"; */
+"MkV-Pr-PK5.title" = "Copy Ruler";
+
+/* Class = "NSMenuItem"; title = "Item 3"; ObjectID = "Mpk-Nq-N6r"; */
+"Mpk-Nq-N6r.title" = "Item 3";
+
+/* Class = "NSTextFieldCell"; title = "Text"; ObjectID = "MxQ-rP-X9s"; */
+"MxQ-rP-X9s.title" = "Text";
+
+/* Class = "NSMenuItem"; title = "Services"; ObjectID = "NMo-om-nkz"; */
+"NMo-om-nkz.title" = "Services";
+
+/* Class = "NSMenuItem"; title = "\tDefault"; ObjectID = "Nop-cj-93Q"; */
+"Nop-cj-93Q.title" = "\tDefault";
+
+/* Class = "NSMenuItem"; title = "Minimize"; ObjectID = "OY7-WF-poV"; */
+"OY7-WF-poV.title" = "Minimize";
+
+/* Class = "NSMenuItem"; title = "Baseline"; ObjectID = "OaQ-X3-Vso"; */
+"OaQ-X3-Vso.title" = "Baseline";
+
+/* Class = "NSMenuItem"; title = "Hide ScheduleMaker"; ObjectID = "Olw-nP-bQN"; */
+"Olw-nP-bQN.title" = "Hide ScheduleMaker";
+
+/* Class = "NSMenuItem"; title = "Find Previous"; ObjectID = "OwM-mh-QMV"; */
+"OwM-mh-QMV.title" = "Find Previous";
+
+/* Class = "NSMenuItem"; title = "Stop Speaking"; ObjectID = "Oyz-dy-DGm"; */
+"Oyz-dy-DGm.title" = "Stop Speaking";
+
+/* Class = "NSMenuItem"; title = "Bigger"; ObjectID = "Ptp-SP-VEL"; */
+"Ptp-SP-VEL.title" = "Bigger";
+
+/* Class = "NSMenuItem"; title = "Show Fonts"; ObjectID = "Q5e-8K-NDq"; */
+"Q5e-8K-NDq.title" = "Show Fonts";
+
+/* Class = "NSButtonCell"; title = "Manager"; ObjectID = "Qjp-8W-llo"; */
+"Qjp-8W-llo.title" = "Manager";
+
+/* Class = "NSMenuItem"; title = "3:30 pm"; ObjectID = "R2j-zt-89D"; */
+"R2j-zt-89D.title" = "3:30 pm";
+
+/* Class = "NSMenuItem"; title = "Zoom"; ObjectID = "R4o-n2-Eq4"; */
+"R4o-n2-Eq4.title" = "Zoom";
+
+/* Class = "NSMenuItem"; title = "\tRight to Left"; ObjectID = "RB4-Sm-HuC"; */
+"RB4-Sm-HuC.title" = "\tRight to Left";
+
+/* Class = "NSMenuItem"; title = "Item 2"; ObjectID = "RgJ-A7-ixU"; */
+"RgJ-A7-ixU.title" = "Item 2";
+
+/* Class = "NSButtonCell"; title = "Tours"; ObjectID = "RlV-dY-xtJ"; */
+"RlV-dY-xtJ.title" = "Tours";
+
+/* Class = "NSMenuItem"; title = "Superscript"; ObjectID = "Rqc-34-cIF"; */
+"Rqc-34-cIF.title" = "Superscript";
+
+/* Class = "NSMenuItem"; title = "Select All"; ObjectID = "Ruw-6m-B2m"; */
+"Ruw-6m-B2m.title" = "Select All";
+
+/* Class = "NSMenuItem"; title = "Jump to Selection"; ObjectID = "S0p-oC-mLd"; */
+"S0p-oC-mLd.title" = "Jump to Selection";
+
+/* Class = "NSMenuItem"; title = "4:00 pm"; ObjectID = "T7e-eP-LnY"; */
+"T7e-eP-LnY.title" = "4:00 pm";
+
+/* Class = "NSMenu"; title = "Window"; ObjectID = "Td7-aD-5lo"; */
+"Td7-aD-5lo.title" = "Window";
+
+/* Class = "NSMenuItem"; title = "Capitalize"; ObjectID = "UEZ-Bs-lqG"; */
+"UEZ-Bs-lqG.title" = "Capitalize";
+
+/* Class = "NSButtonCell"; title = "Project"; ObjectID = "UoB-JS-XtJ"; */
+"UoB-JS-XtJ.title" = "Project";
+
+/* Class = "NSMenuItem"; title = "Item 2"; ObjectID = "Ur2-KX-GOG"; */
+"Ur2-KX-GOG.title" = "Item 2";
+
+/* Class = "NSMenuItem"; title = "Center"; ObjectID = "VIY-Ag-zcb"; */
+"VIY-Ag-zcb.title" = "Center";
+
+/* Class = "NSMenuItem"; title = "Hide Others"; ObjectID = "Vdr-fp-XzO"; */
+"Vdr-fp-XzO.title" = "Hide Others";
+
+/* Class = "NSMenuItem"; title = "Italic"; ObjectID = "Vjx-xi-njq"; */
+"Vjx-xi-njq.title" = "Italic";
+
+/* Class = "NSMenu"; title = "Edit"; ObjectID = "W48-6f-4Dl"; */
+"W48-6f-4Dl.title" = "Edit";
+
+/* Class = "NSMenuItem"; title = "Underline"; ObjectID = "WRG-CD-K1S"; */
+"WRG-CD-K1S.title" = "Underline";
+
+/* Class = "NSMenuItem"; title = "New"; ObjectID = "Was-JA-tGl"; */
+"Was-JA-tGl.title" = "New";
+
+/* Class = "NSButtonCell"; title = "1 pm"; ObjectID = "WcF-y8-wUi"; */
+"WcF-y8-wUi.title" = "1 pm";
+
+/* Class = "NSMenuItem"; title = "Paste and Match Style"; ObjectID = "WeT-3V-zwk"; */
+"WeT-3V-zwk.title" = "Paste and Match Style";
+
+/* Class = "NSButtonCell"; title = "Birthday"; ObjectID = "XOw-m8-DIo"; */
+"XOw-m8-DIo.title" = "Birthday";
+
+/* Class = "NSMenuItem"; title = "Item 2"; ObjectID = "XW0-3D-3pW"; */
+"XW0-3D-3pW.title" = "Item 2";
+
+/* Class = "NSMenuItem"; title = "Item 3"; ObjectID = "XZc-nf-dbC"; */
+"XZc-nf-dbC.title" = "Item 3";
+
+/* Class = "NSMenuItem"; title = "Item 1"; ObjectID = "XhA-mI-dLN"; */
+"XhA-mI-dLN.title" = "Item 1";
+
+/* Class = "NSMenuItem"; title = "5:00 pm"; ObjectID = "XrY-kh-cv6"; */
+"XrY-kh-cv6.title" = "5:00 pm";
+
+/* Class = "NSMenuItem"; title = "Find…"; ObjectID = "Xz5-n4-O0W"; */
+"Xz5-n4-O0W.title" = "Find…";
+
+/* Class = "NSMenuItem"; title = "Find and Replace…"; ObjectID = "YEy-JH-Tfz"; */
+"YEy-JH-Tfz.title" = "Find and Replace…";
+
+/* Class = "NSMenuItem"; title = "\tDefault"; ObjectID = "YGs-j5-SAR"; */
+"YGs-j5-SAR.title" = "\tDefault";
+
+/* Class = "NSMenuItem"; title = "Item 1"; ObjectID = "Yfl-xc-WdA"; */
+"Yfl-xc-WdA.title" = "Item 1";
+
+/* Class = "NSMenuItem"; title = "Start Speaking"; ObjectID = "Ynk-f8-cLZ"; */
+"Ynk-f8-cLZ.title" = "Start Speaking";
+
+/* Class = "NSMenuItem"; title = "Item 1"; ObjectID = "Ywv-eY-NhY"; */
+"Ywv-eY-NhY.title" = "Item 1";
+
+/* Class = "NSMenuItem"; title = "Align Left"; ObjectID = "ZM1-6Q-yy1"; */
+"ZM1-6Q-yy1.title" = "Align Left";
+
+/* Class = "NSMenuItem"; title = "Item 3"; ObjectID = "ZX9-m6-eEO"; */
+"ZX9-m6-eEO.title" = "Item 3";
+
+/* Class = "NSTableColumn"; headerCell.title = "End Time"; ObjectID = "Zqd-gj-ExY"; */
+"Zqd-gj-ExY.headerCell.title" = "End Time";
+
+/* Class = "NSMenuItem"; title = "Item 1"; ObjectID = "ZsO-Y9-dGZ"; */
+"ZsO-Y9-dGZ.title" = "Item 1";
+
+/* Class = "NSMenuItem"; title = "Paragraph"; ObjectID = "ZvO-Gk-QUH"; */
+"ZvO-Gk-QUH.title" = "Paragraph";
+
+/* Class = "NSMenuItem"; title = "Print…"; ObjectID = "aTl-1u-JFS"; */
+"aTl-1u-JFS.title" = "Print…";
+
+/* Class = "NSMenuItem"; title = "Window"; ObjectID = "aUF-d1-5bR"; */
+"aUF-d1-5bR.title" = "Window";
+
+/* Class = "NSMenu"; title = "Font"; ObjectID = "aXa-aM-Jaq"; */
+"aXa-aM-Jaq.title" = "Font";
+
+/* Class = "NSMenuItem"; title = "Use Default"; ObjectID = "agt-UL-0e3"; */
+"agt-UL-0e3.title" = "Use Default";
+
+/* Class = "NSMenuItem"; title = "Item 3"; ObjectID = "aoY-2D-OXa"; */
+"aoY-2D-OXa.title" = "Item 3";
+
+/* Class = "NSTextFieldCell"; title = "Stations (assigned randomly to any qualified staff member):"; ObjectID = "avX-WE-SNK"; */
+"avX-WE-SNK.title" = "Stations (assigned randomly to any qualified staff member):";
+
+/* Class = "NSMenuItem"; title = "Item 2"; ObjectID = "b4S-C2-T2T"; */
+"b4S-C2-T2T.title" = "Item 2";
+
+/* Class = "NSMenuItem"; title = "3:30 pm"; ObjectID = "bOt-fa-MPN"; */
+"bOt-fa-MPN.title" = "3:30 pm";
+
+/* Class = "NSMenuItem"; title = "Show Colors"; ObjectID = "bgn-CT-cEk"; */
+"bgn-CT-cEk.title" = "Show Colors";
+
+/* Class = "NSButtonCell"; title = "-"; ObjectID = "biN-Tu-Jph"; */
+"biN-Tu-Jph.title" = "-";
+
+/* Class = "NSMenu"; title = "File"; ObjectID = "bib-Uj-vzu"; */
+"bib-Uj-vzu.title" = "File";
+
+/* Class = "NSMenuItem"; title = "Item 2"; ObjectID = "bji-Wp-Mtz"; */
+"bji-Wp-Mtz.title" = "Item 2";
+
+/* Class = "NSMenuItem"; title = "Use Selection for Find"; ObjectID = "buJ-ug-pKt"; */
+"buJ-ug-pKt.title" = "Use Selection for Find";
+
+/* Class = "NSMenu"; title = "Transformations"; ObjectID = "c8a-y6-VQd"; */
+"c8a-y6-VQd.title" = "Transformations";
+
+/* Class = "NSMenuItem"; title = "Use None"; ObjectID = "cDB-IK-hbR"; */
+"cDB-IK-hbR.title" = "Use None";
+
+/* Class = "NSMenuItem"; title = "Item 3"; ObjectID = "cgy-uf-tBV"; */
+"cgy-uf-tBV.title" = "Item 3";
+
+/* Class = "NSMenuItem"; title = "Selection"; ObjectID = "cqv-fj-IhA"; */
+"cqv-fj-IhA.title" = "Selection";
+
+/* Class = "NSMenuItem"; title = "4:30 pm"; ObjectID = "crt-DZ-UXl"; */
+"crt-DZ-UXl.title" = "4:30 pm";
+
+/* Class = "NSMenuItem"; title = "Smart Links"; ObjectID = "cwL-P1-jid"; */
+"cwL-P1-jid.title" = "Smart Links";
+
+/* Class = "NSButtonCell"; title = "+"; ObjectID = "d2X-gy-BFo"; */
+"d2X-gy-BFo.title" = "+";
+
+/* Class = "NSMenuItem"; title = "11:30 am"; ObjectID = "d7T-cM-uf3"; */
+"d7T-cM-uf3.title" = "11:30 am";
+
+/* Class = "NSMenuItem"; title = "Make Lower Case"; ObjectID = "d9M-CD-aMd"; */
+"d9M-CD-aMd.title" = "Make Lower Case";
+
+/* Class = "NSMenu"; title = "Text"; ObjectID = "d9c-me-L2H"; */
+"d9c-me-L2H.title" = "Text";
+
+/* Class = "NSMenuItem"; title = "File"; ObjectID = "dMs-cI-mzQ"; */
+"dMs-cI-mzQ.title" = "File";
+
+/* Class = "NSMenuItem"; title = "Undo"; ObjectID = "dRJ-4n-Yzg"; */
+"dRJ-4n-Yzg.title" = "Undo";
+
+/* Class = "NSMenuItem"; title = "Item 1"; ObjectID = "dlA-63-LZW"; */
+"dlA-63-LZW.title" = "Item 1";
+
+/* Class = "NSMenuItem"; title = "Item 2"; ObjectID = "eSF-eQ-fEE"; */
+"eSF-eQ-fEE.title" = "Item 2";
+
+/* Class = "NSButtonCell"; title = "Manager"; ObjectID = "ecJ-6K-Z6q"; */
+"ecJ-6K-Z6q.title" = "Manager";
+
+/* Class = "NSButtonCell"; title = "Make Schedule"; ObjectID = "egh-rD-4wH"; */
+"egh-rD-4wH.title" = "Make Schedule";
+
+/* Class = "NSButtonCell"; title = "Hour lunch"; ObjectID = "ehY-1Z-8gr"; */
+"ehY-1Z-8gr.title" = "Hour lunch";
+
+/* Class = "NSMenuItem"; title = "Item 2"; ObjectID = "f0O-ZO-uAI"; */
+"f0O-ZO-uAI.title" = "Item 2";
+
+/* Class = "NSMenuItem"; title = "Item 1"; ObjectID = "fXC-HP-hTj"; */
+"fXC-HP-hTj.title" = "Item 1";
+
+/* Class = "NSMenuItem"; title = "12:30 pm"; ObjectID = "fgg-iH-LCT"; */
+"fgg-iH-LCT.title" = "12:30 pm";
+
+/* Class = "NSMenuItem"; title = "Item 1"; ObjectID = "fi0-C5-04u"; */
+"fi0-C5-04u.title" = "Item 1";
+
+/* Class = "NSMenuItem"; title = "Item 3"; ObjectID = "fni-Nm-twn"; */
+"fni-Nm-twn.title" = "Item 3";
+
+/* Class = "NSMenuItem"; title = "Item 1"; ObjectID = "g9j-nB-UAc"; */
+"g9j-nB-UAc.title" = "Item 1";
+
+/* Class = "NSMenuItem"; title = "Paste"; ObjectID = "gVA-U4-sdL"; */
+"gVA-U4-sdL.title" = "Paste";
+
+/* Class = "NSMenuItem"; title = "Item 3"; ObjectID = "gt7-RP-YiF"; */
+"gt7-RP-YiF.title" = "Item 3";
+
+/* Class = "NSMenuItem"; title = "Item 1"; ObjectID = "gtz-Hb-jCO"; */
+"gtz-Hb-jCO.title" = "Item 1";
+
+/* Class = "NSMenuItem"; title = "2:30 pm"; ObjectID = "hK0-OG-1ib"; */
+"hK0-OG-1ib.title" = "2:30 pm";
+
+/* Class = "NSMenuItem"; title = "Smart Quotes"; ObjectID = "hQb-2v-fYv"; */
+"hQb-2v-fYv.title" = "Smart Quotes";
+
+/* Class = "NSMenuItem"; title = "Item 3"; ObjectID = "hST-sc-1ns"; */
+"hST-sc-1ns.title" = "Item 3";
+
+/* Class = "NSMenuItem"; title = "Check Document Now"; ObjectID = "hz2-CU-CR7"; */
+"hz2-CU-CR7.title" = "Check Document Now";
+
+/* Class = "NSMenu"; title = "Services"; ObjectID = "hz9-B4-Xy5"; */
+"hz9-B4-Xy5.title" = "Services";
+
+/* Class = "NSMenuItem"; title = "Smaller"; ObjectID = "i1d-Er-qST"; */
+"i1d-Er-qST.title" = "Smaller";
+
+/* Class = "NSButtonCell"; title = "12 pm"; ObjectID = "iMg-oT-0vk"; */
+"iMg-oT-0vk.title" = "12 pm";
+
+/* Class = "NSMenuItem"; title = "Item 2"; ObjectID = "iVl-zI-Ie1"; */
+"iVl-zI-Ie1.title" = "Item 2";
+
+/* Class = "NSMenu"; title = "Baseline"; ObjectID = "ijk-EB-dga"; */
+"ijk-EB-dga.title" = "Baseline";
+
+/* Class = "NSMenuItem"; title = "Kern"; ObjectID = "jBQ-r6-VK2"; */
+"jBQ-r6-VK2.title" = "Kern";
+
+/* Class = "NSMenuItem"; title = "\tRight to Left"; ObjectID = "jFq-tB-4Kx"; */
+"jFq-tB-4Kx.title" = "\tRight to Left";
+
+/* Class = "NSMenuItem"; title = "Format"; ObjectID = "jxT-CU-nIS"; */
+"jxT-CU-nIS.title" = "Format";
+
+/* Class = "NSButtonCell"; title = "Greeting"; ObjectID = "kCX-Kz-iBc"; */
+"kCX-Kz-iBc.title" = "Greeting";
+
+/* Class = "NSMenuItem"; title = "4:00 pm"; ObjectID = "ka7-vJ-QnI"; */
+"ka7-vJ-QnI.title" = "4:00 pm";
+
+/* Class = "NSButtonCell"; title = "Tours"; ObjectID = "kqL-bd-3w2"; */
+"kqL-bd-3w2.title" = "Tours";
+
+/* Class = "NSMenuItem"; title = "Item 3"; ObjectID = "ksj-Q8-sGR"; */
+"ksj-Q8-sGR.title" = "Item 3";
+
+/* Class = "NSMenuItem"; title = "Item 3"; ObjectID = "lNG-Sw-8tq"; */
+"lNG-Sw-8tq.title" = "Item 3";
+
+/* Class = "NSMenuItem"; title = "Check Grammar With Spelling"; ObjectID = "mK6-2p-4JG"; */
+"mK6-2p-4JG.title" = "Check Grammar With Spelling";
+
+/* Class = "NSMenuItem"; title = "11:00 am"; ObjectID = "mQI-Sm-lqA"; */
+"mQI-Sm-lqA.title" = "11:00 am";
+
+/* Class = "NSMenuItem"; title = "12:30 pm"; ObjectID = "mgS-Pk-3Fq"; */
+"mgS-Pk-3Fq.title" = "12:30 pm";
+
+/* Class = "NSButtonCell"; title = "4 pm"; ObjectID = "nj5-gI-Luf"; */
+"nj5-gI-Luf.title" = "4 pm";
+
+/* Class = "NSMenuItem"; title = "Item 2"; ObjectID = "nrt-Ed-pLH"; */
+"nrt-Ed-pLH.title" = "Item 2";
+
+/* Class = "NSMenuItem"; title = "Ligatures"; ObjectID = "o6e-r0-MWq"; */
+"o6e-r0-MWq.title" = "Ligatures";
+
+/* Class = "NSButtonCell"; title = "3 pm"; ObjectID = "o8X-G5-YCD"; */
+"o8X-G5-YCD.title" = "3 pm";
+
+/* Class = "NSMenu"; title = "Open Recent"; ObjectID = "oas-Oc-fiZ"; */
+"oas-Oc-fiZ.title" = "Open Recent";
+
+/* Class = "NSMenuItem"; title = "Loosen"; ObjectID = "ogc-rX-tC1"; */
+"ogc-rX-tC1.title" = "Loosen";
+
+/* Class = "NSMenuItem"; title = "Delete"; ObjectID = "pa3-QI-u2k"; */
+"pa3-QI-u2k.title" = "Delete";
+
+/* Class = "NSMenuItem"; title = "Save…"; ObjectID = "pxx-59-PXV"; */
+"pxx-59-PXV.title" = "Save…";
+
+/* Class = "NSMenuItem"; title = "Find Next"; ObjectID = "q09-fT-Sye"; */
+"q09-fT-Sye.title" = "Find Next";
+
+/* Class = "NSButtonCell"; title = "Gallery"; ObjectID = "q2O-ht-RDE"; */
+"q2O-ht-RDE.title" = "Gallery";
+
+/* Class = "NSMenuItem"; title = "Item 1"; ObjectID = "q4t-iu-4BA"; */
+"q4t-iu-4BA.title" = "Item 1";
+
+/* Class = "NSMenuItem"; title = "Item 3"; ObjectID = "qAo-ra-pYe"; */
+"qAo-ra-pYe.title" = "Item 3";
+
+/* Class = "NSMenuItem"; title = "Item 2"; ObjectID = "qG7-bd-1wP"; */
+"qG7-bd-1wP.title" = "Item 2";
+
+/* Class = "NSMenuItem"; title = "Page Setup…"; ObjectID = "qIS-W8-SiK"; */
+"qIS-W8-SiK.title" = "Page Setup…";
+
+/* Class = "NSMenuItem"; title = "Item 1"; ObjectID = "qa8-cS-Bng"; */
+"qa8-cS-Bng.title" = "Item 1";
+
+/* Class = "NSMenuItem"; title = "Check Spelling While Typing"; ObjectID = "rbD-Rh-wIN"; */
+"rbD-Rh-wIN.title" = "Check Spelling While Typing";
+
+/* Class = "NSMenuItem"; title = "Smart Dashes"; ObjectID = "rgM-f4-ycn"; */
+"rgM-f4-ycn.title" = "Smart Dashes";
+
+/* Class = "NSMenuItem"; title = "Item 3"; ObjectID = "sNW-lZ-yU0"; */
+"sNW-lZ-yU0.title" = "Item 3";
+
+/* Class = "NSMenuItem"; title = "10:30 am"; ObjectID = "sTc-Bn-wVj"; */
+"sTc-Bn-wVj.title" = "10:30 am";
+
+/* Class = "NSMenuItem"; title = "Show Toolbar"; ObjectID = "snW-S8-Cw5"; */
+"snW-S8-Cw5.title" = "Show Toolbar";
+
+/* Class = "NSMenuItem"; title = "Data Detectors"; ObjectID = "tRr-pd-1PS"; */
+"tRr-pd-1PS.title" = "Data Detectors";
+
+/* Class = "NSMenuItem"; title = "Item 1"; ObjectID = "tUi-Qk-VW6"; */
+"tUi-Qk-VW6.title" = "Item 1";
+
+/* Class = "NSMenuItem"; title = "Open Recent"; ObjectID = "tXI-mr-wws"; */
+"tXI-mr-wws.title" = "Open Recent";
+
+/* Class = "NSMenu"; title = "Kern"; ObjectID = "tlD-Oa-oAM"; */
+"tlD-Oa-oAM.title" = "Kern";
+
+/* Class = "NSMenuItem"; title = "Item 1"; ObjectID = "u7N-sT-yjv"; */
+"u7N-sT-yjv.title" = "Item 1";
+
+/* Class = "NSMenu"; title = "ScheduleMaker"; ObjectID = "uQy-DD-JDr"; */
+"uQy-DD-JDr.title" = "ScheduleMaker";
+
+/* Class = "NSMenuItem"; title = "Cut"; ObjectID = "uRl-iY-unG"; */
+"uRl-iY-unG.title" = "Cut";
+
+/* Class = "NSMenuItem"; title = "Item 3"; ObjectID = "uUZ-O6-fcC"; */
+"uUZ-O6-fcC.title" = "Item 3";
+
+/* Class = "NSMenuItem"; title = "Paste Style"; ObjectID = "vKC-jM-MkH"; */
+"vKC-jM-MkH.title" = "Paste Style";
+
+/* Class = "NSMenuItem"; title = "Show Ruler"; ObjectID = "vLm-3I-IUL"; */
+"vLm-3I-IUL.title" = "Show Ruler";
+
+/* Class = "NSMenuItem"; title = "Clear Menu"; ObjectID = "vNY-rz-j42"; */
+"vNY-rz-j42.title" = "Clear Menu";
+
+/* Class = "NSMenuItem"; title = "Make Upper Case"; ObjectID = "vmV-6d-7jI"; */
+"vmV-6d-7jI.title" = "Make Upper Case";
+
+/* Class = "NSMenu"; title = "Ligatures"; ObjectID = "w0m-vy-SC9"; */
+"w0m-vy-SC9.title" = "Ligatures";
+
+/* Class = "NSButtonCell"; title = "Greeting"; ObjectID = "w7P-xP-l9O"; */
+"w7P-xP-l9O.title" = "Greeting";
+
+/* Class = "NSButtonCell"; title = "10 am"; ObjectID = "w9Y-qy-64s"; */
+"w9Y-qy-64s.title" = "10 am";
+
+/* Class = "NSMenuItem"; title = "Item 1"; ObjectID = "wE1-sY-ABy"; */
+"wE1-sY-ABy.title" = "Item 1";
+
+/* Class = "NSMenuItem"; title = "Align Right"; ObjectID = "wb2-vD-lq4"; */
+"wb2-vD-lq4.title" = "Align Right";
+
+/* Class = "NSMenuItem"; title = "Help"; ObjectID = "wpr-3q-Mcd"; */
+"wpr-3q-Mcd.title" = "Help";
+
+/* Class = "NSMenuItem"; title = "Copy"; ObjectID = "x3v-GG-iWU"; */
+"x3v-GG-iWU.title" = "Copy";
+
+/* Class = "NSMenuItem"; title = "2:00 pm"; ObjectID = "x5i-vV-grw"; */
+"x5i-vV-grw.title" = "2:00 pm";
+
+/* Class = "NSMenuItem"; title = "Use All"; ObjectID = "xQD-1f-W4t"; */
+"xQD-1f-W4t.title" = "Use All";
+
+/* Class = "NSMenuItem"; title = "Item 2"; ObjectID = "xVZ-Wa-w57"; */
+"xVZ-Wa-w57.title" = "Item 2";
+
+/* Class = "NSMenuItem"; title = "Item 1"; ObjectID = "xXq-xV-ech"; */
+"xXq-xV-ech.title" = "Item 1";
+
+/* Class = "NSMenuItem"; title = "4:30 pm"; ObjectID = "xbE-7U-gg7"; */
+"xbE-7U-gg7.title" = "4:30 pm";
+
+/* Class = "NSButtonCell"; title = "Security"; ObjectID = "xbz-Yi-yX1"; */
+"xbz-Yi-yX1.title" = "Security";
+
+/* Class = "NSMenuItem"; title = "Item 3"; ObjectID = "xhd-At-5P8"; */
+"xhd-At-5P8.title" = "Item 3";
+
+/* Class = "NSMenuItem"; title = "10:00 am"; ObjectID = "xpi-w3-g8k"; */
+"xpi-w3-g8k.title" = "10:00 am";
+
+/* Class = "NSMenuItem"; title = "Speech"; ObjectID = "xrE-MZ-jX0"; */
+"xrE-MZ-jX0.title" = "Speech";
+
+/* Class = "NSButtonCell"; title = "Lesson"; ObjectID = "yIT-vW-m01"; */
+"yIT-vW-m01.title" = "Lesson";
+
+/* Class = "NSMenuItem"; title = "Show Substitutions"; ObjectID = "z6F-FW-3nz"; */
+"z6F-FW-3nz.title" = "Show Substitutions";

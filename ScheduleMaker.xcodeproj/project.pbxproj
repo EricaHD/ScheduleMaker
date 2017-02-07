@@ -22,6 +22,7 @@
 /* Begin PBXFileReference section */
 		07191DD61E4840FF0044765C /* MayBePlacedTableCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MayBePlacedTableCellView.h; sourceTree = "<group>"; };
 		07191DD71E4840FF0044765C /* MayBePlacedTableCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MayBePlacedTableCellView.m; sourceTree = "<group>"; };
+		074BDEE61E498D110058A2BA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		074F5FDA1E19D63D009BF40E /* EndTimeTableCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EndTimeTableCellView.h; sourceTree = "<group>"; };
 		074F5FDB1E19D63D009BF40E /* EndTimeTableCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EndTimeTableCellView.m; sourceTree = "<group>"; };
 		074F5FDD1E19D8C2009BF40E /* StartTimeTableCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartTimeTableCellView.h; sourceTree = "<group>"; };
@@ -188,6 +189,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				07FA1C681E120DB6007E81E8 /* Base */,
+				074BDEE61E498D110058A2BA /* en */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
