@@ -8,6 +8,9 @@
 
 #import <Cocoa/Cocoa.h>
 
+// Constants
+#define TABLE_ROW_HEIGHT 75.0;
+
 @interface ViewController : NSViewController <NSTableViewDelegate, NSTableViewDataSource> {
 	
 	// Table

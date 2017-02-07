@@ -796,14 +796,14 @@
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
                             </button>
-                            <scrollView fixedFrame="YES" autohidesScrollers="YES" horizontalLineScroll="52" horizontalPageScroll="10" verticalLineScroll="52" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QEc-ay-4Ed">
+                            <scrollView fixedFrame="YES" autohidesScrollers="YES" horizontalLineScroll="77" horizontalPageScroll="10" verticalLineScroll="77" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QEc-ay-4Ed">
                                 <rect key="frame" x="0.0" y="100" width="800" height="400"/>
                                 <clipView key="contentView" ambiguous="YES" id="bfI-Oq-UgF">
                                     <rect key="frame" x="1" y="0.0" width="798" height="399"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowHeight="50" headerView="Ecr-eQ-AL9" viewBased="YES" id="suB-S0-0Pw">
-                                            <rect key="frame" x="0.0" y="0.0" width="798" height="376"/>
+                                        <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowHeight="75" headerView="Ecr-eQ-AL9" viewBased="YES" id="suB-S0-0Pw">
+                                            <rect key="frame" x="0.0" y="0.0" width="915" height="376"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <size key="intercellSpacing" width="3" height="2"/>
                                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -855,7 +855,7 @@
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
                                                         <tableCellView identifier="start_time_cell" id="xnX-QC-oph" customClass="StartTimeTableCellView">
-                                                            <rect key="frame" x="104" y="1" width="100" height="25"/>
+                                                            <rect key="frame" x="103.60665406093563" y="1" width="100" height="25"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="diw-yg-Q6G">
@@ -905,7 +905,7 @@
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
                                                         <tableCellView identifier="end_time_cell" id="h6w-vk-bgQ" customClass="EndTimeTableCellView">
-                                                            <rect key="frame" x="207" y="1" width="100" height="25"/>
+                                                            <rect key="frame" x="206.21330812187125" y="1" width="100" height="25"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IaL-Z5-Wex">
@@ -941,7 +941,7 @@
                                                         </tableCellView>
                                                     </prototypeCellViews>
                                                 </tableColumn>
-                                                <tableColumn identifier="hour_lunch_col" width="100" minWidth="40" maxWidth="1000" id="8YP-3S-aPW" userLabel="Hour Lunch">
+                                                <tableColumn identifier="hour_lunch_col" width="300" minWidth="40" maxWidth="1000" id="8YP-3S-aPW" userLabel="Hour Lunch">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" title="Hour Lunch">
                                                         <font key="font" metaFont="smallSystem"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -955,7 +955,7 @@
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
                                                         <tableCellView identifier="hour_lunch_cell" id="Hhv-hX-dr9" customClass="HourLunchTableCellView">
-                                                            <rect key="frame" x="310" y="1" width="100" height="25"/>
+                                                            <rect key="frame" x="308.81996218280688" y="1" width="300" height="25"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FkR-Hr-sXg">
@@ -986,7 +986,7 @@
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
                                                         <tableCellView identifier="may_be_placed_cell" id="icz-1M-5P4" userLabel="May Be Placed Table Cell View" customClass="MayBePlacedTableCellView">
-                                                            <rect key="frame" x="413" y="1" width="300" height="75"/>
+                                                            <rect key="frame" x="611.4266162437425" y="1" width="300" height="75"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aBo-Up-i0L">
@@ -1076,8 +1076,8 @@
                                     </subviews>
                                     <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </clipView>
-                                <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="wly-zU-VfH">
-                                    <rect key="frame" x="1" y="7" width="0.0" height="16"/>
+                                <scroller key="horizontalScroller" verticalHuggingPriority="750" doubleValue="0.0051850774438941018" horizontal="YES" id="wly-zU-VfH">
+                                    <rect key="frame" x="1" y="383" width="798" height="16"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="V0a-8j-Pvq">
@@ -1085,7 +1085,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <tableHeaderView key="headerView" id="Ecr-eQ-AL9">
-                                    <rect key="frame" x="0.0" y="0.0" width="798" height="23"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="915" height="23"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableHeaderView>
                             </scrollView>

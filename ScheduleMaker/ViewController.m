@@ -21,8 +21,8 @@
 	// Super
 	[super viewDidLoad];
 	
-	// Set table row height
-	table.rowHeight = 75.0;
+	// Set table dimensions
+	table.rowHeight = TABLE_ROW_HEIGHT;
 	
 	// Initialize arrays and keep track of numRows
 	nameData = [NSMutableArray arrayWithObjects:@"", @"", @"", @"", @"", nil];
