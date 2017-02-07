@@ -48,6 +48,16 @@
 	
 }
 
+// Called when the view controller’s view is fully transitioned onto the screen
+- (void)viewDidAppear {
+	
+	// Super
+	[super viewDidAppear];
+	
+	// Set window title
+	self.view.window.title = @"MoMath Floor Schedule Generator";
+}
+
 // Update the view, if already loaded
 - (void)setRepresentedObject:(id)representedObject {
 	
