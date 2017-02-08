@@ -31,7 +31,7 @@
 	hourLunchData = [NSMutableArray arrayWithObjects:[NSNumber numberWithInt:0], [NSNumber numberWithInt:0], [NSNumber numberWithInt:0], [NSNumber numberWithInt:0], [NSNumber numberWithInt:0], nil];
 	mayBePlacedData = [NSMutableArray arrayWithObjects:[NSNumber numberWithInt:0], [NSNumber numberWithInt:0], [NSNumber numberWithInt:0], [NSNumber numberWithInt:0], [NSNumber numberWithInt:0], nil];
 	
-	// Station checkbox states
+	// Stations checkbox states
 	birthday.state = NSOffState;
 	gallery.state = NSOnState;
 	greeting.state = NSOffState;
@@ -42,25 +42,38 @@
 	security.state = NSOffState;
 	tours.state = NSOffState;
 	
-	// Station times checkbox states
+	// Station start times checkbox states
 	[birthday_starttime selectItemAtIndex:0];
-	[birthday_endtime selectItemAtIndex:birthday_endtime.menu.numberOfItems - 1];
 	[gallery_starttime selectItemAtIndex:0];
-	[gallery_endtime selectItemAtIndex:birthday_endtime.menu.numberOfItems - 1];
 	[greeting_starttime selectItemAtIndex:0];
-	[greeting_endtime selectItemAtIndex:birthday_endtime.menu.numberOfItems - 1];
 	[lesson_starttime selectItemAtIndex:0];
-	[lesson_endtime selectItemAtIndex:birthday_endtime.menu.numberOfItems - 1];
 	[manager_starttime selectItemAtIndex:0];
-	[manager_endtime selectItemAtIndex:birthday_endtime.menu.numberOfItems - 1];
 	[other_starttime selectItemAtIndex:0];
-	[other_endtime selectItemAtIndex:birthday_endtime.menu.numberOfItems - 1];
 	[project_starttime selectItemAtIndex:0];
-	[project_endtime selectItemAtIndex:birthday_endtime.menu.numberOfItems - 1];
 	[security_starttime selectItemAtIndex:0];
-	[security_endtime selectItemAtIndex:birthday_endtime.menu.numberOfItems - 1];
 	[tours_starttime selectItemAtIndex:0];
+
+	// Station end times checkbox states
+	[birthday_endtime selectItemAtIndex:birthday_endtime.menu.numberOfItems - 1];
+	[gallery_endtime selectItemAtIndex:birthday_endtime.menu.numberOfItems - 1];
+	[greeting_endtime selectItemAtIndex:birthday_endtime.menu.numberOfItems - 1];
+	[lesson_endtime selectItemAtIndex:birthday_endtime.menu.numberOfItems - 1];
+	[manager_endtime selectItemAtIndex:birthday_endtime.menu.numberOfItems - 1];
+	[other_endtime selectItemAtIndex:birthday_endtime.menu.numberOfItems - 1];
+	[project_endtime selectItemAtIndex:birthday_endtime.menu.numberOfItems - 1];
+	[security_endtime selectItemAtIndex:birthday_endtime.menu.numberOfItems - 1];
 	[tours_endtime selectItemAtIndex:birthday_endtime.menu.numberOfItems - 1];
+	
+	// Station changes checkbox states
+	[birthday_changes selectItemAtIndex:0];
+	[gallery_changes selectItemAtIndex:0];
+	[greeting_changes selectItemAtIndex:0];
+	[lesson_changes selectItemAtIndex:0];
+	[manager_changes selectItemAtIndex:0];
+	[other_changes selectItemAtIndex:0];
+	[project_changes selectItemAtIndex:0];
+	[security_changes selectItemAtIndex:0];
+	[tours_changes selectItemAtIndex:0];
 	
 	// Half hour checkbox states
 	tenAM.state = NSOffState;
@@ -73,7 +86,7 @@
 	
 }
 
-// Called when the view controller’s view is fully transitioned onto the screen
+// Do any additional setup once the view is fully transitioned onto the screen
 - (void)viewDidAppear {
 	
 	// Super

@@ -32,25 +32,38 @@
 	IBOutlet NSButton *security;
 	IBOutlet NSButton *tours;
 	
-	// Station times
+	// Station start times
 	IBOutlet NSPopUpButton *birthday_starttime;
-	IBOutlet NSPopUpButton *birthday_endtime;
 	IBOutlet NSPopUpButton *gallery_starttime;
-	IBOutlet NSPopUpButton *gallery_endtime;
 	IBOutlet NSPopUpButton *greeting_starttime;
-	IBOutlet NSPopUpButton *greeting_endtime;
 	IBOutlet NSPopUpButton *lesson_starttime;
-	IBOutlet NSPopUpButton *lesson_endtime;
 	IBOutlet NSPopUpButton *manager_starttime;
-	IBOutlet NSPopUpButton *manager_endtime;
 	IBOutlet NSPopUpButton *other_starttime;
-	IBOutlet NSPopUpButton *other_endtime;
 	IBOutlet NSPopUpButton *project_starttime;
-	IBOutlet NSPopUpButton *project_endtime;
 	IBOutlet NSPopUpButton *security_starttime;
-	IBOutlet NSPopUpButton *security_endtime;
 	IBOutlet NSPopUpButton *tours_starttime;
+	
+	// Station end times
+	IBOutlet NSPopUpButton *birthday_endtime;
+	IBOutlet NSPopUpButton *gallery_endtime;
+	IBOutlet NSPopUpButton *greeting_endtime;
+	IBOutlet NSPopUpButton *lesson_endtime;
+	IBOutlet NSPopUpButton *manager_endtime;
+	IBOutlet NSPopUpButton *other_endtime;
+	IBOutlet NSPopUpButton *project_endtime;
+	IBOutlet NSPopUpButton *security_endtime;
 	IBOutlet NSPopUpButton *tours_endtime;
+	
+	// Station changes
+	IBOutlet NSPopUpButton *birthday_changes;
+	IBOutlet NSPopUpButton *gallery_changes;
+	IBOutlet NSPopUpButton *greeting_changes;
+	IBOutlet NSPopUpButton *lesson_changes;
+	IBOutlet NSPopUpButton *manager_changes;
+	IBOutlet NSPopUpButton *other_changes;
+	IBOutlet NSPopUpButton *project_changes;
+	IBOutlet NSPopUpButton *security_changes;
+	IBOutlet NSPopUpButton *tours_changes;
 	
 	// Half hours
 	IBOutlet NSButton *tenAM;

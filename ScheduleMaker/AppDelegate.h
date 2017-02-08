@@ -10,15 +10,15 @@
 // NSTableView
 // https://www.youtube.com/watch?v=sL0dOarI_bA
 
-// ADDITIONS (ORGANIZED BY PRIORITY):
-// 1!. Should be able to put specific person on project/tours/lesson/greeting/security/birthday party for random period(s) during the day
-// 2!. Should be able to specify early lunch for some (i.e. Gemma)
+// ADDITIONS:
+// 1. AUTOCOMPLETION for staff entry!!!  But would then need the ability to view staff "dictionary," and also add/delete/modify entries within it
+// 2. README/instruction booklet describing use of software
 
-// OPTIONAL ADDITIONS:
-// 3. Should display messages on the results, i.e. "Gallery must be closed 12-1 pm" or "Only one person stationed on floor -1 during 11-5 pm"
-// 4?. Should allow for backloading lunches
-// 5?. Should include fireguard status and follow the 2 fireguard rule
-// 6?. Should specify different stations for floor 0 (e.g. HYHY, MOSC)
+// POSSIBLE ADDITIONS:
+// 3. Could add lunch options to bottom section, underneath "half hours" (e.g. "backload lunches," "hour lunches if possible")
+// 4. Could display messages on the results, i.e. "Gallery must be closed 12-1 pm" or "Only one person stationed on floor -1 during 11-5 pm"
+// 5. Possibly include fireguard status and follow the 2 fireguard rule (?)
+// 6. Schedule could specify different stations for floor 0 given suffiecient staff (e.g. HYHY, MOSC)
 
 #import <Cocoa/Cocoa.h>
 
