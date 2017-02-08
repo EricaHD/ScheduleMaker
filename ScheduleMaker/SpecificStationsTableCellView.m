@@ -1,14 +1,14 @@
 //
-//  HourLunchTableCellView.m
+//  SpecificStationsTableCellView.m
 //  ScheduleMaker
 //
-//  Created by Erica Dominic on 1/1/17.
+//  Created by Erica Dominic on 2/7/17.
 //  Copyright © 2017 Erica Dominic. All rights reserved.
 //
 
-#import "HourLunchTableCellView.h"
+#import "SpecificStationsTableCellView.h"
 
-@implementation HourLunchTableCellView
+@implementation SpecificStationsTableCellView
 
 - (void)drawRect:(NSRect)dirtyRect {
     [super drawRect:dirtyRect];

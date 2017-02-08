@@ -10,7 +10,7 @@
 #import "NameTableCellView.h"
 #import "StartTimeTableCellView.h"
 #import "EndTimeTableCellView.h"
-#import "HourLunchTableCellView.h"
+#import "SpecificStationsTableCellView.h"
 #import "MayBePlacedTableCellView.h"
 
 @implementation ViewController
@@ -28,7 +28,7 @@
 	nameData = [NSMutableArray arrayWithObjects:@"", @"", @"", @"", @"", nil];
 	startTimeData = [NSMutableArray arrayWithObjects:@"", @"", @"", @"", @"", nil];
 	endTimeData = [NSMutableArray arrayWithObjects:@"", @"", @"", @"", @"", nil];
-	hourLunchData = [NSMutableArray arrayWithObjects:[NSNumber numberWithInt:0], [NSNumber numberWithInt:0], [NSNumber numberWithInt:0], [NSNumber numberWithInt:0], [NSNumber numberWithInt:0], nil];
+	specificStationsData = [NSMutableArray arrayWithObjects:[NSMutableArray arrayWithObjects:@"", @"", @"", @"", @"", @"", @"", @"", @"", nil],[NSMutableArray arrayWithObjects:@"", @"", @"", @"", @"", @"", @"", @"", @"", nil], [NSMutableArray arrayWithObjects:@"", @"", @"", @"", @"", @"", @"", @"", @"", nil], [NSMutableArray arrayWithObjects:@"", @"", @"", @"", @"", @"", @"", @"", @"", nil], [NSMutableArray arrayWithObjects:@"", @"", @"", @"", @"", @"", @"", @"", @"", nil], nil];
 	mayBePlacedData = [NSMutableArray arrayWithObjects:[NSNumber numberWithInt:0], [NSNumber numberWithInt:0], [NSNumber numberWithInt:0], [NSNumber numberWithInt:0], [NSNumber numberWithInt:0], nil];
 	
 	// Stations checkbox states
@@ -144,11 +144,43 @@
 		}
 	}
 	
-	// Update array of hour lunches: 1 if checked, 0 if not
-	for (int i = 0; i < hourLunchData.count; i++) {
-		int hourlunch_state = (int) ((HourLunchTableCellView *) [table viewAtColumn:3 row:i makeIfNecessary:NO]).hourlunch.state;
-		if (hourlunch_state) { // do not insert nil object into array
-			hourLunchData[i] = [NSNumber numberWithInt:hourlunch_state];
+	// Update array of specific stations
+	for (int i = 0; i < specificStationsData.count; i++) {
+		NSString *specific1 = ((SpecificStationsTableCellView *) [table viewAtColumn:3 row:i makeIfNecessary:NO]).specific1.stringValue;
+		if (specific1) { // do not insert nil object into array
+			specificStationsData[i][0] = specific1;
+		}
+		NSString *specific1_starttime = ((SpecificStationsTableCellView *) [table viewAtColumn:3 row:i makeIfNecessary:NO]).specific1_starttime.stringValue;
+		if (specific1_starttime) { // do not insert nil object into array
+			specificStationsData[i][1] = specific1_starttime;
+		}
+		NSString *specific1_endtime = ((SpecificStationsTableCellView *) [table viewAtColumn:3 row:i makeIfNecessary:NO]).specific1_endtime.stringValue;
+		if (specific1_endtime) { // do not insert nil object into array
+			specificStationsData[i][2] = specific1_endtime;
+		}
+		NSString *specific2 = ((SpecificStationsTableCellView *) [table viewAtColumn:3 row:i makeIfNecessary:NO]).specific2.stringValue;
+		if (specific2) { // do not insert nil object into array
+			specificStationsData[i][3] = specific2;
+		}
+		NSString *specific2_starttime = ((SpecificStationsTableCellView *) [table viewAtColumn:3 row:i makeIfNecessary:NO]).specific2_starttime.stringValue;
+		if (specific2_starttime) { // do not insert nil object into array
+			specificStationsData[i][4] = specific2_starttime;
+		}
+		NSString *specific2_endtime = ((SpecificStationsTableCellView *) [table viewAtColumn:3 row:i makeIfNecessary:NO]).specific2_endtime.stringValue;
+		if (specific2_endtime) { // do not insert nil object into array
+			specificStationsData[i][5] = specific2_endtime;
+		}
+		NSString *specific3 = ((SpecificStationsTableCellView *) [table viewAtColumn:3 row:i makeIfNecessary:NO]).specific3.stringValue;
+		if (specific3) { // do not insert nil object into array
+			specificStationsData[i][6] = specific3;
+		}
+		NSString *specific3_starttime = ((SpecificStationsTableCellView *) [table viewAtColumn:3 row:i makeIfNecessary:NO]).specific3_starttime.stringValue;
+		if (specific3_starttime) { // do not insert nil object into array
+			specificStationsData[i][7] = specific3_starttime;
+		}
+		NSString *specific3_endtime = ((SpecificStationsTableCellView *) [table viewAtColumn:3 row:i makeIfNecessary:NO]).specific3_endtime.stringValue;
+		if (specific3_endtime) { // do not insert nil object into array
+			specificStationsData[i][8] = specific3_endtime;
 		}
 	}
 	
@@ -206,27 +238,73 @@
 		return cell;
 	}
 	
-	else if ([tableColumn.identifier isEqualToString:@"hour_lunch_col"]) {
-		HourLunchTableCellView *cell = (HourLunchTableCellView *) [tableView makeViewWithIdentifier:@"hour_lunch_cell" owner:self];
-		if (row < hourLunchData.count) {
-			[cell.hourlunch setState:[hourLunchData[row] integerValue]];
+	else if ([tableColumn.identifier isEqualToString:@"specific_stations_col"]) {
+		SpecificStationsTableCellView *cell = (SpecificStationsTableCellView *)[tableView makeViewWithIdentifier:@"specific_stations_cell" owner:self];
+		// cell.specific1
+		[cell.specific1 setStringValue:[NSString stringWithFormat:@"%@", specificStationsData[row][0]]];
+		[cell.specific1 setPlaceholderString:@"Station"];
+		// cell.specific1_starttime
+		if ([specificStationsData[row][1] isEqualToString:@""]) {
+			[cell.specific1_starttime selectItemAtIndex:0];
+		}
+		else {
+			[cell.specific1_starttime selectItemWithTitle:specificStationsData[row][1]];
+		}
+		// cell.specific1_endtime
+		if ([specificStationsData[row][2] isEqualToString:@""]) {
+			[cell.specific1_endtime selectItemAtIndex:cell.specific1_endtime.menu.numberOfItems - 1];
+		}
+		else {
+			[cell.specific1_endtime selectItemWithTitle:specificStationsData[row][2]];
+		}
+		// cell.specific2
+		[cell.specific2 setStringValue:[NSString stringWithFormat:@"%@", specificStationsData[row][3]]];
+		[cell.specific2 setPlaceholderString:@"Station"];
+		// cell.specific2_starttime
+		if ([specificStationsData[row][4] isEqualToString:@""]) {
+			[cell.specific2_starttime selectItemAtIndex:0];
+		}
+		else {
+			[cell.specific2_starttime selectItemWithTitle:specificStationsData[row][4]];
+		}
+		// cell.specific2_endtime
+		if ([specificStationsData[row][5] isEqualToString:@""]) {
+			[cell.specific2_endtime selectItemAtIndex:cell.specific1_endtime.menu.numberOfItems - 1];
+		}
+		else {
+			[cell.specific2_endtime selectItemWithTitle:specificStationsData[row][5]];
+		}
+		// cell.specific3
+		[cell.specific3 setStringValue:[NSString stringWithFormat:@"%@", specificStationsData[row][6]]];
+		[cell.specific3 setPlaceholderString:@"Station"];
+		// cell.specific3_starttime
+		if ([specificStationsData[row][7] isEqualToString:@""]) {
+			[cell.specific3_starttime selectItemAtIndex:0];
+		}
+		else {
+			[cell.specific3_starttime selectItemWithTitle:specificStationsData[row][7]];
+		}
+		// cell.specific3_endtime
+		if ([specificStationsData[row][8] isEqualToString:@""]) {
+			[cell.specific3_endtime selectItemAtIndex:cell.specific1_endtime.menu.numberOfItems - 1];
+		}
+		else {
+			[cell.specific3_endtime selectItemWithTitle:specificStationsData[row][8]];
 		}
 		return cell;
 	}
 	
 	else { // if ([tableColumn.identifier isEqualToString:@"may_be_placed_col"])
 		MayBePlacedTableCellView *cell = (MayBePlacedTableCellView *)[tableView makeViewWithIdentifier:@"may_be_placed_cell" owner:self];
-		if (row < mayBePlacedData.count) {
-			[cell.birthday setState:(1 & [mayBePlacedData[row] integerValue])];
-			[cell.gallery setState:(2 & [mayBePlacedData[row] integerValue])];
-			[cell.greeting setState:(4 & [mayBePlacedData[row] integerValue])];
-			[cell.lesson setState:(8 & [mayBePlacedData[row] integerValue])];
-			[cell.manager setState:(16 & [mayBePlacedData[row] integerValue])];
-			[cell.other setState:(32 & [mayBePlacedData[row] integerValue])];
-			[cell.project setState:(64 & [mayBePlacedData[row] integerValue])];
-			[cell.security setState:(128 & [mayBePlacedData[row] integerValue])];
-			[cell.tours setState:(256 & [mayBePlacedData[row] integerValue])];
-		}
+		[cell.birthday setState:(1 & [mayBePlacedData[row] integerValue])];
+		[cell.gallery setState:(2 & [mayBePlacedData[row] integerValue])];
+		[cell.greeting setState:(4 & [mayBePlacedData[row] integerValue])];
+		[cell.lesson setState:(8 & [mayBePlacedData[row] integerValue])];
+		[cell.manager setState:(16 & [mayBePlacedData[row] integerValue])];
+		[cell.other setState:(32 & [mayBePlacedData[row] integerValue])];
+		[cell.project setState:(64 & [mayBePlacedData[row] integerValue])];
+		[cell.security setState:(128 & [mayBePlacedData[row] integerValue])];
+		[cell.tours setState:(256 & [mayBePlacedData[row] integerValue])];
 		return cell;
 	}
 	
@@ -240,7 +318,7 @@
 	[nameData addObject:@""];
 	[startTimeData addObject:@""];
 	[endTimeData addObject:@""];
-	[hourLunchData addObject:[NSNumber numberWithInt:0]];
+	[specificStationsData addObject:[NSMutableArray arrayWithObjects:@"", @"", @"", @"", @"", @"", @"", @"", @"", nil]];
 	[mayBePlacedData addObject:[NSNumber numberWithInt:0]];
 	
 	[table reloadData];
@@ -259,7 +337,7 @@
 	[nameData removeLastObject];
 	[startTimeData removeLastObject];
 	[endTimeData removeLastObject];
-	[hourLunchData removeLastObject];
+	[specificStationsData removeLastObject];
 	[mayBePlacedData removeLastObject];
 	
 	[table reloadData];
@@ -273,28 +351,8 @@
 	//NSInteger numRows = nameData.count;
 	//NSInteger numCols = table.tableColumns.count;
 	
+	// Everything from scrape data, plus all outlets in ViewController.h
 	[self scrapeData];
-	// Everything from scrape Data
-	//
-	// Station checkbox states:
-	//  birthday.state
-	//  gallery.state
-	//  greeting.state
-	//  lesson.state
-	//  manager.state
-	//  other.state
-	//  project.state
-	//  security.state
-	//  tours.state
-	//
-	// Half hour checkbox states:
-	//	tenAM.state
-	//	elevenAM.state
-	//	twelvePM.state
-	//	onePM.state
-	//	twoPM.state
-	//	threePM.state
-	//	fourPM.state
 	
 }
 

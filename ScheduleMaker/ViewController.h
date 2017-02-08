@@ -17,11 +17,12 @@
 	NSMutableArray *nameData;
 	NSMutableArray *startTimeData;
 	NSMutableArray *endTimeData;
-	NSMutableArray *hourLunchData;
+	NSMutableArray *specificStationsData;
 	NSMutableArray *mayBePlacedData;
 	IBOutlet NSTableView *table;
 
 	// Stations
+	// Note: "other" may be MM2Go, interview, anything!
 	IBOutlet NSButton *birthday;
 	IBOutlet NSButton *gallery;
 	IBOutlet NSButton *greeting;
