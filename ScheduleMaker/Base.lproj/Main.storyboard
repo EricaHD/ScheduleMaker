@@ -773,7 +773,7 @@
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowHeight="75" headerView="Ecr-eQ-AL9" viewBased="YES" id="suB-S0-0Pw">
-                                            <rect key="frame" x="0.0" y="0.0" width="1003" height="376"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="1005" height="376"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <size key="intercellSpacing" width="3" height="2"/>
                                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -825,7 +825,7 @@
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
                                                         <tableCellView identifier="start_time_cell" id="xnX-QC-oph" customClass="StartTimeTableCellView">
-                                                            <rect key="frame" x="104" y="1" width="100" height="25"/>
+                                                            <rect key="frame" x="103.83484432770308" y="1" width="100" height="25"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="diw-yg-Q6G">
@@ -875,7 +875,7 @@
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
                                                         <tableCellView identifier="end_time_cell" id="h6w-vk-bgQ" customClass="EndTimeTableCellView">
-                                                            <rect key="frame" x="207" y="1" width="100" height="25"/>
+                                                            <rect key="frame" x="206.66968865540616" y="1" width="100" height="25"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IaL-Z5-Wex">
@@ -911,7 +911,7 @@
                                                         </tableCellView>
                                                     </prototypeCellViews>
                                                 </tableColumn>
-                                                <tableColumn identifier="specific_stations_col" width="305" minWidth="40" maxWidth="1000" id="8YP-3S-aPW">
+                                                <tableColumn identifier="specific_stations_col" width="307" minWidth="40" maxWidth="1000" id="8YP-3S-aPW">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" title="Specific Stations">
                                                         <font key="font" metaFont="smallSystem"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -925,7 +925,7 @@
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
                                                         <tableCellView identifier="specific_stations_cell" id="Hhv-hX-dr9" customClass="SpecificStationsTableCellView">
-                                                            <rect key="frame" x="310" y="1" width="305" height="80"/>
+                                                            <rect key="frame" x="309.50453298310924" y="1" width="307" height="80"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dSF-Xp-3sZ">
@@ -938,12 +938,12 @@
                                                                 </textField>
                                                                 <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bvz-Ii-19H">
                                                                     <rect key="frame" x="104" y="53" width="100" height="26"/>
-                                                                    <popUpButtonCell key="cell" type="push" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" id="wei-uI-1CX">
+                                                                    <popUpButtonCell key="cell" type="push" title="10:00 am" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="1pm-y4-dt5" id="wei-uI-1CX">
                                                                         <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                                                                         <font key="font" metaFont="menu"/>
                                                                         <menu key="menu" id="Mun-nF-NKv">
                                                                             <items>
-                                                                                <menuItem title="10:00 am" id="1pm-y4-dt5" userLabel="10:00 am"/>
+                                                                                <menuItem title="10:00 am" state="on" id="1pm-y4-dt5" userLabel="10:00 am"/>
                                                                                 <menuItem title="10:30 am" id="rQG-4U-EyA" userLabel="10:30 am"/>
                                                                                 <menuItem title="11:00 am" id="bWq-pX-yVS" userLabel="11:00 am"/>
                                                                                 <menuItem title="11:30 am" id="Cfi-5N-Ggu" userLabel="11:30 am"/>
@@ -964,12 +964,12 @@
                                                                 </popUpButton>
                                                                 <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AHo-8J-clK">
                                                                     <rect key="frame" x="206" y="53" width="100" height="26"/>
-                                                                    <popUpButtonCell key="cell" type="push" title="10:00 am" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="3lP-OE-Vbx" id="Lg4-1A-H4s">
+                                                                    <popUpButtonCell key="cell" type="push" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" id="Lg4-1A-H4s">
                                                                         <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                                                                         <font key="font" metaFont="menu"/>
                                                                         <menu key="menu" id="EZh-zK-89T">
                                                                             <items>
-                                                                                <menuItem title="10:00 am" state="on" id="3lP-OE-Vbx" userLabel="10:00 am"/>
+                                                                                <menuItem title="10:00 am" id="3lP-OE-Vbx" userLabel="10:00 am"/>
                                                                                 <menuItem title="10:30 am" id="SAK-HM-JMk" userLabel="10:30 am"/>
                                                                                 <menuItem title="11:00 am" id="Nug-dS-PLm" userLabel="11:00 am"/>
                                                                                 <menuItem title="11:30 am" id="IvQ-5A-xGM" userLabel="11:30 am"/>
@@ -998,12 +998,12 @@
                                                                 </textField>
                                                                 <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="c1Q-I5-h0k">
                                                                     <rect key="frame" x="104" y="28" width="100" height="26"/>
-                                                                    <popUpButtonCell key="cell" type="push" title="5:00 pm" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="1cV-Yc-BeO" id="7fN-Gl-fPb">
+                                                                    <popUpButtonCell key="cell" type="push" title="10:00 am" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="vS9-fQ-Kpb" id="7fN-Gl-fPb">
                                                                         <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                                                                         <font key="font" metaFont="menu"/>
                                                                         <menu key="menu" id="L06-2r-8kY">
                                                                             <items>
-                                                                                <menuItem title="10:00 am" id="vS9-fQ-Kpb" userLabel="10:00 am"/>
+                                                                                <menuItem title="10:00 am" state="on" id="vS9-fQ-Kpb" userLabel="10:00 am"/>
                                                                                 <menuItem title="10:30 am" id="Mvg-GA-TtN" userLabel="10:30 am"/>
                                                                                 <menuItem title="11:00 am" id="uha-LM-RZQ" userLabel="11:00 am"/>
                                                                                 <menuItem title="11:30 am" id="G4f-1X-WsY" userLabel="11:30 am"/>
@@ -1017,7 +1017,7 @@
                                                                                 <menuItem title="3:30 pm" id="1tj-wW-9Bd" userLabel="3:30 pm"/>
                                                                                 <menuItem title="4:00 pm" id="Jlp-VD-P7I" userLabel="4:00 pm"/>
                                                                                 <menuItem title="4:30 pm" id="G8X-Xa-aSI" userLabel="4:30 pm"/>
-                                                                                <menuItem title="5:00 pm" state="on" id="1cV-Yc-BeO" userLabel="5:00 pm"/>
+                                                                                <menuItem title="5:00 pm" id="1cV-Yc-BeO" userLabel="5:00 pm"/>
                                                                             </items>
                                                                         </menu>
                                                                     </popUpButtonCell>
@@ -1137,7 +1137,7 @@
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
                                                         <tableCellView identifier="may_be_placed_cell" id="icz-1M-5P4" userLabel="May Be Placed Table Cell View" customClass="MayBePlacedTableCellView">
-                                                            <rect key="frame" x="618" y="1" width="383" height="75"/>
+                                                            <rect key="frame" x="619.33937731081232" y="1" width="383" height="75"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aBo-Up-i0L">
@@ -1227,7 +1227,7 @@
                                     </subviews>
                                     <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </clipView>
-                                <scroller key="horizontalScroller" verticalHuggingPriority="750" doubleValue="0.40000000000000002" horizontal="YES" id="wly-zU-VfH">
+                                <scroller key="horizontalScroller" verticalHuggingPriority="750" horizontal="YES" id="wly-zU-VfH">
                                     <rect key="frame" x="1" y="383" width="998" height="16"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
@@ -1236,7 +1236,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <tableHeaderView key="headerView" id="Ecr-eQ-AL9">
-                                    <rect key="frame" x="0.0" y="1" width="1003" height="23"/>
+                                    <rect key="frame" x="0.0" y="1" width="1005" height="23"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableHeaderView>
                             </scrollView>
@@ -1760,7 +1760,7 @@
                                     <font key="font" metaFont="menu"/>
                                     <menu key="menu" id="ezb-jG-RVN">
                                         <items>
-                                            <menuItem title="Every half hour" state="on" id="cIZ-p4-jEg" userLabel="Every half hour"/>
+                                            <menuItem title="Every half hour" id="cIZ-p4-jEg" userLabel="Every half hour"/>
                                             <menuItem title="Every hour" id="nGT-b4-yfN" userLabel="Every hour"/>
                                             <menuItem title="With schedule" id="Cqi-Wy-e68" userLabel="With schedule"/>
                                             <menuItem title="One person" state="on" id="XLQ-gs-tBQ" userLabel="One person"/>
@@ -1775,7 +1775,7 @@
                                     <font key="font" metaFont="menu"/>
                                     <menu key="menu" id="mnG-3o-MUB">
                                         <items>
-                                            <menuItem title="Every half hour" state="on" id="5vT-oS-khJ" userLabel="Every half hour"/>
+                                            <menuItem title="Every half hour" id="5vT-oS-khJ" userLabel="Every half hour"/>
                                             <menuItem title="Every hour" id="tZ8-Ye-2bb" userLabel="Every hour"/>
                                             <menuItem title="With schedule" id="OHM-MW-lDn" userLabel="With schedule"/>
                                             <menuItem title="One person" state="on" id="KZz-mk-Bij" userLabel="One person"/>
@@ -1820,7 +1820,7 @@
                                     <font key="font" metaFont="menu"/>
                                     <menu key="menu" id="5ct-pa-RlL">
                                         <items>
-                                            <menuItem title="Every half hour" state="on" id="Uhg-Tx-KQS" userLabel="Every half hour"/>
+                                            <menuItem title="Every half hour" id="Uhg-Tx-KQS" userLabel="Every half hour"/>
                                             <menuItem title="Every hour" id="zsP-4c-H8T" userLabel="Every hour"/>
                                             <menuItem title="With schedule" id="Flm-Cq-2wZ" userLabel="With schedule"/>
                                             <menuItem title="One person" state="on" id="tBy-Yh-Aov" userLabel="One person"/>
@@ -1835,7 +1835,7 @@
                                     <font key="font" metaFont="menu"/>
                                     <menu key="menu" id="5fe-ce-TJd">
                                         <items>
-                                            <menuItem title="Every half hour" state="on" id="tDk-5w-SWN" userLabel="Every half hour"/>
+                                            <menuItem title="Every half hour" id="tDk-5w-SWN" userLabel="Every half hour"/>
                                             <menuItem title="Every hour" id="ZKL-d6-DPJ" userLabel="Every hour"/>
                                             <menuItem title="With schedule" id="sj9-QT-rZd" userLabel="With schedule"/>
                                             <menuItem title="One person" state="on" id="Iuc-pA-eD4" userLabel="One person"/>
@@ -1850,7 +1850,7 @@
                                     <font key="font" metaFont="menu"/>
                                     <menu key="menu" id="hKQ-hB-kZj">
                                         <items>
-                                            <menuItem title="Every half hour" state="on" id="GQW-BG-iSz" userLabel="Every half hour"/>
+                                            <menuItem title="Every half hour" id="GQW-BG-iSz" userLabel="Every half hour"/>
                                             <menuItem title="Every hour" id="ERb-PO-vXA" userLabel="Every hour"/>
                                             <menuItem title="With schedule" id="hdE-a3-19J" userLabel="With schedule"/>
                                             <menuItem title="One person" state="on" id="Ns5-la-wuv" userLabel="One person"/>
@@ -1865,7 +1865,7 @@
                                     <font key="font" metaFont="menu"/>
                                     <menu key="menu" id="grz-vv-fIg">
                                         <items>
-                                            <menuItem title="Every half hour" state="on" id="KT3-CG-md6" userLabel="Every half hour"/>
+                                            <menuItem title="Every half hour" id="KT3-CG-md6" userLabel="Every half hour"/>
                                             <menuItem title="Every hour" id="Oh9-4l-kvG" userLabel="Every hour"/>
                                             <menuItem title="With schedule" id="DuD-Ap-cLi" userLabel="With schedule"/>
                                             <menuItem title="One person" state="on" id="kts-je-fzq" userLabel="One person"/>

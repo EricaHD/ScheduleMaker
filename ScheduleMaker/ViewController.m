@@ -28,7 +28,12 @@
 	nameData = [NSMutableArray arrayWithObjects:@"", @"", @"", @"", @"", nil];
 	startTimeData = [NSMutableArray arrayWithObjects:@"", @"", @"", @"", @"", nil];
 	endTimeData = [NSMutableArray arrayWithObjects:@"", @"", @"", @"", @"", nil];
-	specificStationsData = [NSMutableArray arrayWithObjects:[NSMutableArray arrayWithObjects:@"", @"", @"", @"", @"", @"", @"", @"", @"", nil],[NSMutableArray arrayWithObjects:@"", @"", @"", @"", @"", @"", @"", @"", @"", nil], [NSMutableArray arrayWithObjects:@"", @"", @"", @"", @"", @"", @"", @"", @"", nil], [NSMutableArray arrayWithObjects:@"", @"", @"", @"", @"", @"", @"", @"", @"", nil], [NSMutableArray arrayWithObjects:@"", @"", @"", @"", @"", @"", @"", @"", @"", nil], nil];
+	specificStationsData = [NSMutableArray arrayWithObjects:
+							[NSMutableArray arrayWithObjects:@"", @"", @"", @"", @"", @"", @"", @"", @"", nil],
+							[NSMutableArray arrayWithObjects:@"", @"", @"", @"", @"", @"", @"", @"", @"", nil],
+							[NSMutableArray arrayWithObjects:@"", @"", @"", @"", @"", @"", @"", @"", @"", nil],
+							[NSMutableArray arrayWithObjects:@"", @"", @"", @"", @"", @"", @"", @"", @"", nil],
+							[NSMutableArray arrayWithObjects:@"", @"", @"", @"", @"", @"", @"", @"", @"", nil], nil];
 	mayBePlacedData = [NSMutableArray arrayWithObjects:[NSNumber numberWithInt:0], [NSNumber numberWithInt:0], [NSNumber numberWithInt:0], [NSNumber numberWithInt:0], [NSNumber numberWithInt:0], nil];
 	
 	// Stations checkbox states
@@ -143,42 +148,46 @@
 			endTimeData[i] = endtime;
 		}
 	}
-	
+
 	// Update array of specific stations
 	for (int i = 0; i < specificStationsData.count; i++) {
-		NSString *specific1 = ((SpecificStationsTableCellView *) [table viewAtColumn:3 row:i makeIfNecessary:NO]).specific1.stringValue;
+		SpecificStationsTableCellView *cell = (SpecificStationsTableCellView *) [table viewAtColumn:3 row:i makeIfNecessary:NO];
+		// Specific station names
+		NSString *specific1 = cell.specific1.stringValue;
 		if (specific1) { // do not insert nil object into array
 			specificStationsData[i][0] = specific1;
 		}
-		NSString *specific1_starttime = ((SpecificStationsTableCellView *) [table viewAtColumn:3 row:i makeIfNecessary:NO]).specific1_starttime.stringValue;
-		if (specific1_starttime) { // do not insert nil object into array
-			specificStationsData[i][1] = specific1_starttime;
-		}
-		NSString *specific1_endtime = ((SpecificStationsTableCellView *) [table viewAtColumn:3 row:i makeIfNecessary:NO]).specific1_endtime.stringValue;
-		if (specific1_endtime) { // do not insert nil object into array
-			specificStationsData[i][2] = specific1_endtime;
-		}
-		NSString *specific2 = ((SpecificStationsTableCellView *) [table viewAtColumn:3 row:i makeIfNecessary:NO]).specific2.stringValue;
+		NSString *specific2 = cell.specific2.stringValue;
 		if (specific2) { // do not insert nil object into array
 			specificStationsData[i][3] = specific2;
 		}
-		NSString *specific2_starttime = ((SpecificStationsTableCellView *) [table viewAtColumn:3 row:i makeIfNecessary:NO]).specific2_starttime.stringValue;
-		if (specific2_starttime) { // do not insert nil object into array
-			specificStationsData[i][4] = specific2_starttime;
-		}
-		NSString *specific2_endtime = ((SpecificStationsTableCellView *) [table viewAtColumn:3 row:i makeIfNecessary:NO]).specific2_endtime.stringValue;
-		if (specific2_endtime) { // do not insert nil object into array
-			specificStationsData[i][5] = specific2_endtime;
-		}
-		NSString *specific3 = ((SpecificStationsTableCellView *) [table viewAtColumn:3 row:i makeIfNecessary:NO]).specific3.stringValue;
+		NSString *specific3 = cell.specific3.stringValue;
 		if (specific3) { // do not insert nil object into array
 			specificStationsData[i][6] = specific3;
 		}
-		NSString *specific3_starttime = ((SpecificStationsTableCellView *) [table viewAtColumn:3 row:i makeIfNecessary:NO]).specific3_starttime.stringValue;
+		// Specific station start times
+		NSString *specific1_starttime = cell.specific1_starttime.selectedItem.title;
+		if (specific1_starttime) { // do not insert nil object into array
+			specificStationsData[i][1] = specific1_starttime;
+		}
+		NSString *specific2_starttime = cell.specific2_starttime.selectedItem.title;
+		if (specific2_starttime) { // do not insert nil object into array
+			specificStationsData[i][4] = specific2_starttime;
+		}
+		NSString *specific3_starttime = cell.specific3_starttime.selectedItem.title;
 		if (specific3_starttime) { // do not insert nil object into array
 			specificStationsData[i][7] = specific3_starttime;
 		}
-		NSString *specific3_endtime = ((SpecificStationsTableCellView *) [table viewAtColumn:3 row:i makeIfNecessary:NO]).specific3_endtime.stringValue;
+		// Specific station end times
+		NSString *specific1_endtime = cell.specific1_endtime.selectedItem.title;
+		if (specific1_endtime) { // do not insert nil object into array
+			specificStationsData[i][2] = specific1_endtime;
+		}
+		NSString *specific2_endtime = cell.specific2_endtime.selectedItem.title;
+		if (specific2_endtime) { // do not insert nil object into array
+			specificStationsData[i][5] = specific2_endtime;
+		}
+		NSString *specific3_endtime = cell.specific3_endtime.selectedItem.title;
 		if (specific3_endtime) { // do not insert nil object into array
 			specificStationsData[i][8] = specific3_endtime;
 		}
@@ -209,6 +218,24 @@
 // Different from -(id)tableView:(NSTableView *)tableView objectValueForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row
 - (NSView *)tableView:(NSTableView *)tableView viewForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row {
 	
+	// Set columm titles
+	if ([tableColumn.identifier isEqualToString:@"name_col"]) {
+		tableColumn.title = @"Name";
+	}
+	if ([tableColumn.identifier isEqualToString:@"start_time_col"]) {
+		tableColumn.title = @"Start Time";
+	}
+	if ([tableColumn.identifier isEqualToString:@"end_time_col"]) {
+		tableColumn.title = @"End Time";
+	}
+	if ([tableColumn.identifier isEqualToString:@"specific_stations_col"]) {
+		tableColumn.title = @"Specific Stations";
+	}
+	if ([tableColumn.identifier isEqualToString:@"may_be_placed_col"]) {
+		tableColumn.title = @"May Be Placed";
+	}
+	
+	// Define cells
 	if ([tableColumn.identifier isEqualToString:@"name_col"]) {
 		NameTableCellView *cell = (NameTableCellView *) [tableView makeViewWithIdentifier:@"name_cell" owner:self];
 		[cell.name setStringValue:[NSString stringWithFormat:@"%@", nameData[row]]];
