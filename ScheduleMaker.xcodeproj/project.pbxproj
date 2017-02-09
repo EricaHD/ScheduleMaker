@@ -13,6 +13,7 @@
 		074F5FDF1E19D8C2009BF40E /* StartTimeTableCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 074F5FDE1E19D8C2009BF40E /* StartTimeTableCellView.m */; };
 		074F5FE21E19DA13009BF40E /* NameTableCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 074F5FE11E19DA13009BF40E /* NameTableCellView.m */; };
 		0776F1FB1E4C1F5000BFF6C5 /* LunchTableCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0776F1FA1E4C1F5000BFF6C5 /* LunchTableCellView.m */; };
+		07BFEACC1E4C3E3600C5A189 /* Model.m in Sources */ = {isa = PBXBuildFile; fileRef = 07BFEACB1E4C3E3600C5A189 /* Model.m */; };
 		07FA1C5E1E120DB6007E81E8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 07FA1C5D1E120DB6007E81E8 /* AppDelegate.m */; };
 		07FA1C611E120DB6007E81E8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 07FA1C601E120DB6007E81E8 /* main.m */; };
 		07FA1C641E120DB6007E81E8 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 07FA1C631E120DB6007E81E8 /* ViewController.m */; };
@@ -34,6 +35,8 @@
 		074F5FE11E19DA13009BF40E /* NameTableCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NameTableCellView.m; sourceTree = "<group>"; };
 		0776F1F91E4C1F5000BFF6C5 /* LunchTableCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LunchTableCellView.h; sourceTree = "<group>"; };
 		0776F1FA1E4C1F5000BFF6C5 /* LunchTableCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LunchTableCellView.m; sourceTree = "<group>"; };
+		07BFEACA1E4C3E3600C5A189 /* Model.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Model.h; sourceTree = "<group>"; };
+		07BFEACB1E4C3E3600C5A189 /* Model.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Model.m; sourceTree = "<group>"; };
 		07FA1C591E120DB6007E81E8 /* ScheduleMaker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ScheduleMaker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		07FA1C5C1E120DB6007E81E8 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		07FA1C5D1E120DB6007E81E8 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -95,6 +98,8 @@
 				07FA1C671E120DB6007E81E8 /* Main.storyboard */,
 				07FA1C6A1E120DB6007E81E8 /* Info.plist */,
 				07FA1C5F1E120DB6007E81E8 /* Supporting Files */,
+				07BFEACA1E4C3E3600C5A189 /* Model.h */,
+				07BFEACB1E4C3E3600C5A189 /* Model.m */,
 			);
 			path = ScheduleMaker;
 			sourceTree = "<group>";
@@ -185,6 +190,7 @@
 				074F5FDF1E19D8C2009BF40E /* StartTimeTableCellView.m in Sources */,
 				07FA1C5E1E120DB6007E81E8 /* AppDelegate.m in Sources */,
 				07191DD81E4840FF0044765C /* MayBePlacedTableCellView.m in Sources */,
+				07BFEACC1E4C3E3600C5A189 /* Model.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -7,11 +7,14 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "Model.h" // MODEL
 
 // Constants
 #define TABLE_ROW_HEIGHT 75.0;
 
 @interface ViewController : NSViewController <NSTableViewDelegate, NSTableViewDataSource> {
+	
+	Model *_myModel; // MODEL
 	
 	// Table
 	NSMutableArray *nameData;

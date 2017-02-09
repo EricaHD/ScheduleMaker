@@ -13,6 +13,7 @@
 #import "SpecificStationsTableCellView.h"
 #import "MayBePlacedTableCellView.h"
 #import "LunchTableCellView.h"
+#import "Model.h" // MODEL
 
 @implementation ViewController
 
@@ -139,9 +140,39 @@
 // Scrape data that is displayed in table right now
 - (void)scrapeData {
 	
+	// Find position of each column (so columns can be rearranged by clicking and dragging, and everything will still function)
+	NSInteger name_col_pos = -1;
+	NSInteger start_time_col_pos = -1;
+	NSInteger end_time_col_pos = -1;
+	NSInteger specific_stations_col_pos = -1;
+	NSInteger may_be_placed_col_pos = -1;
+	NSInteger lunch_col_pos = -1;
+	for (int i = 0; i < table.numberOfColumns; i++) {
+		NSString *identifier = table.tableColumns[i].identifier;
+		if ([identifier isEqualToString:@"name_col"]) {
+			name_col_pos = i;
+		}
+		else if ([identifier isEqualToString:@"start_time_col"]) {
+			start_time_col_pos = i;
+		}
+		else if ([identifier isEqualToString:@"end_time_col"]) {
+			end_time_col_pos = i;
+		}
+		else if ([identifier isEqualToString:@"specific_stations_col"]) {
+			specific_stations_col_pos = i;
+		}
+		else if ([identifier isEqualToString:@"may_be_placed_col"]) {
+			may_be_placed_col_pos = i;
+		}
+		else { // if ([identifier isEqualToString:@"lunch_col"])
+			lunch_col_pos = i;
+		}
+	}
+
 	// Update array of names
 	for (int i = 0; i < nameData.count; i++) {
-		NSString *name = ((NameTableCellView *) [table viewAtColumn:0 row:i makeIfNecessary:NO]).name.stringValue;
+		NameTableCellView *cell = (NameTableCellView *) [table viewAtColumn:name_col_pos row:i makeIfNecessary:NO];
+		NSString *name = cell.name.stringValue;
 		if (name) { // do not insert nil object into array
 			nameData[i] = name;
 		}
@@ -149,7 +180,8 @@
 	
 	// Update array of start times
 	for (int i = 0; i < startTimeData.count; i++) {
-		NSString *starttime = ((StartTimeTableCellView *) [table viewAtColumn:1 row:i makeIfNecessary:NO]).starttime.selectedItem.title;
+		StartTimeTableCellView *cell = (StartTimeTableCellView *) [table viewAtColumn:start_time_col_pos row:i makeIfNecessary:NO];
+		NSString *starttime = cell.starttime.selectedItem.title;
 		if (starttime) { // do not insert nil object into array
 			startTimeData[i] = starttime;
 		}
@@ -157,7 +189,8 @@
 	
 	// Update array of end times
 	for (int i = 0; i < endTimeData.count; i++) {
-		NSString *endtime = ((EndTimeTableCellView *) [table viewAtColumn:2 row:i makeIfNecessary:NO]).endtime.selectedItem.title;
+		EndTimeTableCellView *cell = (EndTimeTableCellView *) [table viewAtColumn:end_time_col_pos row:i makeIfNecessary:NO];
+		NSString *endtime = cell.endtime.selectedItem.title;
 		if (endtime) { // do not insert nil object into array
 			endTimeData[i] = endtime;
 		}
@@ -165,7 +198,7 @@
 
 	// Update array of specific stations
 	for (int i = 0; i < specificStationsData.count; i++) {
-		SpecificStationsTableCellView *cell = (SpecificStationsTableCellView *) [table viewAtColumn:3 row:i makeIfNecessary:NO];
+		SpecificStationsTableCellView *cell = (SpecificStationsTableCellView *) [table viewAtColumn:specific_stations_col_pos row:i makeIfNecessary:NO];
 		// Specific station names
 		NSString *specific1 = cell.specific1.stringValue;
 		if (specific1) { // do not insert nil object into array
@@ -210,7 +243,7 @@
 	// Update array of may be placed qualifications
 	// In MayBePlacedTableCellView.h, read about how the state of the entire cell (including 9 checkboxes) is represented as a single integer
 	for (int i = 0; i < mayBePlacedData.count; i++) {
-		MayBePlacedTableCellView *cell = (MayBePlacedTableCellView *) [table viewAtColumn:4 row:i makeIfNecessary:NO];
+		MayBePlacedTableCellView *cell = (MayBePlacedTableCellView *) [table viewAtColumn:may_be_placed_col_pos row:i makeIfNecessary:NO];
 		int birthday_state = (int) cell.birthday.state;
 		int gallery_state = (int) cell.gallery.state;
 		int greeting_state = (int) cell.greeting.state;
@@ -229,7 +262,7 @@
 	
 	// Update array of lunch data
 	for (int i = 0; i < lunchData.count; i++) {
-		LunchTableCellView *cell = (LunchTableCellView *) [table viewAtColumn:5 row:i makeIfNecessary:NO];
+		LunchTableCellView *cell = (LunchTableCellView *) [table viewAtColumn:lunch_col_pos row:i makeIfNecessary:NO];
 		int early_lunch_state = (int) cell.early_lunch.state;
 		int late_lunch_state = (int) cell.late_lunch.state;
 		int hour_lunch_state = (int) cell.hour_lunch.state;
@@ -399,12 +432,67 @@
 // When "Make Schedule" button is pressed (gather information, compute schedule)
 - (IBAction)makeSchedule:(id)sender {
 	
-	// Number of rows and columns
-	//NSInteger numRows = nameData.count;
-	//NSInteger numCols = table.tableColumns.count;
-	
-	// Everything from scrape data, plus all outlets in ViewController.h
 	[self scrapeData];
+	
+	_myModel = [[Model alloc] init]; // MODEL
+	[_myModel setX:11]; // MODEL
+	int print_this = [_myModel getX]; // MODEL
+	NSLog(@"%d", print_this); // MODEL
+	
+//	nameData;
+//	startTimeData;
+//	endTimeData;
+//	specificStationsData;
+//	mayBePlacedData;
+//	lunchData;
+//
+//	birthday;
+//	gallery;
+//	greeting;
+//	lesson;
+//	manager;
+//	other;
+//	project;
+//	security;
+//	tours;
+//	
+//	birthday_starttime;
+//	gallery_starttime;
+//	greeting_starttime;
+//	lesson_starttime;
+//	manager_starttime;
+//	other_starttime;
+//	project_starttime;
+//	security_starttime;
+//	tours_starttime;
+//	
+//	birthday_endtime;
+//	gallery_endtime;
+//	greeting_endtime;
+//	lesson_endtime;
+//	manager_endtime;
+//	other_endtime;
+//	project_endtime;
+//	security_endtime;
+//	tours_endtime;
+//	
+//	birthday_changes;
+//	gallery_changes;
+//	greeting_changes;
+//	lesson_changes;
+//	manager_changes;
+//	other_changes;
+//	project_changes;
+//	security_changes;
+//	tours_changes;
+//	
+//	tenAM;
+//	elevenAM;
+//	twelvePM;
+//	onePM;
+//	twoPM;
+//	threePM;
+//	fourPM;
 	
 }
 
