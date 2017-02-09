@@ -1,14 +1,14 @@
 //
-//  MayBePlacedTableCellView.m
+//  LunchTableCellView.m
 //  ScheduleMaker
 //
-//  Created by Erica Dominic on 2/6/17.
+//  Created by Erica Dominic on 2/8/17.
 //  Copyright © 2017 Erica Dominic. All rights reserved.
 //
 
-#import "MayBePlacedTableCellView.h"
+#import "LunchTableCellView.h"
 
-@implementation MayBePlacedTableCellView
+@implementation LunchTableCellView
 
 - (void)drawRect:(NSRect)dirtyRect {
     [super drawRect:dirtyRect];

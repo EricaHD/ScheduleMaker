@@ -12,6 +12,7 @@
 		074F5FDC1E19D63D009BF40E /* EndTimeTableCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 074F5FDB1E19D63D009BF40E /* EndTimeTableCellView.m */; };
 		074F5FDF1E19D8C2009BF40E /* StartTimeTableCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 074F5FDE1E19D8C2009BF40E /* StartTimeTableCellView.m */; };
 		074F5FE21E19DA13009BF40E /* NameTableCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 074F5FE11E19DA13009BF40E /* NameTableCellView.m */; };
+		0776F1FB1E4C1F5000BFF6C5 /* LunchTableCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0776F1FA1E4C1F5000BFF6C5 /* LunchTableCellView.m */; };
 		07FA1C5E1E120DB6007E81E8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 07FA1C5D1E120DB6007E81E8 /* AppDelegate.m */; };
 		07FA1C611E120DB6007E81E8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 07FA1C601E120DB6007E81E8 /* main.m */; };
 		07FA1C641E120DB6007E81E8 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 07FA1C631E120DB6007E81E8 /* ViewController.m */; };
@@ -31,6 +32,8 @@
 		074F5FDE1E19D8C2009BF40E /* StartTimeTableCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StartTimeTableCellView.m; sourceTree = "<group>"; };
 		074F5FE01E19DA13009BF40E /* NameTableCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NameTableCellView.h; sourceTree = "<group>"; };
 		074F5FE11E19DA13009BF40E /* NameTableCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NameTableCellView.m; sourceTree = "<group>"; };
+		0776F1F91E4C1F5000BFF6C5 /* LunchTableCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LunchTableCellView.h; sourceTree = "<group>"; };
+		0776F1FA1E4C1F5000BFF6C5 /* LunchTableCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LunchTableCellView.m; sourceTree = "<group>"; };
 		07FA1C591E120DB6007E81E8 /* ScheduleMaker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ScheduleMaker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		07FA1C5C1E120DB6007E81E8 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		07FA1C5D1E120DB6007E81E8 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -84,6 +87,8 @@
 				071351C31E4ABFC50063A0C8 /* SpecificStationsTableCellView.m */,
 				07191DD61E4840FF0044765C /* MayBePlacedTableCellView.h */,
 				07191DD71E4840FF0044765C /* MayBePlacedTableCellView.m */,
+				0776F1F91E4C1F5000BFF6C5 /* LunchTableCellView.h */,
+				0776F1FA1E4C1F5000BFF6C5 /* LunchTableCellView.m */,
 				07FA1C621E120DB6007E81E8 /* ViewController.h */,
 				07FA1C631E120DB6007E81E8 /* ViewController.m */,
 				07FA1C651E120DB6007E81E8 /* Assets.xcassets */,
@@ -175,6 +180,7 @@
 				07FA1C641E120DB6007E81E8 /* ViewController.m in Sources */,
 				074F5FE21E19DA13009BF40E /* NameTableCellView.m in Sources */,
 				074F5FDC1E19D63D009BF40E /* EndTimeTableCellView.m in Sources */,
+				0776F1FB1E4C1F5000BFF6C5 /* LunchTableCellView.m in Sources */,
 				07FA1C611E120DB6007E81E8 /* main.m in Sources */,
 				074F5FDF1E19D8C2009BF40E /* StartTimeTableCellView.m in Sources */,
 				07FA1C5E1E120DB6007E81E8 /* AppDelegate.m in Sources */,

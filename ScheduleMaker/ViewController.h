@@ -19,6 +19,7 @@
 	NSMutableArray *endTimeData;
 	NSMutableArray *specificStationsData;
 	NSMutableArray *mayBePlacedData;
+	NSMutableArray *lunchData;
 	IBOutlet NSTableView *table;
 
 	// Stations
