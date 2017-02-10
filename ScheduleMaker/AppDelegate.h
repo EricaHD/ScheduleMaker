@@ -16,9 +16,6 @@
 // 5. Possibly include fireguard status and follow the 2 fireguard rule (?)
 // 6. Schedule could specify different stations for floor 0 given suffiecient staff (e.g. HYHY, MOSC)
 
-// KNOWN ISSUES:
-// 1. If you check boxes, then try to select a row outside entry boxes, that row will flash blue very quickly and checkboxes will clear previously entered data
-
 #import <Cocoa/Cocoa.h>
 
 @interface AppDelegate : NSObject <NSApplicationDelegate>

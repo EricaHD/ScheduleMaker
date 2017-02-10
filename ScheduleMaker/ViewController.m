@@ -38,6 +38,9 @@
 	table.tableColumns[5].title = @"Lunch";
 	table.tableColumns[5].width = 100.0;
 	
+	// Make it impossible to select/highlight a row in the table
+	[table setSelectionHighlightStyle:NSTableViewSelectionHighlightStyleNone];
+	
 	// Initialize arrays and keep track of numRows
 	nameData = [NSMutableArray arrayWithObjects:@"", @"", @"", @"", @"", nil];
 	startTimeData = [NSMutableArray arrayWithObjects:@"", @"", @"", @"", @"", nil];
@@ -127,13 +130,6 @@
 - (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView {
 	
 	return nameData.count;
-
-}
-
-// Eliminate blue highlighting upon row selection in table
--(void)tableViewSelectionDidChange:(NSNotification *)aNotification {
-	
-	[table setSelectionHighlightStyle:NSTableViewSelectionHighlightStyleNone];
 
 }
 
