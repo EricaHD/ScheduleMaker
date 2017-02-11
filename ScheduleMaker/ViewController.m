@@ -24,7 +24,7 @@
 	[super viewDidLoad];
 	
 	// Set row dimension, column dimensions, and column titles
-	table.rowHeight = TABLE_ROW_HEIGHT;
+	table.rowHeight = ROW_HEIGHT;
 	table.tableColumns[0].title = @"Name";
 	table.tableColumns[0].width = 100.0;
 	table.tableColumns[1].title = @"Start Time";
@@ -107,6 +107,27 @@
 	threePM.state = NSOnState;
 	fourPM.state = NSOnState;
 	
+	// Set background color for table rows (alternating blue/purple and gray for 20 lines)
+	for (int i = 0; i < 20; i++) {
+		NSView *box = [[NSView alloc] initWithFrame:CGRectMake(0.0, 77.0*i, 1000.0, 77.0)];
+		[box setWantsLayer:YES];
+		NSColor *color;
+		if ((i % 2) == 0) {
+			color = [NSColor colorWithRed:3.0/255.0 green:81.0/255.0 blue:223.0/255.0 alpha:0.25f];
+		}
+		if ((i % 2) == 1) {
+			color = [NSColor colorWithRed:190.0/255.0 green:190.0/255.0 blue:190.0/255.0 alpha:0.25f];
+		}
+		[box.layer setBackgroundColor:color.CGColor];
+		[table addSubview:box];
+	}
+	
+	// Set background color for bottom part of window--unnecessary
+//	self.view.wantsLayer = YES;
+//	if (self.view.layer != nil) {
+//		self.view.layer.backgroundColor = [NSColor colorWithRed:240.0/255.0 green:240.0/255.0 blue:240.0/255.0 alpha:0.25f].CGColor;
+//	}
+	
 }
 
 // Do any additional setup once the view is fully transitioned onto the screen
@@ -117,6 +138,7 @@
 	
 	// Set window title
 	self.view.window.title = @"MoMath Floor Schedule Generator";
+	
 }
 
 // Update the view, if already loaded

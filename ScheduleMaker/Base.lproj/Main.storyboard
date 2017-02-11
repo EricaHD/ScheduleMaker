@@ -1218,7 +1218,7 @@
                                                         </tableCellView>
                                                     </prototypeCellViews>
                                                 </tableColumn>
-                                                <tableColumn identifier="lunch_col" width="100" minWidth="40" maxWidth="1000" id="Xa9-OD-Uvd" userLabel="Lunch">
+                                                <tableColumn identifier="lunch_col" width="123" minWidth="40" maxWidth="1000" id="Xa9-OD-Uvd" userLabel="Lunch">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" title="Lunch">
                                                         <font key="font" metaFont="smallSystem"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -1232,7 +1232,7 @@
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
                                                         <tableCellView identifier="lunch_cell" id="WGD-Lk-ddV" userLabel="May Be Placed Table Cell View" customClass="LunchTableCellView">
-                                                            <rect key="frame" x="873" y="1" width="100" height="75"/>
+                                                            <rect key="frame" x="873" y="1" width="123" height="75"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PyX-Og-Oyl">
@@ -1275,7 +1275,7 @@
                                     <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </clipView>
                                 <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="wly-zU-VfH">
-                                    <rect key="frame" x="1" y="383" width="998" height="16"/>
+                                    <rect key="frame" x="1" y="7" width="0.0" height="16"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="V0a-8j-Pvq">
