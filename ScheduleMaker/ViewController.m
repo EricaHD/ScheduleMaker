@@ -474,12 +474,18 @@
 	int num_staff = [model countNumStaff:nameData];
 	
 	// Error checking: ensure start time < end time for each shift
-	int valid = [model checkShiftTimesFor:num_staff starts:startTimeData ends:endTimeData];
+	int valid;
+	valid = [model checkShiftTimesFor:num_staff starts:startTimeData ends:endTimeData];
 	if (valid != 0) {
-		[self showAlert:@"Invalid start/end times" withDetails:[NSString stringWithFormat:@"Please check row #%d.", valid]];
+		[self showAlert:@"Invalid start/end times" withDetails:[NSString stringWithFormat:@"Please check shift times in row #%d.", valid]];
 	}
 	
 	// Error checking: ensure start time < end time for each specific station entry
+	valid = [model checkSpecialStationTimesFor:num_staff startsAndEnds:specificStationsData];
+	if (valid != 0) {
+		[self showAlert:@"Invalid start/end times" withDetails:[NSString stringWithFormat:@"Please check specific station times in row #%d.", valid]];
+	}
+	
 	// Set up schedule (hours, half hours, etc.)
 	// Special assignments
 	// Lunch times
@@ -492,6 +498,7 @@
 	// Float (the rest)
 	// Display errors in dialogue box
 	// Open Excel or LibreOffice and enter information
+	// Add autocomplete functionality
 	
 ////////////////////////////////////////////////////////////////////////////////
 	

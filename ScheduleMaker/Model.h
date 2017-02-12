@@ -16,5 +16,6 @@
 
 - (int)countNumStaff:(NSMutableArray *)names;
 - (int)checkShiftTimesFor:(int)n starts:(NSMutableArray *)startTimeData ends:(NSMutableArray *)endTimeData;
+- (int)checkSpecialStationTimesFor:(int)n startsAndEnds:(NSMutableArray *)specificStationsData;
 
 @end

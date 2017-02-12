@@ -44,7 +44,7 @@
 	return counter;
 }
 
-// Check that end time for each shift comes after the start time for each shift
+// Check that end time comes after the start time for each shift
 // Returns which row caused a problem (row index + 1); returns 0 if completely valid
 - (int)checkShiftTimesFor:(int)n starts:(NSMutableArray *)startTimeData ends:(NSMutableArray *)endTimeData {
 	
@@ -60,6 +60,41 @@
 	// Otherwise, all valid
 	return 0;
 	
+}
+
+// Check that end time comes after the start time for each specific station entry
+- (int)checkSpecialStationTimesFor:(int)n startsAndEnds:(NSMutableArray *)specificStationsData {
+	
+	//Check each start time >= end times
+	double start_num;
+	double end_num;
+	for (int i = 0; i < n; i++) {
+		NSMutableArray *cell_data = specificStationsData[i];
+		if (![cell_data[0] isEqualToString:@""]) {
+			start_num = [[timeEntries objectForKey:cell_data[1]] doubleValue];
+			end_num = [[timeEntries objectForKey:cell_data[2]] doubleValue];
+			if (start_num >= end_num) {
+				return (i+1);
+			}
+		}
+		if (![cell_data[3] isEqualToString:@""]) {
+			start_num = [[timeEntries objectForKey:cell_data[4]] doubleValue];
+			end_num = [[timeEntries objectForKey:cell_data[5]] doubleValue];
+			if (start_num >= end_num) {
+				return (i+1);
+			}
+		}
+		if (![cell_data[6] isEqualToString:@""]) {
+			start_num = [[timeEntries objectForKey:cell_data[7]] doubleValue];
+			end_num = [[timeEntries objectForKey:cell_data[8]] doubleValue];
+			if (start_num >= end_num) {
+				return (i+1);
+			}
+		}
+	}
+	
+	// Otherwise, all valid
+	return 0;
 }
 
 @end

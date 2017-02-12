@@ -80,6 +80,8 @@
 			children = (
 				07FA1C5C1E120DB6007E81E8 /* AppDelegate.h */,
 				07FA1C5D1E120DB6007E81E8 /* AppDelegate.m */,
+				07BFEACA1E4C3E3600C5A189 /* Model.h */,
+				07BFEACB1E4C3E3600C5A189 /* Model.m */,
 				074F5FE01E19DA13009BF40E /* NameTableCellView.h */,
 				074F5FE11E19DA13009BF40E /* NameTableCellView.m */,
 				074F5FDD1E19D8C2009BF40E /* StartTimeTableCellView.h */,
@@ -98,8 +100,6 @@
 				07FA1C671E120DB6007E81E8 /* Main.storyboard */,
 				07FA1C6A1E120DB6007E81E8 /* Info.plist */,
 				07FA1C5F1E120DB6007E81E8 /* Supporting Files */,
-				07BFEACA1E4C3E3600C5A189 /* Model.h */,
-				07BFEACB1E4C3E3600C5A189 /* Model.m */,
 			);
 			path = ScheduleMaker;
 			sourceTree = "<group>";
