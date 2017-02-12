@@ -13,7 +13,7 @@
 #import "SpecificStationsTableCellView.h"
 #import "MayBePlacedTableCellView.h"
 #import "LunchTableCellView.h"
-#import "Model.h" // MODEL
+#import "Model.h"
 
 @implementation ViewController
 
@@ -454,21 +454,32 @@
 	
 }
 
+- (void)showAlert:(NSString *)title withDetails:(NSString *)details {
+	NSAlert *alert = [[NSAlert alloc] init];
+	[alert addButtonWithTitle:@"OK"];
+	[alert setMessageText:title];
+	[alert setInformativeText:details];
+	[alert setAlertStyle:NSInformationalAlertStyle];
+	[alert beginSheetModalForWindow:self.view.window completionHandler:nil];
+}
+
 // When "Make Schedule" button is pressed (gather information, compute schedule)
 - (IBAction)makeSchedule:(id)sender {
 	
 	// Update arrays of information from table rows
 	[self scrapeData];
 	
-	// Create model
+	// Create model; set number of staff for input into following method calls
 	model = [[Model alloc] init];
+	int num_staff = [model countNumStaff:nameData];
 	
-	// Error checking
-	[model setX:11]; // MODEL - use method to give info
-	int print_this = [model getX]; (void) print_this; // MODEL - use method to gain info
+	// Error checking: ensure start time < end time for each shift
+	int valid = [model checkShiftTimesFor:num_staff starts:startTimeData ends:endTimeData];
+	if (valid != 0) {
+		[self showAlert:@"Invalid start/end times" withDetails:[NSString stringWithFormat:@"Please check row #%d.", valid]];
+	}
 	
-	// Basic error checking, including...
-	// ...make sure start time < end time for overall shift duration and for specific stations where a name has actually been entered
+	// Error checking: ensure start time < end time for each specific station entry
 	// Set up schedule (hours, half hours, etc.)
 	// Special assignments
 	// Lunch times

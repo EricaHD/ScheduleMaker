@@ -10,12 +10,11 @@
 
 @interface Model : NSObject {
 	
-	int x;
+	NSDictionary *timeEntries;
 	
 }
 
-- (void)setX:(int)value;
-- (int)getX;
-- (void)checkShiftDuration:(NSMutableArray *)starttimes until:(NSMutableArray *)endtimes;
+- (int)countNumStaff:(NSMutableArray *)names;
+- (int)checkShiftTimesFor:(int)n starts:(NSMutableArray *)startTimeData ends:(NSMutableArray *)endTimeData;
 
 @end
