@@ -107,6 +107,13 @@
 	threePM.state = NSOnState;
 	fourPM.state = NSOnState;
 	
+	// Set background color for table headers (gray matching gray in alternating rows)
+	NSView *box = [[NSView alloc] initWithFrame:CGRectMake(0.0, 0.0, 1000.0, 30.0)];
+	[box setWantsLayer:YES];
+	NSColor *color = [NSColor colorWithRed:240.0/255.0 green:240.0/255.0 blue:240.0/255.0 alpha:0.25f];
+	[box.layer setBackgroundColor:color.CGColor];
+	[table.headerView addSubview:box];
+	
 	// Set background color for table rows (alternating blue/purple and gray for 20 lines)
 	for (int i = 0; i < 20; i++) {
 		NSView *box = [[NSView alloc] initWithFrame:CGRectMake(0.0, 77.0*i, 1000.0, 77.0)];
@@ -450,12 +457,32 @@
 // When "Make Schedule" button is pressed (gather information, compute schedule)
 - (IBAction)makeSchedule:(id)sender {
 	
+	// Update arrays of information from table rows
 	[self scrapeData];
 	
-	_myModel = [[Model alloc] init]; // MODEL
-	[_myModel setX:11]; // MODEL
-	int print_this = [_myModel getX]; // MODEL
-	NSLog(@"%d", print_this); // MODEL
+	// Create model
+	model = [[Model alloc] init];
+	
+	// Error checking
+	[model setX:11]; // MODEL - use method to give info
+	int print_this = [model getX]; (void) print_this; // MODEL - use method to gain info
+	
+	// Basic error checking, including...
+	// ...make sure start time < end time for overall shift duration and for specific stations where a name has actually been entered
+	// Set up schedule (hours, half hours, etc.)
+	// Special assignments
+	// Lunch times
+	// Trike
+	// Coro
+	// Gallery, and other random stations entered on the bottom
+	// -1
+	// -1
+	// 0
+	// Float (the rest)
+	// Display errors in dialogue box
+	// Open Excel or LibreOffice and enter information
+	
+////////////////////////////////////////////////////////////////////////////////
 	
 //	nameData;
 //	startTimeData;
