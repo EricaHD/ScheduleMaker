@@ -14,7 +14,8 @@
 	
 }
 
--(void)setX:(int)value;
--(int)getX;
+- (void)setX:(int)value;
+- (int)getX;
+- (void)checkShiftDuration:(NSMutableArray *)starttimes until:(NSMutableArray *)endtimes;
 
 @end
