@@ -9,13 +9,17 @@
 #import <Foundation/Foundation.h>
 
 @interface Model : NSObject {
-	
+
 	NSDictionary *timeEntries;
+	int numStaff;
+	NSMutableArray *schedule;
 	
 }
 
-- (int)countNumStaff:(NSMutableArray *)names;
-- (int)checkShiftTimesFor:(int)n starts:(NSMutableArray *)startTimeData ends:(NSMutableArray *)endTimeData;
-- (int)checkSpecialStationTimesFor:(int)n startsAndEnds:(NSMutableArray *)specificStationsData;
+- (void)setNumStaff:(NSMutableArray *)names;
+- (int)getNumStaff;
+- (int)checkShiftTimesFor:(NSMutableArray *)startTimeData until:(NSMutableArray *)endTimeData;
+- (int)checkSpecialStationTimesFor:(NSMutableArray *)specificStationsData;
+- (void)printSchedule:(NSMutableArray *)nameData;
 
 @end

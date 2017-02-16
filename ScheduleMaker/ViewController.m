@@ -471,22 +471,25 @@
 	
 	// Create model; set number of staff for input into following method calls
 	model = [[Model alloc] init];
-	int num_staff = [model countNumStaff:nameData];
+	[model setNumStaff:nameData];
 	
 	// Error checking: ensure start time < end time for each shift
 	int valid;
-	valid = [model checkShiftTimesFor:num_staff starts:startTimeData ends:endTimeData];
+	valid = [model checkShiftTimesFor:startTimeData until:endTimeData];
 	if (valid != 0) {
 		[self showAlert:@"Invalid start/end times" withDetails:[NSString stringWithFormat:@"Please check shift times in row #%d.", valid]];
 	}
 	
 	// Error checking: ensure start time < end time for each specific station entry
-	valid = [model checkSpecialStationTimesFor:num_staff startsAndEnds:specificStationsData];
+	valid = [model checkSpecialStationTimesFor:specificStationsData];
 	if (valid != 0) {
 		[self showAlert:@"Invalid start/end times" withDetails:[NSString stringWithFormat:@"Please check specific station times in row #%d.", valid]];
 	}
 	
+	[model printSchedule:nameData]; // DEBUGGING
+
 	// Set up schedule (hours, half hours, etc.)
+	// @"X" out hours in which staff member is not at museum
 	// Special assignments
 	// Lunch times
 	// Trike
@@ -502,10 +505,10 @@
 	
 ////////////////////////////////////////////////////////////////////////////////
 	
-//	nameData;
-//	startTimeData;
-//	endTimeData;
-//	specificStationsData;
+//	nameData; - used to count # rows actually containing info
+//	startTimeData; - used in error checking 1
+//	endTimeData; - used in error checking 1
+//	specificStationsData; - used in error checking 2
 //	mayBePlacedData;
 //	lunchData;
 //
