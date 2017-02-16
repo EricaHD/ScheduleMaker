@@ -20,6 +20,7 @@
 - (int)getNumStaff;
 - (int)checkShiftTimesFor:(NSMutableArray *)startTimeData until:(NSMutableArray *)endTimeData;
 - (int)checkSpecialStationTimesFor:(NSMutableArray *)specificStationsData;
+- (void)blockOutNonShiftHours:(NSMutableArray *)startTimeData until:(NSMutableArray *)endTimeData;
 - (void)printSchedule:(NSMutableArray *)nameData;
 
 @end

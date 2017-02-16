@@ -17,21 +17,36 @@
 	self = [super init];
 	
 	// Initialize instance variables
-	timeEntries = @{@"10:00 am" : [NSNumber numberWithDouble:10.0], // 20 - 20
-					@"10:30 am" : [NSNumber numberWithDouble:10.5], // 21 - 20
-					@"11:00 am" : [NSNumber numberWithDouble:11.0], // 22 - 20
-					@"11:30 am" : [NSNumber numberWithDouble:11.5], // 23 - 20
-					@"12:00 pm" : [NSNumber numberWithDouble:12.0], // 24 - 20
-					@"12:30 pm" : [NSNumber numberWithDouble:12.5], // 25 - 20
-					@"1:00 pm" : [NSNumber numberWithDouble:13.0], // 26 - 20
-					@"1:30 pm" : [NSNumber numberWithDouble:13.5], // 27 - 20
-					@"2:00 pm" : [NSNumber numberWithDouble:14.0], // 28 - 20
-					@"2:30 pm" : [NSNumber numberWithDouble:14.5], // 29 - 20
-					@"3:00 pm" : [NSNumber numberWithDouble:15.0], // 30 - 20
-					@"3:30 pm" : [NSNumber numberWithDouble:15.5], // 31 - 20
-					@"4:00 pm" : [NSNumber numberWithDouble:16.0], // 32 - 20
-					@"4:30 pm" : [NSNumber numberWithDouble:16.5], // 33 - 20
-					@"5:00 pm" : [NSNumber numberWithDouble:17.0]};
+//	timeEntries = @{@"10:00 am" : [NSNumber numberWithDouble:10.0],
+//					@"10:30 am" : [NSNumber numberWithDouble:10.5],
+//					@"11:00 am" : [NSNumber numberWithDouble:11.0],
+//					@"11:30 am" : [NSNumber numberWithDouble:11.5],
+//					@"12:00 pm" : [NSNumber numberWithDouble:12.0],
+//					@"12:30 pm" : [NSNumber numberWithDouble:12.5],
+//					@"1:00 pm" : [NSNumber numberWithDouble:13.0],
+//					@"1:30 pm" : [NSNumber numberWithDouble:13.5],
+//					@"2:00 pm" : [NSNumber numberWithDouble:14.0],
+//					@"2:30 pm" : [NSNumber numberWithDouble:14.5],
+//					@"3:00 pm" : [NSNumber numberWithDouble:15.0],
+//					@"3:30 pm" : [NSNumber numberWithDouble:15.5],
+//					@"4:00 pm" : [NSNumber numberWithDouble:16.0],
+//					@"4:30 pm" : [NSNumber numberWithDouble:16.5],
+//					@"5:00 pm" : [NSNumber numberWithDouble:17.0]};
+	timeEntries = @{@"10:00 am" : [NSNumber numberWithDouble:0],
+					@"10:30 am" : [NSNumber numberWithDouble:1],
+					@"11:00 am" : [NSNumber numberWithDouble:2],
+					@"11:30 am" : [NSNumber numberWithDouble:3],
+					@"12:00 pm" : [NSNumber numberWithDouble:4],
+					@"12:30 pm" : [NSNumber numberWithDouble:5],
+					@"1:00 pm" : [NSNumber numberWithDouble:6],
+					@"1:30 pm" : [NSNumber numberWithDouble:7],
+					@"2:00 pm" : [NSNumber numberWithDouble:8],
+					@"2:30 pm" : [NSNumber numberWithDouble:9],
+					@"3:00 pm" : [NSNumber numberWithDouble:10],
+					@"3:30 pm" : [NSNumber numberWithDouble:11],
+					@"4:00 pm" : [NSNumber numberWithDouble:12],
+					@"4:30 pm" : [NSNumber numberWithDouble:13],
+					@"5:00 pm" : [NSNumber numberWithDouble:14]};
 	numStaff = 0;
 	schedule = [NSMutableArray array];
 	
@@ -117,8 +132,26 @@
 	
 	// Otherwise, all valid
 	return 0;
+	
 }
 
+// X out hours that are outside a staff member's shift
+- (void)blockOutNonShiftHours:(NSMutableArray *)startTimeData until:(NSMutableArray *)endTimeData {
+	
+	for (int i = 0; i < numStaff; i++) {
+		double start_num = [[timeEntries objectForKey:startTimeData[i]] doubleValue]; // 0
+		double end_num = [[timeEntries objectForKey:endTimeData[i]] doubleValue]; // 14
+		for (int j = 0; j < start_num; j++) {
+			schedule[i][j] = @"X";
+		}
+		for (int k = end_num; k < 14; k++) {
+			schedule[i][k] = @"X";
+		}
+	}
+	
+}
+
+// Print schedule array, formated next to names and times for easy viewing and debugging
 - (void)printSchedule:(NSMutableArray *)nameData {
 	
 	// Print contents of schedule
@@ -126,7 +159,6 @@
 	for (int i = 0; i < numStaff; i++) {
 		NSLog(@"%@", [NSString stringWithFormat:@"%-10s %-10s %-10s %-10s %-10s %-10s %-10s %-10s %-10s %-10s %-10s %-10s %-10s %-10s %s", [nameData[i] UTF8String], [schedule[i][0] UTF8String], [schedule[i][1] UTF8String], [schedule[i][2] UTF8String], [schedule[i][3] UTF8String], [schedule[i][4] UTF8String], [schedule[i][5] UTF8String], [schedule[i][6] UTF8String], [schedule[i][7] UTF8String], [schedule[i][8] UTF8String], [schedule[i][9] UTF8String], [schedule[i][10] UTF8String], [schedule[i][11] UTF8String], [schedule[i][12] UTF8String], [schedule[i][13] UTF8String]]);
 	}
-	
 	
 }
 

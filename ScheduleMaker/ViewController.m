@@ -485,11 +485,11 @@
 	if (valid != 0) {
 		[self showAlert:@"Invalid start/end times" withDetails:[NSString stringWithFormat:@"Please check specific station times in row #%d.", valid]];
 	}
-	
-	[model printSchedule:nameData]; // DEBUGGING
 
-	// Set up schedule (hours, half hours, etc.)
-	// @"X" out hours in which staff member is not at museum
+	// X out hours that are outside a staff member's shift
+	[model blockOutNonShiftHours:startTimeData until:endTimeData];
+
+	// Set up hours/half hours
 	// Special assignments
 	// Lunch times
 	// Trike
@@ -502,6 +502,8 @@
 	// Display errors in dialogue box
 	// Open Excel or LibreOffice and enter information
 	// Add autocomplete functionality
+
+	[model printSchedule:nameData];
 	
 ////////////////////////////////////////////////////////////////////////////////
 	
