@@ -469,6 +469,14 @@
 	// Update arrays of information from table rows
 	[self scrapeData];
 	
+	// Data now available:
+	//	  nameData, startTimeData, endTimeData, specificStationsData, mayBePlacedData, lunchData
+	//	  birthday, gallery, greeting, lesson, manager, other, project, security, tours
+	//	  birthday_starttime, gallery_starttime, greeting_starttime, lesson_starttime, manager_starttime, other_starttime, project_starttime, security_starttime, tours_starttime
+	//	  birthday_endtime, gallery_endtime, greeting_endtime, lesson_endtime, manager_endtime, other_endtime, project_endtime, security_endtime, tours_endtime
+	//	  birthday_changes, gallery_changes, greeting_changes, lesson_changes, manager_changes, other_changes, project_changes, security_changes, tours_changes
+	//	  tenAM, elevenAM, twelvePM, onePM, twoPM, threePM, fourPM
+	
 	// Create model; set number of staff for input into following method calls
 	model = [[Model alloc] init];
 	[model setNumStaff:nameData];
@@ -477,15 +485,27 @@
 	int valid;
 	valid = [model checkShiftTimesFor:startTimeData until:endTimeData];
 	if (valid != 0) {
-		[self showAlert:@"Invalid start/end times" withDetails:[NSString stringWithFormat:@"Please check shift times in row #%d.", valid]];
+		[self showAlert:@"Invalid shift times" withDetails:[NSString stringWithFormat:@"Please check shift times in row #%d.", valid]];
 	}
 	
 	// Error checking: ensure start time < end time for each specific station entry
-	valid = [model checkSpecialStationTimesFor:specificStationsData];
+	valid = [model checkSpecificStationTimesFor:specificStationsData];
 	if (valid != 0) {
-		[self showAlert:@"Invalid start/end times" withDetails:[NSString stringWithFormat:@"Please check specific station times in row #%d.", valid]];
+		[self showAlert:@"Invalid specific station times" withDetails:[NSString stringWithFormat:@"Please check specific station times in row #%d.", valid]];
 	}
-
+	
+	// Error checking: ensure specific station times are subsets of shift times
+	valid = [model checkShiftTimesAndSpecificiStationTimesFor: startTimeData until:endTimeData including:specificStationsData];
+	if (valid != 0) {
+		[self showAlert:@"Invalid specific station times" withDetails:[NSString stringWithFormat:@"Please check that specific station times do not extend outside shift hours in row #%d.", valid]];
+	}
+	
+	// Error checking: ensure specific station times do not conflict
+	valid = [model checkSpecificStationTimesConflictsFor:specificStationsData];
+	if (valid != 0) {
+		[self showAlert:@"Invalid specific station times" withDetails:[NSString stringWithFormat:@"Please check that specific station times do not overlap in row #%d.", valid]];
+	}
+	
 	// X out hours that are outside a staff member's shift
 	[model blockOutNonShiftHours:startTimeData until:endTimeData];
 
@@ -504,63 +524,6 @@
 	// Add autocomplete functionality
 
 	[model printSchedule:nameData];
-	
-////////////////////////////////////////////////////////////////////////////////
-	
-//	nameData; - used to count # rows actually containing info
-//	startTimeData; - used in error checking 1
-//	endTimeData; - used in error checking 1
-//	specificStationsData; - used in error checking 2
-//	mayBePlacedData;
-//	lunchData;
-//
-//	birthday;
-//	gallery;
-//	greeting;
-//	lesson;
-//	manager;
-//	other;
-//	project;
-//	security;
-//	tours;
-//	
-//	birthday_starttime;
-//	gallery_starttime;
-//	greeting_starttime;
-//	lesson_starttime;
-//	manager_starttime;
-//	other_starttime;
-//	project_starttime;
-//	security_starttime;
-//	tours_starttime;
-//	
-//	birthday_endtime;
-//	gallery_endtime;
-//	greeting_endtime;
-//	lesson_endtime;
-//	manager_endtime;
-//	other_endtime;
-//	project_endtime;
-//	security_endtime;
-//	tours_endtime;
-//	
-//	birthday_changes;
-//	gallery_changes;
-//	greeting_changes;
-//	lesson_changes;
-//	manager_changes;
-//	other_changes;
-//	project_changes;
-//	security_changes;
-//	tours_changes;
-//	
-//	tenAM;
-//	elevenAM;
-//	twelvePM;
-//	onePM;
-//	twoPM;
-//	threePM;
-//	fourPM;
 	
 }
 

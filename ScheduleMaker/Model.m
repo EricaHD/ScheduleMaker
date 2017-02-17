@@ -32,21 +32,21 @@
 //					@"4:00 pm" : [NSNumber numberWithDouble:16.0],
 //					@"4:30 pm" : [NSNumber numberWithDouble:16.5],
 //					@"5:00 pm" : [NSNumber numberWithDouble:17.0]};
-	timeEntries = @{@"10:00 am" : [NSNumber numberWithDouble:0],
-					@"10:30 am" : [NSNumber numberWithDouble:1],
-					@"11:00 am" : [NSNumber numberWithDouble:2],
-					@"11:30 am" : [NSNumber numberWithDouble:3],
-					@"12:00 pm" : [NSNumber numberWithDouble:4],
-					@"12:30 pm" : [NSNumber numberWithDouble:5],
-					@"1:00 pm" : [NSNumber numberWithDouble:6],
-					@"1:30 pm" : [NSNumber numberWithDouble:7],
-					@"2:00 pm" : [NSNumber numberWithDouble:8],
-					@"2:30 pm" : [NSNumber numberWithDouble:9],
-					@"3:00 pm" : [NSNumber numberWithDouble:10],
-					@"3:30 pm" : [NSNumber numberWithDouble:11],
-					@"4:00 pm" : [NSNumber numberWithDouble:12],
-					@"4:30 pm" : [NSNumber numberWithDouble:13],
-					@"5:00 pm" : [NSNumber numberWithDouble:14]};
+	timeEntries = @{@"10:00 am" : [NSNumber numberWithInt:0],
+					@"10:30 am" : [NSNumber numberWithInt:1],
+					@"11:00 am" : [NSNumber numberWithInt:2],
+					@"11:30 am" : [NSNumber numberWithInt:3],
+					@"12:00 pm" : [NSNumber numberWithInt:4],
+					@"12:30 pm" : [NSNumber numberWithInt:5],
+					@"1:00 pm" : [NSNumber numberWithInt:6],
+					@"1:30 pm" : [NSNumber numberWithInt:7],
+					@"2:00 pm" : [NSNumber numberWithInt:8],
+					@"2:30 pm" : [NSNumber numberWithInt:9],
+					@"3:00 pm" : [NSNumber numberWithInt:10],
+					@"3:30 pm" : [NSNumber numberWithInt:11],
+					@"4:00 pm" : [NSNumber numberWithInt:12],
+					@"4:30 pm" : [NSNumber numberWithInt:13],
+					@"5:00 pm" : [NSNumber numberWithInt:14]};
 	numStaff = 0;
 	schedule = [NSMutableArray array];
 	
@@ -87,8 +87,8 @@
 	
 	// Check each start time >= end time
 	for (int i = 0; i < numStaff; i++) {
-		double start_num = [[timeEntries objectForKey:startTimeData[i]] doubleValue];
-		double end_num = [[timeEntries objectForKey:endTimeData[i]] doubleValue];
+		int start_num = [[timeEntries objectForKey:startTimeData[i]] intValue];
+		int end_num = [[timeEntries objectForKey:endTimeData[i]] intValue];
 		if (start_num >= end_num) {
 			return (i+1);
 		}
@@ -100,30 +100,30 @@
 }
 
 // Check that end time comes after the start time for each specific station entry
-- (int)checkSpecialStationTimesFor:(NSMutableArray *)specificStationsData {
+- (int)checkSpecificStationTimesFor:(NSMutableArray *)specificStationsData {
 	
-	//Check each start time >= end times
-	double start_num;
-	double end_num;
+	// Check each start time >= end times
+	int start_num;
+	int end_num;
 	for (int i = 0; i < numStaff; i++) {
 		NSMutableArray *cell_data = specificStationsData[i];
 		if (![cell_data[0] isEqualToString:@""]) {
-			start_num = [[timeEntries objectForKey:cell_data[1]] doubleValue];
-			end_num = [[timeEntries objectForKey:cell_data[2]] doubleValue];
+			start_num = [[timeEntries objectForKey:cell_data[1]] intValue];
+			end_num = [[timeEntries objectForKey:cell_data[2]] intValue];
 			if (start_num >= end_num) {
 				return (i+1);
 			}
 		}
 		if (![cell_data[3] isEqualToString:@""]) {
-			start_num = [[timeEntries objectForKey:cell_data[4]] doubleValue];
-			end_num = [[timeEntries objectForKey:cell_data[5]] doubleValue];
+			start_num = [[timeEntries objectForKey:cell_data[4]] intValue];
+			end_num = [[timeEntries objectForKey:cell_data[5]] intValue];
 			if (start_num >= end_num) {
 				return (i+1);
 			}
 		}
 		if (![cell_data[6] isEqualToString:@""]) {
-			start_num = [[timeEntries objectForKey:cell_data[7]] doubleValue];
-			end_num = [[timeEntries objectForKey:cell_data[8]] doubleValue];
+			start_num = [[timeEntries objectForKey:cell_data[7]] intValue];
+			end_num = [[timeEntries objectForKey:cell_data[8]] intValue];
 			if (start_num >= end_num) {
 				return (i+1);
 			}
@@ -133,6 +133,84 @@
 	// Otherwise, all valid
 	return 0;
 	
+}
+
+// Check that specific station times are subsets of shift times
+- (int)checkShiftTimesAndSpecificiStationTimesFor:(NSMutableArray *)startTimeData until:(NSMutableArray *)endTimeData including:(NSMutableArray *)specificStationsData {
+	
+	// Check each
+	int start_num;
+	int end_num;
+	for (int i = 0; i < numStaff; i++) {
+		int start_shift = [[timeEntries objectForKey:startTimeData[i]] intValue];;
+		int end_shift = [[timeEntries objectForKey:endTimeData[i]] intValue];
+		NSMutableArray *cell_data = specificStationsData[i];
+		if (![cell_data[0] isEqualToString:@""]) {
+			start_num = [[timeEntries objectForKey:cell_data[1]] intValue];
+			end_num = [[timeEntries objectForKey:cell_data[2]] intValue];
+			if ((start_num < start_shift) || (end_num > end_shift)) {
+				return (i+1);
+			}
+		}
+		if (![cell_data[3] isEqualToString:@""]) {
+			start_num = [[timeEntries objectForKey:cell_data[4]] intValue];
+			end_num = [[timeEntries objectForKey:cell_data[5]] intValue];
+			if ((start_num < start_shift) || (end_num > end_shift)) {
+				return (i+1);
+			}
+		}
+		if (![cell_data[6] isEqualToString:@""]) {
+			start_num = [[timeEntries objectForKey:cell_data[7]] intValue];
+			end_num = [[timeEntries objectForKey:cell_data[8]] intValue];
+			if ((start_num < start_shift) || (end_num > end_shift)) {
+				return (i+1);
+			}
+		}
+	}
+	
+	// Otherwise, all, valid
+	return 0;
+}
+
+// Check that specific station times do not conflict
+- (int)checkSpecificStationTimesConflictsFor:(NSMutableArray *)specificStationsData {
+	
+	// Check that specific station times do not conflict
+	int start_num;
+	int end_num;
+	for (int i = 0; i < numStaff; i++) {
+		NSInteger tally[14] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+		NSMutableArray *cell_data = specificStationsData[i];
+		if (![cell_data[0] isEqualToString:@""]) {
+			start_num = [[timeEntries objectForKey:cell_data[1]] intValue];
+			end_num = [[timeEntries objectForKey:cell_data[2]] intValue];
+			for (int j = start_num; j < end_num; j++) {
+				tally[j]++;
+			}
+		}
+		if (![cell_data[3] isEqualToString:@""]) {
+			start_num = [[timeEntries objectForKey:cell_data[4]] intValue];
+			end_num = [[timeEntries objectForKey:cell_data[5]] intValue];
+			for (int j = start_num; j < end_num; j++) {
+				tally[j]++;
+			}
+		}
+		if (![cell_data[6] isEqualToString:@""]) {
+			start_num = [[timeEntries objectForKey:cell_data[7]] intValue];
+			end_num = [[timeEntries objectForKey:cell_data[8]] intValue];
+			for (int j = start_num; j < end_num; j++) {
+				tally[j]++;
+			}
+		}
+		for (int k = 0; k < 14; k++) {
+			if (tally[k] != 0) {
+				return (i+1);
+			}
+		}
+	}
+	
+	// Otherwise, all valid
+	return 0;
 }
 
 // X out hours that are outside a staff member's shift
