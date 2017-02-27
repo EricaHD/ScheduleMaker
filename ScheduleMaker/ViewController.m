@@ -495,7 +495,7 @@
 	}
 	
 	// Error checking: ensure specific station times are subsets of shift times
-	valid = [model checkShiftTimesAndSpecificiStationTimesFor: startTimeData until:endTimeData including:specificStationsData];
+	valid = [model checkShiftTimesAndSpecificiStationTimesFor:startTimeData until:endTimeData including:specificStationsData];
 	if (valid != 0) {
 		[self showAlert:@"Invalid specific station times" withDetails:[NSString stringWithFormat:@"Please check that specific station times do not extend outside shift hours in row #%d.", valid]];
 	}
@@ -505,13 +505,20 @@
 	if (valid != 0) {
 		[self showAlert:@"Invalid specific station times" withDetails:[NSString stringWithFormat:@"Please check that specific station times do not overlap in row #%d.", valid]];
 	}
+
+	// Set up hours/half hours on schedule
+	NSMutableArray *halfHourData = [NSMutableArray arrayWithObjects:[NSNumber numberWithLong:tenAM.state], [NSNumber numberWithLong:elevenAM.state], [NSNumber numberWithLong:twelvePM.state], [NSNumber numberWithLong:onePM.state], [NSNumber numberWithLong:twoPM.state], [NSNumber numberWithLong:threePM.state], [NSNumber numberWithLong:fourPM.state], nil];
+	[model setHalfHours:halfHourData];
 	
 	// X out hours that are outside a staff member's shift
 	[model blockOutNonShiftHours:startTimeData until:endTimeData];
 
-	// Set up hours/half hours
-	// Special assignments
-	// Lunch times
+	// Assign specific stations on schedule
+	[model assignSpecificStations:specificStationsData];
+	
+	// Assign lunches on schedule
+	[model assignLunches:lunchData starting:startTimeData ending:endTimeData];
+
 	// Trike
 	// Coro
 	// Gallery, and other random stations entered on the bottom

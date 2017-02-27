@@ -17,21 +17,6 @@
 	self = [super init];
 	
 	// Initialize instance variables
-//	timeEntries = @{@"10:00 am" : [NSNumber numberWithDouble:10.0],
-//					@"10:30 am" : [NSNumber numberWithDouble:10.5],
-//					@"11:00 am" : [NSNumber numberWithDouble:11.0],
-//					@"11:30 am" : [NSNumber numberWithDouble:11.5],
-//					@"12:00 pm" : [NSNumber numberWithDouble:12.0],
-//					@"12:30 pm" : [NSNumber numberWithDouble:12.5],
-//					@"1:00 pm" : [NSNumber numberWithDouble:13.0],
-//					@"1:30 pm" : [NSNumber numberWithDouble:13.5],
-//					@"2:00 pm" : [NSNumber numberWithDouble:14.0],
-//					@"2:30 pm" : [NSNumber numberWithDouble:14.5],
-//					@"3:00 pm" : [NSNumber numberWithDouble:15.0],
-//					@"3:30 pm" : [NSNumber numberWithDouble:15.5],
-//					@"4:00 pm" : [NSNumber numberWithDouble:16.0],
-//					@"4:30 pm" : [NSNumber numberWithDouble:16.5],
-//					@"5:00 pm" : [NSNumber numberWithDouble:17.0]};
 	timeEntries = @{@"10:00 am" : [NSNumber numberWithInt:0],
 					@"10:30 am" : [NSNumber numberWithInt:1],
 					@"11:00 am" : [NSNumber numberWithInt:2],
@@ -71,6 +56,8 @@
 	for (int i = 0; i < numStaff; i++) {
 		[schedule addObject:[NSMutableArray arrayWithObjects:@"", @"", @"", @"", @"", @"", @"", @"", @"", @"", @"", @"", @"", @"", nil]];
 	}
+	
+	return;
 
 }
 
@@ -170,6 +157,7 @@
 	
 	// Otherwise, all, valid
 	return 0;
+	
 }
 
 // Check that specific station times do not conflict
@@ -211,22 +199,62 @@
 	
 	// Otherwise, all valid
 	return 0;
+	
+}
+
+// Set up hours/half hours on schedule
+- (void)setHalfHours:(NSMutableArray *)halfHourData {
+	
+	for (int i = 0; i < halfHourData.count; i++) {
+		if (![halfHourData[i] intValue]) {
+			// 2i + 1 should say "SAME"
+			for (int j = 0; j < schedule.count; j++) {
+				schedule[j][2*i+1] = @"SAME";
+			}
+		}
+	}
+	
+	return;
 }
 
 // X out hours that are outside a staff member's shift
 - (void)blockOutNonShiftHours:(NSMutableArray *)startTimeData until:(NSMutableArray *)endTimeData {
 	
 	for (int i = 0; i < numStaff; i++) {
-		double start_num = [[timeEntries objectForKey:startTimeData[i]] doubleValue]; // 0
-		double end_num = [[timeEntries objectForKey:endTimeData[i]] doubleValue]; // 14
+		double start_num = [[timeEntries objectForKey:startTimeData[i]] doubleValue];
+		double end_num = [[timeEntries objectForKey:endTimeData[i]] doubleValue];
 		for (int j = 0; j < start_num; j++) {
 			schedule[i][j] = @"X";
+		}
+		int next = start_num;
+		// If we have "X" then "SAME" delete the "SAME" so "X" doesn't extend further than necessary
+		if (next < 14 && [schedule[i][next] isEqualToString:@"SAME"]) {
+			schedule[i][next] = @"";
 		}
 		for (int k = end_num; k < 14; k++) {
 			schedule[i][k] = @"X";
 		}
 	}
 	
+	return;
+	
+}
+
+// Assign specific stations on schedule
+- (void)assignSpecificStations:(NSMutableArray *)specificStationsData {
+	
+	// TODO
+	
+	return;
+	
+}
+
+// Assign lunches on schedule for staff members at the museum for > 5 hours
+- (void)assignLunches:(NSMutableArray *)lunchData starting:(NSMutableArray *)startTimeData ending:(NSMutableArray *)endTimeData {
+	
+	// TODO
+	
+	return;
 }
 
 // Print schedule array, formated next to names and times for easy viewing and debugging
@@ -237,6 +265,8 @@
 	for (int i = 0; i < numStaff; i++) {
 		NSLog(@"%@", [NSString stringWithFormat:@"%-10s %-10s %-10s %-10s %-10s %-10s %-10s %-10s %-10s %-10s %-10s %-10s %-10s %-10s %s", [nameData[i] UTF8String], [schedule[i][0] UTF8String], [schedule[i][1] UTF8String], [schedule[i][2] UTF8String], [schedule[i][3] UTF8String], [schedule[i][4] UTF8String], [schedule[i][5] UTF8String], [schedule[i][6] UTF8String], [schedule[i][7] UTF8String], [schedule[i][8] UTF8String], [schedule[i][9] UTF8String], [schedule[i][10] UTF8String], [schedule[i][11] UTF8String], [schedule[i][12] UTF8String], [schedule[i][13] UTF8String]]);
 	}
+	
+	return;
 	
 }
 
