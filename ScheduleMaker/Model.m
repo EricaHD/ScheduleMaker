@@ -190,11 +190,14 @@
 				tally[j]++;
 			}
 		}
+		
+		// Make sure person is not assigned to > 1 specific station at a time
 		for (int k = 0; k < 14; k++) {
-			if (tally[k] != 0) {
+			if (tally[k] > 1) {
 				return (i+1);
 			}
 		}
+		
 	}
 	
 	// Otherwise, all valid
@@ -242,8 +245,52 @@
 
 // Assign specific stations on schedule
 - (void)assignSpecificStations:(NSMutableArray *)specificStationsData {
-	
-	// TODO
+
+	for (int i = 0; i < numStaff; i++) {
+		
+		// Prepare for and get specpfic stations cell information
+		int start_num;
+		int end_num;
+		NSMutableArray *cell_data = specificStationsData[i];
+
+		// Insert specific station #1 into schedule
+		if (![cell_data[0] isEqualToString:@""]) {
+			start_num = [[timeEntries objectForKey:cell_data[1]] intValue];
+			end_num = [[timeEntries objectForKey:cell_data[2]] intValue];
+			for (int j = start_num; j < end_num; j++) {
+				schedule[i][j] = cell_data[0];
+			}
+		}
+		if (end_num < 14 && [schedule[i][end_num] isEqualToString:@"SAME"]) {
+			schedule[i][end_num] = @"";
+		}
+		
+		// Insert specific station #2 into schedule
+		if (![cell_data[3] isEqualToString:@""]) {
+			start_num = [[timeEntries objectForKey:cell_data[4]] intValue];
+			end_num = [[timeEntries objectForKey:cell_data[5]] intValue];
+			for (int j = start_num; j < end_num; j++) {
+				schedule[i][j] = cell_data[3];
+			}
+		}
+		if (end_num < 14 && [schedule[i][end_num] isEqualToString:@"SAME"]) {
+			schedule[i][end_num] = @"";
+		}
+		
+
+		// Insert specific station #2 into schedule
+		if (![cell_data[6] isEqualToString:@""]) {
+			start_num = [[timeEntries objectForKey:cell_data[7]] intValue];
+			end_num = [[timeEntries objectForKey:cell_data[8]] intValue];
+			for (int j = start_num; j < end_num; j++) {
+				schedule[i][j] = cell_data[6];
+			}
+		}
+		if (end_num < 14 && [schedule[i][end_num] isEqualToString:@"SAME"]) {
+			schedule[i][end_num] = @"";
+		}
+
+	}
 	
 	return;
 	
