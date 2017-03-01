@@ -34,6 +34,7 @@
 					@"5:00 pm" : [NSNumber numberWithInt:14]};
 	numStaff = 0;
 	schedule = [NSMutableArray array];
+	NSInteger lunchCount[14] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}; // TODO
 	
 	// Return
 	return self;
@@ -299,7 +300,70 @@
 // Assign lunches on schedule for staff members at the museum for > 5 hours
 - (void)assignLunches:(NSMutableArray *)lunchData starting:(NSMutableArray *)startTimeData ending:(NSMutableArray *)endTimeData {
 	
-	// TODO
+	// Early, late, and standard lunch lists
+	// Lists contain ordered pairs: (person/row number, hour lunch state)
+	NSMutableArray *earlyLunchList;
+	NSMutableArray *standardLunchList;
+	NSMutableArray *lateLunchList;
+	
+	// Go through all staff; compile data into above lunch lists
+	for (int i = 0; i < numStaff; i++) {
+		int start_num = [[timeEntries objectForKey:startTimeData[i]] intValue];
+		int end_num = [[timeEntries objectForKey:endTimeData[i]] intValue];
+		
+		// Only needs a lunch if on duty for 5 or more hours (10 half hours) or more
+		if (end_num - start_num >= 10) {
+			NSNumber *cell_Data = lunchData[i];
+			int early_lunch_state = 1 & [cell_Data integerValue];
+			int late_lunch_state = 2 & [cell_Data integerValue];
+			int hour_lunch_state = 4 & [cell_Data integerValue];
+			if (early_lunch_state) {
+				[earlyLunchList addObject:[NSMutableArray arrayWithObjects:[NSNumber numberWithInt:i], [NSNumber numberWithInt:hour_lunch_state], nil]];
+			}
+			else if (late_lunch_state) {
+				[lateLunchList addObject:[NSMutableArray arrayWithObjects:[NSNumber numberWithInt:i], [NSNumber numberWithInt:hour_lunch_state], nil]];
+			}
+			else {
+				[standardLunchList addObject:[NSMutableArray arrayWithObjects:[NSNumber numberWithInt:i], [NSNumber numberWithInt:hour_lunch_state], nil]];
+			}
+		}
+	}
+	
+	// Assign early lunches from earlyLunchList
+	for (int j = 0; j < earlyLunchList.count; j++) {
+		NSNumber *row = earlyLunchList[j][0];
+		NSNumber *hour_lunch_state = earlyLunchList[j][1];
+		if (hour_lunch_state) {
+			// TODO: person (row variable) wants early hour lunch
+		}
+		else {
+			// TODO: person (row variable) wants early half-hour lunch
+		}
+	}
+	
+	// Assign late lunches from lateLunchList
+	for (int j = 0; j < lateLunchList.count; j++) {
+		NSNumber *row = earlyLunchList[j][0];
+		NSNumber *hour_lunch_state = earlyLunchList[j][1];
+		if (hour_lunch_state) {
+			// TODO: person (row variable) wants late hour lunch
+		}
+		else {
+			// TODO: person (row variable) wants late half-hour lunch
+		}
+	}
+	
+	// Assign rest of the lunches from standardLunchList
+	for (int j = 0; j < standardLunchList.count; j++) {
+		NSNumber *row = earlyLunchList[j][0];
+		NSNumber *hour_lunch_state = earlyLunchList[j][1];
+		if (hour_lunch_state) {
+			// TODO: person (row variable) wants hour lunch
+		}
+		else {
+			// TODO: person (row variable) wants half-hour lunch
+		}
+	}
 	
 	return;
 }

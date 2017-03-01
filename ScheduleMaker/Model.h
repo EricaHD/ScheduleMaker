@@ -13,6 +13,7 @@
 	NSDictionary *timeEntries;
 	int numStaff;
 	NSMutableArray *schedule;
+	NSInteger lunchCount[14];
 	
 }
 
