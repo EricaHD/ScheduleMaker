@@ -34,7 +34,6 @@
 					@"5:00 pm" : [NSNumber numberWithInt:14]};
 	numStaff = 0;
 	schedule = [NSMutableArray array];
-	NSInteger lunchCount[14] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}; // TODO
 	
 	// Return
 	return self;
@@ -331,41 +330,54 @@
 	
 	// Assign early lunches from earlyLunchList
 	for (int j = 0; j < earlyLunchList.count; j++) {
-		NSNumber *row = earlyLunchList[j][0];
+		NSNumber *person = earlyLunchList[j][0];
 		NSNumber *hour_lunch_state = earlyLunchList[j][1];
 		if (hour_lunch_state) {
 			// TODO: person (row variable) wants early hour lunch
+			int row = [person intValue];
+			(void) row; // TODO
 		}
 		else {
 			// TODO: person (row variable) wants early half-hour lunch
+			int row = [person intValue];
+			(void) row; // TODO
 		}
 	}
 	
 	// Assign late lunches from lateLunchList
 	for (int j = 0; j < lateLunchList.count; j++) {
-		NSNumber *row = earlyLunchList[j][0];
-		NSNumber *hour_lunch_state = earlyLunchList[j][1];
+		NSNumber *person = lateLunchList[j][0];
+		NSNumber *hour_lunch_state = lateLunchList[j][1];
 		if (hour_lunch_state) {
 			// TODO: person (row variable) wants late hour lunch
+			int row = [person intValue];
+			(void) row; // TODO
 		}
 		else {
 			// TODO: person (row variable) wants late half-hour lunch
+			int row = [person intValue];
+			(void) row; // TODO
 		}
 	}
 	
 	// Assign rest of the lunches from standardLunchList
 	for (int j = 0; j < standardLunchList.count; j++) {
-		NSNumber *row = earlyLunchList[j][0];
-		NSNumber *hour_lunch_state = earlyLunchList[j][1];
+		NSNumber *person = standardLunchList[j][0];
+		NSNumber *hour_lunch_state = standardLunchList[j][1];
 		if (hour_lunch_state) {
 			// TODO: person (row variable) wants hour lunch
+			int row = [person intValue];
+			(void) row; // TODO
 		}
 		else {
-			// TODO: person (row variable) wants half-hour lunch
+			// TODO: person (row variable) wants half-hour lunch!!!!!!!!!!!!!!!!!!!!!!!!!
+			int row = [person intValue];
+			(void) row; // TODO
 		}
 	}
 	
 	return;
+	
 }
 
 // Print schedule array, formated next to names and times for easy viewing and debugging
