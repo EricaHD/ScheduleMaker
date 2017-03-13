@@ -51,6 +51,14 @@
 	threePM.state = NSOnState; // DEFAULT
 	fourPM.state = NSOnState; // DEFAULT
 	
+	// Stack lunches checkbox states
+	firstLunch.state = NSOffState; // DEFAULT
+	secondLunch.state = NSOffState; // DEFAULT
+	thirdLunch.state = NSOffState; // DEFAULT
+	fourthLunch.state = NSOffState; // DEFAULT
+	fifthLunch.state = NSOffState; // DEFAULT
+	sixthLunch.state = NSOffState; // DEFAULT
+	
 }
 
 // Do any additional setup once the view is fully transitioned onto the screen

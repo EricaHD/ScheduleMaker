@@ -916,14 +916,6 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableHeaderView>
                             </scrollView>
-                            <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="s1S-QR-KyI">
-                                <rect key="frame" x="43" y="38" width="453" height="22"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" state="on" title="Click and drag rows to indicate station priority (highest priority at the top)." id="bXV-OB-jIX">
-                                    <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="disabledControlTextColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
                             <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6zk-5T-NOq">
                                 <rect key="frame" x="532" y="447" width="73" height="22"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" state="on" title="Half Hours:" id="1WP-Bl-eJq">
@@ -981,6 +973,80 @@
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
                             </button>
+                            <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4hy-kq-dh6">
+                                <rect key="frame" x="532" y="249" width="97" height="22"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" state="on" title="Stack Lunches:" id="syY-hF-UQc">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qF8-JJ-Wff">
+                                <rect key="frame" x="551" y="225" width="76" height="18"/>
+                                <buttonCell key="cell" type="check" title="11:00 am" bezelStyle="regularSquare" imagePosition="left" inset="2" id="cSC-Ka-oNe">
+                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                            </button>
+                            <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iTa-av-aDx">
+                                <rect key="frame" x="649" y="225" width="76" height="18"/>
+                                <buttonCell key="cell" type="check" title="11:30 am" bezelStyle="regularSquare" imagePosition="left" inset="2" id="Alz-F1-3Wa">
+                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                            </button>
+                            <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1J9-TN-lqS">
+                                <rect key="frame" x="551" y="193" width="79" height="18"/>
+                                <buttonCell key="cell" type="check" title="12:00 pm" bezelStyle="regularSquare" imagePosition="left" inset="2" id="9ip-kC-xox">
+                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                            </button>
+                            <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kd9-Ih-Fld">
+                                <rect key="frame" x="649" y="193" width="79" height="18"/>
+                                <buttonCell key="cell" type="check" title="12:30 pm" bezelStyle="regularSquare" imagePosition="left" inset="2" id="TA5-LO-JHp">
+                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                            </button>
+                            <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ct8-cd-LZT">
+                                <rect key="frame" x="551" y="161" width="71" height="18"/>
+                                <buttonCell key="cell" type="check" title="1:00 pm" bezelStyle="regularSquare" imagePosition="left" inset="2" id="VeY-ah-ABh">
+                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                            </button>
+                            <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ebv-Ua-tsQ">
+                                <rect key="frame" x="649" y="161" width="71" height="18"/>
+                                <buttonCell key="cell" type="check" title="1:30 pm" bezelStyle="regularSquare" imagePosition="left" inset="2" id="YO2-Qz-fp2">
+                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                            </button>
+                            <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XBm-FY-edy">
+                                <rect key="frame" x="534" y="103" width="198" height="51"/>
+                                <textFieldCell key="cell" sendsActionOnEndEditing="YES" state="on" alignment="left" title="Checked times will be favored when scheduling lunches; avoid checking peak times." id="gpH-4o-Meo">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="disabledControlTextColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sWB-Yg-7q8">
+                                <rect key="frame" x="534" y="301" width="198" height="51"/>
+                                <textFieldCell key="cell" sendsActionOnEndEditing="YES" state="on" alignment="left" title="Checked times will break hour into two half-hour shifts on the general floor schedule." id="WkP-t9-OQq">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="disabledControlTextColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="s1S-QR-KyI">
+                                <rect key="frame" x="43" y="38" width="453" height="22"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" state="on" title="Click and drag rows to indicate station priority (highest priority at the top)." id="bXV-OB-jIX">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="disabledControlTextColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
                             <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="34y-Aq-LZ1">
                                 <rect key="frame" x="73" y="20" width="393" height="22"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" state="on" title="Checked stations will be assigned to any qualified staff member." id="G9e-Wh-90k">
@@ -989,64 +1055,20 @@
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4hy-kq-dh6">
-                                <rect key="frame" x="532" y="299" width="97" height="22"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" state="on" title="Stack Lunches:" id="syY-hF-UQc">
-                                    <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
-                            <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qF8-JJ-Wff">
-                                <rect key="frame" x="551" y="275" width="76" height="18"/>
-                                <buttonCell key="cell" type="check" title="11:00 am" bezelStyle="regularSquare" imagePosition="left" inset="2" id="cSC-Ka-oNe">
-                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                            </button>
-                            <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iTa-av-aDx">
-                                <rect key="frame" x="649" y="275" width="76" height="18"/>
-                                <buttonCell key="cell" type="check" title="11:30 am" bezelStyle="regularSquare" imagePosition="left" inset="2" id="Alz-F1-3Wa">
-                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                            </button>
-                            <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1J9-TN-lqS">
-                                <rect key="frame" x="551" y="243" width="79" height="18"/>
-                                <buttonCell key="cell" type="check" title="12:00 pm" bezelStyle="regularSquare" imagePosition="left" inset="2" id="9ip-kC-xox">
-                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                            </button>
-                            <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kd9-Ih-Fld">
-                                <rect key="frame" x="649" y="243" width="79" height="18"/>
-                                <buttonCell key="cell" type="check" title="12:30 pm" bezelStyle="regularSquare" imagePosition="left" inset="2" id="TA5-LO-JHp">
-                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                            </button>
-                            <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ct8-cd-LZT">
-                                <rect key="frame" x="551" y="211" width="71" height="18"/>
-                                <buttonCell key="cell" type="check" title="1:00 pm" bezelStyle="regularSquare" imagePosition="left" inset="2" id="VeY-ah-ABh">
-                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                            </button>
-                            <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ebv-Ua-tsQ">
-                                <rect key="frame" x="649" y="211" width="71" height="18"/>
-                                <buttonCell key="cell" type="check" title="1:30 pm" bezelStyle="regularSquare" imagePosition="left" inset="2" id="YO2-Qz-fp2">
-                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                            </button>
                         </subviews>
                     </view>
                     <connections>
                         <outlet property="elevenAM" destination="g3V-lc-boR" id="pPP-lv-4Oq"/>
+                        <outlet property="fifthLunch" destination="Ct8-cd-LZT" id="Qvt-Bt-PKa"/>
+                        <outlet property="firstLunch" destination="qF8-JJ-Wff" id="2aq-zH-ZFp"/>
                         <outlet property="fourPM" destination="Feu-Lg-7ng" id="ofn-MA-DB7"/>
+                        <outlet property="fourthLunch" destination="kd9-Ih-Fld" id="CNX-KM-d5s"/>
                         <outlet property="onePM" destination="FhN-jx-geB" id="Sf3-Sv-Lza"/>
+                        <outlet property="secondLunch" destination="iTa-av-aDx" id="Afc-4z-8PY"/>
+                        <outlet property="sixthLunch" destination="ebv-Ua-tsQ" id="eSi-55-zre"/>
                         <outlet property="table" destination="jg7-NC-JoL" id="j9O-Qv-dun"/>
                         <outlet property="tenAM" destination="3PZ-XC-3GE" id="LEg-8O-eJS"/>
+                        <outlet property="thirdLunch" destination="1J9-TN-lqS" id="iGl-mN-FrS"/>
                         <outlet property="threePM" destination="zXi-F8-N7D" id="D5b-yH-oAt"/>
                         <outlet property="twelvePM" destination="Hx0-3r-IVK" id="y8s-EV-T5d"/>
                         <outlet property="twoPM" destination="dNv-Ey-nKA" id="Wvu-Hu-xaf"/>

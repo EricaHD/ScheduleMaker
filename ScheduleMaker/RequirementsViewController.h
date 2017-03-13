@@ -30,6 +30,14 @@
 	IBOutlet NSButton *threePM;
 	IBOutlet NSButton *fourPM;
 	
+	// Stack lunches
+	IBOutlet NSButton *firstLunch;
+	IBOutlet NSButton *secondLunch;
+	IBOutlet NSButton *thirdLunch;
+	IBOutlet NSButton *fourthLunch;
+	IBOutlet NSButton *fifthLunch;
+	IBOutlet NSButton *sixthLunch;
+	
 }
 
 @end
