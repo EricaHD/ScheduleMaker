@@ -1,14 +1,14 @@
 //
-//  StartTimeTableCellView.m
+//  StationTableCellView.m
 //  ScheduleMaker
 //
-//  Created by Erica Dominic on 1/1/17.
+//  Created by Erica Dominic on 3/11/17.
 //  Copyright © 2017 Erica Dominic. All rights reserved.
 //
 
-#import "StartTimeTableCellView.h"
+#import "StationTableCellView.h"
 
-@implementation StartTimeTableCellView
+@implementation StationTableCellView
 
 // Drawing code here
 - (void)drawRect:(NSRect)dirtyRect {

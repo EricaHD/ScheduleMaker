@@ -10,10 +10,11 @@
 
 @implementation NameTableCellView
 
+// Drawing code here
 - (void)drawRect:(NSRect)dirtyRect {
-    [super drawRect:dirtyRect];
-    
-    // Drawing code here.
+	
+	// Super
+	[super drawRect:dirtyRect];
 	
 }
 

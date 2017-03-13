@@ -10,10 +10,12 @@
 
 @implementation SpecificStationsTableCellView
 
+// Drawing code here
 - (void)drawRect:(NSRect)dirtyRect {
-    [super drawRect:dirtyRect];
+	
+	// Super
+	[super drawRect:dirtyRect];
     
-    // Drawing code here.
 }
 
 @end

@@ -1,21 +1,20 @@
 //
-//  ViewController.m
+//  ScheduleViewController.m
 //  ScheduleMaker
 //
 //  Created by Erica Dominic on 12/26/16.
 //  Copyright © 2016 Erica Dominic. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "ScheduleViewController.h"
 #import "NameTableCellView.h"
 #import "StartTimeTableCellView.h"
 #import "EndTimeTableCellView.h"
 #import "SpecificStationsTableCellView.h"
-#import "MayBePlacedTableCellView.h"
 #import "LunchTableCellView.h"
 #import "Model.h"
 
-@implementation ViewController
+@implementation ScheduleViewController
 
 // Do any additional setup after loading the view
 - (void)viewDidLoad {
@@ -33,15 +32,13 @@
 	table.tableColumns[2].width = 100.0;
 	table.tableColumns[3].title = @"Specific Stations";
 	table.tableColumns[3].width = 307.0;
-	table.tableColumns[4].title = @"May Be Placed";
-	table.tableColumns[4].width = 250.0;
-	table.tableColumns[5].title = @"Lunch";
-	table.tableColumns[5].width = 100.0;
+	table.tableColumns[4].title = @"Lunch";
+	table.tableColumns[4].width = 100.0;
 	
 	// Make it impossible to select/highlight a row in the table
 	[table setSelectionHighlightStyle:NSTableViewSelectionHighlightStyleNone];
 	
-	// Initialize arrays and keep track of numRows
+	// Initialize arrays
 	nameData = [NSMutableArray arrayWithObjects:@"", @"", @"", @"", @"", nil];
 	startTimeData = [NSMutableArray arrayWithObjects:@"", @"", @"", @"", @"", nil];
 	endTimeData = [NSMutableArray arrayWithObjects:@"", @"", @"", @"", @"", nil];
@@ -51,84 +48,33 @@
 							[NSMutableArray arrayWithObjects:@"", @"", @"", @"", @"", @"", @"", @"", @"", nil],
 							[NSMutableArray arrayWithObjects:@"", @"", @"", @"", @"", @"", @"", @"", @"", nil],
 							[NSMutableArray arrayWithObjects:@"", @"", @"", @"", @"", @"", @"", @"", @"", nil], nil];
-	mayBePlacedData = [NSMutableArray arrayWithObjects:[NSNumber numberWithInt:0], [NSNumber numberWithInt:0], [NSNumber numberWithInt:0], [NSNumber numberWithInt:0], [NSNumber numberWithInt:0], nil];
 	lunchData = [NSMutableArray arrayWithObjects:[NSNumber numberWithInt:0], [NSNumber numberWithInt:0], [NSNumber numberWithInt:0], [NSNumber numberWithInt:0], [NSNumber numberWithInt:0], nil];
-	
-	// Stations checkbox states
-	birthday.state = NSOffState;
-	gallery.state = NSOnState;
-	greeting.state = NSOffState;
-	lesson.state = NSOffState;
-	manager.state = NSOffState;
-	other.state = NSOffState;
-	project.state = NSOffState;
-	security.state = NSOffState;
-	tours.state = NSOffState;
-	
-	// Station start times checkbox states
-	[birthday_starttime selectItemAtIndex:0];
-	[gallery_starttime selectItemAtIndex:0];
-	[greeting_starttime selectItemAtIndex:0];
-	[lesson_starttime selectItemAtIndex:0];
-	[manager_starttime selectItemAtIndex:0];
-	[other_starttime selectItemAtIndex:0];
-	[project_starttime selectItemAtIndex:0];
-	[security_starttime selectItemAtIndex:0];
-	[tours_starttime selectItemAtIndex:0];
 
-	// Station end times checkbox states
-	[birthday_endtime selectItemAtIndex:birthday_endtime.menu.numberOfItems - 1];
-	[gallery_endtime selectItemAtIndex:birthday_endtime.menu.numberOfItems - 1];
-	[greeting_endtime selectItemAtIndex:birthday_endtime.menu.numberOfItems - 1];
-	[lesson_endtime selectItemAtIndex:birthday_endtime.menu.numberOfItems - 1];
-	[manager_endtime selectItemAtIndex:birthday_endtime.menu.numberOfItems - 1];
-	[other_endtime selectItemAtIndex:birthday_endtime.menu.numberOfItems - 1];
-	[project_endtime selectItemAtIndex:birthday_endtime.menu.numberOfItems - 1];
-	[security_endtime selectItemAtIndex:birthday_endtime.menu.numberOfItems - 1];
-	[tours_endtime selectItemAtIndex:birthday_endtime.menu.numberOfItems - 1];
-	
-	// Station changes checkbox states
-	[birthday_changes selectItemAtIndex:0];
-	[gallery_changes selectItemAtIndex:0];
-	[greeting_changes selectItemAtIndex:0];
-	[lesson_changes selectItemAtIndex:0];
-	[manager_changes selectItemAtIndex:0];
-	[other_changes selectItemAtIndex:0];
-	[project_changes selectItemAtIndex:0];
-	[security_changes selectItemAtIndex:0];
-	[tours_changes selectItemAtIndex:0];
-	
-	// Half hour checkbox states
-	tenAM.state = NSOffState;
-	elevenAM.state = NSOffState;
-	twelvePM.state = NSOffState;
-	onePM.state = NSOnState;
-	twoPM.state = NSOnState;
-	threePM.state = NSOnState;
-	fourPM.state = NSOnState;
-	
+	// TODO
 	// Set background color for table headers (gray matching gray in alternating rows)
-	NSView *box = [[NSView alloc] initWithFrame:CGRectMake(0.0, 0.0, 1000.0, 30.0)];
-	[box setWantsLayer:YES];
-	NSColor *color = [NSColor colorWithRed:240.0/255.0 green:240.0/255.0 blue:240.0/255.0 alpha:0.25f];
-	[box.layer setBackgroundColor:color.CGColor];
-	[table.headerView addSubview:box];
+//	NSView *box = [[NSView alloc] initWithFrame:CGRectMake(0.0, 0.0, 1000.0, 30.0)];
+//	[box setWantsLayer:YES];
+//	NSColor *color = [NSColor colorWithRed:240.0/255.0 green:240.0/255.0 blue:240.0/255.0 alpha:0.25f];
+//	[box.layer setBackgroundColor:color.CGColor];
+//	[table.headerView addSubview:box];
 	
+	// TODO
 	// Set background color for table rows (alternating blue/purple and gray for 20 lines)
-	for (int i = 0; i < 20; i++) {
-		NSView *box = [[NSView alloc] initWithFrame:CGRectMake(0.0, 77.0*i, 1000.0, 77.0)];
-		[box setWantsLayer:YES];
-		NSColor *color;
-		if ((i % 2) == 0) {
-			color = [NSColor colorWithRed:3.0/255.0 green:81.0/255.0 blue:223.0/255.0 alpha:0.25f];
-		}
-		if ((i % 2) == 1) {
-			color = [NSColor colorWithRed:190.0/255.0 green:190.0/255.0 blue:190.0/255.0 alpha:0.25f];
-		}
-		[box.layer setBackgroundColor:color.CGColor];
-		[table addSubview:box];
-	}
+//	for (int i = 0; i < 20; i++) {
+//		NSView *box = [[NSView alloc] initWithFrame:CGRectMake(0.0, 77.0*i, 1000.0, 77.0)];
+//		[box setWantsLayer:YES];
+//		NSColor *color;
+//		if ((i % 2) == 0) {
+//			color = [NSColor colorWithRed:3.0/255.0 green:81.0/255.0 blue:223.0/255.0 alpha:0.25f];
+//		}
+//		if ((i % 2) == 1) {
+//			color = [NSColor colorWithRed:190.0/255.0 green:190.0/255.0 blue:190.0/255.0 alpha:0.25f];
+//		}
+//		[box.layer setBackgroundColor:color.CGColor];
+//		[table addSubview:box];
+//	}
 	
+	// TODO
 	// Set background color for bottom part of window--unnecessary
 //	self.view.wantsLayer = YES;
 //	if (self.view.layer != nil) {
@@ -170,7 +116,6 @@
 	NSInteger start_time_col_pos = -1;
 	NSInteger end_time_col_pos = -1;
 	NSInteger specific_stations_col_pos = -1;
-	NSInteger may_be_placed_col_pos = -1;
 	NSInteger lunch_col_pos = -1;
 	for (int i = 0; i < table.numberOfColumns; i++) {
 		NSString *identifier = table.tableColumns[i].identifier;
@@ -185,9 +130,6 @@
 		}
 		else if ([identifier isEqualToString:@"specific_stations_col"]) {
 			specific_stations_col_pos = i;
-		}
-		else if ([identifier isEqualToString:@"may_be_placed_col"]) {
-			may_be_placed_col_pos = i;
 		}
 		else { // if ([identifier isEqualToString:@"lunch_col"])
 			lunch_col_pos = i;
@@ -262,26 +204,6 @@
 		NSString *specific3_endtime = cell.specific3_endtime.selectedItem.title;
 		if (specific3_endtime) { // do not insert nil object into array
 			specificStationsData[i][8] = specific3_endtime;
-		}
-	}
-	
-	// Update array of may be placed qualifications
-	// In MayBePlacedTableCellView.h, read about how the state of the entire cell (including 9 checkboxes) is represented as a single integer
-	for (int i = 0; i < mayBePlacedData.count; i++) {
-		MayBePlacedTableCellView *cell = (MayBePlacedTableCellView *) [table viewAtColumn:may_be_placed_col_pos row:i makeIfNecessary:NO];
-		int birthday_state = (int) cell.birthday.state;
-		int gallery_state = (int) cell.gallery.state;
-		int greeting_state = (int) cell.greeting.state;
-		int lesson_state = (int) cell.lesson.state;
-		int manager_state = (int) cell.manager.state;
-		int other_state = (int) cell.other.state;
-		int project_state = (int) cell.project.state;
-		int security_state = (int) cell.security.state;
-		int tours_state = (int) cell.tours.state;
-		int descriptive_int = birthday_state + (gallery_state * 2) + (greeting_state * 4) + (lesson_state * 8)
-			+ (manager_state * 16) + (other_state * 32) + (project_state * 64) + (security_state * 128) + (tours_state * 256);
-		if (descriptive_int) { // do not insert nil object into array
-			mayBePlacedData[i] = [NSNumber numberWithInt:descriptive_int];
 		}
 	}
 	
@@ -392,21 +314,6 @@
 		return cell;
 	}
 	
-	// Define cells in fifth column (may be placed)
-	else if ([tableColumn.identifier isEqualToString:@"may_be_placed_col"]) {
-		MayBePlacedTableCellView *cell = (MayBePlacedTableCellView *)[tableView makeViewWithIdentifier:@"may_be_placed_cell" owner:self];
-		[cell.birthday setState:(1 & [mayBePlacedData[row] integerValue])];
-		[cell.gallery setState:(2 & [mayBePlacedData[row] integerValue])];
-		[cell.greeting setState:(4 & [mayBePlacedData[row] integerValue])];
-		[cell.lesson setState:(8 & [mayBePlacedData[row] integerValue])];
-		[cell.manager setState:(16 & [mayBePlacedData[row] integerValue])];
-		[cell.other setState:(32 & [mayBePlacedData[row] integerValue])];
-		[cell.project setState:(64 & [mayBePlacedData[row] integerValue])];
-		[cell.security setState:(128 & [mayBePlacedData[row] integerValue])];
-		[cell.tours setState:(256 & [mayBePlacedData[row] integerValue])];
-		return cell;
-	}
-	
 	// Define cells in sixth column (lunches)
 	else { // if ([tableColumn.identifier isEqualToString:@"lunch_col"])
 		LunchTableCellView *cell = (LunchTableCellView *)[tableView makeViewWithIdentifier:@"lunch_cell" owner:self];
@@ -427,7 +334,6 @@
 	[startTimeData addObject:@""];
 	[endTimeData addObject:@""];
 	[specificStationsData addObject:[NSMutableArray arrayWithObjects:@"", @"", @"", @"", @"", @"", @"", @"", @"", nil]];
-	[mayBePlacedData addObject:[NSNumber numberWithInt:0]];
 	[lunchData addObject:[NSNumber numberWithInt:0]];
 	
 	[table reloadData];
@@ -447,7 +353,6 @@
 	[startTimeData removeLastObject];
 	[endTimeData removeLastObject];
 	[specificStationsData removeLastObject];
-	[mayBePlacedData removeLastObject];
 	[lunchData removeLastObject];
 	
 	[table reloadData];
@@ -467,15 +372,8 @@
 - (IBAction)makeSchedule:(id)sender {
 	
 	// Update arrays of information from table rows
+	// Data now available: nameData, startTimeData, endTimeData, specificStationsData, lunchData
 	[self scrapeData];
-	
-	// Data now available:
-	//	  nameData, startTimeData, endTimeData, specificStationsData, mayBePlacedData, lunchData
-	//	  birthday, gallery, greeting, lesson, manager, other, project, security, tours
-	//	  birthday_starttime, gallery_starttime, greeting_starttime, lesson_starttime, manager_starttime, other_starttime, project_starttime, security_starttime, tours_starttime
-	//	  birthday_endtime, gallery_endtime, greeting_endtime, lesson_endtime, manager_endtime, other_endtime, project_endtime, security_endtime, tours_endtime
-	//	  birthday_changes, gallery_changes, greeting_changes, lesson_changes, manager_changes, other_changes, project_changes, security_changes, tours_changes
-	//	  tenAM, elevenAM, twelvePM, onePM, twoPM, threePM, fourPM
 	
 	// Create model; set number of staff for input into following method calls
 	model = [[Model alloc] init];
@@ -505,10 +403,11 @@
 	if (valid != 0) {
 		[self showAlert:@"Invalid specific station times" withDetails:[NSString stringWithFormat:@"Please check that specific station times do not overlap in row #%d.", valid]];
 	}
-
+	
+	// TODO
 	// Set up hours/half hours on schedule
-	NSMutableArray *halfHourData = [NSMutableArray arrayWithObjects:[NSNumber numberWithLong:tenAM.state], [NSNumber numberWithLong:elevenAM.state], [NSNumber numberWithLong:twelvePM.state], [NSNumber numberWithLong:onePM.state], [NSNumber numberWithLong:twoPM.state], [NSNumber numberWithLong:threePM.state], [NSNumber numberWithLong:fourPM.state], nil];
-	[model setHalfHours:halfHourData];
+//	NSMutableArray *halfHourData = [NSMutableArray arrayWithObjects:[NSNumber numberWithLong:tenAM.state], [NSNumber numberWithLong:elevenAM.state], [NSNumber numberWithLong:twelvePM.state], [NSNumber numberWithLong:onePM.state], [NSNumber numberWithLong:twoPM.state], [NSNumber numberWithLong:threePM.state], [NSNumber numberWithLong:fourPM.state], nil];
+//	[model setHalfHours:halfHourData];
 	
 	// X out hours that are outside a staff member's shift
 	[model blockOutNonShiftHours:startTimeData until:endTimeData];
