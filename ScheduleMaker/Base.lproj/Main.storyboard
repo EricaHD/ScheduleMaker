@@ -1443,7 +1443,7 @@
                                                         </tableCellView>
                                                     </prototypeCellViews>
                                                 </tableColumn>
-                                                <tableColumn identifier="lunch_col" width="95.12939453125" minWidth="40" maxWidth="1000" id="Xa9-OD-Uvd" userLabel="Lunch">
+                                                <tableColumn identifier="lunch_col" width="95" minWidth="40" maxWidth="1000" id="Xa9-OD-Uvd" userLabel="Lunch">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" title="Lunch">
                                                         <font key="font" metaFont="smallSystem"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>

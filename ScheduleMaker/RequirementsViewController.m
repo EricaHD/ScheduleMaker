@@ -59,6 +59,10 @@
 	fifthLunch.state = NSOffState; // DEFAULT
 	sixthLunch.state = NSOffState; // DEFAULT
 	
+	// Reload table now that stationList.count is definitely 14 and not 0
+	// (For the benefit of numberOfRowsInTableView method)
+	[table reloadData];
+	
 }
 
 // Do any additional setup once the view is fully transitioned onto the screen
@@ -75,9 +79,8 @@
 // Returns the number of records managed for a TableView by the data source object
 // Note: this may be called before ViewDidLoad, so can't use stationList.count yet
 - (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView {
-	
-	// Hard coded number of rows we should always have
-	return 14;
+
+	return stationList.count;
 	
 }
 

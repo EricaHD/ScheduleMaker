@@ -8,10 +8,6 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface OverallTabViewController : NSTabViewController {
-	
-	NSString *testing;
-
-}
+@interface OverallTabViewController : NSTabViewController 
 
 @end

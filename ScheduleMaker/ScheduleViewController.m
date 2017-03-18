@@ -49,7 +49,7 @@
 							[NSMutableArray arrayWithObjects:@"", @"", @"", @"", @"", @"", @"", @"", @"", nil],
 							[NSMutableArray arrayWithObjects:@"", @"", @"", @"", @"", @"", @"", @"", @"", nil], nil];
 	lunchData = [NSMutableArray arrayWithObjects:[NSNumber numberWithInt:0], [NSNumber numberWithInt:0], [NSNumber numberWithInt:0], [NSNumber numberWithInt:0], [NSNumber numberWithInt:0], nil];
-
+	
 	// TODO
 	// Set background color for table headers (gray matching gray in alternating rows)
 //	NSView *box = [[NSView alloc] initWithFrame:CGRectMake(0.0, 0.0, 1000.0, 30.0)];
@@ -80,6 +80,10 @@
 //	if (self.view.layer != nil) {
 //		self.view.layer.backgroundColor = [NSColor colorWithRed:240.0/255.0 green:240.0/255.0 blue:240.0/255.0 alpha:0.25f].CGColor;
 //	}
+	
+	// Reload table now that nameData.count is definitely > 0
+	// (For the benefit of numberOfRowsInTableView method)
+	[table reloadData];
 	
 }
 
@@ -335,7 +339,7 @@
 	[endTimeData addObject:@""];
 	[specificStationsData addObject:[NSMutableArray arrayWithObjects:@"", @"", @"", @"", @"", @"", @"", @"", @"", nil]];
 	[lunchData addObject:[NSNumber numberWithInt:0]];
-	
+
 	[table reloadData];
 	
 }
