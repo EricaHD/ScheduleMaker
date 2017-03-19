@@ -12,6 +12,8 @@
 #import "StationEndTableCellView.h"
 #import "StationFrequencyTableCellView.h"
 
+#define MyPrivateTableViewDataType @"MyPrivateTableViewDataType" // TESTING
+
 @interface RequirementsViewController ()
 
 @end
@@ -23,6 +25,8 @@
 	
 	// Super
     [super viewDidLoad];
+	
+	[table registerForDraggedTypes:[NSArray arrayWithObject:MyPrivateTableViewDataType]]; // TESTING...
 	
 	// Set row dimension, column dimensions, and column titles
 	table.rowHeight = ROW_HEIGHT_2;
@@ -117,5 +121,59 @@
 	}
 	
 }
+
+////////////////////////////////////////////////////////////////////////////////
+
+// TESTING
+// Returns a Boolean value that indicates whether a drag operation is allowed
+- (BOOL)tableView:(NSTableView *)tableView writeRowsWithIndexes:(NSIndexSet *)rowIndexes toPasteboard:(NSPasteboard *)pboard {
+	
+	// Copy the row numbers to the pasteboard
+	NSData *zNSIndexSetData = [NSKeyedArchiver archivedDataWithRootObject:rowIndexes];
+	[pboard declareTypes:[NSArray arrayWithObject:MyPrivateTableViewDataType] owner:self];
+	[pboard setData:zNSIndexSetData forType:MyPrivateTableViewDataType];
+	return YES;
+	
+}
+
+// TESTING
+// Used by the table view to determine a valid drop target
+- (NSDragOperation)tableView:(NSTableView *)tableView validateDrop:(id<NSDraggingInfo>)info proposedRow:(NSInteger)row proposedDropOperation:(NSTableViewDropOperation)dropOperation {
+	
+	// The dragging operation the data source will perform; can be NSDragOperationEvery
+	return NSDragOperationMove;
+	
+}
+
+// TESTING
+// Called by the table view when the mouse button is released over the table view that previously decided to allow a drop
+- (BOOL)tableView:(NSTableView *)tableView acceptDrop:(id<NSDraggingInfo>)info row:(NSInteger)row dropOperation:(NSTableViewDropOperation)dropOperation {
+	
+	// Find index of row being dragged
+	NSPasteboard* pboard = [info draggingPasteboard];
+	NSData* rowData = [pboard dataForType:MyPrivateTableViewDataType];
+	NSIndexSet* rowIndexes = [NSKeyedUnarchiver unarchiveObjectWithData:rowData];
+	NSInteger dragRow = [rowIndexes firstIndex];
+
+	// If row being dragged < destination row (dragging down)
+	if (dragRow < row) {
+//		[model insertObject:[model objectAtIndex:dragRow] atIndex:row]; // TODO
+//		[model removeObjectAtIndex:dragRow]; // TODO
+		[tableView noteNumberOfRowsChanged];
+		[tableView moveRowAtIndex:dragRow toIndex:row - 1];
+	}
+	
+	// If row being dragged >= destination row (dragging up)
+	else {
+//		ModelObj *obj = [model objectAtIndex:dragRow]; // TODO
+//		[model removeObjectAtIndex:dragRow]; // TODO
+//		[model insertObject:obj atIndex:row]; // TODO
+		[tableView noteNumberOfRowsChanged];
+		[tableView moveRowAtIndex:dragRow toIndex:row];
+	}
+	
+	return YES;
+
+ }
 
 @end
