@@ -724,6 +724,34 @@
                                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
                                             <tableColumns>
+                                                <tableColumn identifier="reorder_col" width="30" minWidth="10" maxWidth="3.4028234663852886e+38" id="z0G-th-Tnx">
+                                                    <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left">
+                                                        <font key="font" metaFont="smallSystem"/>
+                                                        <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                    </tableHeaderCell>
+                                                    <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" alignment="left" title="Text Cell" id="EdO-Ca-5lV">
+                                                        <font key="font" metaFont="system"/>
+                                                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                    </textFieldCell>
+                                                    <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
+                                                    <prototypeCellViews>
+                                                        <tableCellView identifier="reorder_cell" id="r8U-Mu-QXL" customClass="ReorderIconTableCellView">
+                                                            <rect key="frame" x="1" y="1" width="30" height="17"/>
+                                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                            <subviews>
+                                                                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LXM-ZE-fui">
+                                                                    <rect key="frame" x="1" y="-4" width="28" height="18"/>
+                                                                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="Reorder" id="CiA-To-cjx"/>
+                                                                </imageView>
+                                                            </subviews>
+                                                            <connections>
+                                                                <outlet property="icon" destination="LXM-ZE-fui" id="8z2-XH-bCt"/>
+                                                            </connections>
+                                                        </tableCellView>
+                                                    </prototypeCellViews>
+                                                </tableColumn>
                                                 <tableColumn identifier="station_col" width="100" minWidth="40" maxWidth="1000" id="Hcx-xj-EX9">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" title="Station">
                                                         <font key="font" metaFont="smallSystem"/>
@@ -738,7 +766,7 @@
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
                                                         <tableCellView identifier="station_cell" id="Lvf-JD-HNf" customClass="StationTableCellView">
-                                                            <rect key="frame" x="1" y="1" width="100" height="25"/>
+                                                            <rect key="frame" x="34" y="1" width="100" height="25"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Lf8-KU-fum">
@@ -769,7 +797,7 @@
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
                                                         <tableCellView identifier="station_start_cell" id="UPM-Rd-llh" customClass="StationStartTableCellView">
-                                                            <rect key="frame" x="105" y="1" width="100" height="25"/>
+                                                            <rect key="frame" x="137" y="1" width="100" height="25"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jrf-yy-Qwn">
@@ -819,7 +847,7 @@
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
                                                         <tableCellView identifier="station_end_cell" id="FPa-wH-Ufo" customClass="StationEndTableCellView">
-                                                            <rect key="frame" x="209" y="1" width="100" height="25"/>
+                                                            <rect key="frame" x="240" y="1" width="100" height="25"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ySj-el-bza">
@@ -855,7 +883,7 @@
                                                         </tableCellView>
                                                     </prototypeCellViews>
                                                 </tableColumn>
-                                                <tableColumn identifier="frequency_col" width="199" minWidth="40" maxWidth="1000" id="rLb-at-5Q1">
+                                                <tableColumn identifier="frequency_col" width="166" minWidth="40" maxWidth="1000" id="rLb-at-5Q1">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" title="Shift Changes">
                                                         <font key="font" metaFont="smallSystem"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -869,11 +897,11 @@
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
                                                         <tableCellView identifier="frequency_cell" id="sMM-5I-zD4" customClass="StationFrequencyTableCellView">
-                                                            <rect key="frame" x="313" y="1" width="199" height="25"/>
+                                                            <rect key="frame" x="343" y="1" width="166" height="25"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9DQ-hc-oss">
-                                                                    <rect key="frame" x="-1" y="-1" width="200" height="26"/>
+                                                                    <rect key="frame" x="-1" y="-1" width="165" height="26"/>
                                                                     <popUpButtonCell key="cell" type="push" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" id="pgf-rc-kvM" userLabel="With schedule">
                                                                         <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                                                                         <font key="font" metaFont="menu"/>
@@ -903,7 +931,7 @@
                                     </subviews>
                                     <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </clipView>
-                                <scroller key="horizontalScroller" verticalHuggingPriority="750" horizontal="YES" id="fyV-xj-vt9">
+                                <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="fyV-xj-vt9">
                                     <rect key="frame" x="1" y="385" width="511" height="16"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
@@ -1145,7 +1173,7 @@
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
                                                         <tableCellView identifier="start_time_cell" id="xnX-QC-oph" customClass="StartTimeTableCellView">
-                                                            <rect key="frame" x="105" y="1" width="100" height="25"/>
+                                                            <rect key="frame" x="104" y="1" width="100" height="25"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="diw-yg-Q6G">
@@ -1195,7 +1223,7 @@
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
                                                         <tableCellView identifier="end_time_cell" id="h6w-vk-bgQ" customClass="EndTimeTableCellView">
-                                                            <rect key="frame" x="209" y="1" width="100" height="25"/>
+                                                            <rect key="frame" x="207" y="1" width="100" height="25"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IaL-Z5-Wex">
@@ -1245,7 +1273,7 @@
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
                                                         <tableCellView identifier="specific_stations_cell" id="Hhv-hX-dr9" customClass="SpecificStationsTableCellView">
-                                                            <rect key="frame" x="313" y="1" width="307" height="80"/>
+                                                            <rect key="frame" x="310" y="1" width="307" height="80"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dSF-Xp-3sZ">
@@ -1457,7 +1485,7 @@
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
                                                         <tableCellView identifier="lunch_cell" id="WGD-Lk-ddV" userLabel="May Be Placed Table Cell View" customClass="LunchTableCellView">
-                                                            <rect key="frame" x="623" y="1" width="95" height="75"/>
+                                                            <rect key="frame" x="620" y="1" width="95" height="75"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PyX-Og-Oyl">
@@ -1499,7 +1527,7 @@
                                     </subviews>
                                     <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </clipView>
-                                <scroller key="horizontalScroller" verticalHuggingPriority="750" doubleValue="0.01617431640625" horizontal="YES" id="wly-zU-VfH">
+                                <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="0.01617431640625" horizontal="YES" id="wly-zU-VfH">
                                     <rect key="frame" x="1" y="393" width="717" height="16"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
@@ -1553,4 +1581,7 @@
             <point key="canvasLocation" x="1451.5" y="-992.5"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Reorder" width="256" height="256"/>
+    </resources>
 </document>

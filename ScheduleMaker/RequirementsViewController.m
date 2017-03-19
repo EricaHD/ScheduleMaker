@@ -7,6 +7,7 @@
 //
 
 #import "RequirementsViewController.h"
+#import "ReorderTableCellView.h"
 #import "StationTableCellView.h"
 #import "StationStartTableCellView.h"
 #import "StationEndTableCellView.h"
@@ -30,17 +31,32 @@
 	
 	// Set row dimension, column dimensions, and column titles
 	table.rowHeight = ROW_HEIGHT_2;
-	table.tableColumns[0].title = @"Station";
-	table.tableColumns[0].width = 100.0;
-	table.tableColumns[1].title = @"Start Time";
-	table.tableColumns[1].width = 100.0;
-	table.tableColumns[2].title = @"End Time";
-	table.tableColumns[2].width = 100.0;
-	table.tableColumns[3].title = @"Shift Changes";
-	table.tableColumns[3].width = 200.0;
+	NSArray *columns = table.tableColumns;
+	for (int i = 0; i < columns.count; i++) {
+		NSTableColumn *col = columns[i];
+		if ([col.identifier isEqualToString:@"reorder_col"]) {
+			col.width = 30.0;
+		}
+		else if ([col.identifier isEqualToString:@"station_col"]) {
+			col.title = @"Station";
+			col.width = 100.0;
+		}
+		else if ([col.identifier isEqualToString:@"station_start_col"]) {
+			col.title = @"Start Time";
+			col.width = 100.0;
+		}
+		else if ([col.identifier isEqualToString:@"station_end_col"]) {
+			col.title = @"End Time";
+			col.width = 100.0;
+		}
+		else if ([col.identifier isEqualToString:@"frequency_col"]) {
+			col.title = @"Shift Changes";
+			col.width = 165.0;
+		}
+	}
 	
 	// Initialize arrays and keep track of numRows
-	stationList = [NSMutableArray arrayWithObjects:@"Trike", @"-1", @"Coro", @"Gallery", @"-1", @"0", @"Greeting", @"Lesson", @"Project", @"Security", @"Tours", @"Manager", @"Birthday", @"Other", nil];
+	stationList = [NSMutableArray arrayWithObjects:@"Trike", @"-1", @"Coro", @"Gallery", @"-1", @"0", @"Greeting", @"Lesson", @"Project", @"Security", @"Tours", @"Manager", @"Birthday", @"Other", nil]; // DEFAULTS (order)
 	stationData = [NSMutableArray arrayWithObjects:[NSNumber numberWithInt:0], [NSNumber numberWithInt:0], [NSNumber numberWithInt:0], [NSNumber numberWithInt:0], [NSNumber numberWithInt:0], [NSNumber numberWithInt:0], [NSNumber numberWithInt:0], [NSNumber numberWithInt:0], [NSNumber numberWithInt:0], [NSNumber numberWithInt:0], [NSNumber numberWithInt:0], [NSNumber numberWithInt:0], [NSNumber numberWithInt:0], [NSNumber numberWithInt:0], nil];
 	startTimeData = [NSMutableArray arrayWithObjects:@"", @"", @"", @"", @"", @"", @"", @"", @"", @"", @"", @"", @"", @"", nil];
 	endTimeData = [NSMutableArray arrayWithObjects:@"", @"", @"", @"", @"", @"", @"", @"", @"", @"", @"", @"", @"", @"", nil];
@@ -92,32 +108,44 @@
 // Different from -(id)tableView:(NSTableView *)tableView objectValueForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row
 - (NSView *)tableView:(NSTableView *)tableView viewForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row {
 	
-	// Define cells in first column (station names)
-	if ([tableColumn.identifier isEqualToString:@"station_col"]) {
+	// Define cells in reorder icon column (icon specified in Storyboard)
+	if ([tableColumn.identifier isEqualToString:@"reorder_col"]) {
+		ReorderTableCellView *cell = (ReorderTableCellView *) [tableView makeViewWithIdentifier:@"reorder_cell" owner:self];
+		return cell;
+	}
+	
+	// Define cells in station names column
+	else if ([tableColumn.identifier isEqualToString:@"station_col"]) {
 		StationTableCellView *cell = (StationTableCellView *) [tableView makeViewWithIdentifier:@"station_cell" owner:self];
 		[cell.station setTitle:stationList[row]];
 		[cell.station setState:0]; // DEFAULT
 		return cell;
 	}
 	
-	// Define cells in second column (start times)
+	// Define cells in start times column
 	else if ([tableColumn.identifier isEqualToString:@"station_start_col"]) {
 		StationStartTableCellView *cell = (StationStartTableCellView *) [tableView makeViewWithIdentifier:@"station_start_cell" owner:self];
 		[cell.starttime selectItemAtIndex:0]; // DEFAULT
 		return cell;
 	}
 	
-	// Define cells in third column (end times)
+	// Define cells in end times column
 	else if ([tableColumn.identifier isEqualToString:@"station_end_col"]) {
 		StationEndTableCellView *cell = (StationEndTableCellView *) [tableView makeViewWithIdentifier:@"station_end_cell" owner:self];
 		[cell.endtime selectItemAtIndex:cell.endtime.menu.numberOfItems - 1]; // DEFAULT
 		return cell;
 	}
 	
-	else { // if ([tableColumn.identifier isEqualToString:@"frequency_col"]) {
+	// Define cells in frequency column
+	else if ([tableColumn.identifier isEqualToString:@"frequency_col"]) {
 		StationFrequencyTableCellView *cell = (StationFrequencyTableCellView *)[tableView makeViewWithIdentifier:@"frequency_cell" owner:self];
 		[cell.frequency selectItemAtIndex:0]; // DEFAULT
 		return cell;
+	}
+	
+	// Nothing
+	else {
+		return nil;
 	}
 	
 }

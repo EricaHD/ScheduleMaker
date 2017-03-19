@@ -135,8 +135,11 @@
 		else if ([identifier isEqualToString:@"specific_stations_col"]) {
 			specific_stations_col_pos = i;
 		}
-		else { // if ([identifier isEqualToString:@"lunch_col"])
+		else if ([identifier isEqualToString:@"lunch_col"]) {
 			lunch_col_pos = i;
+		}
+		else {
+			// Nothing
 		}
 	}
 
@@ -319,12 +322,17 @@
 	}
 	
 	// Define cells in sixth column (lunches)
-	else { // if ([tableColumn.identifier isEqualToString:@"lunch_col"])
+	else if ([tableColumn.identifier isEqualToString:@"lunch_col"]) {
 		LunchTableCellView *cell = (LunchTableCellView *)[tableView makeViewWithIdentifier:@"lunch_cell" owner:self];
 		[cell.early_lunch setState:(1 & [lunchData[row] integerValue])];
 		[cell.late_lunch setState:(2 & [lunchData[row] integerValue])];
 		[cell.hour_lunch setState:(4 & [lunchData[row] integerValue])];
 		return cell;
+	}
+	
+	// Nothing
+	else {
+		return nil;
 	}
 	
 }
