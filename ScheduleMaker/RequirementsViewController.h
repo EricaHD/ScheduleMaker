@@ -7,12 +7,13 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "Model.h"
 
 // Constants
 #define ROW_HEIGHT_2 25.0;
 
 @interface RequirementsViewController : NSViewController <NSTableViewDelegate, NSTableViewDataSource> {
-	
+		
 	// Table
 	NSMutableArray *stationList;
 	NSMutableArray *stationData;
@@ -39,5 +40,8 @@
 	IBOutlet NSButton *sixthLunch;
 	
 }
+
+// Reference to model that all view controllers will use
+@property (strong) Model *model;
 
 @end

@@ -665,10 +665,10 @@
             </objects>
             <point key="canvasLocation" x="2267" y="-2061"/>
         </scene>
-        <!--Overall Tab View Controller-->
+        <!--Tab View Controller-->
         <scene sceneID="5LN-Tt-EIP">
             <objects>
-                <tabViewController selectedTabViewItemIndex="2" id="bfQ-FE-MkM" customClass="OverallTabViewController" sceneMemberID="viewController">
+                <tabViewController selectedTabViewItemIndex="2" id="bfQ-FE-MkM" sceneMemberID="viewController">
                     <tabViewItems>
                         <tabViewItem identifier="" id="tnp-mY-R2a"/>
                         <tabViewItem identifier="" id="4jX-qa-ARS"/>

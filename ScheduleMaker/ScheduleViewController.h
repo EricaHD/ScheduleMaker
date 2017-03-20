@@ -14,8 +14,6 @@
 
 @interface ScheduleViewController : NSViewController <NSTableViewDelegate, NSTableViewDataSource> {
 	
-	Model *model;
-	
 	// Table
 	NSMutableArray *nameData;
 	NSMutableArray *startTimeData;
@@ -25,6 +23,9 @@
 	IBOutlet NSTableView *table;
 
 }
+
+// Reference to model that all view controllers will use
+@property (strong) Model *model;
 
 // Add or delete table rows
 - (IBAction)addRow:(id)sender;

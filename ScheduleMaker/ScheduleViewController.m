@@ -12,7 +12,6 @@
 #import "EndTimeTableCellView.h"
 #import "SpecificStationsTableCellView.h"
 #import "LunchTableCellView.h"
-#import "Model.h"
 
 @implementation ScheduleViewController
 
@@ -387,61 +386,54 @@
 	// Data now available: nameData, startTimeData, endTimeData, specificStationsData, lunchData
 	[self scrapeData];
 	
-	// Create model; set number of staff for input into following method calls
-	model = [[Model alloc] init];
-	[model setNumStaff:nameData];
+	NSLog(@"%@", self.model.str); // TESTING
+		
+////////////////////////////////////////////////////////////////////////////////
+// TODO: MODEL STUFF ///////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+	
+	// Set number of staff for input into following method calls
+//	[model setNumStaff:nameData];
 	
 	// Error checking: ensure start time < end time for each shift
-	int valid;
-	valid = [model checkShiftTimesFor:startTimeData until:endTimeData];
-	if (valid != 0) {
-		[self showAlert:@"Invalid shift times" withDetails:[NSString stringWithFormat:@"Please check shift times in row #%d.", valid]];
-	}
+//	int valid;
+//	valid = [model checkShiftTimesFor:startTimeData until:endTimeData];
+//	if (valid != 0) {
+//		[self showAlert:@"Invalid shift times" withDetails:[NSString stringWithFormat:@"Please check shift times in row #%d.", valid]];
+//	}
 	
 	// Error checking: ensure start time < end time for each specific station entry
-	valid = [model checkSpecificStationTimesFor:specificStationsData];
-	if (valid != 0) {
-		[self showAlert:@"Invalid specific station times" withDetails:[NSString stringWithFormat:@"Please check specific station times in row #%d.", valid]];
-	}
+//	valid = [model checkSpecificStationTimesFor:specificStationsData];
+//	if (valid != 0) {
+//		[self showAlert:@"Invalid specific station times" withDetails:[NSString stringWithFormat:@"Please check specific station times in row #%d.", valid]];
+//	}
 	
 	// Error checking: ensure specific station times are subsets of shift times
-	valid = [model checkShiftTimesAndSpecificiStationTimesFor:startTimeData until:endTimeData including:specificStationsData];
-	if (valid != 0) {
-		[self showAlert:@"Invalid specific station times" withDetails:[NSString stringWithFormat:@"Please check that specific station times do not extend outside shift hours in row #%d.", valid]];
-	}
+//	valid = [model checkShiftTimesAndSpecificiStationTimesFor:startTimeData until:endTimeData including:specificStationsData];
+//	if (valid != 0) {
+//		[self showAlert:@"Invalid specific station times" withDetails:[NSString stringWithFormat:@"Please check that specific station times do not extend outside shift hours in row #%d.", valid]];
+//	}
 	
 	// Error checking: ensure specific station times do not conflict
-	valid = [model checkSpecificStationTimesConflictsFor:specificStationsData];
-	if (valid != 0) {
-		[self showAlert:@"Invalid specific station times" withDetails:[NSString stringWithFormat:@"Please check that specific station times do not overlap in row #%d.", valid]];
-	}
+//	valid = [model checkSpecificStationTimesConflictsFor:specificStationsData];
+//	if (valid != 0) {
+//		[self showAlert:@"Invalid specific station times" withDetails:[NSString stringWithFormat:@"Please check that specific station times do not overlap in row #%d.", valid]];
+//	}
 	
-	// TODO
 	// Set up hours/half hours on schedule
 //	NSMutableArray *halfHourData = [NSMutableArray arrayWithObjects:[NSNumber numberWithLong:tenAM.state], [NSNumber numberWithLong:elevenAM.state], [NSNumber numberWithLong:twelvePM.state], [NSNumber numberWithLong:onePM.state], [NSNumber numberWithLong:twoPM.state], [NSNumber numberWithLong:threePM.state], [NSNumber numberWithLong:fourPM.state], nil];
 //	[model setHalfHours:halfHourData];
 	
 	// X out hours that are outside a staff member's shift
-	[model blockOutNonShiftHours:startTimeData until:endTimeData];
+//	[model blockOutNonShiftHours:startTimeData until:endTimeData];
 
 	// Assign specific stations on schedule
-	[model assignSpecificStations:specificStationsData];
+//	[model assignSpecificStations:specificStationsData];
 	
 	// Assign lunches on schedule
-	[model assignLunches:lunchData starting:startTimeData ending:endTimeData];
+//	[model assignLunches:lunchData starting:startTimeData ending:endTimeData];
 
-	// Trike
-	// Coro
-	// Gallery, and other random stations entered on the bottom
-	// -1
-	// -1
-	// 0
-	// Float (the rest)
-	// Display errors in dialogue box
-	// Open Excel or LibreOffice and enter information
-	// Add autocomplete functionality
-
-	[model printSchedule:nameData];
+//	[model printSchedule:nameData];
 	
 }
 

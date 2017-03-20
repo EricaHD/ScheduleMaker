@@ -17,6 +17,8 @@
 	
 }
 
+@property (strong) NSString *str; // TESTING
+
 - (void)setNumStaff:(NSMutableArray *)names;
 - (int)getNumStaff;
 

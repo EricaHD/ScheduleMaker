@@ -13,7 +13,8 @@
 #import "StationEndTableCellView.h"
 #import "StationFrequencyTableCellView.h"
 
-#define MyPrivateTableViewDataType @"MyPrivateTableViewDataType" // TESTING
+// Be able to drag rows
+#define MyPrivateTableViewDataType @"MyPrivateTableViewDataType"
 
 @interface RequirementsViewController ()
 
@@ -27,7 +28,8 @@
 	// Super
     [super viewDidLoad];
 	
-	[table registerForDraggedTypes:[NSArray arrayWithObject:MyPrivateTableViewDataType]]; // TESTING...
+	// Be able to drag rows
+	[table registerForDraggedTypes:[NSArray arrayWithObject:MyPrivateTableViewDataType]];
 	
 	// Set row dimension, column dimensions, and column titles
 	table.rowHeight = ROW_HEIGHT_2;
@@ -150,10 +152,7 @@
 	
 }
 
-////////////////////////////////////////////////////////////////////////////////
-
-// TESTING
-// Returns a Boolean value that indicates whether a drag operation is allowed
+// Drag and drop code: returns a Boolean value that indicates whether a drag operation is allowed
 - (BOOL)tableView:(NSTableView *)tableView writeRowsWithIndexes:(NSIndexSet *)rowIndexes toPasteboard:(NSPasteboard *)pboard {
 	
 	// Copy the row numbers to the pasteboard
@@ -164,8 +163,7 @@
 	
 }
 
-// TESTING
-// Used by the table view to determine a valid drop target
+// Drag and drop code: used by the table view to determine a valid drop target
 - (NSDragOperation)tableView:(NSTableView *)tableView validateDrop:(id<NSDraggingInfo>)info proposedRow:(NSInteger)row proposedDropOperation:(NSTableViewDropOperation)dropOperation {
 	
 	// The dragging operation the data source will perform; can be NSDragOperationEvery
@@ -173,10 +171,11 @@
 	
 }
 
-// TESTING
-// Called by the table view when the mouse button is released over the table view that previously decided to allow a drop
+// Drag and drop code: called by the table view when the mouse button is released over the table view that previously decided to allow a drop
 - (BOOL)tableView:(NSTableView *)tableView acceptDrop:(id<NSDraggingInfo>)info row:(NSInteger)row dropOperation:(NSTableViewDropOperation)dropOperation {
-	
+		
+	self.model.str = @"Changed"; // TESTING
+
 	// Find index of row being dragged
 	NSPasteboard* pboard = [info draggingPasteboard];
 	NSData* rowData = [pboard dataForType:MyPrivateTableViewDataType];
@@ -199,7 +198,7 @@
 		[tableView noteNumberOfRowsChanged];
 		[tableView moveRowAtIndex:dragRow toIndex:row];
 	}
-	
+		
 	return YES;
 
  }

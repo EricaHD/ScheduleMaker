@@ -20,7 +20,6 @@
 		07C9D4C31E75EB6900F36FA4 /* StationStartTableCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 07C9D4C21E75EB6900F36FA4 /* StationStartTableCellView.m */; };
 		07C9D4C61E75EB7A00F36FA4 /* StationEndTableCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 07C9D4C51E75EB7A00F36FA4 /* StationEndTableCellView.m */; };
 		07C9D4C91E75EBD700F36FA4 /* StationFrequencyTableCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 07C9D4C81E75EBD700F36FA4 /* StationFrequencyTableCellView.m */; };
-		07DA9BD01E76248D008281FF /* OverallTabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 07DA9BCF1E76248D008281FF /* OverallTabViewController.m */; };
 		07FA1C5E1E120DB6007E81E8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 07FA1C5D1E120DB6007E81E8 /* AppDelegate.m */; };
 		07FA1C611E120DB6007E81E8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 07FA1C601E120DB6007E81E8 /* main.m */; };
 		07FA1C641E120DB6007E81E8 /* ScheduleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 07FA1C631E120DB6007E81E8 /* ScheduleViewController.m */; };
@@ -56,8 +55,6 @@
 		07C9D4C51E75EB7A00F36FA4 /* StationEndTableCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StationEndTableCellView.m; sourceTree = "<group>"; };
 		07C9D4C71E75EBD700F36FA4 /* StationFrequencyTableCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StationFrequencyTableCellView.h; sourceTree = "<group>"; };
 		07C9D4C81E75EBD700F36FA4 /* StationFrequencyTableCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StationFrequencyTableCellView.m; sourceTree = "<group>"; };
-		07DA9BCE1E76248D008281FF /* OverallTabViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OverallTabViewController.h; sourceTree = "<group>"; };
-		07DA9BCF1E76248D008281FF /* OverallTabViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OverallTabViewController.m; sourceTree = "<group>"; };
 		07FA1C591E120DB6007E81E8 /* ScheduleMaker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ScheduleMaker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		07FA1C5C1E120DB6007E81E8 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		07FA1C5D1E120DB6007E81E8 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -103,8 +100,6 @@
 				07FA1C5D1E120DB6007E81E8 /* AppDelegate.m */,
 				07BFEACA1E4C3E3600C5A189 /* Model.h */,
 				07BFEACB1E4C3E3600C5A189 /* Model.m */,
-				07DA9BCE1E76248D008281FF /* OverallTabViewController.h */,
-				07DA9BCF1E76248D008281FF /* OverallTabViewController.m */,
 				0790FB271E74ED85001DBC37 /* DatabaseViewController.h */,
 				0790FB281E74ED85001DBC37 /* DatabaseViewController.m */,
 				0790FB1F1E74ED30001DBC37 /* RequirementsViewController.h */,
@@ -220,7 +215,6 @@
 				07C9D4C91E75EBD700F36FA4 /* StationFrequencyTableCellView.m in Sources */,
 				07FA1C641E120DB6007E81E8 /* ScheduleViewController.m in Sources */,
 				074F5FE21E19DA13009BF40E /* NameTableCellView.m in Sources */,
-				07DA9BD01E76248D008281FF /* OverallTabViewController.m in Sources */,
 				07C9D4C31E75EB6900F36FA4 /* StationStartTableCellView.m in Sources */,
 				074F5FDC1E19D63D009BF40E /* EndTimeTableCellView.m in Sources */,
 				0776F1FB1E4C1F5000BFF6C5 /* LunchTableCellView.m in Sources */,
