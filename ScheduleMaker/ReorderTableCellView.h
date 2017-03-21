@@ -10,6 +10,4 @@
 
 @interface ReorderTableCellView : NSTableCellView
 
-@property (strong) IBOutlet NSImageView *icon;
-
 @end

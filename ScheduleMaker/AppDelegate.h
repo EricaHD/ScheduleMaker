@@ -7,7 +7,7 @@
 //
 
 // TO DO NEXT:
-// Learn how to collate and/or pass data between three view controllers <--
+// Learn how to collate and/or pass data between three view controllers <-- working on now
 // Make special stations customizable with +/- buttons
 // Lay out Database view controller
 // Add autocomplete from database feature in Schedule view controller (for names and specific stations)
