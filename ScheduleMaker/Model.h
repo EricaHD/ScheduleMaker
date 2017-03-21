@@ -19,6 +19,12 @@
 
 @property (strong) NSString *str; // TESTING
 
+// Arrays for ScheduleViewController
+@property (strong) NSMutableArray *nameData;
+@property (strong) NSMutableArray *startTimeData;
+@property (strong) NSMutableArray *endTimeData;
+@property (strong) NSMutableArray *specificStationsData;
+@property (strong) NSMutableArray *lunchData;
 
 - (void)setNumStaff:(NSMutableArray *)names;
 - (int)getNumStaff;

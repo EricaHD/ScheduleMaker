@@ -12,16 +12,7 @@
 // Constants
 #define ROW_HEIGHT 75.0;
 
-@interface ScheduleViewController : NSViewController <NSTableViewDelegate, NSTableViewDataSource> {
-	
-	// Table
-	NSMutableArray *nameData;
-	NSMutableArray *startTimeData;
-	NSMutableArray *endTimeData;
-	NSMutableArray *specificStationsData;
-	NSMutableArray *lunchData;
-
-}
+@interface ScheduleViewController : NSViewController <NSTableViewDelegate, NSTableViewDataSource>
 
 // Table view on schedule view controller
 @property (strong) IBOutlet NSTableView *table;
