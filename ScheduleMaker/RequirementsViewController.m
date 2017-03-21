@@ -7,7 +7,6 @@
 //
 
 #import "RequirementsViewController.h"
-#import "ReorderTableCellView.h"
 #import "StationTableCellView.h"
 #import "StationStartTableCellView.h"
 #import "StationEndTableCellView.h"
@@ -112,7 +111,7 @@
 	
 	// Define cells in reorder icon column (icon specified in Storyboard)
 	if ([tableColumn.identifier isEqualToString:@"reorder_col"]) {
-		ReorderTableCellView *cell = (ReorderTableCellView *) [tableView makeViewWithIdentifier:@"reorder_cell" owner:self];
+		NSTableCellView *cell = (NSTableCellView *) [tableView makeViewWithIdentifier:@"reorder_cell" owner:self];
 		return cell;
 	}
 	

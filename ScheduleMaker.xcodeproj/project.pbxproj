@@ -15,7 +15,6 @@
 		0790FB211E74ED30001DBC37 /* RequirementsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0790FB201E74ED30001DBC37 /* RequirementsViewController.m */; };
 		0790FB291E74ED85001DBC37 /* DatabaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0790FB281E74ED85001DBC37 /* DatabaseViewController.m */; };
 		0790FB2C1E750A1B001DBC37 /* StationTableCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0790FB2B1E750A1B001DBC37 /* StationTableCellView.m */; };
-		07A566791E7ECC89002D0A23 /* ReorderTableCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 07A566781E7ECC89002D0A23 /* ReorderTableCellView.m */; };
 		07BFEACC1E4C3E3600C5A189 /* Model.m in Sources */ = {isa = PBXBuildFile; fileRef = 07BFEACB1E4C3E3600C5A189 /* Model.m */; };
 		07C9D4C31E75EB6900F36FA4 /* StationStartTableCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 07C9D4C21E75EB6900F36FA4 /* StationStartTableCellView.m */; };
 		07C9D4C61E75EB7A00F36FA4 /* StationEndTableCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 07C9D4C51E75EB7A00F36FA4 /* StationEndTableCellView.m */; };
@@ -45,8 +44,6 @@
 		0790FB281E74ED85001DBC37 /* DatabaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DatabaseViewController.m; sourceTree = "<group>"; };
 		0790FB2A1E750A1B001DBC37 /* StationTableCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StationTableCellView.h; sourceTree = "<group>"; };
 		0790FB2B1E750A1B001DBC37 /* StationTableCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StationTableCellView.m; sourceTree = "<group>"; };
-		07A566771E7ECC89002D0A23 /* ReorderTableCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReorderTableCellView.h; sourceTree = "<group>"; };
-		07A566781E7ECC89002D0A23 /* ReorderTableCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReorderTableCellView.m; sourceTree = "<group>"; };
 		07BFEACA1E4C3E3600C5A189 /* Model.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Model.h; sourceTree = "<group>"; };
 		07BFEACB1E4C3E3600C5A189 /* Model.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Model.m; sourceTree = "<group>"; };
 		07C9D4C11E75EB6900F36FA4 /* StationStartTableCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StationStartTableCellView.h; sourceTree = "<group>"; };
@@ -120,8 +117,6 @@
 				071351C31E4ABFC50063A0C8 /* SpecificStationsTableCellView.m */,
 				0776F1F91E4C1F5000BFF6C5 /* LunchTableCellView.h */,
 				0776F1FA1E4C1F5000BFF6C5 /* LunchTableCellView.m */,
-				07A566771E7ECC89002D0A23 /* ReorderTableCellView.h */,
-				07A566781E7ECC89002D0A23 /* ReorderTableCellView.m */,
 				0790FB2A1E750A1B001DBC37 /* StationTableCellView.h */,
 				0790FB2B1E750A1B001DBC37 /* StationTableCellView.m */,
 				07C9D4C11E75EB6900F36FA4 /* StationStartTableCellView.h */,
@@ -219,7 +214,6 @@
 				074F5FDC1E19D63D009BF40E /* EndTimeTableCellView.m in Sources */,
 				0776F1FB1E4C1F5000BFF6C5 /* LunchTableCellView.m in Sources */,
 				0790FB211E74ED30001DBC37 /* RequirementsViewController.m in Sources */,
-				07A566791E7ECC89002D0A23 /* ReorderTableCellView.m in Sources */,
 				07FA1C611E120DB6007E81E8 /* main.m in Sources */,
 				074F5FDF1E19D8C2009BF40E /* StartTimeTableCellView.m in Sources */,
 				07FA1C5E1E120DB6007E81E8 /* AppDelegate.m in Sources */,
