@@ -22,20 +22,20 @@
 	[super viewDidLoad];
 	
 	// Set row dimension, column dimensions, and column titles
-	table.rowHeight = ROW_HEIGHT;
-	table.tableColumns[0].title = @"Name";
-	table.tableColumns[0].width = 100.0;
-	table.tableColumns[1].title = @"Start Time";
-	table.tableColumns[1].width = 100.0;
-	table.tableColumns[2].title = @"End Time";
-	table.tableColumns[2].width = 100.0;
-	table.tableColumns[3].title = @"Specific Stations";
-	table.tableColumns[3].width = 307.0;
-	table.tableColumns[4].title = @"Lunch";
-	table.tableColumns[4].width = 100.0;
+	self.table.rowHeight = ROW_HEIGHT;
+	self.table.tableColumns[0].title = @"Name";
+	self.table.tableColumns[0].width = 100.0;
+	self.table.tableColumns[1].title = @"Start Time";
+	self.table.tableColumns[1].width = 100.0;
+	self.table.tableColumns[2].title = @"End Time";
+	self.table.tableColumns[2].width = 100.0;
+	self.table.tableColumns[3].title = @"Specific Stations";
+	self.table.tableColumns[3].width = 307.0;
+	self.table.tableColumns[4].title = @"Lunch";
+	self.table.tableColumns[4].width = 100.0;
 	
 	// Make it impossible to select/highlight a row in the table
-	[table setSelectionHighlightStyle:NSTableViewSelectionHighlightStyleNone];
+	[self.table setSelectionHighlightStyle:NSTableViewSelectionHighlightStyleNone];
 	
 	// Initialize arrays
 	nameData = [NSMutableArray arrayWithObjects:@"", @"", @"", @"", @"", nil];
@@ -82,7 +82,7 @@
 	
 	// Reload table now that nameData.count is definitely > 0
 	// (For the benefit of numberOfRowsInTableView method)
-	[table reloadData];
+	[self.table reloadData];
 	
 }
 
@@ -120,8 +120,8 @@
 	NSInteger end_time_col_pos = -1;
 	NSInteger specific_stations_col_pos = -1;
 	NSInteger lunch_col_pos = -1;
-	for (int i = 0; i < table.numberOfColumns; i++) {
-		NSString *identifier = table.tableColumns[i].identifier;
+	for (int i = 0; i < self.table.numberOfColumns; i++) {
+		NSString *identifier = self.table.tableColumns[i].identifier;
 		if ([identifier isEqualToString:@"name_col"]) {
 			name_col_pos = i;
 		}
@@ -144,7 +144,7 @@
 
 	// Update array of names
 	for (int i = 0; i < nameData.count; i++) {
-		NameTableCellView *cell = (NameTableCellView *) [table viewAtColumn:name_col_pos row:i makeIfNecessary:NO];
+		NameTableCellView *cell = (NameTableCellView *) [self.table viewAtColumn:name_col_pos row:i makeIfNecessary:NO];
 		NSString *name = cell.name.stringValue;
 		if (name) { // do not insert nil object into array
 			nameData[i] = name;
@@ -153,7 +153,7 @@
 	
 	// Update array of start times
 	for (int i = 0; i < startTimeData.count; i++) {
-		StartTimeTableCellView *cell = (StartTimeTableCellView *) [table viewAtColumn:start_time_col_pos row:i makeIfNecessary:NO];
+		StartTimeTableCellView *cell = (StartTimeTableCellView *) [self.table viewAtColumn:start_time_col_pos row:i makeIfNecessary:NO];
 		NSString *starttime = cell.starttime.selectedItem.title;
 		if (starttime) { // do not insert nil object into array
 			startTimeData[i] = starttime;
@@ -162,7 +162,7 @@
 	
 	// Update array of end times
 	for (int i = 0; i < endTimeData.count; i++) {
-		EndTimeTableCellView *cell = (EndTimeTableCellView *) [table viewAtColumn:end_time_col_pos row:i makeIfNecessary:NO];
+		EndTimeTableCellView *cell = (EndTimeTableCellView *) [self.table viewAtColumn:end_time_col_pos row:i makeIfNecessary:NO];
 		NSString *endtime = cell.endtime.selectedItem.title;
 		if (endtime) { // do not insert nil object into array
 			endTimeData[i] = endtime;
@@ -171,7 +171,7 @@
 
 	// Update array of specific stations
 	for (int i = 0; i < specificStationsData.count; i++) {
-		SpecificStationsTableCellView *cell = (SpecificStationsTableCellView *) [table viewAtColumn:specific_stations_col_pos row:i makeIfNecessary:NO];
+		SpecificStationsTableCellView *cell = (SpecificStationsTableCellView *) [self.table viewAtColumn:specific_stations_col_pos row:i makeIfNecessary:NO];
 		// Specific station names
 		NSString *specific1 = cell.specific1.stringValue;
 		if (specific1) { // do not insert nil object into array
@@ -215,7 +215,7 @@
 	
 	// Update array of lunch data
 	for (int i = 0; i < lunchData.count; i++) {
-		LunchTableCellView *cell = (LunchTableCellView *) [table viewAtColumn:lunch_col_pos row:i makeIfNecessary:NO];
+		LunchTableCellView *cell = (LunchTableCellView *) [self.table viewAtColumn:lunch_col_pos row:i makeIfNecessary:NO];
 		int early_lunch_state = (int) cell.early_lunch.state;
 		int late_lunch_state = (int) cell.late_lunch.state;
 		int hour_lunch_state = (int) cell.hour_lunch.state;
@@ -347,7 +347,7 @@
 	[specificStationsData addObject:[NSMutableArray arrayWithObjects:@"", @"", @"", @"", @"", @"", @"", @"", @"", nil]];
 	[lunchData addObject:[NSNumber numberWithInt:0]];
 
-	[table reloadData];
+	[self.table reloadData];
 	
 }
 
@@ -366,7 +366,7 @@
 	[specificStationsData removeLastObject];
 	[lunchData removeLastObject];
 	
-	[table reloadData];
+	[self.table reloadData];
 	
 }
 

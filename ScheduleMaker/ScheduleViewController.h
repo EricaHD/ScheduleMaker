@@ -20,9 +20,11 @@
 	NSMutableArray *endTimeData;
 	NSMutableArray *specificStationsData;
 	NSMutableArray *lunchData;
-	IBOutlet NSTableView *table;
 
 }
+
+// Table view on schedule view controller
+@property (strong) IBOutlet NSTableView *table;
 
 // Reference to model that all view controllers will use
 @property (strong) Model *model;
