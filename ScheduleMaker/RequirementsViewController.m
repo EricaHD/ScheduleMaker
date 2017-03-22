@@ -28,11 +28,11 @@
     [super viewDidLoad];
 	
 	// Be able to drag rows
-	[table registerForDraggedTypes:[NSArray arrayWithObject:MyPrivateTableViewDataType]];
+	[self.table registerForDraggedTypes:[NSArray arrayWithObject:MyPrivateTableViewDataType]];
 	
 	// Set row dimension, column dimensions, and column titles
-	table.rowHeight = ROW_HEIGHT_2;
-	NSArray *columns = table.tableColumns;
+	self.table.rowHeight = ROW_HEIGHT_2;
+	NSArray *columns = self.table.tableColumns;
 	for (int i = 0; i < columns.count; i++) {
 		NSTableColumn *col = columns[i];
 		if ([col.identifier isEqualToString:@"reorder_col"]) {
@@ -56,13 +56,6 @@
 		}
 	}
 	
-	// Initialize arrays and keep track of numRows
-	stationList = [NSMutableArray arrayWithObjects:@"Trike", @"-1", @"Coro", @"Gallery", @"-1", @"0", @"Greeting", @"Lesson", @"Project", @"Security", @"Tours", @"Manager", @"Birthday", @"Other", nil]; // DEFAULTS (order)
-	stationData = [NSMutableArray arrayWithObjects:[NSNumber numberWithInt:0], [NSNumber numberWithInt:0], [NSNumber numberWithInt:0], [NSNumber numberWithInt:0], [NSNumber numberWithInt:0], [NSNumber numberWithInt:0], [NSNumber numberWithInt:0], [NSNumber numberWithInt:0], [NSNumber numberWithInt:0], [NSNumber numberWithInt:0], [NSNumber numberWithInt:0], [NSNumber numberWithInt:0], [NSNumber numberWithInt:0], [NSNumber numberWithInt:0], nil];
-	startTimeData = [NSMutableArray arrayWithObjects:@"", @"", @"", @"", @"", @"", @"", @"", @"", @"", @"", @"", @"", @"", nil];
-	endTimeData = [NSMutableArray arrayWithObjects:@"", @"", @"", @"", @"", @"", @"", @"", @"", @"", @"", @"", @"", @"", nil];
-	frequencyData = [NSMutableArray arrayWithObjects:@"", @"", @"", @"", @"", @"", @"", @"", @"", @"", @"", @"", @"", @"", nil];
-
 	// Half hour checkbox states
 	tenAM.state = NSOffState; // DEFAULT
 	elevenAM.state = NSOffState; // DEFAULT
@@ -80,9 +73,9 @@
 	fifthLunch.state = NSOffState; // DEFAULT
 	sixthLunch.state = NSOffState; // DEFAULT
 	
-	// Reload table now that stationList.count is definitely 14 and not 0
+	// Reload table now that self.model.stationList.count is definitely 14 and not 0
 	// (For the benefit of numberOfRowsInTableView method)
-	[table reloadData];
+	[self.table reloadData];
 	
 }
 
@@ -98,10 +91,10 @@
 }
 
 // Returns the number of records managed for a TableView by the data source object
-// Note: this may be called before ViewDidLoad, so can't use stationList.count yet
+// Note: this may be called before ViewDidLoad, so can't use self.model.stationList.count yet
 - (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView {
 
-	return stationList.count;
+	return self.model.stationList.count;
 	
 }
 
@@ -118,7 +111,7 @@
 	// Define cells in station names column
 	else if ([tableColumn.identifier isEqualToString:@"station_col"]) {
 		StationTableCellView *cell = (StationTableCellView *) [tableView makeViewWithIdentifier:@"station_cell" owner:self];
-		[cell.station setTitle:stationList[row]];
+		[cell.station setTitle:self.model.stationList[row]];
 		[cell.station setState:0]; // DEFAULT
 		return cell;
 	}
@@ -172,9 +165,7 @@
 
 // Drag and drop code: called by the table view when the mouse button is released over the table view that previously decided to allow a drop
 - (BOOL)tableView:(NSTableView *)tableView acceptDrop:(id<NSDraggingInfo>)info row:(NSInteger)row dropOperation:(NSTableViewDropOperation)dropOperation {
-		
-	self.model.str = @"Changed"; // TESTING
-
+	
 	// Find index of row being dragged
 	NSPasteboard* pboard = [info draggingPasteboard];
 	NSData* rowData = [pboard dataForType:MyPrivateTableViewDataType];

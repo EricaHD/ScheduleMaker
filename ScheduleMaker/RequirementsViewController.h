@@ -13,33 +13,28 @@
 #define ROW_HEIGHT_2 25.0;
 
 @interface RequirementsViewController : NSViewController <NSTableViewDelegate, NSTableViewDataSource> {
-		
-	// Table
-	NSMutableArray *stationList;
-	NSMutableArray *stationData;
-	NSMutableArray *startTimeData;
-	NSMutableArray *endTimeData;
-	NSMutableArray *frequencyData;
-	IBOutlet NSTableView *table;
 	
 	// Half hours
-	IBOutlet NSButton *tenAM;
-	IBOutlet NSButton *elevenAM;
-	IBOutlet NSButton *twelvePM;
-	IBOutlet NSButton *onePM;
-	IBOutlet NSButton *twoPM;
-	IBOutlet NSButton *threePM;
-	IBOutlet NSButton *fourPM;
+	IBOutlet NSButton *tenAM; //?
+	IBOutlet NSButton *elevenAM; //?
+	IBOutlet NSButton *twelvePM; //?
+	IBOutlet NSButton *onePM; //?
+	IBOutlet NSButton *twoPM; //?
+	IBOutlet NSButton *threePM; //?
+	IBOutlet NSButton *fourPM; //?
 	
 	// Stack lunches
-	IBOutlet NSButton *firstLunch;
-	IBOutlet NSButton *secondLunch;
-	IBOutlet NSButton *thirdLunch;
-	IBOutlet NSButton *fourthLunch;
-	IBOutlet NSButton *fifthLunch;
-	IBOutlet NSButton *sixthLunch;
+	IBOutlet NSButton *firstLunch; //?
+	IBOutlet NSButton *secondLunch; //?
+	IBOutlet NSButton *thirdLunch; //?
+	IBOutlet NSButton *fourthLunch; //?
+	IBOutlet NSButton *fifthLunch; //?
+	IBOutlet NSButton *sixthLunch; //?
 	
 }
+
+// Table view on requirements view controller
+@property (strong) IBOutlet NSTableView *table;
 
 // Reference to model that all view controllers will use
 @property (strong) Model *model;

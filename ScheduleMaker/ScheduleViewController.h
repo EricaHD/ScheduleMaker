@@ -20,11 +20,4 @@
 // Reference to model that all view controllers will use
 @property (strong) Model *model;
 
-// Add or delete table rows
-- (IBAction)addRow:(id)sender;
-- (IBAction)deleteRow:(id)sender;
-
-// Make schedule!
-- (IBAction)makeSchedule:(id)sender;
-
 @end

@@ -7,7 +7,7 @@
 //
 
 // TO DO NEXT:
-// Learn how to collate and/or pass data between three view controllers <-- working on now
+// Learn how to collate and/or pass data between three view controllers; also go over //? marking variables that need to move <-- working on now
 // Make special stations customizable with +/- buttons
 // Lay out Database view controller
 // Add autocomplete from database feature in Schedule view controller (for names and specific stations)
@@ -28,6 +28,7 @@
 
 @interface AppDelegate : NSObject <NSApplicationDelegate>
 
+// Reference to model that all view controllers will use
 @property (strong) Model *model;
 
 @end

@@ -24,47 +24,68 @@
 	
 }
 
-// Sent by the default notification center immediately after the application becomes active
-- (void)applicationDidBecomeActive:(NSNotification *)notification {
+// Set up arrays in model
+- (void)setUpModelsArrays {
 	
-	// Create and initialize the model that all view controllers will use
-	self.model = [[Model alloc] init];
+	// Set up data in the model - data relevant to ScheduleViewCongroller
 	self.model.nameData = [NSMutableArray arrayWithObjects:@"", @"", @"", @"", @"", nil];
 	self.model.startTimeData = [NSMutableArray arrayWithObjects:@"", @"", @"", @"", @"", nil];
 	self.model.endTimeData = [NSMutableArray arrayWithObjects:@"", @"", @"", @"", @"", nil];
 	self.model.specificStationsData = [NSMutableArray arrayWithObjects:
-							[NSMutableArray arrayWithObjects:@"", @"", @"", @"", @"", @"", @"", @"", @"", nil],
-							[NSMutableArray arrayWithObjects:@"", @"", @"", @"", @"", @"", @"", @"", @"", nil],
-							[NSMutableArray arrayWithObjects:@"", @"", @"", @"", @"", @"", @"", @"", @"", nil],
-							[NSMutableArray arrayWithObjects:@"", @"", @"", @"", @"", @"", @"", @"", @"", nil],
-							[NSMutableArray arrayWithObjects:@"", @"", @"", @"", @"", @"", @"", @"", @"", nil], nil];
+									   [NSMutableArray arrayWithObjects:@"", @"", @"", @"", @"", @"", @"", @"", @"", nil],
+									   [NSMutableArray arrayWithObjects:@"", @"", @"", @"", @"", @"", @"", @"", @"", nil],
+									   [NSMutableArray arrayWithObjects:@"", @"", @"", @"", @"", @"", @"", @"", @"", nil],
+									   [NSMutableArray arrayWithObjects:@"", @"", @"", @"", @"", @"", @"", @"", @"", nil],
+									   [NSMutableArray arrayWithObjects:@"", @"", @"", @"", @"", @"", @"", @"", @"", nil], nil];
 	self.model.lunchData = [NSMutableArray arrayWithObjects:[NSNumber numberWithInt:0], [NSNumber numberWithInt:0], [NSNumber numberWithInt:0], [NSNumber numberWithInt:0], [NSNumber numberWithInt:0], nil];
 	
-	// Find the three view controllers (hardcoded to be three)
-	DatabaseViewController *database;
-	RequirementsViewController *requirements;
-	ScheduleViewController *schedule;
-	NSWindow *window = [[NSApplication sharedApplication] mainWindow];
-	NSArray *viewControllerArray = window.contentViewController.childViewControllers;
-	if (viewControllerArray.count == 3) {
-		database = (DatabaseViewController *) viewControllerArray[0];
-		requirements = (RequirementsViewController *) viewControllerArray[1];
-		schedule = (ScheduleViewController *) viewControllerArray[2];
+	// Set up data in the model - data relevant to RequirementsViewCongroller
+	self.model.stationList = [NSMutableArray arrayWithObjects:@"Trike", @"-1", @"Coro", @"Gallery", @"-1", @"0", @"Greeting", @"Lesson", @"Project", @"Security", @"Tours", @"Manager", @"Birthday", @"Other", nil]; // DEFAULTS (order)
+	self.model.stationData = [NSMutableArray arrayWithObjects:[NSNumber numberWithInt:0], [NSNumber numberWithInt:0], [NSNumber numberWithInt:0], [NSNumber numberWithInt:0], [NSNumber numberWithInt:0], [NSNumber numberWithInt:0], [NSNumber numberWithInt:0], [NSNumber numberWithInt:0], [NSNumber numberWithInt:0], [NSNumber numberWithInt:0], [NSNumber numberWithInt:0], [NSNumber numberWithInt:0], [NSNumber numberWithInt:0], [NSNumber numberWithInt:0], nil];
+	self.model.stationStartTimeData = [NSMutableArray arrayWithObjects:@"", @"", @"", @"", @"", @"", @"", @"", @"", @"", @"", @"", @"", @"", nil];
+	self.model.stationEndTimeData = [NSMutableArray arrayWithObjects:@"", @"", @"", @"", @"", @"", @"", @"", @"", @"", @"", @"", @"", @"", nil];
+	self.model.stationFrequencyData = [NSMutableArray arrayWithObjects:@"", @"", @"", @"", @"", @"", @"", @"", @"", @"", @"", @"", @"", @"", nil];
+	
+}
+
+// Sent by the default notification center immediately after the application becomes active
+- (void)applicationDidBecomeActive:(NSNotification *)notification {
+	
+	// If the model has not been made yet (so only do once)...
+	if (self.model == nil) {
+		
+		// ...create the model that all view controllers will share
+		self.model = [[Model alloc] init];
+		
+		// Set up arrays in model
+		[self setUpModelsArrays];
+		
+		// Find the three view controllers (hardcoded to be three)
+		DatabaseViewController *database;
+		RequirementsViewController *requirements;
+		ScheduleViewController *schedule;
+		NSWindow *window = [[NSApplication sharedApplication] mainWindow];
+		NSArray *viewControllerArray = window.contentViewController.childViewControllers;
+		if (viewControllerArray.count == 3) {
+			database = (DatabaseViewController *) viewControllerArray[0];
+			requirements = (RequirementsViewController *) viewControllerArray[1];
+			schedule = (ScheduleViewController *) viewControllerArray[2];
+		}
+		else {
+			NSLog(@"Error: viewControllerArray.count != 3");
+		}
+	
+		// Point each controller to the model created above
+		database.model = self.model;
+		requirements.model = self.model;
+		schedule.model = self.model;
+	
+		// Reload tables now that the view controllers are hooked up to the model
+		// So that numberOfRowsInTableView method can return something > 0
+		[schedule.table reloadData];
+		[requirements.table reloadData];
+	
 	}
-	else {
-		NSLog(@"Error: viewControllerArray.count != 3");
-	}
-	
-	// Point each controller to the model created above
-	database.model = self.model;
-	requirements.model = self.model;
-	schedule.model = self.model;
-	
-	// Reload the data now that the view controllers are hooked up to the model
-	// and self.model.nameData.count is definitely > 0 (for the benefit of numberOfRowsInTableView method)
-	[schedule.table reloadData];
-	
-	self.model.str = @"Hey"; // TESTING
 	
 }
 

@@ -15,6 +15,13 @@
 
 @interface ScheduleViewController ()
 
+// Add and delete table rows
+- (IBAction)addRow:(id)sender;
+- (IBAction)deleteRow:(id)sender;
+
+// Make schedule!
+- (IBAction)makeSchedule:(id)sender;
+
 @end
 
 @implementation ScheduleViewController
@@ -344,9 +351,7 @@
 	
 	// Update arrays of information from table rows
 	[self scrapeData];
-	
-	NSLog(@"%@", self.model.str); // TESTING
-		
+			
 ////////////////////////////////////////////////////////////////////////////////
 // TODO: MODEL STUFF ///////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
