@@ -44,12 +44,6 @@
 	// Super
     [super viewDidLoad];
 	
-	// Make it impossible to select/highlight a row in the table
-	[self.table setSelectionHighlightStyle:NSTableViewSelectionHighlightStyleNone];
-	
-	// Be able to drag rows
-	[self.table registerForDraggedTypes:[NSArray arrayWithObject:MyPrivateTableViewDataType]];
-	
 	// Set row dimension, column dimensions, and column titles
 	self.table.rowHeight = ROW_HEIGHT_2;
 	NSArray *columns = self.table.tableColumns;
@@ -76,8 +70,13 @@
 		}
 	}
 	
-	// Reload table now that self.model.stationList.count is definitely 14 and not 0
-	// (For the benefit of numberOfRowsInTableView method)
+	// Make it impossible to select/highlight a row in the table
+	[self.table setSelectionHighlightStyle:NSTableViewSelectionHighlightStyleNone];
+	
+	// Be able to drag rows
+	[self.table registerForDraggedTypes:[NSArray arrayWithObject:MyPrivateTableViewDataType]];
+	
+	// Reload table
 	[self.table reloadData];
 	
 }
@@ -88,13 +87,9 @@
 	// Super
 	[super viewDidAppear];
 	
-	// Set window title
-	self.view.window.title = @"MoMath Floor Schedule Generator";
-	
 }
 
 // Returns the number of records managed for a TableView by the data source object
-// Note: this may be called before ViewDidLoad, so can't use self.model.stationList.count yet
 - (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView {
 
 	return self.model.stationList.count;

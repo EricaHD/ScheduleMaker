@@ -86,6 +86,32 @@
 
 }
 
+// When "+" add row button is pressed on ScheduleViewController
+- (void)addRow {
+
+	[self.nameData addObject:@""];
+	[self.startTimeData addObject:@""];
+	[self.endTimeData addObject:@""];
+	[self.specificStationsData addObject:[NSMutableArray arrayWithObjects:@"", @"", @"", @"", @"", @"", @"", @"", @"", nil]];
+	[self.lunchData addObject:[NSNumber numberWithInt:0]];
+
+}
+
+// When "-" delete row button is pressed on ScheduleViewController
+- (void)deleteRow {
+	
+	if (self.nameData.count == 0) {
+		return;
+	}
+	
+	[self.nameData removeLastObject];
+	[self.startTimeData removeLastObject];
+	[self.endTimeData removeLastObject];
+	[self.specificStationsData removeLastObject];
+	[self.lunchData removeLastObject];
+
+}
+
 // Check that end time comes after the start time for each shift
 // Returns which row caused a problem (row index + 1); returns 0 if completely valid
 - (int)checkShiftTimesFor:(NSMutableArray *)startTimeData until:(NSMutableArray *)endTimeData {

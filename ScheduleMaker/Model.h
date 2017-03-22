@@ -28,6 +28,12 @@
 @property (strong) NSMutableArray *halfHourData;
 @property (strong) NSMutableArray *stackLunchesData;
 
+// When "+" add row button is pressed on ScheduleViewController
+- (void)addRow;
+
+// When "-" delete row button is pressed on ScheduleViewController
+- (void)deleteRow;
+
 // Print schedule (mostly for debugging purposes)
 - (void)printSchedule:(NSMutableArray *)nameData;
 

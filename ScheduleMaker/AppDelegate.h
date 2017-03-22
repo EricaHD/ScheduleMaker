@@ -16,6 +16,8 @@
 // Invoke a script that will open LibreOffice and fill in schedule as if Sook has just written it, ready for editing (if necessary) and printing as usual
 // Revisit DEFAULTs and actually implement use of NSUserDefaults
 
+// Add another "0" and "Float" to RequirementsViewController?
+// Change start time menus in ScheduleViewController to include 8:00 am, 8:30 am, 9:00 am, 9:30 am.
 // Go back and figure out which @property need (strong)
 // Go back to TODOs
 // Go back to NSLog(@"Error: ..."); and handle errors more gracefully
