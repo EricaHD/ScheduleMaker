@@ -353,11 +353,11 @@
 	[self scrapeData];
 			
 ////////////////////////////////////////////////////////////////////////////////
-// TODO: MODEL STUFF ///////////////////////////////////////////////////////////
+// TODO: MODEL STUFF...NOW MOST OF THIS WILL TAKE PLACE BEHIND THE SCENES IN THE MODEL
 ////////////////////////////////////////////////////////////////////////////////
 	
 	// Set number of staff for input into following method calls
-//	[model setNumStaff:nameData];
+//	[model findNumStaff:nameData];
 	
 	// Error checking: ensure start time < end time for each shift
 //	int valid;

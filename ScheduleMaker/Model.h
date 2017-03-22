@@ -8,14 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface Model : NSObject {
-
-	NSDictionary *timeEntries; //?
-	int numStaff; //?
-	NSMutableArray *schedule; //?
-	NSInteger lunchCount[14]; //?
-	
-}
+@interface Model : NSObject
 
 // Arrays for ScheduleViewController table
 @property (strong) NSMutableArray *nameData;
@@ -35,21 +28,7 @@
 @property (strong) NSMutableArray *halfHourData;
 @property (strong) NSMutableArray *stackLunchesData;
 
-
-
-- (void)setNumStaff:(NSMutableArray *)names; //?
-- (int)getNumStaff; //?
-
-- (int)checkShiftTimesFor:(NSMutableArray *)startTimeData until:(NSMutableArray *)endTimeData; //?
-- (int)checkSpecificStationTimesFor:(NSMutableArray *)specificStationsData; //?
-- (int)checkShiftTimesAndSpecificiStationTimesFor:(NSMutableArray *)startTimeData until:(NSMutableArray *)endTimeData including:(NSMutableArray *)specificStationsData; //?
-- (int)checkSpecificStationTimesConflictsFor:(NSMutableArray *)specificStationsData; //?
-
-- (void)setHalfHours:(NSMutableArray *)halfHourData; //?
-- (void)blockOutNonShiftHours:(NSMutableArray *)startTimeData until:(NSMutableArray *)endTimeData; //?
-- (void)assignSpecificStations:(NSMutableArray *)specificStationsData; //?
-- (void)assignLunches:(NSMutableArray *)lunchData starting:(NSMutableArray *)startTimeData ending:(NSMutableArray *)endTimeData; //?
-
-- (void)printSchedule:(NSMutableArray *)nameData; //?
+// Print schedule (mostly for debugging purposes)
+- (void)printSchedule:(NSMutableArray *)nameData;
 
 @end
