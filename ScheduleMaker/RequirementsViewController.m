@@ -17,6 +17,23 @@
 
 @interface RequirementsViewController ()
 
+// Half hours
+@property (strong) IBOutlet NSButton *tenAM;
+@property (strong) IBOutlet NSButton *elevenAM;
+@property (strong) IBOutlet NSButton *twelvePM;
+@property (strong) IBOutlet NSButton *onePM;
+@property (strong) IBOutlet NSButton *twoPM;
+@property (strong) IBOutlet NSButton *threePM;
+@property (strong) IBOutlet NSButton *fourPM;
+
+// Stack lunches
+@property (strong) IBOutlet NSButton *firstLunch;
+@property (strong) IBOutlet NSButton *secondLunch;
+@property (strong) IBOutlet NSButton *thirdLunch;
+@property (strong) IBOutlet NSButton *fourthLunch;
+@property (strong) IBOutlet NSButton *fifthLunch;
+@property (strong) IBOutlet NSButton *sixthLunch;
+
 @end
 
 @implementation RequirementsViewController
@@ -26,6 +43,9 @@
 	
 	// Super
     [super viewDidLoad];
+	
+	// Make it impossible to select/highlight a row in the table
+	[self.table setSelectionHighlightStyle:NSTableViewSelectionHighlightStyleNone];
 	
 	// Be able to drag rows
 	[self.table registerForDraggedTypes:[NSArray arrayWithObject:MyPrivateTableViewDataType]];
@@ -55,23 +75,6 @@
 			col.width = 165.0;
 		}
 	}
-	
-	// Half hour checkbox states
-	tenAM.state = NSOffState; // DEFAULT
-	elevenAM.state = NSOffState; // DEFAULT
-	twelvePM.state = NSOffState; // DEFAULT
-	onePM.state = NSOnState; // DEFAULT
-	twoPM.state = NSOnState; // DEFAULT
-	threePM.state = NSOnState; // DEFAULT
-	fourPM.state = NSOnState; // DEFAULT
-	
-	// Stack lunches checkbox states
-	firstLunch.state = NSOffState; // DEFAULT
-	secondLunch.state = NSOffState; // DEFAULT
-	thirdLunch.state = NSOffState; // DEFAULT
-	fourthLunch.state = NSOffState; // DEFAULT
-	fifthLunch.state = NSOffState; // DEFAULT
-	sixthLunch.state = NSOffState; // DEFAULT
 	
 	// Reload table now that self.model.stationList.count is definitely 14 and not 0
 	// (For the benefit of numberOfRowsInTableView method)
@@ -191,6 +194,41 @@
 		
 	return YES;
 
- }
+}
+
+// Update the half hour checkboxes on the right side of the view controller to reflect array entries
+- (void)reloadHalfHourData {
+	
+	if (self.model.halfHourData.count == 7) {
+		self.tenAM.state = ([self.model.halfHourData[0] intValue]) ? NSOnState : NSOffState;
+		self.elevenAM.state = ([self.model.halfHourData[1] intValue]) ? NSOnState : NSOffState;
+		self.twelvePM.state = ([self.model.halfHourData[2] intValue]) ? NSOnState : NSOffState;
+		self.onePM.state = ([self.model.halfHourData[3] intValue]) ? NSOnState : NSOffState;
+		self.twoPM.state = ([self.model.halfHourData[4] intValue]) ? NSOnState : NSOffState;
+		self.threePM.state = ([self.model.halfHourData[5] intValue]) ? NSOnState : NSOffState;
+		self.fourPM.state = ([self.model.halfHourData[6] intValue]) ? NSOnState : NSOffState;
+	}
+	else {
+		NSLog(@"Error: self.model.halfHourData.count != 7");
+	}
+	
+}
+
+// Update the stack lunches checkboxes on the right side of the view controller to reflect array entries
+- (void)reloadStackLunchesData {
+	
+	if (self.model.stackLunchesData.count == 6) {
+		self.firstLunch.state = ([self.model.stackLunchesData[0] intValue]) ? NSOnState : NSOffState;
+		self.secondLunch.state = ([self.model.stackLunchesData[1] intValue]) ? NSOnState : NSOffState;
+		self.thirdLunch.state = ([self.model.stackLunchesData[2] intValue]) ? NSOnState : NSOffState;
+		self.fourthLunch.state = ([self.model.stackLunchesData[3] intValue]) ? NSOnState : NSOffState;
+		self.fifthLunch.state = ([self.model.stackLunchesData[4] intValue]) ? NSOnState : NSOffState;
+		self.sixthLunch.state = ([self.model.stackLunchesData[5] intValue]) ? NSOnState : NSOffState;
+	}
+	else {
+		NSLog(@"Error: self.model.stackLunchesData.count != 6");
+	}
+	
+}
 
 @end

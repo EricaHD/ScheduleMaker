@@ -12,31 +12,16 @@
 // Constants
 #define ROW_HEIGHT_2 25.0;
 
-@interface RequirementsViewController : NSViewController <NSTableViewDelegate, NSTableViewDataSource> {
-	
-	// Half hours
-	IBOutlet NSButton *tenAM; //?
-	IBOutlet NSButton *elevenAM; //?
-	IBOutlet NSButton *twelvePM; //?
-	IBOutlet NSButton *onePM; //?
-	IBOutlet NSButton *twoPM; //?
-	IBOutlet NSButton *threePM; //?
-	IBOutlet NSButton *fourPM; //?
-	
-	// Stack lunches
-	IBOutlet NSButton *firstLunch; //?
-	IBOutlet NSButton *secondLunch; //?
-	IBOutlet NSButton *thirdLunch; //?
-	IBOutlet NSButton *fourthLunch; //?
-	IBOutlet NSButton *fifthLunch; //?
-	IBOutlet NSButton *sixthLunch; //?
-	
-}
+@interface RequirementsViewController : NSViewController <NSTableViewDelegate, NSTableViewDataSource>
 
 // Table view on requirements view controller
 @property (strong) IBOutlet NSTableView *table;
 
 // Reference to model that all view controllers will use
 @property (strong) Model *model;
+
+// Update the checkboxes on the right side of the view controller to reflect array entries
+- (void)reloadHalfHourData;
+- (void)reloadStackLunchesData;
 
 @end

@@ -20,14 +20,14 @@
 // Insert code here to initialize your application
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
 	
-	// No work
+	// Nothing
 	
 }
 
 // Set up arrays in model
 - (void)setUpModelsArrays {
 	
-	// Set up data in the model - data relevant to ScheduleViewCongroller
+	// Set up ScheduleViewController table
 	self.model.nameData = [NSMutableArray arrayWithObjects:@"", @"", @"", @"", @"", nil];
 	self.model.startTimeData = [NSMutableArray arrayWithObjects:@"", @"", @"", @"", @"", nil];
 	self.model.endTimeData = [NSMutableArray arrayWithObjects:@"", @"", @"", @"", @"", nil];
@@ -39,12 +39,16 @@
 									   [NSMutableArray arrayWithObjects:@"", @"", @"", @"", @"", @"", @"", @"", @"", nil], nil];
 	self.model.lunchData = [NSMutableArray arrayWithObjects:[NSNumber numberWithInt:0], [NSNumber numberWithInt:0], [NSNumber numberWithInt:0], [NSNumber numberWithInt:0], [NSNumber numberWithInt:0], nil];
 	
-	// Set up data in the model - data relevant to RequirementsViewCongroller
+	// Set up RequirementsViewController table
 	self.model.stationList = [NSMutableArray arrayWithObjects:@"Trike", @"-1", @"Coro", @"Gallery", @"-1", @"0", @"Greeting", @"Lesson", @"Project", @"Security", @"Tours", @"Manager", @"Birthday", @"Other", nil]; // DEFAULTS (order)
 	self.model.stationData = [NSMutableArray arrayWithObjects:[NSNumber numberWithInt:0], [NSNumber numberWithInt:0], [NSNumber numberWithInt:0], [NSNumber numberWithInt:0], [NSNumber numberWithInt:0], [NSNumber numberWithInt:0], [NSNumber numberWithInt:0], [NSNumber numberWithInt:0], [NSNumber numberWithInt:0], [NSNumber numberWithInt:0], [NSNumber numberWithInt:0], [NSNumber numberWithInt:0], [NSNumber numberWithInt:0], [NSNumber numberWithInt:0], nil];
 	self.model.stationStartTimeData = [NSMutableArray arrayWithObjects:@"", @"", @"", @"", @"", @"", @"", @"", @"", @"", @"", @"", @"", @"", nil];
 	self.model.stationEndTimeData = [NSMutableArray arrayWithObjects:@"", @"", @"", @"", @"", @"", @"", @"", @"", @"", @"", @"", @"", @"", nil];
 	self.model.stationFrequencyData = [NSMutableArray arrayWithObjects:@"", @"", @"", @"", @"", @"", @"", @"", @"", @"", @"", @"", @"", @"", nil];
+	
+	// Set up checkboxes on the right side of RequirementsViewController
+	self.model.halfHourData = [NSMutableArray arrayWithObjects:[NSNumber numberWithInt:0], [NSNumber numberWithInt:0], [NSNumber numberWithInt:0], [NSNumber numberWithInt:1], [NSNumber numberWithInt:1], [NSNumber numberWithInt:1], [NSNumber numberWithInt:1], nil]; // DEFAULT
+	self.model.stackLunchesData = [NSMutableArray arrayWithObjects:[NSNumber numberWithInt:0], [NSNumber numberWithInt:0], [NSNumber numberWithInt:0], [NSNumber numberWithInt:0], [NSNumber numberWithInt:0], [NSNumber numberWithInt:0], nil]; // DEFAULT?
 	
 }
 
@@ -66,7 +70,7 @@
 		ScheduleViewController *schedule;
 		NSWindow *window = [[NSApplication sharedApplication] mainWindow];
 		NSArray *viewControllerArray = window.contentViewController.childViewControllers;
-		if (viewControllerArray.count == 3) {
+		if (viewControllerArray.count == 3) { // TODO
 			database = (DatabaseViewController *) viewControllerArray[0];
 			requirements = (RequirementsViewController *) viewControllerArray[1];
 			schedule = (ScheduleViewController *) viewControllerArray[2];
@@ -85,6 +89,10 @@
 		[schedule.table reloadData];
 		[requirements.table reloadData];
 	
+		// Reload checkboxes on the side of the requirements view controller
+		[requirements reloadHalfHourData];
+		[requirements reloadStackLunchesData];
+		
 	}
 	
 }
@@ -92,7 +100,7 @@
 // Insert code here to tear down your application
 - (void)applicationWillTerminate:(NSNotification *)aNotification {
 
-	// No work
+	// Nothing
 	
 }
 

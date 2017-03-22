@@ -17,19 +17,25 @@
 	
 }
 
-// Arrays for ScheduleViewController
+// Arrays for ScheduleViewController table
 @property (strong) NSMutableArray *nameData;
 @property (strong) NSMutableArray *startTimeData;
 @property (strong) NSMutableArray *endTimeData;
 @property (strong) NSMutableArray *specificStationsData;
 @property (strong) NSMutableArray *lunchData;
 
-// Arrays for RequirementsViewController
+// Arrays for RequirementsViewController table
 @property (strong) NSMutableArray *stationList;
 @property (strong) NSMutableArray *stationData;
 @property (strong) NSMutableArray *stationStartTimeData;
 @property (strong) NSMutableArray *stationEndTimeData;
 @property (strong) NSMutableArray *stationFrequencyData;
+
+// Arrays for side checkbo buttons in RequirementsViewController
+@property (strong) NSMutableArray *halfHourData;
+@property (strong) NSMutableArray *stackLunchesData;
+
+
 
 - (void)setNumStaff:(NSMutableArray *)names; //?
 - (int)getNumStaff; //?

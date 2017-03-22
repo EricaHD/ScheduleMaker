@@ -105,7 +105,7 @@
 			lunch_col_pos = i;
 		}
 		else {
-			// Nothing
+			NSLog(@"Error: unidentifiable column in ScheduleViewController");
 		}
 	}
 
