@@ -37,125 +37,6 @@
 // HELPER METHODS USED WHILE MAKING SCHEDULE ///////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 //
-//// Check that end time comes after the start time for each specific station entry
-//- (int)checkSpecificStationTimesFor:(NSMutableArray *)specificStationsData {
-//	
-//	// Check each start time >= end times
-//	int start_num;
-//	int end_num;
-//	for (int i = 0; i < self.nameData.count; i++) {
-//		NSMutableArray *cell_data = specificStationsData[i];
-//		if (![cell_data[0] isEqualToString:@""]) {
-//			start_num = [[self.timeEntries objectForKey:cell_data[1]] intValue];
-//			end_num = [[self.timeEntries objectForKey:cell_data[2]] intValue];
-//			if (start_num >= end_num) {
-//				return (i+1);
-//			}
-//		}
-//		if (![cell_data[3] isEqualToString:@""]) {
-//			start_num = [[self.timeEntries objectForKey:cell_data[4]] intValue];
-//			end_num = [[self.timeEntries objectForKey:cell_data[5]] intValue];
-//			if (start_num >= end_num) {
-//				return (i+1);
-//			}
-//		}
-//		if (![cell_data[6] isEqualToString:@""]) {
-//			start_num = [[self.timeEntries objectForKey:cell_data[7]] intValue];
-//			end_num = [[self.timeEntries objectForKey:cell_data[8]] intValue];
-//			if (start_num >= end_num) {
-//				return (i+1);
-//			}
-//		}
-//	}
-//	
-//	// Otherwise, all valid
-//	return 0;
-//	
-//}
-//
-//// Check that specific station times are subsets of shift times
-//- (int)checkShiftTimesAndSpecificiStationTimesFor:(NSMutableArray *)startTimeData until:(NSMutableArray *)endTimeData including:(NSMutableArray *)specificStationsData {
-//	
-//	// Check each
-//	int start_num;
-//	int end_num;
-//	for (int i = 0; i < self.nameData.count; i++) {
-//		int start_shift = [[self.timeEntries objectForKey:startTimeData[i]] intValue];;
-//		int end_shift = [[self.timeEntries objectForKey:endTimeData[i]] intValue];
-//		NSMutableArray *cell_data = specificStationsData[i];
-//		if (![cell_data[0] isEqualToString:@""]) {
-//			start_num = [[self.timeEntries objectForKey:cell_data[1]] intValue];
-//			end_num = [[self.timeEntries objectForKey:cell_data[2]] intValue];
-//			if ((start_num < start_shift) || (end_num > end_shift)) {
-//				return (i+1);
-//			}
-//		}
-//		if (![cell_data[3] isEqualToString:@""]) {
-//			start_num = [[self.timeEntries objectForKey:cell_data[4]] intValue];
-//			end_num = [[self.timeEntries objectForKey:cell_data[5]] intValue];
-//			if ((start_num < start_shift) || (end_num > end_shift)) {
-//				return (i+1);
-//			}
-//		}
-//		if (![cell_data[6] isEqualToString:@""]) {
-//			start_num = [[self.timeEntries objectForKey:cell_data[7]] intValue];
-//			end_num = [[self.timeEntries objectForKey:cell_data[8]] intValue];
-//			if ((start_num < start_shift) || (end_num > end_shift)) {
-//				return (i+1);
-//			}
-//		}
-//	}
-//	
-//	// Otherwise, all, valid
-//	return 0;
-//	
-//}
-//
-//// Check that specific station times do not conflict
-//- (int)checkSpecificStationTimesConflictsFor:(NSMutableArray *)specificStationsData {
-//	
-//	// Check that specific station times do not conflict
-//	int start_num;
-//	int end_num;
-//	for (int i = 0; i < self.nameData.count; i++) {
-//		NSInteger tally[14] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
-//		NSMutableArray *cell_data = specificStationsData[i];
-//		if (![cell_data[0] isEqualToString:@""]) {
-//			start_num = [[self.timeEntries objectForKey:cell_data[1]] intValue];
-//			end_num = [[self.timeEntries objectForKey:cell_data[2]] intValue];
-//			for (int j = start_num; j < end_num; j++) {
-//				tally[j]++;
-//			}
-//		}
-//		if (![cell_data[3] isEqualToString:@""]) {
-//			start_num = [[self.timeEntries objectForKey:cell_data[4]] intValue];
-//			end_num = [[self.timeEntries objectForKey:cell_data[5]] intValue];
-//			for (int j = start_num; j < end_num; j++) {
-//				tally[j]++;
-//			}
-//		}
-//		if (![cell_data[6] isEqualToString:@""]) {
-//			start_num = [[self.timeEntries objectForKey:cell_data[7]] intValue];
-//			end_num = [[self.timeEntries objectForKey:cell_data[8]] intValue];
-//			for (int j = start_num; j < end_num; j++) {
-//				tally[j]++;
-//			}
-//		}
-//		
-//		// Make sure person is not assigned to > 1 specific station at a time
-//		for (int k = 0; k < 14; k++) {
-//			if (tally[k] > 1) {
-//				return (i+1);
-//			}
-//		}
-//		
-//	}
-//	
-//	// Otherwise, all valid
-//	return 0;
-//	
-//}
-//
 //// Set up hours/half hours on schedule
 //- (void)setHalfHours:(NSMutableArray *)halfHourData {
 //	
@@ -364,6 +245,8 @@
 // Does the calculations needed to actually make the schedule; data already collected
 - (void)makeSchedule {
 	
+	// USE ONLY VALID ROWS IN SCHEDULE VIEW CONTROLLER TABLE ///////////////////
+	
 	// Take rows out of ScheduleViewController table that have no name in the name column
 	NSMutableIndexSet *indexes = [[NSMutableIndexSet alloc] init];
 	for (int i = 0; i < self.nameData.count; i++) {
@@ -385,40 +268,38 @@
 	
 	// ERROR CHECKING //////////////////////////////////////////////////////////
 	
-	// Ensure start time < end time for each shift
-	[Helpers checkShiftTimesFor:self.startTimeData until:self.endTimeData];
+	// Ensure start time < end time for each shift; will show alert if there is an error
+	int result1 = [Helpers checkShiftTimesFor:self.startTimeData until:self.endTimeData];
 	
+	// Error checking: ensure start time < end time for each specific station entry; will show alert if there is an error
+	int result2 = [Helpers checkSpecificStationTimesFor:self.specificStationsData];
 	
+	// Error checking: ensure specific station times are subsets of shift times; will show alert if there is an error
+	int result3 = [Helpers checkShiftTimesAndSpecificiStationTimesFor:self.startTimeData until:self.endTimeData including:self.specificStationsData];
 	
+	// Error checking: ensure specific station times do not conflict; will show alert if there is an error
+	int result4 = [Helpers checkSpecificStationTimesConflictsFor:self.specificStationsData];
 	
+	// If any of the above error checks have caught errors, do not make schedule (i.e. end here)
+	if (result1 + result2 + result3 + result4 != 0) {
+		return;
+	}
 	
-	// Error checking: ensure start time < end time for each specific station entry
-	//	valid = [model checkSpecificStationTimesFor:specificStationsData];
-	//	if (valid != 0) {
-	//		[self showAlert:@"Invalid specific station times" withDetails:[NSString stringWithFormat:@"Please check specific station times in row #%d.", valid]];
-	//	}
-	
-	// Error checking: ensure specific station times are subsets of shift times
-	//	valid = [model checkShiftTimesAndSpecificiStationTimesFor:startTimeData until:endTimeData including:specificStationsData];
-	//	if (valid != 0) {
-	//		[self showAlert:@"Invalid specific station times" withDetails:[NSString stringWithFormat:@"Please check that specific station times do not extend outside shift hours in row #%d.", valid]];
-	//	}
-	
-	// Error checking: ensure specific station times do not conflict
-	//	valid = [model checkSpecificStationTimesConflictsFor:specificStationsData];
-	//	if (valid != 0) {
-	//		[self showAlert:@"Invalid specific station times" withDetails:[NSString stringWithFormat:@"Please check that specific station times do not overlap in row #%d.", valid]];
-	//	}
+	// SET UP HOURS AND HALF HOURS ON SCHEDULE /////////////////////////////////
 	
 	// Set up hours/half hours on schedule
 	//	NSMutableArray *halfHourData = [NSMutableArray arrayWithObjects:[NSNumber numberWithLong:tenAM.state], [NSNumber numberWithLong:elevenAM.state], [NSNumber numberWithLong:twelvePM.state], [NSNumber numberWithLong:onePM.state], [NSNumber numberWithLong:twoPM.state], [NSNumber numberWithLong:threePM.state], [NSNumber numberWithLong:fourPM.state], nil];
 	//	[model setHalfHours:halfHourData];
+	
+	// MAKE NECESSARY ASSIGNMENTS //////////////////////////////////////////////
 	
 	// X out hours that are outside a staff member's shift
 	//	[model blockOutNonShiftHours:startTimeData until:endTimeData];
 	
 	// Assign specific stations on schedule
 	//	[model assignSpecificStations:specificStationsData];
+	
+	// MAKE INTELLIGENT ASSIGNMENTS ////////////////////////////////////////////
 	
 	// Assign lunches on schedule
 	//	[model assignLunches:lunchData starting:startTimeData ending:endTimeData];

@@ -336,14 +336,14 @@
 	[self scrapeData];
 	
 	// Debugging
-	[self.model printScheduleData];
-	[self.model printRequirementsData];
+	//[self.model printScheduleData];
+	//[self.model printRequirementsData];
 	
 	// Make schedule
 	[self.model makeSchedule];
 	
 	// Debugging (print schedule)
-	[self.model printSchedule];
+	//[self.model printSchedule];
 	
 }
 
