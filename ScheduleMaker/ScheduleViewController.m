@@ -329,15 +329,6 @@
 // TODO: MODEL STUFF...NOW MOST OF THIS WILL TAKE PLACE BEHIND THE SCENES IN THE MODEL
 ////////////////////////////////////////////////////////////////////////////////
 
-- (void)showAlert:(NSString *)title withDetails:(NSString *)details {
-	NSAlert *alert = [[NSAlert alloc] init];
-	[alert addButtonWithTitle:@"OK"];
-	[alert setMessageText:title];
-	[alert setInformativeText:details];
-	[alert setAlertStyle:NSInformationalAlertStyle];
-	[alert beginSheetModalForWindow:self.view.window completionHandler:nil];
-}
-
 // When "Make Schedule" button is pressed (gather information, compute schedule)
 - (IBAction)makeSchedule:(id)sender {
 	

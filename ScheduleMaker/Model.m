@@ -7,6 +7,7 @@
 //
 
 #import "Model.h"
+#import "Helpers.h"
 
 @interface Model ()
 
@@ -35,24 +36,6 @@
 ////////////////////////////////////////////////////////////////////////////////
 // HELPER METHODS USED WHILE MAKING SCHEDULE ///////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
-
-//// Check that end time comes after the start time for each shift
-//// Returns which row caused a problem (row index + 1); returns 0 if completely valid
-//- (int)checkShiftTimesFor:(NSMutableArray *)startTimeData until:(NSMutableArray *)endTimeData {
-//	
-//	// Check each start time >= end time
-//	for (int i = 0; i < self.nameData.count; i++) {
-//		int start_num = [[self.timeEntries objectForKey:startTimeData[i]] intValue];
-//		int end_num = [[self.timeEntries objectForKey:endTimeData[i]] intValue];
-//		if (start_num >= end_num) {
-//			return (i+1);
-//		}
-//	}
-//	
-//	// Otherwise, all valid
-//	return 0;
-//	
-//}
 //
 //// Check that end time comes after the start time for each specific station entry
 //- (int)checkSpecificStationTimesFor:(NSMutableArray *)specificStationsData {
@@ -382,7 +365,7 @@
 - (void)makeSchedule {
 	
 	// Take rows out of ScheduleViewController table that have no name in the name column
-	NSMutableIndexSet *indexes = [NSMutableIndexSet init];
+	NSMutableIndexSet *indexes = [[NSMutableIndexSet alloc] init];
 	for (int i = 0; i < self.nameData.count; i++) {
 		if ([self.nameData[i] isEqualToString:@""]) {
 			[indexes addIndex:i];
@@ -402,14 +385,8 @@
 	
 	// ERROR CHECKING //////////////////////////////////////////////////////////
 	
-	// Error checking: ensure start time < end time for each shift
-	//	int valid;
-	//	valid = [model checkShiftTimesFor:startTimeData until:endTimeData];
-	//	if (valid != 0) {
-	//		[self showAlert:@"Invalid shift times" withDetails:[NSString stringWithFormat:@"Please check shift times in row #%d.", valid]];
-	//	}
-	
-	
+	// Ensure start time < end time for each shift
+	[Helpers checkShiftTimesFor:self.startTimeData until:self.endTimeData];
 	
 	
 	

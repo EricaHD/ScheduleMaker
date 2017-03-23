@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0705EE411E837719007E876A /* Helpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 0705EE401E837719007E876A /* Helpers.m */; };
 		071351C41E4ABFC50063A0C8 /* SpecificStationsTableCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 071351C31E4ABFC50063A0C8 /* SpecificStationsTableCellView.m */; };
 		074F5FDC1E19D63D009BF40E /* EndTimeTableCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 074F5FDB1E19D63D009BF40E /* EndTimeTableCellView.m */; };
 		074F5FDF1E19D8C2009BF40E /* StartTimeTableCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 074F5FDE1E19D8C2009BF40E /* StartTimeTableCellView.m */; };
@@ -27,6 +28,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0705EE3F1E837719007E876A /* Helpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Helpers.h; sourceTree = "<group>"; };
+		0705EE401E837719007E876A /* Helpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Helpers.m; sourceTree = "<group>"; };
 		071351C21E4ABFC50063A0C8 /* SpecificStationsTableCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpecificStationsTableCellView.h; sourceTree = "<group>"; };
 		071351C31E4ABFC50063A0C8 /* SpecificStationsTableCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpecificStationsTableCellView.m; sourceTree = "<group>"; };
 		074BDEE61E498D110058A2BA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
@@ -97,6 +100,8 @@
 				07FA1C5D1E120DB6007E81E8 /* AppDelegate.m */,
 				07BFEACA1E4C3E3600C5A189 /* Model.h */,
 				07BFEACB1E4C3E3600C5A189 /* Model.m */,
+				0705EE3F1E837719007E876A /* Helpers.h */,
+				0705EE401E837719007E876A /* Helpers.m */,
 				0790FB271E74ED85001DBC37 /* DatabaseViewController.h */,
 				0790FB281E74ED85001DBC37 /* DatabaseViewController.m */,
 				0790FB1F1E74ED30001DBC37 /* RequirementsViewController.h */,
@@ -213,6 +218,7 @@
 				07C9D4C31E75EB6900F36FA4 /* StationStartTableCellView.m in Sources */,
 				074F5FDC1E19D63D009BF40E /* EndTimeTableCellView.m in Sources */,
 				0776F1FB1E4C1F5000BFF6C5 /* LunchTableCellView.m in Sources */,
+				0705EE411E837719007E876A /* Helpers.m in Sources */,
 				0790FB211E74ED30001DBC37 /* RequirementsViewController.m in Sources */,
 				07FA1C611E120DB6007E81E8 /* main.m in Sources */,
 				074F5FDF1E19D8C2009BF40E /* StartTimeTableCellView.m in Sources */,
