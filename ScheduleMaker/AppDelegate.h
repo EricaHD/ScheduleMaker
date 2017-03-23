@@ -6,16 +6,15 @@
 //  Copyright © 2016 Erica Dominic. All rights reserved.
 //
 
-// TO DO NEXT:
-// Pass data back to Model (for RequirementsViewController, do it when we change tabs away from that view, and for ScheduleViewController, when "Make schedule" is pressed...see scrapeData method)
-// Move the big commented out chunk of code at the end of ScheduleViewController.m into Model.m, but neaten up Model.m while you're at it
-// Lay out Database view controller
-// Add autocomplete from database feature in Schedule view controller (for names and specific stations)
+// MAJOR MILESTONES:
 // Make special stations customizable with +/- buttons
-// Actually do the data processing and making of the schedule
+// Lay out Database view controller
+// Add autocomplete from database feature in Schedule view controller (for names AND specific stations)
+// Actually do the data processing and making of the schedule in Model.m (neaten up while you're at it)
 // Invoke a script that will open LibreOffice and fill in schedule as if Sook has just written it, ready for editing (if necessary) and printing as usual
-// Revisit DEFAULTs and actually implement use of NSUserDefaults
+// Revisit DEFAULTs flags and actually implement NSUserDefaults
 
+// MORE MINOR THINGS:
 // Add another "0" and "Float" to RequirementsViewController?
 // Change start time menus in ScheduleViewController to include 8:00 am, 8:30 am, 9:00 am, 9:30 am.
 // Go back and figure out which @property need (strong)

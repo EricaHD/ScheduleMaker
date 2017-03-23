@@ -142,6 +142,91 @@
 	
 }
 
+// Scrape data that is displayed in table right now
+- (void)scrapeData {
+	
+	// Find position of each column (so columns can be rearranged by clicking and dragging, and everything will still function)
+	NSInteger reorder_col_pos = -1;
+	NSInteger station_col_pos = -1;
+	NSInteger station_start_col_pos = -1;
+	NSInteger station_end_col_pos = -1;
+	NSInteger frequency_col_pos = -1;
+	for (int i = 0; i < self.table.numberOfColumns; i++) {
+		NSString *identifier = self.table.tableColumns[i].identifier;
+		if ([identifier isEqualToString:@"reorder_col"]) {
+			reorder_col_pos = i;
+		}
+		else if ([identifier isEqualToString:@"station_col"]) {
+			station_col_pos = i;
+		}
+		else if ([identifier isEqualToString:@"station_start_col"]) {
+			station_start_col_pos = i;
+		}
+		else if ([identifier isEqualToString:@"station_end_col"]) {
+			station_end_col_pos = i;
+		}
+		else if ([identifier isEqualToString:@"frequency_col"]) {
+			frequency_col_pos = i;
+		}
+	}
+	
+	// Update array of stations (with checkboxes)
+	for (int i = 0; i < self.model.stationList.count; i++) {
+		StationTableCellView *cell = (StationTableCellView *) [self.table viewAtColumn:station_col_pos row:i makeIfNecessary:NO];
+		NSString *station = cell.station.title;
+		if (station) { // do not insert nil object into array
+			self.model.stationList[i] = station;
+		}
+		NSNumber *state = (cell.station.state == NSOnState) ? [NSNumber numberWithInt:1] : [NSNumber numberWithInt:0];
+		self.model.stationData[i] = state;
+	}
+	
+	// Update array of station start times
+	for (int i = 0; i < self.model.stationStartTimeData.count; i++) {
+		StationStartTableCellView *cell = (StationStartTableCellView *) [self.table viewAtColumn:station_start_col_pos row:i makeIfNecessary:NO];
+		NSString *starttime = cell.starttime.selectedItem.title;
+		if (starttime) { // do not insert nil object into array
+			self.model.stationStartTimeData[i] = starttime;
+		}
+	}
+	
+	// Update array of station end times
+	for (int i = 0; i < self.model.stationEndTimeData.count; i++) {
+		StationEndTableCellView *cell = (StationEndTableCellView *) [self.table viewAtColumn:station_end_col_pos row:i makeIfNecessary:NO];
+		NSString *endtime = cell.endtime.selectedItem.title;
+		if (endtime) { // do not insert nil object into array
+			self.model.stationEndTimeData[i] = endtime;
+		}
+	}
+	
+	// Update array of station frequencies
+	for (int i = 0; i < self.model.stationFrequencyData.count; i++) {
+		StationFrequencyTableCellView *cell = (StationFrequencyTableCellView *) [self.table viewAtColumn:frequency_col_pos row:i makeIfNecessary:NO];
+		NSString *frequency = cell.frequency.selectedItem.title;
+		if (frequency) { // do not insert nil object into array
+			self.model.stationFrequencyData[i] = frequency;
+		}
+	}
+	
+	// Update array of half hour checkboxes
+	self.model.halfHourData[0] = [NSNumber numberWithInteger:self.tenAM.state];
+	self.model.halfHourData[1] = [NSNumber numberWithInteger:self.elevenAM.state];
+	self.model.halfHourData[2] = [NSNumber numberWithInteger:self.twelvePM.state];
+	self.model.halfHourData[3] = [NSNumber numberWithInteger:self.onePM.state];
+	self.model.halfHourData[4] = [NSNumber numberWithInteger:self.twoPM.state];
+	self.model.halfHourData[5] = [NSNumber numberWithInteger:self.threePM.state];
+	self.model.halfHourData[6] = [NSNumber numberWithInteger:self.fourPM.state];
+	
+	// Update array of stack lunches checkboxes
+	self.model.stackLunchesData[0] = [NSNumber numberWithInteger:self.firstLunch.state];
+	self.model.stackLunchesData[1] = [NSNumber numberWithInteger:self.secondLunch.state];
+	self.model.stackLunchesData[2] = [NSNumber numberWithInteger:self.thirdLunch.state];
+	self.model.stackLunchesData[3] = [NSNumber numberWithInteger:self.fourthLunch.state];
+	self.model.stackLunchesData[4] = [NSNumber numberWithInteger:self.fifthLunch.state];
+	self.model.stackLunchesData[5] = [NSNumber numberWithInteger:self.sixthLunch.state];
+	
+}
+
 // Drag and drop code: returns a Boolean value that indicates whether a drag operation is allowed
 - (BOOL)tableView:(NSTableView *)tableView writeRowsWithIndexes:(NSIndexSet *)rowIndexes toPasteboard:(NSPasteboard *)pboard {
 	
@@ -224,6 +309,13 @@
 		NSLog(@"Error: self.model.stackLunchesData.count != 6");
 	}
 	
+}
+
+// Called when the view controller’s view is about to be removed (i.e. when switching to another tab)
+- (void)viewWillDisappear {
+	
+	[self scrapeData];
+
 }
 
 @end

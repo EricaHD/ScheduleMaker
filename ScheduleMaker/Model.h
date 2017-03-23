@@ -34,7 +34,16 @@
 // When "-" delete row button is pressed on ScheduleViewController
 - (void)deleteRow;
 
+// Does the calculations needed to actually make the schedule; data already collected
+- (void)makeSchedule;
+
+// Print data entered from ScheduleViewController (mostly for debugging purposes)
+- (void)printScheduleData;
+
+// Print data entered from RequirementsViewController (mostly for debugging purposes)
+- (void)printRequirementsData;
+
 // Print schedule (mostly for debugging purposes)
-- (void)printSchedule:(NSMutableArray *)nameData;
+- (void)printSchedule;
 
 @end

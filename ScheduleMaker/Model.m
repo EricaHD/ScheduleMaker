@@ -14,23 +14,6 @@
 @property int numStaff;
 @property (strong) NSMutableArray *schedule;
 
-// Find number of staff been entered into the ScheduleViewController table
-- (void)findNumStaff:(NSMutableArray *)names;
-
-// Error checking methods
-- (int)checkShiftTimesFor:(NSMutableArray *)startTimeData until:(NSMutableArray *)endTimeData;
-- (int)checkSpecificStationTimesFor:(NSMutableArray *)specificStationsData;
-- (int)checkShiftTimesAndSpecificiStationTimesFor:(NSMutableArray *)startTimeData until:(NSMutableArray *)endTimeData including:(NSMutableArray *)specificStationsData;
-- (int)checkSpecificStationTimesConflictsFor:(NSMutableArray *)specificStationsData;
-
-// Schedule set up (lines)
-- (void)setHalfHours:(NSMutableArray *)halfHourData;
-- (void)blockOutNonShiftHours:(NSMutableArray *)startTimeData until:(NSMutableArray *)endTimeData;
-
-// Schedule assignments
-- (void)assignSpecificStations:(NSMutableArray *)specificStationsData;
-- (void)assignLunches:(NSMutableArray *)lunchData starting:(NSMutableArray *)startTimeData ending:(NSMutableArray *)endTimeData;
-
 @end
 
 @implementation Model
@@ -65,6 +48,10 @@
 	
 }
 
+////////////////////////////////////////////////////////////////////////////////
+// HELPER METHODS USED WHILE MAKING SCHEDULE ///////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+
 // Count and record the number of floor staff entered via the UI; also adjusts size of schedule array
 - (void)findNumStaff:(NSMutableArray *)names {
 	
@@ -83,32 +70,6 @@
 	}
 	
 	return;
-
-}
-
-// When "+" add row button is pressed on ScheduleViewController
-- (void)addRow {
-
-	[self.nameData addObject:@""];
-	[self.startTimeData addObject:@""];
-	[self.endTimeData addObject:@""];
-	[self.specificStationsData addObject:[NSMutableArray arrayWithObjects:@"", @"", @"", @"", @"", @"", @"", @"", @"", nil]];
-	[self.lunchData addObject:[NSNumber numberWithInt:0]];
-
-}
-
-// When "-" delete row button is pressed on ScheduleViewController
-- (void)deleteRow {
-	
-	if (self.nameData.count == 0) {
-		return;
-	}
-	
-	[self.nameData removeLastObject];
-	[self.startTimeData removeLastObject];
-	[self.endTimeData removeLastObject];
-	[self.specificStationsData removeLastObject];
-	[self.lunchData removeLastObject];
 
 }
 
@@ -424,13 +385,187 @@
 	
 }
 
+////////////////////////////////////////////////////////////////////////////////
+// PUBLIC METHODS; CORRESPOND TO BUTTONS ON SCHEDULE VIEW CONTROLLER ///////////
+////////////////////////////////////////////////////////////////////////////////
+
+// When "+" add row button is pressed on ScheduleViewController
+- (void)addRow {
+	
+	[self.nameData addObject:@""];
+	[self.startTimeData addObject:@""];
+	[self.endTimeData addObject:@""];
+	[self.specificStationsData addObject:[NSMutableArray arrayWithObjects:@"", @"", @"", @"", @"", @"", @"", @"", @"", nil]];
+	[self.lunchData addObject:[NSNumber numberWithInt:0]];
+	
+}
+
+// When "-" delete row button is pressed on ScheduleViewController
+- (void)deleteRow {
+	
+	if (self.nameData.count == 0) {
+		return;
+	}
+	
+	[self.nameData removeLastObject];
+	[self.startTimeData removeLastObject];
+	[self.endTimeData removeLastObject];
+	[self.specificStationsData removeLastObject];
+	[self.lunchData removeLastObject];
+	
+}
+
+- (void)makeSchedule {
+	
+	// TODO
+	// Set number of staff for input into following method calls
+	//	[model findNumStaff:nameData];
+	
+	// Error checking: ensure start time < end time for each shift
+	//	int valid;
+	//	valid = [model checkShiftTimesFor:startTimeData until:endTimeData];
+	//	if (valid != 0) {
+	//		[self showAlert:@"Invalid shift times" withDetails:[NSString stringWithFormat:@"Please check shift times in row #%d.", valid]];
+	//	}
+	
+	// Error checking: ensure start time < end time for each specific station entry
+	//	valid = [model checkSpecificStationTimesFor:specificStationsData];
+	//	if (valid != 0) {
+	//		[self showAlert:@"Invalid specific station times" withDetails:[NSString stringWithFormat:@"Please check specific station times in row #%d.", valid]];
+	//	}
+	
+	// Error checking: ensure specific station times are subsets of shift times
+	//	valid = [model checkShiftTimesAndSpecificiStationTimesFor:startTimeData until:endTimeData including:specificStationsData];
+	//	if (valid != 0) {
+	//		[self showAlert:@"Invalid specific station times" withDetails:[NSString stringWithFormat:@"Please check that specific station times do not extend outside shift hours in row #%d.", valid]];
+	//	}
+	
+	// Error checking: ensure specific station times do not conflict
+	//	valid = [model checkSpecificStationTimesConflictsFor:specificStationsData];
+	//	if (valid != 0) {
+	//		[self showAlert:@"Invalid specific station times" withDetails:[NSString stringWithFormat:@"Please check that specific station times do not overlap in row #%d.", valid]];
+	//	}
+	
+	// Set up hours/half hours on schedule
+	//	NSMutableArray *halfHourData = [NSMutableArray arrayWithObjects:[NSNumber numberWithLong:tenAM.state], [NSNumber numberWithLong:elevenAM.state], [NSNumber numberWithLong:twelvePM.state], [NSNumber numberWithLong:onePM.state], [NSNumber numberWithLong:twoPM.state], [NSNumber numberWithLong:threePM.state], [NSNumber numberWithLong:fourPM.state], nil];
+	//	[model setHalfHours:halfHourData];
+	
+	// X out hours that are outside a staff member's shift
+	//	[model blockOutNonShiftHours:startTimeData until:endTimeData];
+	
+	// Assign specific stations on schedule
+	//	[model assignSpecificStations:specificStationsData];
+	
+	// Assign lunches on schedule
+	//	[model assignLunches:lunchData starting:startTimeData ending:endTimeData];
+	
+}
+
+////////////////////////////////////////////////////////////////////////////////
+// PRINTING INFO FOR DEBUGGING /////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+
+// Print data entered from ScheduleViewController (mostly for debugging purposes)
+- (void)printScheduleData {
+	
+	NSLog(@"SCHEDULE");
+	NSLog(@" ");
+	for (int i = 0; i < self.nameData.count; i++) {
+		if (![self.nameData[i] isEqualToString:@""]) {
+			NSLog(@"%@: %@ - %@", self.nameData[i], self.startTimeData[i], self.endTimeData[i]);
+			if (![self.specificStationsData[i][0] isEqualToString:@""]) { // is a 9-element array
+				NSLog(@"     %@: %@ - %@", self.specificStationsData[i][0], self.specificStationsData[i][1], self.specificStationsData[i][2]);
+			}
+			if (![self.specificStationsData[i][3] isEqualToString:@""]) { // is a 9-element array
+				NSLog(@"     %@: %@ - %@", self.specificStationsData[i][3], self.specificStationsData[i][4], self.specificStationsData[i][5]);
+			}
+			if (![self.specificStationsData[i][6] isEqualToString:@""]) { // is a 9-element array
+				NSLog(@"     %@: %@ - %@", self.specificStationsData[i][6], self.specificStationsData[i][7], self.specificStationsData[i][8]);
+			}
+			NSInteger early = (1 & [self.lunchData[i] integerValue]) ? 1 : 0;
+			if (early) {
+				NSLog(@"     Early lunch");
+			}
+			NSInteger late = (2 & [self.lunchData[i] integerValue]) ? 1 : 0;
+			if (late) {
+				NSLog(@"     Late lunch");
+			}
+			NSInteger hour = (4 & [self.lunchData[i] integerValue]) ? 1 : 0;
+			if (hour) {
+				NSLog(@"     Hour lunch");
+			}
+		}
+	}
+	
+	NSLog(@" ");
+	
+}
+
+// Print data entered from RequirementsViewController (mostly for debugging purposes)
+- (void)printRequirementsData {
+	
+	NSLog(@"REQUIREMENTS");
+	NSLog(@" ");
+	for (int i = 0; i < self.stationList.count; i++) {
+		if ([self.stationData[i] intValue]) {
+			NSLog(@"%@: %@ - %@", self.stationList[i], self.stationStartTimeData[i], self.stationEndTimeData[i]);
+			NSLog(@"     with frequency '%@'", self.stationFrequencyData[i]);
+		}
+	}
+	
+	NSLog(@" ");
+	
+	NSLog(@"Half hours checked:");
+	if ([self.halfHourData[0] intValue]) {
+		NSLog(@"     10 am");
+	}
+	if ([self.halfHourData[1] intValue]) {
+		NSLog(@"     11 am");
+	}
+	if ([self.halfHourData[2] intValue]) {
+		NSLog(@"     12 pm");
+	}
+	if ([self.halfHourData[3] intValue]) {
+		NSLog(@"     1 pm");
+	}
+	if ([self.halfHourData[4] intValue]) {
+		NSLog(@"     2 pm");
+	}
+	if ([self.halfHourData[5] intValue]) {
+		NSLog(@"     3 pm");
+	}
+	if ([self.halfHourData[6] intValue]) {
+		NSLog(@"     4 pm");
+	}
+	NSLog(@"Stack lunches checked:");
+	if ([self.stackLunchesData[0] intValue]) {
+		NSLog(@"     11:00 am");
+	}
+	if ([self.stackLunchesData[1] intValue]) {
+		NSLog(@"     11:30 am");
+	}
+	if ([self.stackLunchesData[2] intValue]) {
+		NSLog(@"     12:00 pm");
+	}
+	if ([self.stackLunchesData[3] intValue]) {
+		NSLog(@"     12:30 pm");
+	}
+	if ([self.stackLunchesData[4] intValue]) {
+		NSLog(@"     1:00 pm");
+	}
+	if ([self.stackLunchesData[5] intValue]) {
+		NSLog(@"     1:30 pm");
+	}
+	
+}
+
 // Print schedule array, formated next to names and times for easy viewing and debugging
-- (void)printSchedule:(NSMutableArray *)nameData {
+- (void)printSchedule {
 	
 	// Print contents of schedule
 	NSLog(@"%@", [NSString stringWithFormat:@"%-10s %-10s %-10s %-10s %-10s %-10s %-10s %-10s %-10s %-10s %-10s %-10s %-10s %-10s %s", [@"" UTF8String], [@"10:00 am" UTF8String], [@"10:30 am" UTF8String], [@"11:00 am" UTF8String], [@"11:30 am" UTF8String], [@"12:00 pm" UTF8String], [@"12:30 pm" UTF8String], [@"1:00 pm" UTF8String], [@"1:30 pm" UTF8String], [@"2:00 pm" UTF8String], [@"2:30 pm" UTF8String], [@"3:00 pm" UTF8String], [@"3:30 pm" UTF8String], [@"4:00 pm" UTF8String], [@"4:30 pm" UTF8String]]);
 	for (int i = 0; i < self.numStaff; i++) {
-		NSLog(@"%@", [NSString stringWithFormat:@"%-10s %-10s %-10s %-10s %-10s %-10s %-10s %-10s %-10s %-10s %-10s %-10s %-10s %-10s %s", [nameData[i] UTF8String], [self.schedule[i][0] UTF8String], [self.schedule[i][1] UTF8String], [self.schedule[i][2] UTF8String], [self.schedule[i][3] UTF8String], [self.schedule[i][4] UTF8String], [self.schedule[i][5] UTF8String], [self.schedule[i][6] UTF8String], [self.schedule[i][7] UTF8String], [self.schedule[i][8] UTF8String], [self.schedule[i][9] UTF8String], [self.schedule[i][10] UTF8String], [self.schedule[i][11] UTF8String], [self.schedule[i][12] UTF8String], [self.schedule[i][13] UTF8String]]);
+		NSLog(@"%@", [NSString stringWithFormat:@"%-10s %-10s %-10s %-10s %-10s %-10s %-10s %-10s %-10s %-10s %-10s %-10s %-10s %-10s %s", [self.nameData[i] UTF8String], [self.schedule[i][0] UTF8String], [self.schedule[i][1] UTF8String], [self.schedule[i][2] UTF8String], [self.schedule[i][3] UTF8String], [self.schedule[i][4] UTF8String], [self.schedule[i][5] UTF8String], [self.schedule[i][6] UTF8String], [self.schedule[i][7] UTF8String], [self.schedule[i][8] UTF8String], [self.schedule[i][9] UTF8String], [self.schedule[i][10] UTF8String], [self.schedule[i][11] UTF8String], [self.schedule[i][12] UTF8String], [self.schedule[i][13] UTF8String]]);
 	}
 	
 	return;

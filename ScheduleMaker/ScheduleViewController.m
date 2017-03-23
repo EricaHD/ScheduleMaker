@@ -344,48 +344,15 @@
 	// Update arrays of information from table rows
 	[self scrapeData];
 	
-	// Set number of staff for input into following method calls
-//	[model findNumStaff:nameData];
+	// Debugging
+	[self.model printScheduleData];
+	[self.model printRequirementsData];
 	
-	// Error checking: ensure start time < end time for each shift
-//	int valid;
-//	valid = [model checkShiftTimesFor:startTimeData until:endTimeData];
-//	if (valid != 0) {
-//		[self showAlert:@"Invalid shift times" withDetails:[NSString stringWithFormat:@"Please check shift times in row #%d.", valid]];
-//	}
+	// Make schedule
+	[self.model makeSchedule];
 	
-	// Error checking: ensure start time < end time for each specific station entry
-//	valid = [model checkSpecificStationTimesFor:specificStationsData];
-//	if (valid != 0) {
-//		[self showAlert:@"Invalid specific station times" withDetails:[NSString stringWithFormat:@"Please check specific station times in row #%d.", valid]];
-//	}
-	
-	// Error checking: ensure specific station times are subsets of shift times
-//	valid = [model checkShiftTimesAndSpecificiStationTimesFor:startTimeData until:endTimeData including:specificStationsData];
-//	if (valid != 0) {
-//		[self showAlert:@"Invalid specific station times" withDetails:[NSString stringWithFormat:@"Please check that specific station times do not extend outside shift hours in row #%d.", valid]];
-//	}
-	
-	// Error checking: ensure specific station times do not conflict
-//	valid = [model checkSpecificStationTimesConflictsFor:specificStationsData];
-//	if (valid != 0) {
-//		[self showAlert:@"Invalid specific station times" withDetails:[NSString stringWithFormat:@"Please check that specific station times do not overlap in row #%d.", valid]];
-//	}
-	
-	// Set up hours/half hours on schedule
-//	NSMutableArray *halfHourData = [NSMutableArray arrayWithObjects:[NSNumber numberWithLong:tenAM.state], [NSNumber numberWithLong:elevenAM.state], [NSNumber numberWithLong:twelvePM.state], [NSNumber numberWithLong:onePM.state], [NSNumber numberWithLong:twoPM.state], [NSNumber numberWithLong:threePM.state], [NSNumber numberWithLong:fourPM.state], nil];
-//	[model setHalfHours:halfHourData];
-	
-	// X out hours that are outside a staff member's shift
-//	[model blockOutNonShiftHours:startTimeData until:endTimeData];
-
-	// Assign specific stations on schedule
-//	[model assignSpecificStations:specificStationsData];
-	
-	// Assign lunches on schedule
-//	[model assignLunches:lunchData starting:startTimeData ending:endTimeData];
-
-//	[model printSchedule:nameData];
+	// Debugging (print schedule)
+	[self.model printSchedule];
 	
 }
 
