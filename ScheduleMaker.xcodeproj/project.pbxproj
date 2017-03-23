@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0705EE411E837719007E876A /* Helpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 0705EE401E837719007E876A /* Helpers.m */; };
+		0705EE441E838186007E876A /* MyManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0705EE431E838186007E876A /* MyManager.m */; };
 		071351C41E4ABFC50063A0C8 /* SpecificStationsTableCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 071351C31E4ABFC50063A0C8 /* SpecificStationsTableCellView.m */; };
 		074F5FDC1E19D63D009BF40E /* EndTimeTableCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 074F5FDB1E19D63D009BF40E /* EndTimeTableCellView.m */; };
 		074F5FDF1E19D8C2009BF40E /* StartTimeTableCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 074F5FDE1E19D8C2009BF40E /* StartTimeTableCellView.m */; };
@@ -30,6 +31,8 @@
 /* Begin PBXFileReference section */
 		0705EE3F1E837719007E876A /* Helpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Helpers.h; sourceTree = "<group>"; };
 		0705EE401E837719007E876A /* Helpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Helpers.m; sourceTree = "<group>"; };
+		0705EE421E838186007E876A /* MyManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyManager.h; sourceTree = "<group>"; };
+		0705EE431E838186007E876A /* MyManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyManager.m; sourceTree = "<group>"; };
 		071351C21E4ABFC50063A0C8 /* SpecificStationsTableCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpecificStationsTableCellView.h; sourceTree = "<group>"; };
 		071351C31E4ABFC50063A0C8 /* SpecificStationsTableCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpecificStationsTableCellView.m; sourceTree = "<group>"; };
 		074BDEE61E498D110058A2BA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
@@ -98,6 +101,8 @@
 			children = (
 				07FA1C5C1E120DB6007E81E8 /* AppDelegate.h */,
 				07FA1C5D1E120DB6007E81E8 /* AppDelegate.m */,
+				0705EE421E838186007E876A /* MyManager.h */,
+				0705EE431E838186007E876A /* MyManager.m */,
 				07BFEACA1E4C3E3600C5A189 /* Model.h */,
 				07BFEACB1E4C3E3600C5A189 /* Model.m */,
 				0705EE3F1E837719007E876A /* Helpers.h */,
@@ -221,6 +226,7 @@
 				0705EE411E837719007E876A /* Helpers.m in Sources */,
 				0790FB211E74ED30001DBC37 /* RequirementsViewController.m in Sources */,
 				07FA1C611E120DB6007E81E8 /* main.m in Sources */,
+				0705EE441E838186007E876A /* MyManager.m in Sources */,
 				074F5FDF1E19D8C2009BF40E /* StartTimeTableCellView.m in Sources */,
 				07FA1C5E1E120DB6007E81E8 /* AppDelegate.m in Sources */,
 				07C9D4C61E75EB7A00F36FA4 /* StationEndTableCellView.m in Sources */,
