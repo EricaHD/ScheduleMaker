@@ -802,12 +802,12 @@
                                                             <subviews>
                                                                 <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jrf-yy-Qwn">
                                                                     <rect key="frame" x="0.0" y="-1" width="100" height="26"/>
-                                                                    <popUpButtonCell key="cell" type="push" title="5:00 pm" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="nb8-da-YvW" id="AVm-nE-JXj">
+                                                                    <popUpButtonCell key="cell" type="push" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" id="AVm-nE-JXj">
                                                                         <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                                                                         <font key="font" metaFont="menu"/>
                                                                         <menu key="menu" id="3Hp-Bz-kfA">
                                                                             <items>
-                                                                                <menuItem title="10:00 am" id="mlI-S8-xMS"/>
+                                                                                <menuItem title="10:00 am" id="Tsp-OP-RC9"/>
                                                                                 <menuItem title="10:30 am" id="mBF-s3-uj3"/>
                                                                                 <menuItem title="11:00 am" id="6Mg-gd-7zg"/>
                                                                                 <menuItem title="11:30 am" id="k9r-fb-QFp"/>
@@ -821,7 +821,7 @@
                                                                                 <menuItem title="3:30 pm" id="nD0-zX-cFY"/>
                                                                                 <menuItem title="4:00 pm" id="aKK-hl-4Bh"/>
                                                                                 <menuItem title="4:30 pm" id="5b5-5F-bNh"/>
-                                                                                <menuItem title="5:00 pm" state="on" id="nb8-da-YvW"/>
+                                                                                <menuItem title="5:00 pm" id="nb8-da-YvW"/>
                                                                             </items>
                                                                         </menu>
                                                                     </popUpButtonCell>
@@ -1178,12 +1178,16 @@
                                                             <subviews>
                                                                 <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="diw-yg-Q6G">
                                                                     <rect key="frame" x="0.0" y="-2" width="100" height="26"/>
-                                                                    <popUpButtonCell key="cell" type="push" title="10:00 am" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="1s1-TZ-g6I" id="n6M-sV-okr">
+                                                                    <popUpButtonCell key="cell" type="push" title="8:00 am" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="Mdf-8E-Xwf" id="n6M-sV-okr">
                                                                         <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                                                                         <font key="font" metaFont="menu"/>
                                                                         <menu key="menu" id="VmI-QF-IgE">
                                                                             <items>
-                                                                                <menuItem title="10:00 am" state="on" id="1s1-TZ-g6I"/>
+                                                                                <menuItem title="8:00 am" id="Mdf-8E-Xwf" userLabel="8:00 am"/>
+                                                                                <menuItem title="8:30 am" id="IvO-N2-YXG" userLabel="8:30 am"/>
+                                                                                <menuItem title="9:00 am" id="36F-ZV-enN" userLabel="9:00 am"/>
+                                                                                <menuItem title="9:30 am" id="Yhy-5X-xkO" userLabel="9:30 am"/>
+                                                                                <menuItem title="10:00 am" id="b9N-ns-Kzd"/>
                                                                                 <menuItem title="10:30 am" id="3qP-2o-5iu"/>
                                                                                 <menuItem title="11:00 am" id="7e0-zU-jMR"/>
                                                                                 <menuItem title="11:30 am" id="d7T-cM-uf3"/>

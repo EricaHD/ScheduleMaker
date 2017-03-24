@@ -7,11 +7,10 @@
 //
 
 // MAJOR MILESTONES:
-// Actually do the data processing and making of the schedule in Model.m (neaten up while you're at it)
-//     Add another "0" and "Float" to RequirementsViewController?
-//     Change start time menus in ScheduleViewController to include 8:00 am, 8:30 am, 9:00 am, 9:30 am; change timeEntries
-// Invoke a script that will open LibreOffice and fill in schedule as if Sook has just written it, ready for editing (if necessary) and printing as usual
+// Add another "0" and "Float" to RequirementsViewController?
 // Make special stations customizable with +/- buttons
+// Actually do the data processing and making of the schedule in Model.m (neaten up while you're at it)
+// Invoke a script that will open LibreOffice and fill in schedule as if Sook has just written it, ready for editing (if necessary) and printing as usual
 // Lay out Database view controller
 // Add autocomplete from database feature in Schedule view controller (for names AND specific stations)
 // Revisit DEFAULTs flags and actually implement NSUserDefaults

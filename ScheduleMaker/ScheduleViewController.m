@@ -98,7 +98,7 @@
 	else if ([tableColumn.identifier isEqualToString:@"start_time_col"]) {
 		StartTimeTableCellView *cell = (StartTimeTableCellView *) [tableView makeViewWithIdentifier:@"start_time_cell" owner:self];
 		if ([self.model.startTimeData[row] isEqualToString:@""]) {
-			[cell.starttime selectItemAtIndex:0];
+			[cell.starttime selectItemAtIndex:4];
 		}
 		else {
 			[cell.starttime selectItemWithTitle:self.model.startTimeData[row]];

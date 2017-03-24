@@ -61,8 +61,8 @@
 		for (int j = 0; j < start_num; j++) {
 			self.schedule[i][j] = @"X";
 		}
-		int next = start_num;
 		// If we have "X" then "SAME" delete the "SAME" so "X" doesn't extend further than necessary
+		int next = MAX(start_num, 0);
 		if (next < 14 && [self.schedule[i][next] isEqualToString:@"SAME"]) {
 			self.schedule[i][next] = @"";
 		}
@@ -143,7 +143,7 @@
 //	
 //	// Go through all staff; compile data into above lunch lists
 //	for (int i = 0; i < self.nameData.count; i++) {
-//		int start_num = [[sharedManager.timeEntries objectForKey:self.startTimeData[i]] intValue];
+//		int start_num = [[sharedManager.timeEntries objectForKey:self.startTimeData[i]] intValue]; // MAX(A, B) if necessary
 //		int end_num = [[sharedManager.timeEntries objectForKey:self.endTimeData[i]] intValue];
 //		
 //		// Only needs a lunch if on duty for 5 or more hours (10 half hours) or more
@@ -209,10 +209,6 @@
 //	return;
 	
 }
-
-////////////////////////////////////////////////////////////////////////////////
-// PUBLIC METHODS; CORRESPOND TO BUTTONS ON SCHEDULE VIEW CONTROLLER ///////////
-////////////////////////////////////////////////////////////////////////////////
 
 // When "+" add row button is pressed on ScheduleViewController
 - (void)addRow {
