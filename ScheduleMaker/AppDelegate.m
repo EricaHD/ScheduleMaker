@@ -19,9 +19,7 @@
 
 // Insert code here to initialize your application
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
-	
-	// Nothing
-	
+		
 }
 
 // Set up arrays in model
@@ -94,12 +92,12 @@
 		database.model = self.model;
 		requirements.model = self.model;
 		schedule.model = self.model;
-	
+		
 		// Reload tables now that the view controllers are hooked up to the model
 		// So that numberOfRowsInTableView method can return something > 0
 		[schedule.table reloadData];
 		[requirements.table reloadData];
-	
+		
 		// Reload checkboxes on the side of the requirements view controller
 		[requirements reloadHalfHourData];
 		[requirements reloadStackLunchesData];
@@ -110,8 +108,6 @@
 
 // Insert code here to tear down your application
 - (void)applicationWillTerminate:(NSNotification *)aNotification {
-
-	// Nothing
 	
 }
 

@@ -184,7 +184,7 @@
 		return cell;
 	}
 	
-	// Nothing
+	// Otherwise
 	else {
 		return nil;
 	}
@@ -216,9 +216,6 @@
 		}
 		else if ([identifier isEqualToString:@"lunch_col"]) {
 			lunch_col_pos = i;
-		}
-		else {
-			NSLog(@"Error: unidentifiable column in ScheduleViewController");
 		}
 	}
 	

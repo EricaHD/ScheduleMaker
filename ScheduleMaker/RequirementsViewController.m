@@ -135,7 +135,7 @@
 		return cell;
 	}
 	
-	// Nothing
+	// Otherwise
 	else {
 		return nil;
 	}
@@ -279,35 +279,25 @@
 // Update the half hour checkboxes on the right side of the view controller to reflect array entries
 - (void)reloadHalfHourData {
 	
-	if (self.model.halfHourData.count == 7) {
-		self.tenAM.state = ([self.model.halfHourData[0] intValue]) ? NSOnState : NSOffState;
-		self.elevenAM.state = ([self.model.halfHourData[1] intValue]) ? NSOnState : NSOffState;
-		self.twelvePM.state = ([self.model.halfHourData[2] intValue]) ? NSOnState : NSOffState;
-		self.onePM.state = ([self.model.halfHourData[3] intValue]) ? NSOnState : NSOffState;
-		self.twoPM.state = ([self.model.halfHourData[4] intValue]) ? NSOnState : NSOffState;
-		self.threePM.state = ([self.model.halfHourData[5] intValue]) ? NSOnState : NSOffState;
-		self.fourPM.state = ([self.model.halfHourData[6] intValue]) ? NSOnState : NSOffState;
-	}
-	else {
-		NSLog(@"Error: self.model.halfHourData.count != 7");
-	}
+	self.tenAM.state = ([self.model.halfHourData[0] intValue]) ? NSOnState : NSOffState;
+	self.elevenAM.state = ([self.model.halfHourData[1] intValue]) ? NSOnState : NSOffState;
+	self.twelvePM.state = ([self.model.halfHourData[2] intValue]) ? NSOnState : NSOffState;
+	self.onePM.state = ([self.model.halfHourData[3] intValue]) ? NSOnState : NSOffState;
+	self.twoPM.state = ([self.model.halfHourData[4] intValue]) ? NSOnState : NSOffState;
+	self.threePM.state = ([self.model.halfHourData[5] intValue]) ? NSOnState : NSOffState;
+	self.fourPM.state = ([self.model.halfHourData[6] intValue]) ? NSOnState : NSOffState;
 	
 }
 
 // Update the stack lunches checkboxes on the right side of the view controller to reflect array entries
 - (void)reloadStackLunchesData {
 	
-	if (self.model.stackLunchesData.count == 6) {
-		self.firstLunch.state = ([self.model.stackLunchesData[0] intValue]) ? NSOnState : NSOffState;
-		self.secondLunch.state = ([self.model.stackLunchesData[1] intValue]) ? NSOnState : NSOffState;
-		self.thirdLunch.state = ([self.model.stackLunchesData[2] intValue]) ? NSOnState : NSOffState;
-		self.fourthLunch.state = ([self.model.stackLunchesData[3] intValue]) ? NSOnState : NSOffState;
-		self.fifthLunch.state = ([self.model.stackLunchesData[4] intValue]) ? NSOnState : NSOffState;
-		self.sixthLunch.state = ([self.model.stackLunchesData[5] intValue]) ? NSOnState : NSOffState;
-	}
-	else {
-		NSLog(@"Error: self.model.stackLunchesData.count != 6");
-	}
+	self.firstLunch.state = ([self.model.stackLunchesData[0] intValue]) ? NSOnState : NSOffState;
+	self.secondLunch.state = ([self.model.stackLunchesData[1] intValue]) ? NSOnState : NSOffState;
+	self.thirdLunch.state = ([self.model.stackLunchesData[2] intValue]) ? NSOnState : NSOffState;
+	self.fourthLunch.state = ([self.model.stackLunchesData[3] intValue]) ? NSOnState : NSOffState;
+	self.fifthLunch.state = ([self.model.stackLunchesData[4] intValue]) ? NSOnState : NSOffState;
+	self.sixthLunch.state = ([self.model.stackLunchesData[5] intValue]) ? NSOnState : NSOffState;
 	
 }
 

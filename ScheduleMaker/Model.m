@@ -7,8 +7,9 @@
 //
 
 #import "Model.h"
-#import "Helpers.h"
 #import "MyManager.h"
+#import "ErrorChecking.h"
+#import "Printing.h"
 
 @interface Model ()
 
@@ -32,10 +33,6 @@
 	return self;
 	
 }
-
-////////////////////////////////////////////////////////////////////////////////
-// HELPER METHODS USED WHILE MAKING SCHEDULE ///////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////
 
 // Set up hours/half hours on schedule using self.halfHourData
 - (void)setHalfHours {
@@ -276,10 +273,10 @@
 	//   (4) specific station times do not conflict
 	// Will show alert if there is an error
 	// If any of the above error checks have caught errors, do not make schedule (i.e. end here)
-	int result1 = [Helpers checkShiftTimesFor:self.startTimeData until:self.endTimeData];
-	int result2 = [Helpers checkSpecificStationTimesFor:self.specificStationsData];
-	int result3 = [Helpers checkShiftTimesAndSpecificiStationTimesFor:self.startTimeData until:self.endTimeData including:self.specificStationsData];
-	int result4 = [Helpers checkSpecificStationTimesConflictsFor:self.specificStationsData];
+	int result1 = [ErrorChecking checkShiftTimesFor:self.startTimeData until:self.endTimeData];
+	int result2 = [ErrorChecking checkSpecificStationTimesFor:self.specificStationsData];
+	int result3 = [ErrorChecking checkShiftTimesAndSpecificiStationTimesFor:self.startTimeData until:self.endTimeData including:self.specificStationsData];
+	int result4 = [ErrorChecking checkSpecificStationTimesConflictsFor:self.specificStationsData];
 	if (result1 + result2 + result3 + result4 != 0) {
 		return;
 	}
@@ -297,120 +294,7 @@
 	[self assignLunches];
 	
 	// DEBUGGING
-	[self printSchedule];
-	
-}
-
-////////////////////////////////////////////////////////////////////////////////
-// PRINTING INFO FOR DEBUGGING /////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////
-
-// Print data entered from ScheduleViewController (mostly for debugging purposes)
-- (void)printScheduleData {
-	
-	NSLog(@"SCHEDULE");
-	NSLog(@" ");
-	for (int i = 0; i < self.nameData.count; i++) {
-		if (![self.nameData[i] isEqualToString:@""]) {
-			NSLog(@"%@: %@ - %@", self.nameData[i], self.startTimeData[i], self.endTimeData[i]);
-			if (![self.specificStationsData[i][0] isEqualToString:@""]) { // is a 9-element array
-				NSLog(@"     %@: %@ - %@", self.specificStationsData[i][0], self.specificStationsData[i][1], self.specificStationsData[i][2]);
-			}
-			if (![self.specificStationsData[i][3] isEqualToString:@""]) { // is a 9-element array
-				NSLog(@"     %@: %@ - %@", self.specificStationsData[i][3], self.specificStationsData[i][4], self.specificStationsData[i][5]);
-			}
-			if (![self.specificStationsData[i][6] isEqualToString:@""]) { // is a 9-element array
-				NSLog(@"     %@: %@ - %@", self.specificStationsData[i][6], self.specificStationsData[i][7], self.specificStationsData[i][8]);
-			}
-			NSInteger early = (1 & [self.lunchData[i] integerValue]) ? 1 : 0;
-			if (early) {
-				NSLog(@"     Early lunch");
-			}
-			NSInteger late = (2 & [self.lunchData[i] integerValue]) ? 1 : 0;
-			if (late) {
-				NSLog(@"     Late lunch");
-			}
-			NSInteger hour = (4 & [self.lunchData[i] integerValue]) ? 1 : 0;
-			if (hour) {
-				NSLog(@"     Hour lunch");
-			}
-		}
-	}
-	
-	NSLog(@" ");
-	
-}
-
-// Print data entered from RequirementsViewController (mostly for debugging purposes)
-- (void)printRequirementsData {
-	
-	NSLog(@"REQUIREMENTS");
-	NSLog(@" ");
-	for (int i = 0; i < self.stationList.count; i++) {
-		if ([self.stationData[i] intValue]) {
-			NSLog(@"%@: %@ - %@", self.stationList[i], self.stationStartTimeData[i], self.stationEndTimeData[i]);
-			NSLog(@"     with frequency '%@'", self.stationFrequencyData[i]);
-		}
-	}
-	
-	NSLog(@" ");
-	
-	NSLog(@"Half hours checked:");
-	if ([self.halfHourData[0] intValue]) {
-		NSLog(@"     10 am");
-	}
-	if ([self.halfHourData[1] intValue]) {
-		NSLog(@"     11 am");
-	}
-	if ([self.halfHourData[2] intValue]) {
-		NSLog(@"     12 pm");
-	}
-	if ([self.halfHourData[3] intValue]) {
-		NSLog(@"     1 pm");
-	}
-	if ([self.halfHourData[4] intValue]) {
-		NSLog(@"     2 pm");
-	}
-	if ([self.halfHourData[5] intValue]) {
-		NSLog(@"     3 pm");
-	}
-	if ([self.halfHourData[6] intValue]) {
-		NSLog(@"     4 pm");
-	}
-	NSLog(@"Stack lunches checked:");
-	if ([self.stackLunchesData[0] intValue]) {
-		NSLog(@"     11:00 am");
-	}
-	if ([self.stackLunchesData[1] intValue]) {
-		NSLog(@"     11:30 am");
-	}
-	if ([self.stackLunchesData[2] intValue]) {
-		NSLog(@"     12:00 pm");
-	}
-	if ([self.stackLunchesData[3] intValue]) {
-		NSLog(@"     12:30 pm");
-	}
-	if ([self.stackLunchesData[4] intValue]) {
-		NSLog(@"     1:00 pm");
-	}
-	if ([self.stackLunchesData[5] intValue]) {
-		NSLog(@"     1:30 pm");
-	}
-
-	NSLog(@" ");
-	
-}
-
-// Print schedule array, formated next to names and times for easy viewing and debugging
-- (void)printSchedule {
-	
-	// Print contents of schedule
-	NSLog(@"%@", [NSString stringWithFormat:@"%-10s %-10s %-10s %-10s %-10s %-10s %-10s %-10s %-10s %-10s %-10s %-10s %-10s %-10s %s", [@"" UTF8String], [@"10:00 am" UTF8String], [@"10:30 am" UTF8String], [@"11:00 am" UTF8String], [@"11:30 am" UTF8String], [@"12:00 pm" UTF8String], [@"12:30 pm" UTF8String], [@"1:00 pm" UTF8String], [@"1:30 pm" UTF8String], [@"2:00 pm" UTF8String], [@"2:30 pm" UTF8String], [@"3:00 pm" UTF8String], [@"3:30 pm" UTF8String], [@"4:00 pm" UTF8String], [@"4:30 pm" UTF8String]]);
-	for (int i = 0; i < self.nameData.count; i++) {
-		NSLog(@"%@", [NSString stringWithFormat:@"%-10s %-10s %-10s %-10s %-10s %-10s %-10s %-10s %-10s %-10s %-10s %-10s %-10s %-10s %s", [self.nameData[i] UTF8String], [self.schedule[i][0] UTF8String], [self.schedule[i][1] UTF8String], [self.schedule[i][2] UTF8String], [self.schedule[i][3] UTF8String], [self.schedule[i][4] UTF8String], [self.schedule[i][5] UTF8String], [self.schedule[i][6] UTF8String], [self.schedule[i][7] UTF8String], [self.schedule[i][8] UTF8String], [self.schedule[i][9] UTF8String], [self.schedule[i][10] UTF8String], [self.schedule[i][11] UTF8String], [self.schedule[i][12] UTF8String], [self.schedule[i][13] UTF8String]]);
-	}
-	
-	return;
+	[Printing printSchedule:self.schedule withNames:self.nameData];
 	
 }
 

@@ -1,5 +1,5 @@
 //
-//  Helpers.m
+//  ErrorChecking.m
 //  ScheduleMaker
 //
 //  Created by Erica Dominic on 3/22/17.
@@ -7,14 +7,14 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import "Helpers.h"
+#import "ErrorChecking.h"
 #import "MyManager.h"
 
-@interface Helpers ()
+@interface ErrorChecking ()
 
 @end
 
-@implementation Helpers
+@implementation ErrorChecking
 
 // Initialize a model object
 - (id)init {
@@ -42,7 +42,7 @@
 
 // Check that end time comes after the start time for each shift; shows alert if this is not the case
 + (int)checkShiftTimesFor:(NSMutableArray *)startTimeData until:(NSMutableArray *)endTimeData {
-	
+		
 	// Create sharedManager here so we can reference timeEntries dictionary
 	MyManager *sharedManager = [MyManager sharedManager];
 	
@@ -62,7 +62,7 @@
 
 // Check that end time comes after the start time for each specific station entry; shows alert if this is not the case
 + (int)checkSpecificStationTimesFor:(NSMutableArray *)specificStationsData {
-
+	
 	// Create sharedManager here so we can reference timeEntries dictionary
 	MyManager *sharedManager = [MyManager sharedManager];
 	
@@ -104,7 +104,7 @@
 
 // Check that specific station times are subsets of shift times; will show alert if there is an error
 + (int)checkShiftTimesAndSpecificiStationTimesFor:(NSMutableArray *)startTimeData until:(NSMutableArray *)endTimeData including:(NSMutableArray *)specificStationsData {
-
+	
 	// Create sharedManager here so we can reference timeEntries dictionary
 	MyManager *sharedManager = [MyManager sharedManager];
 	
@@ -148,7 +148,7 @@
 
 // Check that specific station times do not conflict; will show alert if there is an error
 + (int)checkSpecificStationTimesConflictsFor:(NSMutableArray *)specificStationsData {
-
+	
 	// Create sharedManager here so we can reference timeEntries dictionary
 	MyManager *sharedManager = [MyManager sharedManager];
 	

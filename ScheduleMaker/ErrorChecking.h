@@ -1,5 +1,5 @@
 //
-//  Helpers.h
+//  ErrorChecking.h
 //  ScheduleMaker
 //
 //  Created by Erica Dominic on 3/22/17.
@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface Helpers : NSObject
+@interface ErrorChecking : NSObject
 
 // Show alert with specified message
 + (void)showAlert:(NSString *)title withDetails:(NSString *)details;
