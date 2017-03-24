@@ -13,7 +13,6 @@
 
 @interface Model ()
 
-@property (strong) NSDictionary *timeEntries;
 @property (strong) NSMutableArray *schedule;
 
 @end
@@ -86,7 +85,7 @@
 		int start_num;
 		int end_num;
 		NSMutableArray *cell_data = self.specificStationsData[i];
-
+		
 		// Insert specific station #1 into schedule (if nonempty)
 		if (![cell_data[0] isEqualToString:@""]) {
 			start_num = [[sharedManager.timeEntries objectForKey:cell_data[1]] intValue];
@@ -243,7 +242,7 @@
 
 // Does the calculations needed to actually make the schedule; data already collected
 - (void)makeSchedule {
-	
+		
 	// Take rows out of ScheduleViewController table that have no name in the name column
 	NSMutableIndexSet *indexes = [[NSMutableIndexSet alloc] init];
 	for (int i = 0; i < self.nameData.count; i++) {
