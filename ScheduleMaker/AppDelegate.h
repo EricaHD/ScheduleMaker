@@ -20,7 +20,6 @@
 // OBJECTIVE-C/XCODE THINGS:
 // Go back and figure out which @property need (strong) or other qualifiers
 // Go back to NSLog(@"Error: ..."); and handle errors more gracefully
-// Intead of doing (viewControllerArray.count == 3) check and if not a clumsy NSLog error message, figure out how to have program WAIT until that condition is true, then do the work of finding the three view controllers within AppDelegate.m
 
 // EVENTUAL ADDITIONS:
 // README/instruction booklet describing use of software

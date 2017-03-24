@@ -64,22 +64,32 @@
 		// Set up arrays in model
 		[self setUpModelsArrays];
 		
+		// Find and set title of window
+		NSWindow *window = [[NSApplication sharedApplication] mainWindow];
+		window.title = @"MoMath Floor Schedule Generator";
+		
 		// Find the three view controllers (hardcoded to be three)
 		DatabaseViewController *database;
 		RequirementsViewController *requirements;
 		ScheduleViewController *schedule;
-		NSWindow *window = [[NSApplication sharedApplication] mainWindow];
-		window.title = @"MoMath Floor Schedule Generator";
-		NSArray *viewControllerArray = window.contentViewController.childViewControllers;
-		if (viewControllerArray.count == 3) {
-			database = (DatabaseViewController *) viewControllerArray[0];
-			requirements = (RequirementsViewController *) viewControllerArray[1];
-			schedule = (ScheduleViewController *) viewControllerArray[2];
+		NSDate* date = [NSDate date];
+		while (TRUE) {
+			// Ready to do the work
+			if (window.contentViewController.childViewControllers.count == 3) {
+				NSArray *viewControllerArray = window.contentViewController.childViewControllers;
+				database = (DatabaseViewController *) viewControllerArray[0];
+				requirements = (RequirementsViewController *) viewControllerArray[1];
+				schedule = (ScheduleViewController *) viewControllerArray[2];
+				break;
+			}
+			// Condition is not reached before timeout (giving program 5 seconds to get this while loop done)
+			if ([date timeIntervalSinceNow] < -5) {
+				break;
+			}
+			// Suspend thread execution for 10,000 microseconds = 0.01 seconds
+			usleep(10000);
 		}
-		else {
-			NSLog(@"Error: viewControllerArray.count != 3");
-		}
-	
+
 		// Point each controller to the model created above
 		database.model = self.model;
 		requirements.model = self.model;
