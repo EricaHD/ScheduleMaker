@@ -71,7 +71,7 @@
 		NSWindow *window = [[NSApplication sharedApplication] mainWindow];
 		window.title = @"MoMath Floor Schedule Generator";
 		NSArray *viewControllerArray = window.contentViewController.childViewControllers;
-		if (viewControllerArray.count == 3) { // TODO
+		if (viewControllerArray.count == 3) {
 			database = (DatabaseViewController *) viewControllerArray[0];
 			requirements = (RequirementsViewController *) viewControllerArray[1];
 			schedule = (ScheduleViewController *) viewControllerArray[2];

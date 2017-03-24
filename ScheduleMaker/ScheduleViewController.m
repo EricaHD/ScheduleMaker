@@ -325,10 +325,6 @@
 	
 }
 
-////////////////////////////////////////////////////////////////////////////////
-// TODO: MODEL STUFF...NOW MOST OF THIS WILL TAKE PLACE BEHIND THE SCENES IN THE MODEL
-////////////////////////////////////////////////////////////////////////////////
-
 // When "Make Schedule" button is pressed (gather information, compute schedule)
 - (IBAction)makeSchedule:(id)sender {
 	
@@ -342,7 +338,7 @@
 	// Make schedule
 	[self.model makeSchedule];
 	
-	// Debugging (print schedule)
+	// Debugging
 	//[self.model printSchedule];
 	
 }

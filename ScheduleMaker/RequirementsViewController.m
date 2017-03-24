@@ -257,17 +257,17 @@
 
 	// If row being dragged < destination row (dragging down)
 	if (dragRow < row) {
-//		[model insertObject:[model objectAtIndex:dragRow] atIndex:row]; // TODO
-//		[model removeObjectAtIndex:dragRow]; // TODO
+		//[model insertObject:[model objectAtIndex:dragRow] atIndex:row]; // unnecessary line
+		//[model removeObjectAtIndex:dragRow]; // unnecessary line
 		[tableView noteNumberOfRowsChanged];
 		[tableView moveRowAtIndex:dragRow toIndex:row - 1];
 	}
 	
 	// If row being dragged >= destination row (dragging up)
 	else {
-//		ModelObj *obj = [model objectAtIndex:dragRow]; // TODO
-//		[model removeObjectAtIndex:dragRow]; // TODO
-//		[model insertObject:obj atIndex:row]; // TODO
+		//ModelObj *obj = [model objectAtIndex:dragRow]; // unnecessary line
+		//[model removeObjectAtIndex:dragRow]; // unnecessary line
+		//[model insertObject:obj atIndex:row]; // unnecessary line
 		[tableView noteNumberOfRowsChanged];
 		[tableView moveRowAtIndex:dragRow toIndex:row];
 	}
