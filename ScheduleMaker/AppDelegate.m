@@ -19,7 +19,7 @@
 
 // Insert code here to initialize your application
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
-		
+
 }
 
 // Set up arrays in model

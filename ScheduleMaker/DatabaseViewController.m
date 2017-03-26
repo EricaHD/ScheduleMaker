@@ -11,6 +11,8 @@
 
 @interface DatabaseViewController ()
 
+@property NSWindowController *myController;
+
 // Add, delete, and edit staff member entries
 - (IBAction)addStaff:(id)sender;
 - (IBAction)editStaff:(id)sender;
@@ -106,6 +108,11 @@
 - (IBAction)addStaff:(id)sender {
 	
 	// TODO
+	
+	// Ready add/edit staff window that will be used in DatabaseViewController
+	NSStoryboard *storyBoard = [NSStoryboard storyboardWithName:@"Main" bundle:nil];
+	self.myController = [storyBoard instantiateControllerWithIdentifier:@"secondWindowController"];
+	[self.myController showWindow:self];
 	
 }
 
