@@ -10,7 +10,7 @@
 #import "Model.h"
 
 // Constants
-#define ROW_HEIGHT_3 90.0;
+#define ROW_HEIGHT_3 100.0;
 
 @interface DatabaseViewController : NSViewController <NSTableViewDelegate, NSTableViewDataSource>
 

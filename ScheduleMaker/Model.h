@@ -32,6 +32,9 @@
 @property (strong) NSMutableArray *staffNames;
 @property (strong) NSMutableArray *staffQualifications;
 
+// When "Save" button is pressed on AddEditStaffViewController
+- (void)save:(NSString *)name withQualifications:(NSMutableArray *)qualifications;
+
 // When "+" add row button is pressed on ScheduleViewController
 - (void)addRow;
 

@@ -7,7 +7,11 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "Model.h"
 
 @interface AddEditStaffViewController : NSViewController
+
+// Reference to model that all view controllers will use
+@property (strong) Model *model;
 
 @end

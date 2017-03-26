@@ -25,5 +25,6 @@
 @property (strong) IBOutlet NSButton *manager;
 @property (strong) IBOutlet NSButton *birthday;
 @property (strong) IBOutlet NSButton *other;
+@property (strong) IBOutlet NSButton *fireguard;
 
 @end

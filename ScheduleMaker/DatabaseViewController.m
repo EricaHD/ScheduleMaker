@@ -8,6 +8,7 @@
 
 #import "DatabaseViewController.h"
 #import "StaffTableCellView.h"
+#import "AddEditStaffViewController.h"
 
 @interface DatabaseViewController ()
 
@@ -40,7 +41,22 @@
 	
 	// Reload table
 	[self.table reloadData];
+	
+	// Listen for notification telling DatabaseViewController to reload table
+	[[NSNotificationCenter defaultCenter] addObserver:self
+											 selector:@selector(receiveReloadNotification:)
+												 name:@"NeedDatabaseTableReload"
+											   object:nil];
 
+}
+
+// If notification telling DatabaseViewController to reload table is heard, do this:
+- (void) receiveReloadNotification:(NSNotification *) notification {
+	
+	if ([[notification name] isEqualToString:@"NeedDatabaseTableReload"]) {
+		[self.table reloadData];
+	}
+	
 }
 
 // Do any additional setup once the view is fully transitioned onto the screen
@@ -94,6 +110,8 @@
 		[cell.birthday setEnabled:NO];
 		[cell.other setState:[self.model.staffQualifications[row][13] integerValue]];
 		[cell.other setEnabled:NO];
+		[cell.fireguard setState:[self.model.staffQualifications[row][14] integerValue]];
+		[cell.fireguard setEnabled:NO];
 		return cell;
 	}
 	
@@ -107,11 +125,16 @@
 // Adds staff member entry via presenting a new window via which to enter data
 - (IBAction)addStaff:(id)sender {
 	
-	// TODO
-	
 	// Ready add/edit staff window that will be used in DatabaseViewController
 	NSStoryboard *storyBoard = [NSStoryboard storyboardWithName:@"Main" bundle:nil];
 	self.myController = [storyBoard instantiateControllerWithIdentifier:@"secondWindowController"];
+	self.myController.window.title = @"Staff Member Qualifications";
+	AddEditStaffViewController *addEditVC = (AddEditStaffViewController *) self.myController.contentViewController;
+	
+	// Point AddEditStaffViewController toward model that all view controllers are using
+	addEditVC.model = self.model;
+	
+	// Show window
 	[self.myController showWindow:self];
 	
 }

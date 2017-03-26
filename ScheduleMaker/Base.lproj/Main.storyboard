@@ -698,13 +698,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="745" height="471"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <scrollView fixedFrame="YES" autohidesScrollers="YES" horizontalLineScroll="92" horizontalPageScroll="10" verticalLineScroll="92" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S14-aI-Rmu">
+                            <scrollView fixedFrame="YES" autohidesScrollers="YES" horizontalLineScroll="102" horizontalPageScroll="10" verticalLineScroll="102" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S14-aI-Rmu">
                                 <rect key="frame" x="13" y="61" width="719" height="410"/>
                                 <clipView key="contentView" ambiguous="YES" id="XhW-79-bZ3">
                                     <rect key="frame" x="1" y="0.0" width="717" height="409"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowHeight="90" rowSizeStyle="automatic" headerView="PNB-aA-lOj" viewBased="YES" id="jPg-sq-TkM">
+                                        <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowHeight="100" rowSizeStyle="automatic" headerView="PNB-aA-lOj" viewBased="YES" id="jPg-sq-TkM">
                                             <rect key="frame" x="0.0" y="0.0" width="717" height="386"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <size key="intercellSpacing" width="3" height="2"/>
@@ -725,11 +725,11 @@
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
                                                         <tableCellView identifier="staff_cell" id="7G5-E4-hzr" customClass="StaffTableCellView">
-                                                            <rect key="frame" x="1" y="1" width="714" height="90"/>
+                                                            <rect key="frame" x="1" y="1" width="714" height="100"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gwh-lX-4Zt">
-                                                                    <rect key="frame" x="7" y="64" width="150" height="22"/>
+                                                                    <rect key="frame" x="7" y="74" width="150" height="22"/>
                                                                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Name" id="LYd-5E-iQW">
                                                                         <font key="font" metaFont="system" size="18"/>
                                                                         <color key="textColor" name="controlShadowColor" catalog="System" colorSpace="catalog"/>
@@ -737,99 +737,106 @@
                                                                     </textFieldCell>
                                                                 </textField>
                                                                 <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="n4A-0j-VPt">
-                                                                    <rect key="frame" x="33" y="41" width="52" height="18"/>
-                                                                    <buttonCell key="cell" type="check" title="Trike" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="Ajy-OS-4Un">
+                                                                    <rect key="frame" x="33" y="51" width="52" height="18"/>
+                                                                    <buttonCell key="cell" type="check" title="Trike" bezelStyle="regularSquare" imagePosition="left" inset="2" id="Ajy-OS-4Un">
                                                                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                                         <font key="font" metaFont="system"/>
                                                                     </buttonCell>
                                                                 </button>
                                                                 <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9Dm-xE-09D">
-                                                                    <rect key="frame" x="324" y="41" width="31" height="18"/>
-                                                                    <buttonCell key="cell" type="check" title="0" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="Sxx-16-aUf">
+                                                                    <rect key="frame" x="324" y="51" width="31" height="18"/>
+                                                                    <buttonCell key="cell" type="check" title="0" bezelStyle="regularSquare" imagePosition="left" inset="2" id="Sxx-16-aUf">
                                                                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                                         <font key="font" metaFont="system"/>
                                                                     </buttonCell>
                                                                 </button>
                                                                 <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="c4z-DF-S25">
-                                                                    <rect key="frame" x="130" y="41" width="52" height="18"/>
-                                                                    <buttonCell key="cell" type="check" title="Coro" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="drC-15-qHu">
+                                                                    <rect key="frame" x="130" y="51" width="52" height="18"/>
+                                                                    <buttonCell key="cell" type="check" title="Coro" bezelStyle="regularSquare" imagePosition="left" inset="2" id="drC-15-qHu">
                                                                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                                         <font key="font" metaFont="system"/>
                                                                     </buttonCell>
                                                                 </button>
                                                                 <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="u9u-sm-x7D">
-                                                                    <rect key="frame" x="227" y="41" width="35" height="18"/>
-                                                                    <buttonCell key="cell" type="check" title="-1" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="3KR-QW-pNz">
+                                                                    <rect key="frame" x="227" y="51" width="35" height="18"/>
+                                                                    <buttonCell key="cell" type="check" title="-1" bezelStyle="regularSquare" imagePosition="left" inset="2" id="3KR-QW-pNz">
                                                                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                                         <font key="font" metaFont="system"/>
                                                                     </buttonCell>
                                                                 </button>
                                                                 <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vDn-gx-vXO">
-                                                                    <rect key="frame" x="421" y="41" width="65" height="18"/>
-                                                                    <buttonCell key="cell" type="check" title="Gallery" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="NjE-YJ-6xO">
+                                                                    <rect key="frame" x="421" y="51" width="65" height="18"/>
+                                                                    <buttonCell key="cell" type="check" title="Gallery" bezelStyle="regularSquare" imagePosition="left" inset="2" id="NjE-YJ-6xO">
                                                                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                                         <font key="font" metaFont="system"/>
                                                                     </buttonCell>
                                                                 </button>
                                                                 <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1na-Ir-VVa">
-                                                                    <rect key="frame" x="518" y="41" width="52" height="18"/>
-                                                                    <buttonCell key="cell" type="check" title="Float" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="n4a-5c-gLh">
+                                                                    <rect key="frame" x="518" y="51" width="52" height="18"/>
+                                                                    <buttonCell key="cell" type="check" title="Float" bezelStyle="regularSquare" imagePosition="left" inset="2" id="n4a-5c-gLh">
                                                                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                                         <font key="font" metaFont="system"/>
                                                                     </buttonCell>
                                                                 </button>
                                                                 <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RSb-xl-1Wu">
-                                                                    <rect key="frame" x="615" y="41" width="65" height="18"/>
-                                                                    <buttonCell key="cell" type="check" title="Project" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="HOs-qG-HZl">
+                                                                    <rect key="frame" x="615" y="51" width="65" height="18"/>
+                                                                    <buttonCell key="cell" type="check" title="Project" bezelStyle="regularSquare" imagePosition="left" inset="2" id="HOs-qG-HZl">
                                                                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                                         <font key="font" metaFont="system"/>
                                                                     </buttonCell>
                                                                 </button>
                                                                 <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Bcf-tQ-f2Q">
-                                                                    <rect key="frame" x="33" y="18" width="75" height="18"/>
+                                                                    <rect key="frame" x="33" y="28" width="75" height="18"/>
                                                                     <buttonCell key="cell" type="check" title="Greeting" bezelStyle="regularSquare" imagePosition="left" inset="2" id="DNq-eM-I1R">
                                                                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                                         <font key="font" metaFont="system"/>
                                                                     </buttonCell>
                                                                 </button>
                                                                 <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0DY-Z4-ScC">
-                                                                    <rect key="frame" x="227" y="18" width="56" height="18"/>
+                                                                    <rect key="frame" x="227" y="28" width="56" height="18"/>
                                                                     <buttonCell key="cell" type="check" title="Tours" bezelStyle="regularSquare" imagePosition="left" inset="2" id="uvg-XS-Sur">
                                                                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                                         <font key="font" metaFont="system"/>
                                                                     </buttonCell>
                                                                 </button>
                                                                 <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="L5o-qd-ip8">
-                                                                    <rect key="frame" x="324" y="18" width="65" height="18"/>
+                                                                    <rect key="frame" x="324" y="28" width="65" height="18"/>
                                                                     <buttonCell key="cell" type="check" title="Lesson" bezelStyle="regularSquare" imagePosition="left" inset="2" id="Pzb-P0-YD3">
                                                                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                                         <font key="font" metaFont="system"/>
                                                                     </buttonCell>
                                                                 </button>
                                                                 <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fk5-gc-yAN">
-                                                                    <rect key="frame" x="421" y="18" width="76" height="18"/>
+                                                                    <rect key="frame" x="421" y="28" width="76" height="18"/>
                                                                     <buttonCell key="cell" type="check" title="Manager" bezelStyle="regularSquare" imagePosition="left" inset="2" id="kz0-OV-rkD">
                                                                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                                         <font key="font" metaFont="system"/>
                                                                     </buttonCell>
                                                                 </button>
                                                                 <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZRR-nH-wNJ">
-                                                                    <rect key="frame" x="518" y="18" width="73" height="18"/>
+                                                                    <rect key="frame" x="518" y="28" width="73" height="18"/>
                                                                     <buttonCell key="cell" type="check" title="Birthday" bezelStyle="regularSquare" imagePosition="left" inset="2" id="DBY-Mr-1Pn">
                                                                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                                         <font key="font" metaFont="system"/>
                                                                     </buttonCell>
                                                                 </button>
                                                                 <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ga3-Yv-Dhi">
-                                                                    <rect key="frame" x="615" y="16" width="57" height="18"/>
+                                                                    <rect key="frame" x="615" y="28" width="57" height="18"/>
                                                                     <buttonCell key="cell" type="check" title="Other" bezelStyle="regularSquare" imagePosition="left" inset="2" id="LsJ-u5-W4c">
                                                                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                                         <font key="font" metaFont="system"/>
                                                                     </buttonCell>
                                                                 </button>
                                                                 <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5Ma-2O-CKk">
-                                                                    <rect key="frame" x="130" y="18" width="73" height="18"/>
+                                                                    <rect key="frame" x="130" y="28" width="73" height="18"/>
                                                                     <buttonCell key="cell" type="check" title="Security" bezelStyle="regularSquare" imagePosition="left" inset="2" id="a7p-8k-flg">
+                                                                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                                        <font key="font" metaFont="system"/>
+                                                                    </buttonCell>
+                                                                </button>
+                                                                <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="K01-OU-aUc">
+                                                                    <rect key="frame" x="33" y="5" width="80" height="18"/>
+                                                                    <buttonCell key="cell" type="check" title="Fireguard" bezelStyle="regularSquare" imagePosition="left" inset="2" id="wdv-9d-arz">
                                                                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                                         <font key="font" metaFont="system"/>
                                                                     </buttonCell>
@@ -838,6 +845,7 @@
                                                             <connections>
                                                                 <outlet property="birthday" destination="ZRR-nH-wNJ" id="oKL-hq-jJh"/>
                                                                 <outlet property="coro" destination="c4z-DF-S25" id="13n-sK-6Kx"/>
+                                                                <outlet property="fireguard" destination="K01-OU-aUc" id="fhc-Vd-f80"/>
                                                                 <outlet property="float" destination="1na-Ir-VVa" id="Ms3-db-7ip"/>
                                                                 <outlet property="floating" destination="1na-Ir-VVa" id="vVd-N7-xlz"/>
                                                                 <outlet property="gallery" destination="vDn-gx-vXO" id="90Y-uf-Hka"/>
@@ -959,22 +967,22 @@
                                 </buttonCell>
                             </button>
                             <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Rml-X3-Kz1">
-                                <rect key="frame" x="39" y="159" width="65" height="18"/>
-                                <buttonCell key="cell" type="check" title="Gallery" bezelStyle="regularSquare" imagePosition="left" inset="2" id="B4a-D9-bFA">
+                                <rect key="frame" x="39" y="159" width="35" height="18"/>
+                                <buttonCell key="cell" type="check" title="-1" bezelStyle="regularSquare" imagePosition="left" inset="2" id="B4a-D9-bFA">
                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
                             </button>
                             <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2aR-A7-M0G">
-                                <rect key="frame" x="39" y="134" width="35" height="18"/>
-                                <buttonCell key="cell" type="check" title="-1" bezelStyle="regularSquare" imagePosition="left" inset="2" id="CJm-HJ-g40">
+                                <rect key="frame" x="39" y="134" width="31" height="18"/>
+                                <buttonCell key="cell" type="check" title="0" bezelStyle="regularSquare" imagePosition="left" inset="2" id="CJm-HJ-g40">
                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
                             </button>
                             <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kyM-RY-ra4">
-                                <rect key="frame" x="39" y="109" width="31" height="18"/>
-                                <buttonCell key="cell" type="check" title="0" bezelStyle="regularSquare" imagePosition="left" inset="2" id="v1J-Zx-Rqq">
+                                <rect key="frame" x="39" y="109" width="65" height="18"/>
+                                <buttonCell key="cell" type="check" title="Gallery" bezelStyle="regularSquare" imagePosition="left" inset="2" id="v1J-Zx-Rqq">
                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
@@ -1041,6 +1049,9 @@
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
+                                <connections>
+                                    <action selector="save:" target="tSl-jG-sM1" id="ZQ4-yH-tb8"/>
+                                </connections>
                             </button>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xmB-FD-2m0">
                                 <rect key="frame" x="102" y="13" width="80" height="32"/>
@@ -1051,6 +1062,9 @@
 Gw
 </string>
                                 </buttonCell>
+                                <connections>
+                                    <action selector="cancel:" target="tSl-jG-sM1" id="xro-ni-YcG"/>
+                                </connections>
                             </button>
                             <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rFK-eE-vaG">
                                 <rect key="frame" x="20" y="247" width="148" height="22"/>
@@ -1076,6 +1090,24 @@ Gw
                             </button>
                         </subviews>
                     </view>
+                    <connections>
+                        <outlet property="birthday" destination="oYn-CY-Fvp" id="bUx-zu-neA"/>
+                        <outlet property="coro" destination="gUP-D4-NQI" id="ao8-gl-mey"/>
+                        <outlet property="fireguard" destination="Z6z-aj-uY8" id="zIs-bn-8ze"/>
+                        <outlet property="floating" destination="Xda-Y4-Jst" id="SCc-Va-2pN"/>
+                        <outlet property="gallery" destination="kyM-RY-ra4" id="qNT-JO-AHt"/>
+                        <outlet property="greeting" destination="jmD-rD-vFv" id="7Zl-9Q-sXm"/>
+                        <outlet property="lesson" destination="GZ6-rh-8ll" id="gp3-XE-gpo"/>
+                        <outlet property="manager" destination="78U-vW-OwL" id="PQd-ME-Pay"/>
+                        <outlet property="name" destination="rFK-eE-vaG" id="UNG-rr-2qH"/>
+                        <outlet property="negOne" destination="Rml-X3-Kz1" id="OoL-0N-HrR"/>
+                        <outlet property="other" destination="lVb-5H-TVz" id="5p0-ld-D1M"/>
+                        <outlet property="project" destination="qzM-3L-kN5" id="j00-7u-ACT"/>
+                        <outlet property="security" destination="e1L-PS-sRd" id="dRQ-9B-Pan"/>
+                        <outlet property="tours" destination="gs8-tN-jUO" id="94P-Uw-Phs"/>
+                        <outlet property="trike" destination="lyY-bB-Jc6" id="LRS-53-gbi"/>
+                        <outlet property="zero" destination="2aR-A7-M0G" id="Vb2-O7-KrT"/>
+                    </connections>
                 </viewController>
                 <customObject id="SN0-3Y-YQd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1149,7 +1181,7 @@ Gw
                                                             <subviews>
                                                                 <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Lf8-KU-fum">
                                                                     <rect key="frame" x="-1" y="2" width="100" height="20"/>
-                                                                    <buttonCell key="cell" type="check" title="Check" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="L3I-CE-SGI">
+                                                                    <buttonCell key="cell" type="check" title="Check" bezelStyle="regularSquare" imagePosition="left" inset="2" id="L3I-CE-SGI">
                                                                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                                         <font key="font" metaFont="system"/>
                                                                     </buttonCell>
