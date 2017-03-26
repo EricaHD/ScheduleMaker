@@ -28,6 +28,10 @@
 @property (strong) NSMutableArray *halfHourData;
 @property (strong) NSMutableArray *stackLunchesData;
 
+// Arrays for DatabaseViewController
+@property (strong) NSMutableArray *staffNames;
+@property (strong) NSMutableArray *staffQualifications;
+
 // When "+" add row button is pressed on ScheduleViewController
 - (void)addRow;
 

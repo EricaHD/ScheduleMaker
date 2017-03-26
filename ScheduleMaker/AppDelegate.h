@@ -7,15 +7,26 @@
 //
 
 // MAJOR GOALS:
-// 1.1 Add another "0" and one or two "Float"s to RequirementsViewController list?
-// 1.2 Lay out Database view controller
-// 1.3 Add autocomplete from database feature in Schedule view controller (for names AND specific stations)
-// 2.1 Actually do the data processing and making of the schedule in Model.m (neaten up while you're at it)
+// 1.1 Implement DatabaseViewController
+// 1.2 Add autocomplete from database feature in Schedule view controller (for names AND specific stations)
+// 2.1 Actually do the data processing and making of the schedule in Model.m
+//     If we still have staff after all checked stations are assigned, excess staff get put on Float
+//     What if *no one* is qualified to do said post (e.g. birthday party)?  Display alert
+//     Display alert if some checked stations *cannot* be filled OR summary of floor stations filled with # of staff
 // 2.2 Invoke a script that will open LibreOffice and fill in schedule as if Sook has just written it, ready for editing (if necessary) and printing as usual
 // 3.1 Revisit DEFAULTs flags and actually implement NSUserDefaults
 // 4.1 Make special stations customizable with +/- buttons
 
 // EVENTUAL ADDITIONS:
+// Sort staff list in DatabaseViewController somehow (alphabetizing? just make drag and drop?)
+// Change color of selected row in DatabaseViewController (so it's not dark blue)
+// List of stations in RequirementsViewController seem rather arbitrary; ask Sook
+// Change table row colors so they alternate:
+//- (void)tableView:(NSTableView *)tableView didAddRowView:(nonnull NSTableRowView *)rowView forRow:(NSInteger)row {
+//	if (row % 2) {
+//		rowView.backgroundColor = [NSColor yellowColor];
+//	}
+//}
 // README/instruction booklet describing use of software
 // Further error checking?  Like entering only a space " " will count as a valid entry
 // Could adds "lunch" or "no lunch" option in case someone wants a lunch but is working < 5.5 hours

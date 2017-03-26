@@ -17,6 +17,7 @@
 		0790FB211E74ED30001DBC37 /* RequirementsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0790FB201E74ED30001DBC37 /* RequirementsViewController.m */; };
 		0790FB291E74ED85001DBC37 /* DatabaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0790FB281E74ED85001DBC37 /* DatabaseViewController.m */; };
 		0790FB2C1E750A1B001DBC37 /* StationTableCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0790FB2B1E750A1B001DBC37 /* StationTableCellView.m */; };
+		07A4729A1E85E78B0029F528 /* StaffTableCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 07A472991E85E78B0029F528 /* StaffTableCellView.m */; };
 		07BFEACC1E4C3E3600C5A189 /* Model.m in Sources */ = {isa = PBXBuildFile; fileRef = 07BFEACB1E4C3E3600C5A189 /* Model.m */; };
 		07C9D4C31E75EB6900F36FA4 /* StationStartTableCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 07C9D4C21E75EB6900F36FA4 /* StationStartTableCellView.m */; };
 		07C9D4C61E75EB7A00F36FA4 /* StationEndTableCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 07C9D4C51E75EB7A00F36FA4 /* StationEndTableCellView.m */; };
@@ -51,6 +52,8 @@
 		0790FB281E74ED85001DBC37 /* DatabaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DatabaseViewController.m; sourceTree = "<group>"; };
 		0790FB2A1E750A1B001DBC37 /* StationTableCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StationTableCellView.h; sourceTree = "<group>"; };
 		0790FB2B1E750A1B001DBC37 /* StationTableCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StationTableCellView.m; sourceTree = "<group>"; };
+		07A472981E85E78B0029F528 /* StaffTableCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StaffTableCellView.h; sourceTree = "<group>"; };
+		07A472991E85E78B0029F528 /* StaffTableCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StaffTableCellView.m; sourceTree = "<group>"; };
 		07BFEACA1E4C3E3600C5A189 /* Model.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Model.h; sourceTree = "<group>"; };
 		07BFEACB1E4C3E3600C5A189 /* Model.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Model.m; sourceTree = "<group>"; };
 		07C9D4C11E75EB6900F36FA4 /* StationStartTableCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StationStartTableCellView.h; sourceTree = "<group>"; };
@@ -140,6 +143,8 @@
 				07C9D4C51E75EB7A00F36FA4 /* StationEndTableCellView.m */,
 				07C9D4C71E75EBD700F36FA4 /* StationFrequencyTableCellView.h */,
 				07C9D4C81E75EBD700F36FA4 /* StationFrequencyTableCellView.m */,
+				07A472981E85E78B0029F528 /* StaffTableCellView.h */,
+				07A472991E85E78B0029F528 /* StaffTableCellView.m */,
 			);
 			path = ScheduleMaker;
 			sourceTree = "<group>";
@@ -226,6 +231,7 @@
 				07FA1C641E120DB6007E81E8 /* ScheduleViewController.m in Sources */,
 				074F5FE21E19DA13009BF40E /* NameTableCellView.m in Sources */,
 				07C9D4C31E75EB6900F36FA4 /* StationStartTableCellView.m in Sources */,
+				07A4729A1E85E78B0029F528 /* StaffTableCellView.m in Sources */,
 				074F5FDC1E19D63D009BF40E /* EndTimeTableCellView.m in Sources */,
 				07CAB8F91E84ADC800F9145B /* Printing.m in Sources */,
 				0776F1FB1E4C1F5000BFF6C5 /* LunchTableCellView.m in Sources */,

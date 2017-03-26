@@ -9,7 +9,13 @@
 #import <Cocoa/Cocoa.h>
 #import "Model.h"
 
-@interface DatabaseViewController : NSViewController
+// Constants
+#define ROW_HEIGHT_3 90.0;
+
+@interface DatabaseViewController : NSViewController <NSTableViewDelegate, NSTableViewDataSource>
+
+// Table view on database view controller
+@property (strong) IBOutlet NSTableView *table;
 
 // Reference to model that all view controllers will use
 @property (strong) Model *model;
