@@ -7,8 +7,7 @@
 //
 
 // MAJOR GOALS:
-// 1.1 Implement DatabaseViewController
-// 1.2 Add drag and drop to DatabaseViewController
+// 1.1 Add drag and drop to DatabaseViewController
 // 2.1 Add autocomplete from database feature in Schedule view controller (for names AND specific stations)
 // 3.1 Actually do the data processing and making of the schedule in Model.m
 //     If we still have staff after all checked stations are assigned, excess staff get put on Float
