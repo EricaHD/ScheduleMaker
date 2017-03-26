@@ -10,24 +10,6 @@
 
 @interface AddEditStaffViewController ()
 
-// Staff member name and qualification
-@property (strong) IBOutlet NSTextField *name;
-@property (strong) IBOutlet NSButton *trike;
-@property (strong) IBOutlet NSButton *coro;
-@property (strong) IBOutlet NSButton *negOne;
-@property (strong) IBOutlet NSButton *zero;
-@property (strong) IBOutlet NSButton *gallery;
-@property (strong) IBOutlet NSButton *floating;
-@property (strong) IBOutlet NSButton *project;
-@property (strong) IBOutlet NSButton *greeting;
-@property (strong) IBOutlet NSButton *security;
-@property (strong) IBOutlet NSButton *tours;
-@property (strong) IBOutlet NSButton *lesson;
-@property (strong) IBOutlet NSButton *manager;
-@property (strong) IBOutlet NSButton *birthday;
-@property (strong) IBOutlet NSButton *other;
-@property (strong) IBOutlet NSButton *fireguard;
-
 // Cancel and save button
 - (IBAction)cancel:(id)sender;
 - (IBAction)save:(id)sender;
@@ -53,7 +35,7 @@
 }
 
 // Save button should add data to staff dictionary, then close window
-- (IBAction)save:(id)sender {
+- (IBAction)save:(NSButton *)sender {
 	
 	// Make array of qualifications
 	NSMutableArray *qualifications = [[NSMutableArray alloc] initWithCapacity:15];
@@ -73,8 +55,13 @@
 	qualifications[13] = (self.other.state) ? [NSNumber numberWithInt:1] : [NSNumber numberWithInt:0];
 	qualifications[14] = (self.fireguard.state) ? [NSNumber numberWithInt:1] : [NSNumber numberWithInt:0];
 
-	// Call save method in model with parameters = above data
-	[self.model save:self.name.stringValue withQualifications:qualifications];
+	// Alter arrays in model using entered data
+	if ([sender.title isEqualToString:@"Save"]) {
+		[self.model save:self.name.stringValue withQualifications:qualifications];
+	}
+	else { // [sender.title isEqualToString:@"Change"]
+		[self.model change:self.name.stringValue withQualifications:qualifications inRow:self.rowToEdit];
+	}
 	
 	// Send notification telling DatabaseViewController to reload table now that new staff member has been added
 	[[NSNotificationCenter defaultCenter] postNotificationName:@"NeedDatabaseTableReload" object:self];

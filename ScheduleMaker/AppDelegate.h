@@ -8,17 +8,17 @@
 
 // MAJOR GOALS:
 // 1.1 Implement DatabaseViewController
-// 1.2 Add autocomplete from database feature in Schedule view controller (for names AND specific stations)
-// 2.1 Actually do the data processing and making of the schedule in Model.m
+// 1.2 Add drag and drop to DatabaseViewController
+// 2.1 Add autocomplete from database feature in Schedule view controller (for names AND specific stations)
+// 3.1 Actually do the data processing and making of the schedule in Model.m
 //     If we still have staff after all checked stations are assigned, excess staff get put on Float
 //     What if *no one* is qualified to do said post (e.g. birthday party)?  Display alert
 //     Display alert if some checked stations *cannot* be filled OR summary of floor stations filled with # of staff
-// 2.2 Invoke a script that will open LibreOffice and fill in schedule as if Sook has just written it, ready for editing (if necessary) and printing as usual
-// 3.1 Revisit DEFAULTs flags and actually implement NSUserDefaults
-// 4.1 Make special stations customizable with +/- buttons
+// 3.2 Invoke a script that will open LibreOffice and fill in schedule as if Sook has just written it, ready for editing (if necessary) and printing as usual
+// 4.1 Revisit DEFAULTs flags and actually implement NSUserDefaults
+// 5.1 Make special stations customizable with +/- buttons
 
 // EVENTUAL ADDITIONS:
-// Sort staff list in DatabaseViewController somehow (alphabetizing? just make drag and drop?)
 // Change color of selected row in DatabaseViewController (so it's not dark blue)
 // List of stations in RequirementsViewController seem rather arbitrary; ask Sook
 // Change table row colors so they alternate:

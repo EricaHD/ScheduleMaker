@@ -131,6 +131,30 @@
 	self.myController.window.title = @"Staff Member Qualifications";
 	AddEditStaffViewController *addEditVC = (AddEditStaffViewController *) self.myController.contentViewController;
 	
+	// In new window, show empty fields for staff member name and qualifications
+	addEditVC.name.stringValue = @"";
+	addEditVC.trike.state = NSOffState;
+	addEditVC.coro.state = NSOffState;
+	addEditVC.negOne.state = NSOffState;
+	addEditVC.zero.state = NSOffState;
+	addEditVC.gallery.state = NSOffState;
+	addEditVC.floating.state = NSOffState;
+	addEditVC.project.state = NSOffState;
+	addEditVC.greeting.state = NSOffState;
+	addEditVC.security.state = NSOffState;
+	addEditVC.tours.state = NSOffState;
+	addEditVC.lesson.state = NSOffState;
+	addEditVC.manager.state = NSOffState;
+	addEditVC.birthday.state = NSOffState;
+	addEditVC.other.state = NSOffState;
+	addEditVC.fireguard.state = NSOffState;
+	
+	// Set row to edit property to -1 (because we are adding a new row)
+	addEditVC.rowToEdit = -1;
+	
+	// Set save button label to "change"
+	addEditVC.saveButton.title = @"Save";
+	
 	// Point AddEditStaffViewController toward model that all view controllers are using
 	addEditVC.model = self.model;
 	
@@ -142,15 +166,58 @@
 // Edits selected staff member entry
 - (IBAction)editStaff:(id)sender {
 	
-	// TODO
+	// Find selected row (if there is one)
+	NSInteger rowToEdit = [self.table selectedRow];
+	if (rowToEdit == -1) {
+		return;
+	}
+	
+	// Ready add/edit staff window that will be used in DatabaseViewController
+	NSStoryboard *storyBoard = [NSStoryboard storyboardWithName:@"Main" bundle:nil];
+	self.myController = [storyBoard instantiateControllerWithIdentifier:@"secondWindowController"];
+	self.myController.window.title = @"Staff Member Qualifications";
+	AddEditStaffViewController *addEditVC = (AddEditStaffViewController *) self.myController.contentViewController;
+	
+	// In new window, fill in already recorded staff member name and qualifications
+	addEditVC.name.stringValue = self.model.staffNames[rowToEdit];
+	addEditVC.trike.state = ([self.model.staffQualifications[rowToEdit][0] integerValue]) ? NSOnState : NSOffState;
+	addEditVC.coro.state = ([self.model.staffQualifications[rowToEdit][1] integerValue]) ? NSOnState : NSOffState;
+	addEditVC.negOne.state = ([self.model.staffQualifications[rowToEdit][2] integerValue]) ? NSOnState : NSOffState;
+	addEditVC.zero.state = ([self.model.staffQualifications[rowToEdit][3] integerValue]) ? NSOnState : NSOffState;
+	addEditVC.gallery.state = ([self.model.staffQualifications[rowToEdit][4] integerValue]) ? NSOnState : NSOffState;
+	addEditVC.floating.state = ([self.model.staffQualifications[rowToEdit][5] integerValue]) ? NSOnState : NSOffState;
+	addEditVC.project.state = ([self.model.staffQualifications[rowToEdit][6] integerValue]) ? NSOnState : NSOffState;
+	addEditVC.greeting.state = ([self.model.staffQualifications[rowToEdit][7] integerValue]) ? NSOnState : NSOffState;
+	addEditVC.security.state = ([self.model.staffQualifications[rowToEdit][8] integerValue]) ? NSOnState : NSOffState;
+	addEditVC.tours.state = ([self.model.staffQualifications[rowToEdit][9] integerValue]) ? NSOnState : NSOffState;
+	addEditVC.lesson.state = ([self.model.staffQualifications[rowToEdit][10] integerValue]) ? NSOnState : NSOffState;
+	addEditVC.manager.state = ([self.model.staffQualifications[rowToEdit][11] integerValue]) ? NSOnState : NSOffState;
+	addEditVC.birthday.state = ([self.model.staffQualifications[rowToEdit][12] integerValue]) ? NSOnState : NSOffState;
+	addEditVC.other.state = ([self.model.staffQualifications[rowToEdit][13] integerValue]) ? NSOnState : NSOffState;
+	addEditVC.fireguard.state = ([self.model.staffQualifications[rowToEdit][14] integerValue]) ? NSOnState : NSOffState;
+	
+	// Set row to edit property
+	addEditVC.rowToEdit = rowToEdit;
+	
+	// Set save button label to "change"
+	addEditVC.saveButton.title = @"Change";
+	
+	// Point AddEditStaffViewController toward model that all view controllers are using
+	addEditVC.model = self.model;
+	
+	// Show window
+	[self.myController showWindow:self];
 	
 }
 
 // Deletes selected staff member entry
 - (IBAction)deleteStaff:(id)sender {
 	
-	// Find selected row
+	// Find selected row (if there is one)
 	NSInteger rowToDelete = [self.table selectedRow];
+	if (rowToDelete == -1) {
+		return;
+	}
 	
 	// Remove selected entry from self.model.staffNames and self.model.staffQualifications
 	[self.model.staffNames removeObjectAtIndex:rowToDelete];
