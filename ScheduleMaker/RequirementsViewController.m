@@ -89,6 +89,14 @@
 	
 }
 
+
+// Called when the view controller’s view is about to be removed (i.e. when switching to another tab)
+- (void)viewWillDisappear {
+	
+	[self scrapeData];
+	
+}
+
 // Returns the number of records managed for a TableView by the data source object
 - (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView {
 
@@ -227,6 +235,31 @@
 	
 }
 
+// Update the half hour checkboxes on the right side of the view controller to reflect array entries
+- (void)reloadHalfHourData {
+	
+	self.tenAM.state = ([self.model.halfHourData[0] intValue]) ? NSOnState : NSOffState;
+	self.elevenAM.state = ([self.model.halfHourData[1] intValue]) ? NSOnState : NSOffState;
+	self.twelvePM.state = ([self.model.halfHourData[2] intValue]) ? NSOnState : NSOffState;
+	self.onePM.state = ([self.model.halfHourData[3] intValue]) ? NSOnState : NSOffState;
+	self.twoPM.state = ([self.model.halfHourData[4] intValue]) ? NSOnState : NSOffState;
+	self.threePM.state = ([self.model.halfHourData[5] intValue]) ? NSOnState : NSOffState;
+	self.fourPM.state = ([self.model.halfHourData[6] intValue]) ? NSOnState : NSOffState;
+	
+}
+
+// Update the stack lunches checkboxes on the right side of the view controller to reflect array entries
+- (void)reloadStackLunchesData {
+	
+	self.firstLunch.state = ([self.model.stackLunchesData[0] intValue]) ? NSOnState : NSOffState;
+	self.secondLunch.state = ([self.model.stackLunchesData[1] intValue]) ? NSOnState : NSOffState;
+	self.thirdLunch.state = ([self.model.stackLunchesData[2] intValue]) ? NSOnState : NSOffState;
+	self.fourthLunch.state = ([self.model.stackLunchesData[3] intValue]) ? NSOnState : NSOffState;
+	self.fifthLunch.state = ([self.model.stackLunchesData[4] intValue]) ? NSOnState : NSOffState;
+	self.sixthLunch.state = ([self.model.stackLunchesData[5] intValue]) ? NSOnState : NSOffState;
+	
+}
+
 // Drag and drop code: returns a Boolean value that indicates whether a drag operation is allowed
 - (BOOL)tableView:(NSTableView *)tableView writeRowsWithIndexes:(NSIndexSet *)rowIndexes toPasteboard:(NSPasteboard *)pboard {
 	
@@ -257,54 +290,17 @@
 
 	// If row being dragged < destination row (dragging down)
 	if (dragRow < row) {
-		//[model insertObject:[model objectAtIndex:dragRow] atIndex:row]; // unnecessary line
-		//[model removeObjectAtIndex:dragRow]; // unnecessary line
 		[tableView noteNumberOfRowsChanged];
 		[tableView moveRowAtIndex:dragRow toIndex:row - 1];
 	}
 	
 	// If row being dragged >= destination row (dragging up)
 	else {
-		//ModelObj *obj = [model objectAtIndex:dragRow]; // unnecessary line
-		//[model removeObjectAtIndex:dragRow]; // unnecessary line
-		//[model insertObject:obj atIndex:row]; // unnecessary line
 		[tableView noteNumberOfRowsChanged];
 		[tableView moveRowAtIndex:dragRow toIndex:row];
 	}
 		
 	return YES;
-
-}
-
-// Update the half hour checkboxes on the right side of the view controller to reflect array entries
-- (void)reloadHalfHourData {
-	
-	self.tenAM.state = ([self.model.halfHourData[0] intValue]) ? NSOnState : NSOffState;
-	self.elevenAM.state = ([self.model.halfHourData[1] intValue]) ? NSOnState : NSOffState;
-	self.twelvePM.state = ([self.model.halfHourData[2] intValue]) ? NSOnState : NSOffState;
-	self.onePM.state = ([self.model.halfHourData[3] intValue]) ? NSOnState : NSOffState;
-	self.twoPM.state = ([self.model.halfHourData[4] intValue]) ? NSOnState : NSOffState;
-	self.threePM.state = ([self.model.halfHourData[5] intValue]) ? NSOnState : NSOffState;
-	self.fourPM.state = ([self.model.halfHourData[6] intValue]) ? NSOnState : NSOffState;
-	
-}
-
-// Update the stack lunches checkboxes on the right side of the view controller to reflect array entries
-- (void)reloadStackLunchesData {
-	
-	self.firstLunch.state = ([self.model.stackLunchesData[0] intValue]) ? NSOnState : NSOffState;
-	self.secondLunch.state = ([self.model.stackLunchesData[1] intValue]) ? NSOnState : NSOffState;
-	self.thirdLunch.state = ([self.model.stackLunchesData[2] intValue]) ? NSOnState : NSOffState;
-	self.fourthLunch.state = ([self.model.stackLunchesData[3] intValue]) ? NSOnState : NSOffState;
-	self.fifthLunch.state = ([self.model.stackLunchesData[4] intValue]) ? NSOnState : NSOffState;
-	self.sixthLunch.state = ([self.model.stackLunchesData[5] intValue]) ? NSOnState : NSOffState;
-	
-}
-
-// Called when the view controller’s view is about to be removed (i.e. when switching to another tab)
-- (void)viewWillDisappear {
-	
-	[self scrapeData];
 
 }
 
