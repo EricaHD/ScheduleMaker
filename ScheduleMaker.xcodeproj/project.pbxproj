@@ -89,6 +89,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		07AB2BA11E93118E00C81258 /* Table Cell Views */ = {
+			isa = PBXGroup;
+			children = (
+				074F5FE01E19DA13009BF40E /* NameTableCellView.h */,
+				074F5FE11E19DA13009BF40E /* NameTableCellView.m */,
+				074F5FDD1E19D8C2009BF40E /* StartTimeTableCellView.h */,
+				074F5FDE1E19D8C2009BF40E /* StartTimeTableCellView.m */,
+				074F5FDA1E19D63D009BF40E /* EndTimeTableCellView.h */,
+				074F5FDB1E19D63D009BF40E /* EndTimeTableCellView.m */,
+				071351C21E4ABFC50063A0C8 /* SpecificStationsTableCellView.h */,
+				071351C31E4ABFC50063A0C8 /* SpecificStationsTableCellView.m */,
+				0776F1F91E4C1F5000BFF6C5 /* LunchTableCellView.h */,
+				0776F1FA1E4C1F5000BFF6C5 /* LunchTableCellView.m */,
+				0790FB2A1E750A1B001DBC37 /* StationTableCellView.h */,
+				0790FB2B1E750A1B001DBC37 /* StationTableCellView.m */,
+				07C9D4C11E75EB6900F36FA4 /* StationStartTableCellView.h */,
+				07C9D4C21E75EB6900F36FA4 /* StationStartTableCellView.m */,
+				07C9D4C41E75EB7A00F36FA4 /* StationEndTableCellView.h */,
+				07C9D4C51E75EB7A00F36FA4 /* StationEndTableCellView.m */,
+				07C9D4C71E75EBD700F36FA4 /* StationFrequencyTableCellView.h */,
+				07C9D4C81E75EBD700F36FA4 /* StationFrequencyTableCellView.m */,
+				07A472981E85E78B0029F528 /* StaffTableCellView.h */,
+				07A472991E85E78B0029F528 /* StaffTableCellView.m */,
+			);
+			name = "Table Cell Views";
+			sourceTree = "<group>";
+		};
 		07FA1C501E120DB6007E81E8 = {
 			isa = PBXGroup;
 			children = (
@@ -129,27 +156,8 @@
 				07FA1C651E120DB6007E81E8 /* Assets.xcassets */,
 				07FA1C671E120DB6007E81E8 /* Main.storyboard */,
 				07FA1C6A1E120DB6007E81E8 /* Info.plist */,
+				07AB2BA11E93118E00C81258 /* Table Cell Views */,
 				07FA1C5F1E120DB6007E81E8 /* Supporting Files */,
-				074F5FE01E19DA13009BF40E /* NameTableCellView.h */,
-				074F5FE11E19DA13009BF40E /* NameTableCellView.m */,
-				074F5FDD1E19D8C2009BF40E /* StartTimeTableCellView.h */,
-				074F5FDE1E19D8C2009BF40E /* StartTimeTableCellView.m */,
-				074F5FDA1E19D63D009BF40E /* EndTimeTableCellView.h */,
-				074F5FDB1E19D63D009BF40E /* EndTimeTableCellView.m */,
-				071351C21E4ABFC50063A0C8 /* SpecificStationsTableCellView.h */,
-				071351C31E4ABFC50063A0C8 /* SpecificStationsTableCellView.m */,
-				0776F1F91E4C1F5000BFF6C5 /* LunchTableCellView.h */,
-				0776F1FA1E4C1F5000BFF6C5 /* LunchTableCellView.m */,
-				0790FB2A1E750A1B001DBC37 /* StationTableCellView.h */,
-				0790FB2B1E750A1B001DBC37 /* StationTableCellView.m */,
-				07C9D4C11E75EB6900F36FA4 /* StationStartTableCellView.h */,
-				07C9D4C21E75EB6900F36FA4 /* StationStartTableCellView.m */,
-				07C9D4C41E75EB7A00F36FA4 /* StationEndTableCellView.h */,
-				07C9D4C51E75EB7A00F36FA4 /* StationEndTableCellView.m */,
-				07C9D4C71E75EBD700F36FA4 /* StationFrequencyTableCellView.h */,
-				07C9D4C81E75EBD700F36FA4 /* StationFrequencyTableCellView.m */,
-				07A472981E85E78B0029F528 /* StaffTableCellView.h */,
-				07A472991E85E78B0029F528 /* StaffTableCellView.m */,
 			);
 			path = ScheduleMaker;
 			sourceTree = "<group>";
