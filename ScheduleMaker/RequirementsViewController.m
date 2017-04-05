@@ -38,6 +38,8 @@
 
 @implementation RequirementsViewController
 
+#pragma mark View Loading Methods ##############################################
+
 // Do any additional setup after loading the view
 - (void)viewDidLoad {
 	
@@ -94,59 +96,6 @@
 - (void)viewWillDisappear {
 	
 	[self scrapeData];
-	
-}
-
-// Returns the number of records managed for a TableView by the data source object
-- (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView {
-
-	return self.model.stationList.count;
-	
-}
-
-// Provides the table with the view to display in the cell at a specific column and row; also populates that cell with the appropriate data
-// Different from -(id)tableView:(NSTableView *)tableView objectValueForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row
-- (NSView *)tableView:(NSTableView *)tableView viewForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row {
-	
-	// Define cells in reorder icon column (icon specified in Storyboard)
-	if ([tableColumn.identifier isEqualToString:@"reorder_col"]) {
-		NSTableCellView *cell = (NSTableCellView *) [tableView makeViewWithIdentifier:@"reorder_cell" owner:self];
-		return cell;
-	}
-	
-	// Define cells in station names column
-	else if ([tableColumn.identifier isEqualToString:@"station_col"]) {
-		StationTableCellView *cell = (StationTableCellView *) [tableView makeViewWithIdentifier:@"station_cell" owner:self];
-		[cell.station setTitle:self.model.stationList[row]];
-		[cell.station setState:0]; // DEFAULT
-		return cell;
-	}
-	
-	// Define cells in start times column
-	else if ([tableColumn.identifier isEqualToString:@"station_start_col"]) {
-		StationStartTableCellView *cell = (StationStartTableCellView *) [tableView makeViewWithIdentifier:@"station_start_cell" owner:self];
-		[cell.starttime selectItemAtIndex:0]; // DEFAULT
-		return cell;
-	}
-	
-	// Define cells in end times column
-	else if ([tableColumn.identifier isEqualToString:@"station_end_col"]) {
-		StationEndTableCellView *cell = (StationEndTableCellView *) [tableView makeViewWithIdentifier:@"station_end_cell" owner:self];
-		[cell.endtime selectItemAtIndex:cell.endtime.menu.numberOfItems - 1]; // DEFAULT
-		return cell;
-	}
-	
-	// Define cells in frequency column
-	else if ([tableColumn.identifier isEqualToString:@"frequency_col"]) {
-		StationFrequencyTableCellView *cell = (StationFrequencyTableCellView *)[tableView makeViewWithIdentifier:@"frequency_cell" owner:self];
-		[cell.frequency selectItemAtIndex:0]; // DEFAULT
-		return cell;
-	}
-	
-	// Otherwise
-	else {
-		return nil;
-	}
 	
 }
 
@@ -235,6 +184,63 @@
 	
 }
 
+#pragma mark NSTableViewDelegate, NSTableViewDataSource Methods ################
+
+// Returns the number of records managed for a TableView by the data source object
+- (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView {
+
+	return self.model.stationList.count;
+	
+}
+
+// Provides the table with the view to display in the cell at a specific column and row; also populates that cell with the appropriate data
+// Different from -(id)tableView:(NSTableView *)tableView objectValueForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row
+- (NSView *)tableView:(NSTableView *)tableView viewForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row {
+	
+	// Define cells in reorder icon column (icon specified in Storyboard)
+	if ([tableColumn.identifier isEqualToString:@"reorder_col"]) {
+		NSTableCellView *cell = (NSTableCellView *) [tableView makeViewWithIdentifier:@"reorder_cell" owner:self];
+		return cell;
+	}
+	
+	// Define cells in station names column
+	else if ([tableColumn.identifier isEqualToString:@"station_col"]) {
+		StationTableCellView *cell = (StationTableCellView *) [tableView makeViewWithIdentifier:@"station_cell" owner:self];
+		[cell.station setTitle:self.model.stationList[row]];
+		[cell.station setState:0]; // DEFAULT
+		return cell;
+	}
+	
+	// Define cells in start times column
+	else if ([tableColumn.identifier isEqualToString:@"station_start_col"]) {
+		StationStartTableCellView *cell = (StationStartTableCellView *) [tableView makeViewWithIdentifier:@"station_start_cell" owner:self];
+		[cell.starttime selectItemAtIndex:0]; // DEFAULT
+		return cell;
+	}
+	
+	// Define cells in end times column
+	else if ([tableColumn.identifier isEqualToString:@"station_end_col"]) {
+		StationEndTableCellView *cell = (StationEndTableCellView *) [tableView makeViewWithIdentifier:@"station_end_cell" owner:self];
+		[cell.endtime selectItemAtIndex:cell.endtime.menu.numberOfItems - 1]; // DEFAULT
+		return cell;
+	}
+	
+	// Define cells in frequency column
+	else if ([tableColumn.identifier isEqualToString:@"frequency_col"]) {
+		StationFrequencyTableCellView *cell = (StationFrequencyTableCellView *)[tableView makeViewWithIdentifier:@"frequency_cell" owner:self];
+		[cell.frequency selectItemAtIndex:0]; // DEFAULT
+		return cell;
+	}
+	
+	// Otherwise
+	else {
+		return nil;
+	}
+	
+}
+
+#pragma mark Reloading Methods #################################################
+
 // Update the half hour checkboxes on the right side of the view controller to reflect array entries
 - (void)reloadHalfHourData {
 	
@@ -259,6 +265,8 @@
 	self.sixthLunch.state = ([self.model.stackLunchesData[5] intValue]) ? NSOnState : NSOffState;
 	
 }
+
+#pragma mark Drag and Drop Methods #############################################
 
 // Drag and drop code: returns a Boolean value that indicates whether a drag operation is allowed
 - (BOOL)tableView:(NSTableView *)tableView writeRowsWithIndexes:(NSIndexSet *)rowIndexes toPasteboard:(NSPasteboard *)pboard {

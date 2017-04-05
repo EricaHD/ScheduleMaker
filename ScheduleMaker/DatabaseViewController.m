@@ -26,6 +26,8 @@
 
 @implementation DatabaseViewController
 
+#pragma mark View Loading Methods ##############################################
+
 // Do any additional setup after loading the view
 - (void)viewDidLoad {
 
@@ -53,20 +55,22 @@
 
 }
 
+// Do any additional setup once the view is fully transitioned onto the screen
+- (void)viewDidAppear {
+	
+	// Super
+	[super viewDidAppear];
+	
+}
+
+#pragma mark NSTableViewDelegate, NSTableViewDataSource Methods ################
+
 // If notification telling DatabaseViewController to reload table is heard, do this:
 - (void) receiveReloadNotification:(NSNotification *) notification {
 	
 	if ([[notification name] isEqualToString:@"NeedDatabaseTableReload"]) {
 		[self.table reloadData];
 	}
-	
-}
-
-// Do any additional setup once the view is fully transitioned onto the screen
-- (void)viewDidAppear {
-	
-	// Super
-	[super viewDidAppear];
 	
 }
 
@@ -124,6 +128,8 @@
 	}
 	
 }
+
+#pragma mark Add Staff, Edit Staff, and Delete Staff Buttons ###################
 
 // Adds staff member entry via presenting a new window via which to enter data
 - (IBAction)addStaff:(id)sender {
@@ -230,6 +236,8 @@
 	[self.table reloadData];
 	
 }
+
+#pragma mark Drag and Drop Methods #############################################
 
 // Drag and drop code: returns a Boolean value that indicates whether a drag operation is allowed
 - (BOOL)tableView:(NSTableView *)tableView writeRowsWithIndexes:(NSIndexSet *)rowIndexes toPasteboard:(NSPasteboard *)pboard {

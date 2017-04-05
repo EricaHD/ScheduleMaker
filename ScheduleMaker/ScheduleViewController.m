@@ -26,6 +26,8 @@
 
 @implementation ScheduleViewController
 
+#pragma mark View Loading Methods ##############################################
+
 // Do any additional setup after loading the view
 - (void)viewDidLoad {
 	
@@ -67,14 +69,6 @@
 	
 }
 
-// Autocomplete code: when name text field editing ends (then hide table)
-- (void)controlTextDidChange:(NSNotification *)notification {
-	
-	NSTextField *editedTextField = [notification object];
-	NSLog(@"Name text field in row %ld has been edited; it now says %@", (long)editedTextField.tag, editedTextField.stringValue);
-	
-}
-
 // Do any additional setup once the view is fully transitioned onto the screen
 - (void)viewDidAppear {
 	
@@ -82,6 +76,8 @@
 	[super viewDidAppear];
 	
 }
+
+#pragma mark NSTableViewDelegate, NSTableViewDataSource Methods ################
 
 // Returns the number of records managed for a TableView by the data source object
 - (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView {
@@ -201,6 +197,8 @@
 	}
 	
 }
+
+#pragma mark Add Row, Delete Row, and Make Schedule Buttons ####################
 
 // Scrape data that is displayed in table right now
 - (void)scrapeData {
@@ -348,6 +346,16 @@
 	
 	// Debugging
 	//[self.model printSchedule];
+	
+}
+
+#pragma mark Autocomplete Methods ##############################################
+
+// Autocomplete code: when name text field editing ends (then hide table)
+- (void)controlTextDidChange:(NSNotification *)notification {
+	
+	NSTextField *editedTextField = [notification object];
+	NSLog(@"Name text field in row %ld has been edited; it now says %@", (long)editedTextField.tag, editedTextField.stringValue);
 	
 }
 
