@@ -61,7 +61,7 @@
 		}
 	}
 	
-	// Make autocomplete options an empty array - TESTING
+	// Make autocomplete options an empty array
 	self.autocompleteOptions = [[NSMutableArray alloc] init];
 	
 	// Make it impossible to select/highlight a row in the table
@@ -354,7 +354,7 @@
 
 #pragma mark Autocomplete Methods ##############################################
 
-// Autocomplete code: when name text field editing ends (then hide table) - TESTING
+// Autocomplete code: when name text field editing ends (then hide table)
 - (void)controlTextDidChange:(NSNotification *)notification {
 	
 	// Substring user has typed so far (plus capitalized version, in case user doesn't capitalize)
@@ -382,12 +382,13 @@
 
 	}
 	
-	NSLog(@"%@", self.autocompleteOptions);
-	
 	// self.autocompleteOptions now has all options
 	// self.model.staffNames is staff dictionary
 	// (long)editedTextField.tag is row number of edited text field
 	// substring is string that user has typed so far
+	NSLog(@"%@", self.autocompleteOptions);
+	
+	// Now display options in self.autocompleteOptions in self.autocompleteTable - TESTING
 	
 }
 

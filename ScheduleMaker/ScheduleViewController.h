@@ -20,10 +20,10 @@
 // Reference to model that all view controllers will use
 @property (strong) Model *model;
 
-// Array used to hold suggestions for autocomplete text field - TESTING
+// Array used to hold suggestions for autocomplete text field
 @property (strong) NSMutableArray *autocompleteOptions;
 
-// Table and enclosing scroll view (scroll view helps with hidden property)
+// Table and enclosing scroll view (scroll view helps with hidden property) - TESTING
 @property (strong) IBOutlet NSTableView *autocompleteTable;
 @property (nonatomic, strong) IBOutlet NSScrollView *autocompleteScroll;
 
