@@ -89,6 +89,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0786B95A1E954C7500DC39A1 /* Helper Classes for Model */ = {
+			isa = PBXGroup;
+			children = (
+				0705EE421E838186007E876A /* MyManager.h */,
+				0705EE431E838186007E876A /* MyManager.m */,
+				0705EE3F1E837719007E876A /* ErrorChecking.h */,
+				0705EE401E837719007E876A /* ErrorChecking.m */,
+				07CAB8F71E84ADC800F9145B /* Printing.h */,
+				07CAB8F81E84ADC800F9145B /* Printing.m */,
+			);
+			name = "Helper Classes for Model";
+			sourceTree = "<group>";
+		};
 		07AB2BA11E93118E00C81258 /* Table Cell Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -147,15 +160,10 @@
 				0735352E1E883863005A8A69 /* AddEditStaffViewController.m */,
 				07BFEACA1E4C3E3600C5A189 /* Model.h */,
 				07BFEACB1E4C3E3600C5A189 /* Model.m */,
-				0705EE421E838186007E876A /* MyManager.h */,
-				0705EE431E838186007E876A /* MyManager.m */,
-				0705EE3F1E837719007E876A /* ErrorChecking.h */,
-				0705EE401E837719007E876A /* ErrorChecking.m */,
-				07CAB8F71E84ADC800F9145B /* Printing.h */,
-				07CAB8F81E84ADC800F9145B /* Printing.m */,
 				07FA1C651E120DB6007E81E8 /* Assets.xcassets */,
 				07FA1C671E120DB6007E81E8 /* Main.storyboard */,
 				07FA1C6A1E120DB6007E81E8 /* Info.plist */,
+				0786B95A1E954C7500DC39A1 /* Helper Classes for Model */,
 				07AB2BA11E93118E00C81258 /* Table Cell Views */,
 				07FA1C5F1E120DB6007E81E8 /* Supporting Files */,
 			);
