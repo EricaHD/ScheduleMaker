@@ -873,8 +873,8 @@
                                     </subviews>
                                     <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </clipView>
-                                <scroller key="horizontalScroller" verticalHuggingPriority="750" horizontal="YES" id="Wif-o5-XkI">
-                                    <rect key="frame" x="1" y="393" width="717" height="16"/>
+                                <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="Wif-o5-XkI">
+                                    <rect key="frame" x="1" y="7" width="0.0" height="16"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="x6a-8T-Bt4">
@@ -1342,8 +1342,8 @@ Gw
                                     </subviews>
                                     <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </clipView>
-                                <scroller key="horizontalScroller" verticalHuggingPriority="750" horizontal="YES" id="fyV-xj-vt9">
-                                    <rect key="frame" x="1" y="385" width="511" height="16"/>
+                                <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="fyV-xj-vt9">
+                                    <rect key="frame" x="1" y="7" width="0.0" height="16"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="fmE-df-ljF">
@@ -1589,7 +1589,7 @@ Gw
                                                                                         </textFieldCell>
                                                                                         <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                                                         <prototypeCellViews>
-                                                                                            <tableCellView id="5MJ-mN-cLj">
+                                                                                            <tableCellView identifier="auto" id="5MJ-mN-cLj" customClass="AutocompleteTableCellView">
                                                                                                 <rect key="frame" x="1" y="1" width="94" height="17"/>
                                                                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                                                 <subviews>
@@ -1603,7 +1603,7 @@ Gw
                                                                                                     </textField>
                                                                                                 </subviews>
                                                                                                 <connections>
-                                                                                                    <outlet property="textField" destination="Xh5-ba-B68" id="KbO-wS-wTH"/>
+                                                                                                    <outlet property="option" destination="Xh5-ba-B68" id="ZaU-kN-zdt"/>
                                                                                                 </connections>
                                                                                             </tableCellView>
                                                                                         </prototypeCellViews>
@@ -1613,7 +1613,7 @@ Gw
                                                                         </subviews>
                                                                         <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                                     </clipView>
-                                                                    <scroller key="horizontalScroller" verticalHuggingPriority="750" doubleValue="0.063253784179664763" horizontal="YES" id="SOL-OF-h0P">
+                                                                    <scroller key="horizontalScroller" verticalHuggingPriority="750" horizontal="YES" id="SOL-OF-h0P">
                                                                         <rect key="frame" x="1" y="33" width="93" height="16"/>
                                                                         <autoresizingMask key="autoresizingMask"/>
                                                                     </scroller>
@@ -2001,8 +2001,8 @@ Gw
                                     </subviews>
                                     <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </clipView>
-                                <scroller key="horizontalScroller" verticalHuggingPriority="750" doubleValue="0.01617431640625" horizontal="YES" id="wly-zU-VfH">
-                                    <rect key="frame" x="1" y="393" width="717" height="16"/>
+                                <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="0.01617431640625" horizontal="YES" id="wly-zU-VfH">
+                                    <rect key="frame" x="1" y="7" width="0.0" height="16"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="V0a-8j-Pvq">

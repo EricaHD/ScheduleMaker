@@ -23,7 +23,7 @@
 // Array used to hold suggestions for autocomplete text field - TESTING
 @property (strong) NSMutableArray *autocompleteOptions;
 
-// Table and enclosing scroll view for autocomplete options (scroll view helps with hidden property) - TESTING
+// Table and enclosing scroll view (scroll view helps with hidden property)
 @property (strong) IBOutlet NSTableView *autocompleteTable;
 @property (nonatomic, strong) IBOutlet NSScrollView *autocompleteScroll;
 

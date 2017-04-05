@@ -15,6 +15,7 @@
 		074F5FDF1E19D8C2009BF40E /* StartTimeTableCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 074F5FDE1E19D8C2009BF40E /* StartTimeTableCellView.m */; };
 		074F5FE21E19DA13009BF40E /* NameTableCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 074F5FE11E19DA13009BF40E /* NameTableCellView.m */; };
 		0776F1FB1E4C1F5000BFF6C5 /* LunchTableCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0776F1FA1E4C1F5000BFF6C5 /* LunchTableCellView.m */; };
+		0786B95D1E9559FC00DC39A1 /* AutocompleteTableCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0786B95C1E9559FC00DC39A1 /* AutocompleteTableCellView.m */; };
 		0790FB211E74ED30001DBC37 /* RequirementsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0790FB201E74ED30001DBC37 /* RequirementsViewController.m */; };
 		0790FB291E74ED85001DBC37 /* DatabaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0790FB281E74ED85001DBC37 /* DatabaseViewController.m */; };
 		0790FB2C1E750A1B001DBC37 /* StationTableCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0790FB2B1E750A1B001DBC37 /* StationTableCellView.m */; };
@@ -49,6 +50,8 @@
 		074F5FE11E19DA13009BF40E /* NameTableCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NameTableCellView.m; sourceTree = "<group>"; };
 		0776F1F91E4C1F5000BFF6C5 /* LunchTableCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LunchTableCellView.h; sourceTree = "<group>"; };
 		0776F1FA1E4C1F5000BFF6C5 /* LunchTableCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LunchTableCellView.m; sourceTree = "<group>"; };
+		0786B95B1E9559FC00DC39A1 /* AutocompleteTableCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AutocompleteTableCellView.h; sourceTree = "<group>"; };
+		0786B95C1E9559FC00DC39A1 /* AutocompleteTableCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AutocompleteTableCellView.m; sourceTree = "<group>"; };
 		0790FB1F1E74ED30001DBC37 /* RequirementsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RequirementsViewController.h; sourceTree = "<group>"; };
 		0790FB201E74ED30001DBC37 /* RequirementsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RequirementsViewController.m; sourceTree = "<group>"; };
 		0790FB271E74ED85001DBC37 /* DatabaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DatabaseViewController.h; sourceTree = "<group>"; };
@@ -166,6 +169,8 @@
 				0786B95A1E954C7500DC39A1 /* Helper Classes for Model */,
 				07AB2BA11E93118E00C81258 /* Table Cell Views */,
 				07FA1C5F1E120DB6007E81E8 /* Supporting Files */,
+				0786B95B1E9559FC00DC39A1 /* AutocompleteTableCellView.h */,
+				0786B95C1E9559FC00DC39A1 /* AutocompleteTableCellView.m */,
 			);
 			path = ScheduleMaker;
 			sourceTree = "<group>";
@@ -256,6 +261,7 @@
 				074F5FDC1E19D63D009BF40E /* EndTimeTableCellView.m in Sources */,
 				07CAB8F91E84ADC800F9145B /* Printing.m in Sources */,
 				0776F1FB1E4C1F5000BFF6C5 /* LunchTableCellView.m in Sources */,
+				0786B95D1E9559FC00DC39A1 /* AutocompleteTableCellView.m in Sources */,
 				0735352F1E883863005A8A69 /* AddEditStaffViewController.m in Sources */,
 				0705EE411E837719007E876A /* ErrorChecking.m in Sources */,
 				0790FB211E74ED30001DBC37 /* RequirementsViewController.m in Sources */,
