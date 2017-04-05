@@ -61,6 +61,9 @@
 		}
 	}
 	
+	// Make autocomplete options an empty array - TESTING
+	self.autocompleteOptions = [[NSMutableArray alloc] init];
+	
 	// Make it impossible to select/highlight a row in the table
 	[self.table setSelectionHighlightStyle:NSTableViewSelectionHighlightStyleNone];
 	
@@ -351,11 +354,40 @@
 
 #pragma mark Autocomplete Methods ##############################################
 
-// Autocomplete code: when name text field editing ends (then hide table)
+// Autocomplete code: when name text field editing ends (then hide table) - TESTING
 - (void)controlTextDidChange:(NSNotification *)notification {
 	
+	// Substring user has typed so far (plus capitalized version, in case user doesn't capitalize)
 	NSTextField *editedTextField = [notification object];
-	NSLog(@"Name text field in row %ld has been edited; it now says %@", (long)editedTextField.tag, editedTextField.stringValue);
+	NSString *substring = editedTextField.stringValue;
+	NSString *capitalizedSubstring = [substring capitalizedString];
+	
+	// Put anything that starts with substring into autocompleteOptions (for table)
+	// Use self.model.staffNames as staff "dictionary"
+	[self.autocompleteOptions removeAllObjects];
+	for (int i = 0; i < self.model.staffNames.count; i++) {
+		
+		// Get dictionary element to test against
+		NSString *dictElt = self.model.staffNames[i];
+		
+		// Check substring (and capitalized substring) against dictionary element
+		NSRange capitalizedSubstringRange = [dictElt rangeOfString:capitalizedSubstring];
+		NSRange substringRange = [dictElt rangeOfString:substring];
+		if (substringRange.location == 0) {
+			[self.autocompleteOptions addObject:dictElt];
+		}
+		else if (capitalizedSubstringRange.location == 0) {
+			[self.autocompleteOptions addObject:dictElt];
+		}
+
+	}
+	
+	NSLog(@"%@", self.autocompleteOptions);
+	
+	// self.autocompleteOptions now has all options
+	// self.model.staffNames is staff dictionary
+	// (long)editedTextField.tag is row number of edited text field
+	// substring is string that user has typed so far
 	
 }
 
