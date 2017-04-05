@@ -67,6 +67,14 @@
 	
 }
 
+// Autocomplete code: when name text field editing ends (then hide table)
+- (void)controlTextDidChange:(NSNotification *)notification {
+	
+	NSTextField *editedTextField = [notification object];
+	NSLog(@"Name text field in row %ld has been edited; it now says %@", (long)editedTextField.tag, editedTextField.stringValue);
+	
+}
+
 // Do any additional setup once the view is fully transitioned onto the screen
 - (void)viewDidAppear {
 	
@@ -91,6 +99,9 @@
 		NameTableCellView *cell = (NameTableCellView *) [tableView makeViewWithIdentifier:@"name_cell" owner:self];
 		[cell.name setStringValue:[NSString stringWithFormat:@"%@", self.model.nameData[row]]];
 		[cell.name setPlaceholderString:@"Name"];
+		// Autocomplete code: this way controlTextDidChange() method will work
+		cell.name.delegate = self;
+		cell.name.tag = row;
 		return cell;
 	}
 
