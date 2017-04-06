@@ -31,6 +31,7 @@
 // Could display messages on the results, i.e. "Gallery must be closed 12-1 pm" or "Only one person stationed on floor -1 during 11-5 pm"
 // Schedule could specify different stations for floor 0 given sufficient staff (e.g. HYHY, MOSC)
 // Go back and figure out which @property need (strong) or other qualifiers
+// Try debugging and unit tests in this xcode program
 
 #import <Cocoa/Cocoa.h>
 #import "Model.h"

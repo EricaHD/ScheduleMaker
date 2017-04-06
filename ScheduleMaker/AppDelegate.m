@@ -75,7 +75,7 @@
 		DatabaseViewController *database;
 		RequirementsViewController *requirements;
 		ScheduleViewController *schedule;
-		NSDate* date = [NSDate date];
+		//NSDate* date = [NSDate date];
 		while (TRUE) {
 			// Ready to do the work
 			if (window.contentViewController.childViewControllers.count == 3) {
@@ -85,10 +85,10 @@
 				schedule = (ScheduleViewController *) viewControllerArray[2];
 				break;
 			}
-			// Condition is not reached before timeout (giving program 5 seconds to get this while loop done)
-			if ([date timeIntervalSinceNow] < -5) {
-				break;
-			}
+			// Condition is not reached before timeout (giving program 60 seconds to get this while loop done)
+			//if ([date timeIntervalSinceNow] < -60) {
+				//break;
+			//}
 			// Suspend thread execution for 10,000 microseconds = 0.01 seconds
 			usleep(10000);
 		}

@@ -2088,7 +2088,7 @@ Gw
                                                                                         </textFieldCell>
                                                                                         <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                                                         <prototypeCellViews>
-                                                                                            <tableCellView identifier="auto1" id="1U8-Y2-Xc5" customClass="AutocompleteTableCellView">
+                                                                                            <tableCellView identifier="auto3" id="1U8-Y2-Xc5" customClass="AutocompleteTableCellView">
                                                                                                 <rect key="frame" x="1" y="1" width="94" height="17"/>
                                                                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                                                 <subviews>
