@@ -128,6 +128,8 @@
 				07C9D4C81E75EBD700F36FA4 /* StationFrequencyTableCellView.m */,
 				07A472981E85E78B0029F528 /* StaffTableCellView.h */,
 				07A472991E85E78B0029F528 /* StaffTableCellView.m */,
+				0786B95B1E9559FC00DC39A1 /* AutocompleteTableCellView.h */,
+				0786B95C1E9559FC00DC39A1 /* AutocompleteTableCellView.m */,
 			);
 			name = "Table Cell Views";
 			sourceTree = "<group>";
@@ -169,8 +171,6 @@
 				0786B95A1E954C7500DC39A1 /* Helper Classes for Model */,
 				07AB2BA11E93118E00C81258 /* Table Cell Views */,
 				07FA1C5F1E120DB6007E81E8 /* Supporting Files */,
-				0786B95B1E9559FC00DC39A1 /* AutocompleteTableCellView.h */,
-				0786B95C1E9559FC00DC39A1 /* AutocompleteTableCellView.m */,
 			);
 			path = ScheduleMaker;
 			sourceTree = "<group>";

@@ -8,8 +8,13 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface NameTableCellView : NSTableCellView
+@interface NameTableCellView : NSTableCellView <NSTableViewDelegate, NSTableViewDataSource>
 
 @property (strong) IBOutlet NSTextField *name;
+
+// Autocomplete code: data array, table and enclosing scroll view for autocomplete functionality
+@property (strong) NSMutableArray *autocompleteOptions;
+@property (strong) IBOutlet NSTableView *autocompleteTable;
+@property (nonatomic, strong) IBOutlet NSScrollView *autocompleteScroll;
 
 @end

@@ -382,13 +382,29 @@
 
 	}
 	
-	// self.autocompleteOptions now has all options
-	// self.model.staffNames is staff dictionary
-	// (long)editedTextField.tag is row number of edited text field
-	// substring is string that user has typed so far
-	NSLog(@"%@", self.autocompleteOptions);
+	// Get NameTableViewCell: column = 0, row = (long)editedTextField.tag
+	NameTableCellView *cell = (NameTableCellView *) [self.table viewAtColumn:0 row:editedTextField.tag makeIfNecessary:NO];
 	
-	// Now display options in self.autocompleteOptions in self.autocompleteTable - TESTING
+	// Cell's autocomplete table should display items from self.autocompleteOptions
+	cell.autocompleteOptions = self.autocompleteOptions;
+	
+	// Populate table view within that cell with self.autocompleteOptions; unhide scroll view
+	[cell.autocompleteTable reloadData];
+	[cell.autocompleteScroll setHidden:NO];
+	if ([cell.autocompleteScroll hasVerticalScroller]) {
+		cell.autocompleteScroll.verticalScroller.floatValue = 0.0;
+	}
+	[cell.autocompleteScroll.contentView scrollToPoint:NSMakePoint(0.0, 0.0)];
+	[cell.autocompleteScroll scrollPoint:NSMakePoint(0.0, 0.0)];
+	
+}
+
+// When text field editing ends, selected or not (then hide table)
+- (void)controlTextDidEndEditing:(NSNotification *)notification {
+	
+	NSTextField *editedTextField = [notification object];
+	NameTableCellView *cell = (NameTableCellView *) [self.table viewAtColumn:0 row:editedTextField.tag makeIfNecessary:NO];
+	[cell.autocompleteScroll setHidden:YES];
 	
 }
 

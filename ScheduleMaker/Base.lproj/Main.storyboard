@@ -1609,6 +1609,10 @@ Gw
                                                                                         </prototypeCellViews>
                                                                                     </tableColumn>
                                                                                 </tableColumns>
+                                                                                <connections>
+                                                                                    <outlet property="dataSource" destination="KzT-g5-BB5" id="Mrq-aY-toM"/>
+                                                                                    <outlet property="delegate" destination="KzT-g5-BB5" id="M9g-gG-hC0"/>
+                                                                                </connections>
                                                                             </tableView>
                                                                         </subviews>
                                                                         <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -1624,6 +1628,8 @@ Gw
                                                                 </scrollView>
                                                             </subviews>
                                                             <connections>
+                                                                <outlet property="autocompleteScroll" destination="UYY-oF-5Nb" id="69Z-hA-jrq"/>
+                                                                <outlet property="autocompleteTable" destination="OZ3-gn-wMa" id="j7X-KH-yZm"/>
                                                                 <outlet property="name" destination="OV7-9n-ClT" id="kdA-wD-WPk"/>
                                                             </connections>
                                                         </tableCellView>
