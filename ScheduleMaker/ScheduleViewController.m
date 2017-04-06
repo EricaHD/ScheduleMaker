@@ -219,34 +219,9 @@
 // Scrape data that is displayed in table right now
 - (void)scrapeData {
 	
-	// Find position of each column (so columns can be rearranged by clicking and dragging, and everything will still function) - TODO maybe delete this functionality
-	NSInteger name_col_pos = -1;
-	NSInteger start_time_col_pos = -1;
-	NSInteger end_time_col_pos = -1;
-	NSInteger specific_stations_col_pos = -1;
-	NSInteger lunch_col_pos = -1;
-	for (int i = 0; i < self.table.numberOfColumns; i++) {
-		NSString *identifier = self.table.tableColumns[i].identifier;
-		if ([identifier isEqualToString:@"name_col"]) {
-			name_col_pos = i;
-		}
-		else if ([identifier isEqualToString:@"start_time_col"]) {
-			start_time_col_pos = i;
-		}
-		else if ([identifier isEqualToString:@"end_time_col"]) {
-			end_time_col_pos = i;
-		}
-		else if ([identifier isEqualToString:@"specific_stations_col"]) {
-			specific_stations_col_pos = i;
-		}
-		else if ([identifier isEqualToString:@"lunch_col"]) {
-			lunch_col_pos = i;
-		}
-	}
-	
 	// Update array of names
 	for (int i = 0; i < self.model.nameData.count; i++) {
-		NameTableCellView *cell = (NameTableCellView *) [self.table viewAtColumn:name_col_pos row:i makeIfNecessary:NO];
+		NameTableCellView *cell = (NameTableCellView *) [self.table viewAtColumn:0 row:i makeIfNecessary:NO];
 		NSString *name = cell.name.stringValue;
 		if (name) { // do not insert nil object into array
 			self.model.nameData[i] = name;
@@ -255,7 +230,7 @@
 	
 	// Update array of start times
 	for (int i = 0; i < self.model.startTimeData.count; i++) {
-		StartTimeTableCellView *cell = (StartTimeTableCellView *) [self.table viewAtColumn:start_time_col_pos row:i makeIfNecessary:NO];
+		StartTimeTableCellView *cell = (StartTimeTableCellView *) [self.table viewAtColumn:1 row:i makeIfNecessary:NO];
 		NSString *starttime = cell.starttime.selectedItem.title;
 		if (starttime) { // do not insert nil object into array
 			self.model.startTimeData[i] = starttime;
@@ -264,7 +239,7 @@
 	
 	// Update array of end times
 	for (int i = 0; i < self.model.endTimeData.count; i++) {
-		EndTimeTableCellView *cell = (EndTimeTableCellView *) [self.table viewAtColumn:end_time_col_pos row:i makeIfNecessary:NO];
+		EndTimeTableCellView *cell = (EndTimeTableCellView *) [self.table viewAtColumn:2 row:i makeIfNecessary:NO];
 		NSString *endtime = cell.endtime.selectedItem.title;
 		if (endtime) { // do not insert nil object into array
 			self.model.endTimeData[i] = endtime;
@@ -273,7 +248,7 @@
 	
 	// Update array of specific stations
 	for (int i = 0; i < self.model.specificStationsData.count; i++) {
-		SpecificStationsTableCellView *cell = (SpecificStationsTableCellView *) [self.table viewAtColumn:specific_stations_col_pos row:i makeIfNecessary:NO];
+		SpecificStationsTableCellView *cell = (SpecificStationsTableCellView *) [self.table viewAtColumn:3 row:i makeIfNecessary:NO];
 		// Specific station names
 		NSString *specific1 = cell.specific1.stringValue;
 		if (specific1) { // do not insert nil object into array
@@ -317,7 +292,7 @@
 	
 	// Update array of lunch data
 	for (int i = 0; i < self.model.lunchData.count; i++) {
-		LunchTableCellView *cell = (LunchTableCellView *) [self.table viewAtColumn:lunch_col_pos row:i makeIfNecessary:NO];
+		LunchTableCellView *cell = (LunchTableCellView *) [self.table viewAtColumn:4 row:i makeIfNecessary:NO];
 		int early_lunch_state = (int) cell.early_lunch.state;
 		int late_lunch_state = (int) cell.late_lunch.state;
 		int hour_lunch_state = (int) cell.hour_lunch.state;

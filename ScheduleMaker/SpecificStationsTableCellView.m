@@ -56,7 +56,6 @@
 		return cell;
 	}
 	else if (tableView == self.autocompleteTable3) {
-		NSLog(@"%@", self.autocompleteOptions);
 		AutocompleteTableCellView *cell = (AutocompleteTableCellView *) [tableView makeViewWithIdentifier:@"auto3" owner:self];
 		[cell.option3 setStringValue:self.autocompleteOptions[row]];
 		return cell;
@@ -67,13 +66,25 @@
 }
 
 // Autocomplete code: if table cell is selected, use that string in text field TODO
-//- (void)tableViewSelectionDidChange:(NSNotification *)notification {
-//	
-//	// Put cell's string in text field TODO
-//	NSInteger row = [self.autocompleteTable selectedRow];
-//	NSString *selection = self.autocompleteOptions[row];
-//	self.name.stringValue = selection;
-//	
-//}
+- (void)tableViewSelectionDidChange:(NSNotification *)notification {
+	
+	// Find which table sent notification, find row/string selected by user, then put it into text field
+	if ([notification object] == self.autocompleteTable1) {
+		NSInteger row = [self.autocompleteTable1 selectedRow];
+		NSString *selection = self.autocompleteOptions[row];
+		self.specific1.stringValue = selection;
+	}
+	else if ([notification object] == self.autocompleteTable2) {
+		NSInteger row = [self.autocompleteTable2 selectedRow];
+		NSString *selection = self.autocompleteOptions[row];
+		self.specific2.stringValue = selection;
+	}
+	else if ([notification object] == self.autocompleteTable3) {
+		NSInteger row = [self.autocompleteTable3 selectedRow];
+		NSString *selection = self.autocompleteOptions[row];
+		self.specific3.stringValue = selection;
+	}
+	
+}
 
 @end
