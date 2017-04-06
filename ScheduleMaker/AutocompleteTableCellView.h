@@ -11,5 +11,8 @@
 @interface AutocompleteTableCellView : NSTableCellView
 
 @property (strong) IBOutlet NSTextField *option;
+@property (strong) IBOutlet NSTextField *option1;
+@property (strong) IBOutlet NSTextField *option2;
+@property (strong) IBOutlet NSTextField *option3;
 
 @end

@@ -19,7 +19,6 @@
 	// Super
 	[super drawRect:dirtyRect];
 	
-	
 	// Autocomplete code: set table attributes and update, then hide table
 	self.autocompleteTable.rowHeight = ROW_HEIGHT;
 	[self.autocompleteTable setSelectionHighlightStyle:NSTableViewSelectionHighlightStyleNone];

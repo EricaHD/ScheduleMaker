@@ -13,7 +13,12 @@
 #import "SpecificStationsTableCellView.h"
 #import "LunchTableCellView.h"
 
+#define ROW_HEIGHT 100.0;
+
 @interface ScheduleViewController ()
+
+// Autocomplete code: positions dictionary used to compare user typed strings for specific stations autocomplete funcionality
+@property (strong) NSMutableArray *positionsDictionary;
 
 // Add and delete table rows
 - (IBAction)addRow:(id)sender;
@@ -61,8 +66,11 @@
 		}
 	}
 	
-	// Make autocomplete options an empty array
+	// Autocomplete code: make autocomplete options an empty array
 	self.autocompleteOptions = [[NSMutableArray alloc] init];
+	
+	// Autocomplete code: make positions dictionary for specific stations autocomplete functionality
+	self.positionsDictionary = [[NSMutableArray alloc] initWithObjects:@"Trike", @"Coro", @"Gallery", @"-1", @"0", @"Float", @"Project",@"Greeting", @"Security", @"Tours", @"Lesson", @"Manager", @"Birthday", @"Other", nil];
 	
 	// Make it impossible to select/highlight a row in the table
 	[self.table setSelectionHighlightStyle:NSTableViewSelectionHighlightStyleNone];
@@ -98,9 +106,8 @@
 		NameTableCellView *cell = (NameTableCellView *) [tableView makeViewWithIdentifier:@"name_cell" owner:self];
 		[cell.name setStringValue:[NSString stringWithFormat:@"%@", self.model.nameData[row]]];
 		[cell.name setPlaceholderString:@"Name"];
-		// Autocomplete code: this way controlTextDidChange() method will work
-		cell.name.delegate = self;
-		cell.name.tag = row;
+		cell.name.delegate = self; // Autocomplete code: this way controlTextDidChange() method will work
+		cell.name.tag = row; // Autocomplete code: this way controlTextDidChange() method will work
 		return cell;
 	}
 
@@ -134,6 +141,8 @@
 		// cell.specific1
 		[cell.specific1 setStringValue:[NSString stringWithFormat:@"%@", self.model.specificStationsData[row][0]]];
 		[cell.specific1 setPlaceholderString:@"Station"];
+		cell.specific1.delegate = self; // Autocomplete code: this way controlTextDidChange() method will work
+		cell.specific1.tag = (row * -3) - 1; // Autocomplete code: this way controlTextDidChange() method will work
 		// cell.specific1_starttime
 		if ([self.model.specificStationsData[row][1] isEqualToString:@""]) {
 			[cell.specific1_starttime selectItemAtIndex:0];
@@ -151,6 +160,8 @@
 		// cell.specific2
 		[cell.specific2 setStringValue:[NSString stringWithFormat:@"%@", self.model.specificStationsData[row][3]]];
 		[cell.specific2 setPlaceholderString:@"Station"];
+		cell.specific2.delegate = self; // Autocomplete code: this way controlTextDidChange() method will work
+		cell.specific2.tag = (row * -3) - 2; // Autocomplete code: this way controlTextDidChange() method will work
 		// cell.specific2_starttime
 		if ([self.model.specificStationsData[row][4] isEqualToString:@""]) {
 			[cell.specific2_starttime selectItemAtIndex:0];
@@ -168,6 +179,8 @@
 		// cell.specific3
 		[cell.specific3 setStringValue:[NSString stringWithFormat:@"%@", self.model.specificStationsData[row][6]]];
 		[cell.specific3 setPlaceholderString:@"Station"];
+		cell.specific3.delegate = self; // Autocomplete code: this way controlTextDidChange() method will work
+		cell.specific3.tag = (row * -3) - 3; // Autocomplete code: this way controlTextDidChange() method will work
 		// cell.specific3_starttime
 		if ([self.model.specificStationsData[row][7] isEqualToString:@""]) {
 			[cell.specific3_starttime selectItemAtIndex:0];
@@ -206,7 +219,7 @@
 // Scrape data that is displayed in table right now
 - (void)scrapeData {
 	
-	// Find position of each column (so columns can be rearranged by clicking and dragging, and everything will still function)
+	// Find position of each column (so columns can be rearranged by clicking and dragging, and everything will still function) - TODO maybe delete this functionality
 	NSInteger name_col_pos = -1;
 	NSInteger start_time_col_pos = -1;
 	NSInteger end_time_col_pos = -1;
@@ -354,7 +367,7 @@
 
 #pragma mark Autocomplete Methods ##############################################
 
-// Autocomplete code: when name text field editing ends (then hide table)
+// Autocomplete code: when name text field editing changes (then hide table)
 - (void)controlTextDidChange:(NSNotification *)notification {
 	
 	// Substring user has typed so far (plus capitalized version, in case user doesn't capitalize)
@@ -363,48 +376,115 @@
 	NSString *capitalizedSubstring = [substring capitalizedString];
 	
 	// Put anything that starts with substring into autocompleteOptions (for table)
-	// Use self.model.staffNames as staff "dictionary"
 	[self.autocompleteOptions removeAllObjects];
-	for (int i = 0; i < self.model.staffNames.count; i++) {
+	
+	// CASE 1: autocomplete in names column
+	if (editedTextField.tag >= 0) {
 		
-		// Get dictionary element to test against
-		NSString *dictElt = self.model.staffNames[i];
-		
+		// Use self.model.staffNames as staff "dictionary"
 		// Check substring (and capitalized substring) against dictionary element
-		NSRange capitalizedSubstringRange = [dictElt rangeOfString:capitalizedSubstring];
-		NSRange substringRange = [dictElt rangeOfString:substring];
-		if (substringRange.location == 0) {
-			[self.autocompleteOptions addObject:dictElt];
+		for (int i = 0; i < self.model.staffNames.count; i++) {
+			NSString *dictElt = self.model.staffNames[i];
+			NSRange capitalizedSubstringRange = [dictElt rangeOfString:capitalizedSubstring];
+			NSRange substringRange = [dictElt rangeOfString:substring];
+			if (substringRange.location == 0) {
+				[self.autocompleteOptions addObject:dictElt];
+			}
+			else if (capitalizedSubstringRange.location == 0) {
+				[self.autocompleteOptions addObject:dictElt];
+			}
 		}
-		else if (capitalizedSubstringRange.location == 0) {
-			[self.autocompleteOptions addObject:dictElt];
+	
+		// Get NameTableViewCell: column = 0, row = editedTextField.tag
+		NameTableCellView *cell = (NameTableCellView *) [self.table viewAtColumn:0 row:editedTextField.tag makeIfNecessary:NO];
+	
+		// Cell's autocomplete table should display items from self.autocompleteOptions; populate table; unhide scroll view
+		cell.autocompleteOptions = self.autocompleteOptions;
+		[cell.autocompleteTable reloadData];
+		[cell.autocompleteScroll setHidden:NO];
+		if ([cell.autocompleteScroll hasVerticalScroller]) {
+			cell.autocompleteScroll.verticalScroller.floatValue = 0.0;
 		}
-
+		[cell.autocompleteScroll.contentView scrollToPoint:NSMakePoint(0.0, 0.0)];
+		[cell.autocompleteScroll scrollPoint:NSMakePoint(0.0, 0.0)];
+	
 	}
 	
-	// Get NameTableViewCell: column = 0, row = (long)editedTextField.tag
-	NameTableCellView *cell = (NameTableCellView *) [self.table viewAtColumn:0 row:editedTextField.tag makeIfNecessary:NO];
-	
-	// Cell's autocomplete table should display items from self.autocompleteOptions
-	cell.autocompleteOptions = self.autocompleteOptions;
-	
-	// Populate table view within that cell with self.autocompleteOptions; unhide scroll view
-	[cell.autocompleteTable reloadData];
-	[cell.autocompleteScroll setHidden:NO];
-	if ([cell.autocompleteScroll hasVerticalScroller]) {
-		cell.autocompleteScroll.verticalScroller.floatValue = 0.0;
+	// CASE 2: autocomplete in specific stations column
+	else {
+		
+		// Use self.positionsDictionary as possible positions "dictionary
+		// Check substring (and capitalized substring) against dictionary element
+		for (int i = 0; i < self.positionsDictionary.count; i++) {
+			NSString *dictElt = self.positionsDictionary[i];
+			NSRange substringRange = [dictElt rangeOfString:substring];
+			NSRange capitalizedSubstringRange = [dictElt rangeOfString:capitalizedSubstring];
+			if (substringRange.location == 0) {
+				[self.autocompleteOptions addObject:dictElt];
+			}
+			else if (capitalizedSubstringRange.location == 0) {
+				[self.autocompleteOptions addObject:dictElt];
+			}
+		}
+				
+		// Get SpecificStationsTableViewCell: column = 3, row = (-1 * (editedTextField.tag + 1))/3
+		// And get one of the three tables/scrolls in that cell
+		NSInteger row = (-1 * (editedTextField.tag + 1))/3;
+		SpecificStationsTableCellView *cell = (SpecificStationsTableCellView *) [self.table viewAtColumn:3 row:row makeIfNecessary:NO];
+		NSScrollView *whichScrollInCell;
+		NSTableView *whichTableInCell;
+		if ((-1 * (editedTextField.tag + 1)) % 3 == 0) {
+			whichScrollInCell = cell.autocompleteScroll1;
+			whichTableInCell = cell.autocompleteTable1;
+		}
+		else if ((-1 * (editedTextField.tag + 1)) % 3 == 1) {
+			whichScrollInCell = cell.autocompleteScroll2;
+			whichTableInCell = cell.autocompleteTable2;
+		}
+		else {
+			whichScrollInCell = cell.autocompleteScroll3;
+			whichTableInCell = cell.autocompleteTable3;
+		}
+		
+		// Autocomplete table should display items from self.autocompleteOptions; populate table; unhide scroll view
+		cell.autocompleteOptions = self.autocompleteOptions;
+		[whichTableInCell reloadData];
+		[whichScrollInCell setHidden:NO];
+		if ([whichScrollInCell hasVerticalScroller]) {
+			whichScrollInCell.verticalScroller.floatValue = 0.0;
+		}
+		[whichScrollInCell.contentView scrollToPoint:NSMakePoint(0.0, 0.0)];
+		[whichScrollInCell scrollPoint:NSMakePoint(0.0, 0.0)];
+		
 	}
-	[cell.autocompleteScroll.contentView scrollToPoint:NSMakePoint(0.0, 0.0)];
-	[cell.autocompleteScroll scrollPoint:NSMakePoint(0.0, 0.0)];
 	
 }
 
-// When text field editing ends, selected or not (then hide table)
+// Autocomplete code: when text field editing ends, selected or not (then hide table)
 - (void)controlTextDidEndEditing:(NSNotification *)notification {
 	
 	NSTextField *editedTextField = [notification object];
-	NameTableCellView *cell = (NameTableCellView *) [self.table viewAtColumn:0 row:editedTextField.tag makeIfNecessary:NO];
-	[cell.autocompleteScroll setHidden:YES];
+	
+	// CASE 1: autocomplete in names column
+	if (editedTextField.tag >= 0) {
+		NameTableCellView *cell = (NameTableCellView *) [self.table viewAtColumn:0 row:editedTextField.tag makeIfNecessary:NO];
+		[cell.autocompleteScroll setHidden:YES];
+	}
+	
+	// CASE 2: autocomplete in specific stations column
+	else {
+		NSInteger row = (-1 * (editedTextField.tag + 1))/3;
+		SpecificStationsTableCellView *cell = (SpecificStationsTableCellView *) [self.table viewAtColumn:3 row:row makeIfNecessary:NO];
+		if (-1 * (editedTextField.tag + 1) % 3 == 0) {
+			[cell.autocompleteScroll1 setHidden:YES];
+		}
+		else if (-1 * (editedTextField.tag + 1) % 3 == 1) {
+			[cell.autocompleteScroll2 setHidden:YES];
+		}
+		else {
+			[cell.autocompleteScroll3 setHidden:YES];
+		}
+	}
 	
 }
 
