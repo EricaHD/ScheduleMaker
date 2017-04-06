@@ -102,6 +102,7 @@
 - (NSView *)tableView:(NSTableView *)tableView viewForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row {
 	
 	// Define cells in first column (names)
+	// Note that tags for text fields go {0}, {1}, {2}, {3}, {4},...
 	if ([tableColumn.identifier isEqualToString:@"name_col"]) {
 		NameTableCellView *cell = (NameTableCellView *) [tableView makeViewWithIdentifier:@"name_cell" owner:self];
 		[cell.name setStringValue:[NSString stringWithFormat:@"%@", self.model.nameData[row]]];
@@ -136,6 +137,7 @@
 	}
 	
 	// Define cells in fourth column (specific stations)
+	// Note that tags for text fields go {-1, -2, -3}, {-4, -5, -6}, {-7, -8, -9}, {-10, -11, -12},...
 	else if ([tableColumn.identifier isEqualToString:@"specific_stations_col"]) {
 		SpecificStationsTableCellView *cell = (SpecificStationsTableCellView *)[tableView makeViewWithIdentifier:@"specific_stations_cell" owner:self];
 		// cell.specific1
