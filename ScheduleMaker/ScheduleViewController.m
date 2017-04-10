@@ -62,7 +62,7 @@
 		}
 		else if ([col.identifier isEqualToString:@"lunch_col"]) {
 			col.title = @"Lunch";
-			col.width = 100.0;
+			col.width = 90.0;
 		}
 	}
 	

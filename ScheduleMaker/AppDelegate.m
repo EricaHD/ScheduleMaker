@@ -26,16 +26,15 @@
 - (void)setUpModelsArrays {
 	
 	// Set up ScheduleViewController table
-	self.model.nameData = [NSMutableArray arrayWithObjects:@"", @"", @"", @"", @"", nil];
-	self.model.startTimeData = [NSMutableArray arrayWithObjects:@"", @"", @"", @"", @"", nil];
-	self.model.endTimeData = [NSMutableArray arrayWithObjects:@"", @"", @"", @"", @"", nil];
+	self.model.nameData = [NSMutableArray arrayWithObjects:@"", @"", @"", @"", nil];
+	self.model.startTimeData = [NSMutableArray arrayWithObjects:@"", @"", @"", @"", nil];
+	self.model.endTimeData = [NSMutableArray arrayWithObjects:@"", @"", @"", @"", nil];
 	self.model.specificStationsData = [NSMutableArray arrayWithObjects:
 									   [NSMutableArray arrayWithObjects:@"", @"", @"", @"", @"", @"", @"", @"", @"", nil],
 									   [NSMutableArray arrayWithObjects:@"", @"", @"", @"", @"", @"", @"", @"", @"", nil],
 									   [NSMutableArray arrayWithObjects:@"", @"", @"", @"", @"", @"", @"", @"", @"", nil],
-									   [NSMutableArray arrayWithObjects:@"", @"", @"", @"", @"", @"", @"", @"", @"", nil],
 									   [NSMutableArray arrayWithObjects:@"", @"", @"", @"", @"", @"", @"", @"", @"", nil], nil];
-	self.model.lunchData = [NSMutableArray arrayWithObjects:[NSNumber numberWithInt:0], [NSNumber numberWithInt:0], [NSNumber numberWithInt:0], [NSNumber numberWithInt:0], [NSNumber numberWithInt:0], nil];
+	self.model.lunchData = [NSMutableArray arrayWithObjects:[NSNumber numberWithInt:0], [NSNumber numberWithInt:0], [NSNumber numberWithInt:0], [NSNumber numberWithInt:0], nil];
 	
 	// Set up RequirementsViewController table
 	//self.model.stationList = [NSMutableArray arrayWithObjects:@"Trike", @"-1", @"Coro", @"Gallery", @"-1", @"0", @"Greeting", @"Lesson", @"Project", @"Security", @"Tours", @"Manager", @"Birthday", @"Other", nil]; // DEFAULTS (order)
