@@ -347,6 +347,11 @@
 // Autocomplete code: when name text field editing changes (then hide table)
 - (void)controlTextDidChange:(NSNotification *)notification {
 	
+	// Note where scroll view has focused (it's rectangle)
+	NSScrollView *mainScrollView = [self.table enclosingScrollView];
+	NSRect visibleRect = [[mainScrollView contentView] documentVisibleRect];
+	CGFloat y = visibleRect.origin.y;
+	
 	// Substring user has typed so far (plus capitalized version, in case user doesn't capitalize)
 	NSTextField *editedTextField = [notification object];
 	NSString *substring = editedTextField.stringValue;
@@ -434,6 +439,13 @@
 		[whichScrollInCell scrollPoint:NSMakePoint(0.0, 0.0)];
 		
 	}
+	
+	// Make sure scroll view does not change focus (it's rectangle)
+	if ([mainScrollView hasVerticalScroller]) {
+		mainScrollView.verticalScroller.floatValue = 0.0;
+	}
+	[mainScrollView.contentView scrollToPoint:NSMakePoint(0.0, y)];
+	[mainScrollView scrollPoint:NSMakePoint(0.0, y)];
 	
 }
 

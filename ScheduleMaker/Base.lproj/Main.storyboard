@@ -2075,7 +2075,7 @@ Gw
                                                                         </subviews>
                                                                         <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                                     </clipView>
-                                                                    <scroller key="horizontalScroller" verticalHuggingPriority="750" doubleValue="0.1791282279300207" horizontal="YES" id="xgp-9e-Cc7">
+                                                                    <scroller key="horizontalScroller" verticalHuggingPriority="750" horizontal="YES" id="xgp-9e-Cc7">
                                                                         <rect key="frame" x="1" y="23" width="93" height="16"/>
                                                                         <autoresizingMask key="autoresizingMask"/>
                                                                     </scroller>
@@ -2138,7 +2138,7 @@ Gw
                                                                         </subviews>
                                                                         <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                                     </clipView>
-                                                                    <scroller key="horizontalScroller" verticalHuggingPriority="750" doubleValue="0.17912822793002081" horizontal="YES" id="6fq-KB-zUn">
+                                                                    <scroller key="horizontalScroller" verticalHuggingPriority="750" horizontal="YES" id="6fq-KB-zUn">
                                                                         <rect key="frame" x="1" y="23" width="93" height="16"/>
                                                                         <autoresizingMask key="autoresizingMask"/>
                                                                     </scroller>
@@ -2201,7 +2201,7 @@ Gw
                                                                         </subviews>
                                                                         <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                                     </clipView>
-                                                                    <scroller key="horizontalScroller" verticalHuggingPriority="750" doubleValue="0.17912822793002081" horizontal="YES" id="rpH-Rw-hjV">
+                                                                    <scroller key="horizontalScroller" verticalHuggingPriority="750" horizontal="YES" id="rpH-Rw-hjV">
                                                                         <rect key="frame" x="1" y="23" width="93" height="16"/>
                                                                         <autoresizingMask key="autoresizingMask"/>
                                                                     </scroller>
