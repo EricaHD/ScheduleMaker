@@ -210,24 +210,6 @@
 	
 }
 
-// When "Save" button is pressed on AddEditStaffViewController
-- (void)save:(NSString *)name withQualifications:(NSMutableArray *)qualifications {
-	
-	// Add name and qualifications (parameters) to staff arrays
-	[self.staffNames addObject:name];
-	[self.staffQualifications addObject:qualifications];
-	
-}
-
-// When "Change" button is pressed on AddEditStaffViewController
-- (void)change:(NSString *)name withQualifications:(NSMutableArray *)qualifications inRow:(NSInteger)row {
-	
-	// Replace name and qualifications (parameters) to staff arrays
-	self.staffNames[row] = name;
-	self.staffQualifications[row] = qualifications;
-	
-}
-
 // When "+" add row button is pressed on ScheduleViewController
 - (void)addRow {
 	

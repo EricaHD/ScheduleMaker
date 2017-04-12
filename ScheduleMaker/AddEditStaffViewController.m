@@ -7,6 +7,7 @@
 //
 
 #import "AddEditStaffViewController.h"
+#import "StaffMember.h"
 
 @interface AddEditStaffViewController ()
 
@@ -37,30 +38,29 @@
 // Save button should add data to staff dictionary, then close window
 - (IBAction)save:(NSButton *)sender {
 	
-	// Make array of qualifications
-	NSMutableArray *qualifications = [[NSMutableArray alloc] initWithCapacity:15];
-	qualifications[0] = (self.trike.state) ? [NSNumber numberWithInt:1] : [NSNumber numberWithInt:0];
-	qualifications[1] = (self.coro.state) ? [NSNumber numberWithInt:1] : [NSNumber numberWithInt:0];
-	qualifications[2] = (self.negOne.state) ? [NSNumber numberWithInt:1] : [NSNumber numberWithInt:0];
-	qualifications[3] = (self.zero.state) ? [NSNumber numberWithInt:1] : [NSNumber numberWithInt:0];
-	qualifications[4] = (self.gallery.state) ? [NSNumber numberWithInt:1] : [NSNumber numberWithInt:0];
-	qualifications[5] = (self.floating.state) ? [NSNumber numberWithInt:1] : [NSNumber numberWithInt:0];
-	qualifications[6] = (self.project.state) ? [NSNumber numberWithInt:1] : [NSNumber numberWithInt:0];
-	qualifications[7] = (self.greeting.state) ? [NSNumber numberWithInt:1] : [NSNumber numberWithInt:0];
-	qualifications[8] = (self.security.state) ? [NSNumber numberWithInt:1] : [NSNumber numberWithInt:0];
-	qualifications[9] = (self.tours.state) ? [NSNumber numberWithInt:1] : [NSNumber numberWithInt:0];
-	qualifications[10] = (self.lesson.state) ? [NSNumber numberWithInt:1] : [NSNumber numberWithInt:0];
-	qualifications[11] = (self.manager.state) ? [NSNumber numberWithInt:1] : [NSNumber numberWithInt:0];
-	qualifications[12] = (self.birthday.state) ? [NSNumber numberWithInt:1] : [NSNumber numberWithInt:0];
-	qualifications[13] = (self.other.state) ? [NSNumber numberWithInt:1] : [NSNumber numberWithInt:0];
-	qualifications[14] = (self.fireguard.state) ? [NSNumber numberWithInt:1] : [NSNumber numberWithInt:0];
-
+	NSDictionary *staffMemberInfo = @{@"name": self.name.stringValue,
+									  @"trike": (self.trike.state) ? @YES : @NO,
+									  @"coro": (self.coro.state) ? @YES : @NO,
+									  @"negOne": (self.negOne.state) ? @YES : @NO,
+									  @"zero": (self.zero.state) ? @YES : @NO,
+									  @"gallery": (self.gallery.state) ? @YES : @NO,
+									  @"floating": (self.floating.state) ? @YES : @NO,
+									  @"project": (self.project.state) ? @YES : @NO,
+									  @"greeting": (self.greeting.state) ? @YES : @NO,
+									  @"security": (self.security.state) ? @YES : @NO,
+									  @"tours": (self.tours.state) ? @YES : @NO,
+									  @"lesson": (self.lesson.state) ? @YES : @NO,
+									  @"manager": (self.manager.state) ? @YES : @NO,
+									  @"birthday": (self.birthday.state) ? @YES : @NO,
+									  @"other": (self.other.state) ? @YES : @NO,
+									  @"fireguard": (self.fireguard.state) ? @YES : @NO};
+	
 	// Alter arrays in model using entered data
 	if ([sender.title isEqualToString:@"Save"]) {
-		[self.model save:self.name.stringValue withQualifications:qualifications];
+		[StaffMember addStaffMemberFromDictionary:staffMemberInfo];
 	}
 	else { // [sender.title isEqualToString:@"Change"]
-		[self.model change:self.name.stringValue withQualifications:qualifications inRow:self.rowToEdit];
+		[StaffMember editStaffMemberFromDictionary:staffMemberInfo];
 	}
 	
 	// Send notification telling DatabaseViewController to reload table now that new staff member has been added

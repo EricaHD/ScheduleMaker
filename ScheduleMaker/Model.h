@@ -28,16 +28,6 @@
 @property (strong) NSMutableArray *halfHourData;
 @property (strong) NSMutableArray *stackLunchesData;
 
-// Arrays for DatabaseViewController
-@property (strong) NSMutableArray *staffNames;
-@property (strong) NSMutableArray *staffQualifications;
-
-// When "Save" button is pressed on AddEditStaffViewController
-- (void)save:(NSString *)name withQualifications:(NSMutableArray *)qualifications;
-
-// When "Change" button is pressed on AddEditStaffViewController
-- (void)change:(NSString *)name withQualifications:(NSMutableArray *)qualifications inRow:(NSInteger)row;
-
 // When "+" add row button is pressed on ScheduleViewController
 - (void)addRow;
 

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="10174" systemVersion="16C67" minimumToolsVersion="Xcode 7.0">
+    <entity name="StaffMember" representedClassName="StaffMember" syncable="YES">
+        <attribute name="birthday" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="coro" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="fireguard" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="floating" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="gallery" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="greeting" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="lesson" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="manager" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="negOne" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="other" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="project" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="security" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="tours" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="trike" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="zero" optional="YES" attributeType="Boolean" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="StaffMember" positionX="-63" positionY="-18" width="128" height="285"/>
+    </elements>
+</model>

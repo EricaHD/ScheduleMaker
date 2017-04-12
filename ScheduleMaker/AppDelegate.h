@@ -41,4 +41,9 @@
 // Reference to model that all view controllers will use
 @property (strong) Model *model;
 
+// Core data properties
+@property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
+@property (readonly, strong, nonatomic) NSManagedObjectModel *managedObjectModel;
+@property (readonly, strong, nonatomic) NSManagedObjectContext *managedObjectContext;
+
 @end

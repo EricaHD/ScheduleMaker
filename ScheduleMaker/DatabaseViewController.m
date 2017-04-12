@@ -9,6 +9,7 @@
 #import "DatabaseViewController.h"
 #import "StaffTableCellView.h"
 #import "AddEditStaffViewController.h"
+#import "StaffMember.h"
 
 // Be able to drag rows
 #define MyPrivateTableViewDataType @"MyPrivateTableViewDataType"
@@ -30,7 +31,7 @@
 
 // Do any additional setup after loading the view
 - (void)viewDidLoad {
-
+	
 	// Super
 	[super viewDidLoad];
 	
@@ -44,15 +45,12 @@
 		}
 	}
 	
-	// Be able to drag rows
-	[self.table registerForDraggedTypes:[NSArray arrayWithObject:MyPrivateTableViewDataType]];
-	
 	// Reload table
 	[self.table reloadData];
 	
 	// Listen for notification telling DatabaseViewController to reload table
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveReloadNotification:) name:@"NeedDatabaseTableReload" object:nil];
-
+	
 }
 
 // Do any additional setup once the view is fully transitioned onto the screen
@@ -66,7 +64,7 @@
 #pragma mark NSTableViewDelegate, NSTableViewDataSource Methods ################
 
 // If notification telling DatabaseViewController to reload table is heard, do this:
-- (void) receiveReloadNotification:(NSNotification *) notification {
+- (void)receiveReloadNotification:(NSNotification *) notification {
 	
 	if ([[notification name] isEqualToString:@"NeedDatabaseTableReload"]) {
 		[self.table reloadData];
@@ -77,7 +75,7 @@
 // Returns the number of records managed for a TableView by the data source object
 - (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView {
 	
-	return self.model.staffNames.count;
+	return [StaffMember getNumberOfEntries];
 	
 }
 
@@ -85,39 +83,42 @@
 // Different from -(id)tableView:(NSTableView *)tableView objectValueForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row
 - (NSView *)tableView:(NSTableView *)tableView viewForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row {
 	
+	NSArray *staffMembers = [StaffMember getContentsOfDatabase];
+	
 	// Define cells in first (and only) column
 	if ([tableColumn.identifier isEqualToString:@"staff_col"]) {
 		StaffTableCellView *cell = (StaffTableCellView *) [tableView makeViewWithIdentifier:@"staff_cell" owner:self];
-		[cell.name setStringValue:[NSString stringWithFormat:@"%@", self.model.staffNames[row]]];
-		[cell.trike setState:[self.model.staffQualifications[row][0] integerValue]];
+		NSDictionary *staffMemberEntry = staffMembers[row];
+		[cell.name setStringValue:staffMemberEntry[@"name"]];
+		[cell.trike setState:[staffMemberEntry[@"trike"] integerValue]];
+		[cell.coro setState:[staffMemberEntry[@"coro"] integerValue]];
+		[cell.negOne setState:[staffMemberEntry[@"negOne"] integerValue]];
+		[cell.zero setState:[staffMemberEntry[@"zero"] integerValue]];
+		[cell.gallery setState:[staffMemberEntry[@"gallery"] integerValue]];
+		[cell.floating setState:[staffMemberEntry[@"floating"] integerValue]];
+		[cell.project setState:[staffMemberEntry[@"project"] integerValue]];
+		[cell.greeting setState:[staffMemberEntry[@"greeting"] integerValue]];
+		[cell.security setState:[staffMemberEntry[@"security"] integerValue]];
+		[cell.tours setState:[staffMemberEntry[@"tours"] integerValue]];
+		[cell.lesson setState:[staffMemberEntry[@"lesson"] integerValue]];
+		[cell.manager setState:[staffMemberEntry[@"manager"] integerValue]];
+		[cell.birthday setState:[staffMemberEntry[@"birthday"] integerValue]];
+		[cell.other setState:[staffMemberEntry[@"other"] integerValue]];
+		[cell.fireguard setState:[staffMemberEntry[@"fireguard"] integerValue]];
 		[cell.trike setEnabled:NO];
-		[cell.coro setState:[self.model.staffQualifications[row][1] integerValue]];
 		[cell.coro setEnabled:NO];
-		[cell.negOne setState:[self.model.staffQualifications[row][2] integerValue]];
 		[cell.negOne setEnabled:NO];
-		[cell.zero setState:[self.model.staffQualifications[row][3] integerValue]];
 		[cell.zero setEnabled:NO];
-		[cell.gallery setState:[self.model.staffQualifications[row][4] integerValue]];
 		[cell.gallery setEnabled:NO];
-		[cell.floating setState:[self.model.staffQualifications[row][5] integerValue]];
 		[cell.floating setEnabled:NO];
-		[cell.project setState:[self.model.staffQualifications[row][6] integerValue]];
 		[cell.project setEnabled:NO];
-		[cell.greeting setState:[self.model.staffQualifications[row][7] integerValue]];
 		[cell.greeting setEnabled:NO];
-		[cell.security setState:[self.model.staffQualifications[row][8] integerValue]];
 		[cell.security setEnabled:NO];
-		[cell.tours setState:[self.model.staffQualifications[row][9] integerValue]];
 		[cell.tours setEnabled:NO];
-		[cell.lesson setState:[self.model.staffQualifications[row][10] integerValue]];
 		[cell.lesson setEnabled:NO];
-		[cell.manager setState:[self.model.staffQualifications[row][11] integerValue]];
 		[cell.manager setEnabled:NO];
-		[cell.birthday setState:[self.model.staffQualifications[row][12] integerValue]];
 		[cell.birthday setEnabled:NO];
-		[cell.other setState:[self.model.staffQualifications[row][13] integerValue]];
 		[cell.other setEnabled:NO];
-		[cell.fireguard setState:[self.model.staffQualifications[row][14] integerValue]];
 		[cell.fireguard setEnabled:NO];
 		return cell;
 	}
@@ -187,23 +188,29 @@
 	self.myController.window.title = @"Staff Member Qualifications";
 	AddEditStaffViewController *addEditVC = (AddEditStaffViewController *) self.myController.contentViewController;
 	
+	// Get cell and staff member name in that row
+	StaffTableCellView *cell = (StaffTableCellView *) [self.table viewAtColumn:0 row:rowToEdit makeIfNecessary:NO];
+	NSString *name = cell.name.stringValue;
+	
 	// In new window, fill in already recorded staff member name and qualifications
-	addEditVC.name.stringValue = self.model.staffNames[rowToEdit];
-	addEditVC.trike.state = ([self.model.staffQualifications[rowToEdit][0] integerValue]) ? NSOnState : NSOffState;
-	addEditVC.coro.state = ([self.model.staffQualifications[rowToEdit][1] integerValue]) ? NSOnState : NSOffState;
-	addEditVC.negOne.state = ([self.model.staffQualifications[rowToEdit][2] integerValue]) ? NSOnState : NSOffState;
-	addEditVC.zero.state = ([self.model.staffQualifications[rowToEdit][3] integerValue]) ? NSOnState : NSOffState;
-	addEditVC.gallery.state = ([self.model.staffQualifications[rowToEdit][4] integerValue]) ? NSOnState : NSOffState;
-	addEditVC.floating.state = ([self.model.staffQualifications[rowToEdit][5] integerValue]) ? NSOnState : NSOffState;
-	addEditVC.project.state = ([self.model.staffQualifications[rowToEdit][6] integerValue]) ? NSOnState : NSOffState;
-	addEditVC.greeting.state = ([self.model.staffQualifications[rowToEdit][7] integerValue]) ? NSOnState : NSOffState;
-	addEditVC.security.state = ([self.model.staffQualifications[rowToEdit][8] integerValue]) ? NSOnState : NSOffState;
-	addEditVC.tours.state = ([self.model.staffQualifications[rowToEdit][9] integerValue]) ? NSOnState : NSOffState;
-	addEditVC.lesson.state = ([self.model.staffQualifications[rowToEdit][10] integerValue]) ? NSOnState : NSOffState;
-	addEditVC.manager.state = ([self.model.staffQualifications[rowToEdit][11] integerValue]) ? NSOnState : NSOffState;
-	addEditVC.birthday.state = ([self.model.staffQualifications[rowToEdit][12] integerValue]) ? NSOnState : NSOffState;
-	addEditVC.other.state = ([self.model.staffQualifications[rowToEdit][13] integerValue]) ? NSOnState : NSOffState;
-	addEditVC.fireguard.state = ([self.model.staffQualifications[rowToEdit][14] integerValue]) ? NSOnState : NSOffState;
+	StaffMember *staffMemberEntity = [StaffMember searchStaffMembersByName:name];
+	addEditVC.name.stringValue = staffMemberEntity.name;
+	[addEditVC.name setEditable:NO];
+	addEditVC.trike.state = [staffMemberEntity.trike integerValue];
+	addEditVC.coro.state = [staffMemberEntity.coro integerValue];
+	addEditVC.negOne.state = [staffMemberEntity.negOne integerValue];
+	addEditVC.zero.state = [staffMemberEntity.zero integerValue];
+	addEditVC.gallery.state = [staffMemberEntity.gallery integerValue];
+	addEditVC.floating.state = [staffMemberEntity.floating integerValue];
+	addEditVC.project.state = [staffMemberEntity.project integerValue];
+	addEditVC.greeting.state = [staffMemberEntity.greeting integerValue];
+	addEditVC.security.state = [staffMemberEntity.security integerValue];
+	addEditVC.tours.state = [staffMemberEntity.tours integerValue];
+	addEditVC.lesson.state = [staffMemberEntity.lesson integerValue];
+	addEditVC.manager.state = [staffMemberEntity.manager integerValue];
+	addEditVC.birthday.state = [staffMemberEntity.birthday integerValue];
+	addEditVC.other.state = [staffMemberEntity.other integerValue];
+	addEditVC.fireguard.state = [staffMemberEntity.fireguard integerValue];
 	
 	// Set row to edit property
 	addEditVC.rowToEdit = rowToEdit;
@@ -228,68 +235,15 @@
 		return;
 	}
 	
-	// Remove selected entry from self.model.staffNames and self.model.staffQualifications
-	[self.model.staffNames removeObjectAtIndex:rowToDelete];
-	[self.model.staffQualifications removeObjectAtIndex:rowToDelete];
+	// Get cell and staff member name in that row
+	StaffTableCellView *cell = (StaffTableCellView *) [self.table viewAtColumn:0 row:rowToDelete makeIfNecessary:NO];
+	NSString *name = cell.name.stringValue;
+	
+	// Remove selected staff member
+	[StaffMember deleteStaffMemberWithName:name];
 	
 	// Reload table
 	[self.table reloadData];
-	
-}
-
-#pragma mark Drag and Drop Methods #############################################
-
-// Drag and drop code: returns a Boolean value that indicates whether a drag operation is allowed
-- (BOOL)tableView:(NSTableView *)tableView writeRowsWithIndexes:(NSIndexSet *)rowIndexes toPasteboard:(NSPasteboard *)pboard {
-	
-	// Copy the row numbers to the pasteboard
-	NSData *zNSIndexSetData = [NSKeyedArchiver archivedDataWithRootObject:rowIndexes];
-	[pboard declareTypes:[NSArray arrayWithObject:MyPrivateTableViewDataType] owner:self];
-	[pboard setData:zNSIndexSetData forType:MyPrivateTableViewDataType];
-	return YES;
-	
-}
-
-// Drag and drop code: used by the table view to determine a valid drop target
-- (NSDragOperation)tableView:(NSTableView *)tableView validateDrop:(id<NSDraggingInfo>)info proposedRow:(NSInteger)row proposedDropOperation:(NSTableViewDropOperation)dropOperation {
-	
-	// The dragging operation the data source will perform; can be NSDragOperationEvery
-	return NSDragOperationMove;
-	
-}
-
-// Drag and drop code: called by the table view when the mouse button is released over the table view that previously decided to allow a drop
-- (BOOL)tableView:(NSTableView *)tableView acceptDrop:(id<NSDraggingInfo>)info row:(NSInteger)row dropOperation:(NSTableViewDropOperation)dropOperation {
-	
-	// Find index of row being dragged
-	NSPasteboard* pboard = [info draggingPasteboard];
-	NSData* rowData = [pboard dataForType:MyPrivateTableViewDataType];
-	NSIndexSet* rowIndexes = [NSKeyedUnarchiver unarchiveObjectWithData:rowData];
-	NSInteger dragRow = [rowIndexes firstIndex];
-	
-	// If row being dragged < destination row (dragging down)
-	if (dragRow < row) {
-		[self.model.staffNames insertObject:self.model.staffNames[dragRow] atIndex:row];
-		[self.model.staffQualifications insertObject:self.model.staffQualifications[dragRow] atIndex:row];
-		[self.model.staffNames removeObjectAtIndex:dragRow];
-		[self.model.staffQualifications removeObjectAtIndex:dragRow];
-		[tableView noteNumberOfRowsChanged];
-		[tableView moveRowAtIndex:dragRow toIndex:row - 1];
-	}
-	
-	// If row being dragged >= destination row (dragging up)
-	else {
-		NSString *tempName = self.model.staffNames[dragRow];
-		NSMutableArray *tempArray = self.model.staffQualifications[dragRow];
-		[self.model.staffNames removeObjectAtIndex:dragRow];
-		[self.model.staffQualifications removeObjectAtIndex:dragRow];
-		[self.model.staffNames insertObject:tempName atIndex:row];
-		[self.model.staffQualifications insertObject:tempArray atIndex:row];
-		[tableView noteNumberOfRowsChanged];
-		[tableView moveRowAtIndex:dragRow toIndex:row];
-	}
-	
-	return YES;
 	
 }
 

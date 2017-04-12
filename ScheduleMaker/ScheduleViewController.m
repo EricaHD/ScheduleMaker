@@ -12,6 +12,7 @@
 #import "EndTimeTableCellView.h"
 #import "SpecificStationsTableCellView.h"
 #import "LunchTableCellView.h"
+#import "StaffMember.h"
 
 #define ROW_HEIGHT 100.0;
 
@@ -363,20 +364,11 @@
 	// CASE 1: autocomplete in names column
 	if (editedTextField.tag >= 0) {
 		
-		// Use self.model.staffNames as staff "dictionary"
-		// Check substring (and capitalized substring) against dictionary element
-		for (int i = 0; i < self.model.staffNames.count; i++) {
-			NSString *dictElt = self.model.staffNames[i];
-			NSRange capitalizedSubstringRange = [dictElt rangeOfString:capitalizedSubstring];
-			NSRange substringRange = [dictElt rangeOfString:substring];
-			if (substringRange.location == 0) {
-				[self.autocompleteOptions addObject:dictElt];
-			}
-			else if (capitalizedSubstringRange.location == 0) {
-				[self.autocompleteOptions addObject:dictElt];
-			}
+		// Look for staff members whose names begin with substring (checks capitalized and uncapitalized)
+		NSArray *matches = [StaffMember searchStaffMembersBeginningWith:substring];
+		for (int i = 0; i < matches.count; i++) {
+			[self.autocompleteOptions addObject:matches[i]];
 		}
-	
 		// Get NameTableViewCell: column = 0, row = editedTextField.tag
 		NameTableCellView *cell = (NameTableCellView *) [self.table viewAtColumn:0 row:editedTextField.tag makeIfNecessary:NO];
 	
