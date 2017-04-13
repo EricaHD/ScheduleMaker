@@ -12,6 +12,8 @@
 // Insert code here to add functionality to your managed object subclass
 @implementation StaffMember
 
+// Find and return staff member in database
+// Called when edit staff member window pops up triggered in DatabaseViewController.m
 + (StaffMember *)searchStaffMembersByName:(NSString *)name {
 	
 	// Create context
@@ -27,7 +29,7 @@
 	// If there isn't exactly ONE database entry with that name...
 	if (!matches || error || matches.count != 1) {
 		// ...report error
-		NSLog(@"Error! Couldn't find staff member in database."); // TODO
+		NSLog(@"Error: couldn't find staff member in database (in searchStaffMembersByName).");
 	}
 	
 	// If we found exactly one staff member with that name...
@@ -35,8 +37,9 @@
 	
 }
 
-// Add staff member into database (unless there is already a staff member in the database with that first name)
-+ (void)addStaffMemberFromDictionary:(NSDictionary *)staffMemberInfo {
+// Add staff member into database and return 0 (unless there is already a staff member in the database with that first name, in which case method returns -1)
+// Called when saving data for a new staff member in AddEditStaffViewController.m
++ (int)addStaffMemberFromDictionary:(NSDictionary *)staffMemberInfo {
 	
 	// Create context
 	AppDelegate *appDelegate = (AppDelegate *) [[NSApplication sharedApplication] delegate];
@@ -53,9 +56,16 @@
 	NSArray *matches = [context executeFetchRequest:request error:&error];
 	
 	// If there are already database entries with that first name...
-	if (!matches || error || matches.count > 0) {
+	if (matches && matches.count > 0) {
+		// ...report error via return value
+		return -1;
+	}
+	
+	// If there are other errors...
+	else if (!matches || error) {
 		// ...report error
-		NSLog(@"Error! Enter unique staff member name."); // TODO
+		NSLog(@"Error: couldn't find staff member in database (in editStaffMemberFromDictionary).");
+		return 0;
 	}
 	
 	// If there are no database entries with that first name...
@@ -63,32 +73,36 @@
 		// ...create object
 		staffMemberEntity = [NSEntityDescription insertNewObjectForEntityForName:@"StaffMember" inManagedObjectContext:context];
 		staffMemberEntity.name = [staffMemberInfo valueForKey:@"name"];
-		staffMemberEntity.trike = [staffMemberInfo valueForKey:@"trike"]; //
-		staffMemberEntity.coro = [staffMemberInfo valueForKey:@"coro"]; //
-		staffMemberEntity.negOne = [staffMemberInfo valueForKey:@"negOne"]; //
-		staffMemberEntity.zero = [staffMemberInfo valueForKey:@"zero"]; //
-		staffMemberEntity.gallery = [staffMemberInfo valueForKey:@"gallery"]; //
-		staffMemberEntity.floating = [staffMemberInfo valueForKey:@"floating"]; //
-		staffMemberEntity.project = [staffMemberInfo valueForKey:@"project"]; //
-		staffMemberEntity.greeting = [staffMemberInfo valueForKey:@"greeting"]; //
-		staffMemberEntity.security = [staffMemberInfo valueForKey:@"security"]; //
-		staffMemberEntity.tours = [staffMemberInfo valueForKey:@"tours"]; //
-		staffMemberEntity.lesson = [staffMemberInfo valueForKey:@"lesson"]; //
-		staffMemberEntity.manager = [staffMemberInfo valueForKey:@"manager"]; //
-		staffMemberEntity.birthday = [staffMemberInfo valueForKey:@"birthday"]; //
-		staffMemberEntity.other = [staffMemberInfo valueForKey:@"other"]; //
-		staffMemberEntity.fireguard = [staffMemberInfo valueForKey:@"fireguard"]; //
+		staffMemberEntity.trike = [staffMemberInfo valueForKey:@"trike"];
+		staffMemberEntity.coro = [staffMemberInfo valueForKey:@"coro"];
+		staffMemberEntity.negOne = [staffMemberInfo valueForKey:@"negOne"];
+		staffMemberEntity.zero = [staffMemberInfo valueForKey:@"zero"];
+		staffMemberEntity.gallery = [staffMemberInfo valueForKey:@"gallery"];
+		staffMemberEntity.floating = [staffMemberInfo valueForKey:@"floating"];
+		staffMemberEntity.project = [staffMemberInfo valueForKey:@"project"];
+		staffMemberEntity.greeting = [staffMemberInfo valueForKey:@"greeting"];
+		staffMemberEntity.security = [staffMemberInfo valueForKey:@"security"];
+		staffMemberEntity.tours = [staffMemberInfo valueForKey:@"tours"];
+		staffMemberEntity.lesson = [staffMemberInfo valueForKey:@"lesson"];
+		staffMemberEntity.manager = [staffMemberInfo valueForKey:@"manager"];
+		staffMemberEntity.birthday = [staffMemberInfo valueForKey:@"birthday"];
+		staffMemberEntity.other = [staffMemberInfo valueForKey:@"other"];
+		staffMemberEntity.fireguard = [staffMemberInfo valueForKey:@"fireguard"];
 
 		// ...save object
 		NSError *error;
 		if (![context save:&error]) {
-			NSLog(@"Couldn't save: %@", [error localizedDescription]); // TODO
+			NSLog(@"Error: couldn't save changes. %@", [error localizedDescription]);
 		}
+		
+		return 0;
+		
 	}
 	
 }
 
 // Edit staff member information
+// Called when editing data for a staff member in AddEditStaffViewController.m
 + (void)editStaffMemberFromDictionary:(NSDictionary *)staffMemberInfo {
 	
 	// Create context
@@ -105,7 +119,7 @@
 	// If there isn't exactly ONE database entry with that name...
 	if (!matches || error || matches.count != 1) {
 		// ...report error
-		NSLog(@"Error! Couldn't determine which staff member to edit."); // TODO
+		NSLog(@"Error: couldn't find staff member in database (in editStaffMemberFromDictionary).");
 	}
 	
 	// If we found exactly one staff member with that name...
@@ -131,13 +145,14 @@
 		// ...save object
 		NSError *error;
 		if (![context save:&error]) {
-			NSLog(@"Couldn't delete: %@", [error localizedDescription]); // TODO
+			NSLog(@"Error: couldn't save changes. %@", [error localizedDescription]);
 		}
 	}
 	
 }
 
 // Delete staff member with given name from database
+// Called when deleting a staff member from the database through DatabaseViewController.m
 + (void)deleteStaffMemberWithName:(NSString *)name {
 	
 	// Create context
@@ -153,7 +168,7 @@
 	// If there isn't exactly ONE database entry with that name...
 	if (!matches || error || matches.count != 1) {
 		// ...report error
-		NSLog(@"Error! Couldn't determine which staff member to delete."); // TODO
+		NSLog(@"Error: couldn't find staff member in database (in deleteStaffMemberWithName).");
 	}
 	
 	// If we found exactly one staff member with that name...
@@ -164,13 +179,14 @@
 		// ...save object
 		NSError *error;
 		if (![context save:&error]) {
-			NSLog(@"Couldn't delete: %@", [error localizedDescription]); // TODO
+			NSLog(@"Error: couldn't save changes. %@", [error localizedDescription]);
 		}
 	}
 	
 }
 
 // Return contents of database in an array (array elements are NSDictionaries)
+// Called when gathering information to display in the table view in DatabaseViewController.m
 + (NSArray *)getContentsOfDatabase {
 	
 	// Create context
@@ -213,6 +229,7 @@
 }
 
 // Return array of strings: staff member names which begin with given substrings (checks capitalized and uncapitalized)
+// Called within the autocomplete code for name text fields in ScheduleViewController.m
 + (NSArray *)searchStaffMembersBeginningWith:(NSString *)substring {
 	
 	// Capitalize user-entered substring
@@ -242,6 +259,7 @@
 }
 
 // Get number of entries currently in StaffMember entity
+// Called when determining number of rows in table view in DatabaseViewController.m
 + (NSInteger)getNumberOfEntries {
 	
 	// Create context
@@ -255,7 +273,7 @@
 	// Returns the number of objects a given fetch request would have returned
 	NSUInteger count = [context countForFetchRequest:request error:&error];
 	if (count == NSNotFound) {
-		NSLog(@"Error! Can't find number of entries in entity."); // TODO
+		NSLog(@"Error: can't find number of entries in entity.");
 	}
 	return count;
 

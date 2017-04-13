@@ -15,7 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface StaffMember : NSManagedObject
 
 + (StaffMember *)searchStaffMembersByName:(NSString *)name;
-+ (void)addStaffMemberFromDictionary:(NSDictionary *)staffMemberInfo;
++ (int)addStaffMemberFromDictionary:(NSDictionary *)staffMemberInfo;
 + (void)editStaffMemberFromDictionary:(NSDictionary *)staffMemberInfo;
 + (void)deleteStaffMemberWithName:(NSString *)name;
 + (NSArray *)getContentsOfDatabase;

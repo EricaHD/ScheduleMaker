@@ -57,17 +57,35 @@
 	
 	// Alter arrays in model using entered data
 	if ([sender.title isEqualToString:@"Save"]) {
-		[StaffMember addStaffMemberFromDictionary:staffMemberInfo];
+		
+		// Add staff member
+		int result = [StaffMember addStaffMemberFromDictionary:staffMemberInfo];
+		
+		// Return value tells us that staff member with that name already exists in the database
+		if (result == -1) {
+			NSAlert *alert = [[NSAlert alloc] init];
+			[alert addButtonWithTitle:@"OK"];
+			[alert setMessageText:@"Identifier already in use"];
+			[alert setInformativeText:@"Staff members are identified uniquely by their names. Please make sure each staff member is associated with a different name in the database."];
+			[alert setAlertStyle:NSInformationalAlertStyle];
+			NSWindow *window = [[NSApplication sharedApplication] mainWindow];
+			[alert beginSheetModalForWindow:window completionHandler:nil];
+		}
+	
 	}
+	
 	else { // [sender.title isEqualToString:@"Change"]
+		
+		// Edit staff member
 		[StaffMember editStaffMemberFromDictionary:staffMemberInfo];
+		
+		// Send notification telling DatabaseViewController to reload table now that new staff member has been added
+		[[NSNotificationCenter defaultCenter] postNotificationName:@"NeedDatabaseTableReload" object:self];
+		
+		// Close window
+		[self.view.window close];
+		
 	}
-	
-	// Send notification telling DatabaseViewController to reload table now that new staff member has been added
-	[[NSNotificationCenter defaultCenter] postNotificationName:@"NeedDatabaseTableReload" object:self];
-	
-	// Close window
-	[self.view.window close];
 	
 }
 
