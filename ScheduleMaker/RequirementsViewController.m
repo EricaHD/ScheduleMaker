@@ -11,6 +11,7 @@
 #import "StationStartTableCellView.h"
 #import "StationEndTableCellView.h"
 #import "StationFrequencyTableCellView.h"
+#import "MyManager.h"
 
 // Be able to drag rows
 #define MyPrivateTableViewDataType @"MyPrivateTableViewDataType"
@@ -197,6 +198,9 @@
 // Different from -(id)tableView:(NSTableView *)tableView objectValueForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row
 - (NSView *)tableView:(NSTableView *)tableView viewForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row {
 	
+	// Create sharedManager here so we can reference timeEntries dictionary
+	MyManager *sharedManager = [MyManager sharedManager];
+	
 	// Define cells in reorder icon column (icon specified in Storyboard)
 	if ([tableColumn.identifier isEqualToString:@"reorder_col"]) {
 		NSTableCellView *cell = (NSTableCellView *) [tableView makeViewWithIdentifier:@"reorder_cell" owner:self];
@@ -206,22 +210,24 @@
 	// Define cells in station names column
 	else if ([tableColumn.identifier isEqualToString:@"station_col"]) {
 		StationTableCellView *cell = (StationTableCellView *) [tableView makeViewWithIdentifier:@"station_cell" owner:self];
-		[cell.station setTitle:self.model.stationList[row]];
-		[cell.station setState:0]; // DEFAULT
+		[cell.station setTitle:self.model.stationList[row]]; // DEFAULT
+		[cell.station setState:[self.model.stationData[row] integerValue]]; // DEFAULT
 		return cell;
 	}
 	
 	// Define cells in start times column
 	else if ([tableColumn.identifier isEqualToString:@"station_start_col"]) {
 		StationStartTableCellView *cell = (StationStartTableCellView *) [tableView makeViewWithIdentifier:@"station_start_cell" owner:self];
-		[cell.starttime selectItemAtIndex:0]; // DEFAULT
+		NSInteger index = [[sharedManager.timeEntries objectForKey:self.model.stationStartTimeData[row]] integerValue];
+		[cell.starttime selectItemAtIndex:index]; // DEFAULT
 		return cell;
 	}
 	
 	// Define cells in end times column
 	else if ([tableColumn.identifier isEqualToString:@"station_end_col"]) {
 		StationEndTableCellView *cell = (StationEndTableCellView *) [tableView makeViewWithIdentifier:@"station_end_cell" owner:self];
-		[cell.endtime selectItemAtIndex:cell.endtime.menu.numberOfItems - 1]; // DEFAULT
+		NSInteger index = [[sharedManager.timeEntries objectForKey:self.model.stationEndTimeData[row]] integerValue];
+		[cell.endtime selectItemAtIndex:index]; // DEFAULT
 		return cell;
 	}
 	
