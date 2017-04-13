@@ -210,8 +210,8 @@
 	// Define cells in station names column
 	else if ([tableColumn.identifier isEqualToString:@"station_col"]) {
 		StationTableCellView *cell = (StationTableCellView *) [tableView makeViewWithIdentifier:@"station_cell" owner:self];
-		[cell.station setTitle:self.model.stationList[row]]; // DEFAULT
-		[cell.station setState:[self.model.stationData[row] integerValue]]; // DEFAULT
+		[cell.station setTitle:self.model.stationList[row]];
+		[cell.station setState:[self.model.stationData[row] integerValue]];
 		return cell;
 	}
 	
@@ -219,7 +219,7 @@
 	else if ([tableColumn.identifier isEqualToString:@"station_start_col"]) {
 		StationStartTableCellView *cell = (StationStartTableCellView *) [tableView makeViewWithIdentifier:@"station_start_cell" owner:self];
 		NSInteger index = [[sharedManager.timeEntries objectForKey:self.model.stationStartTimeData[row]] integerValue];
-		[cell.starttime selectItemAtIndex:index]; // DEFAULT
+		[cell.starttime selectItemAtIndex:index];
 		return cell;
 	}
 	
@@ -227,14 +227,15 @@
 	else if ([tableColumn.identifier isEqualToString:@"station_end_col"]) {
 		StationEndTableCellView *cell = (StationEndTableCellView *) [tableView makeViewWithIdentifier:@"station_end_cell" owner:self];
 		NSInteger index = [[sharedManager.timeEntries objectForKey:self.model.stationEndTimeData[row]] integerValue];
-		[cell.endtime selectItemAtIndex:index]; // DEFAULT
+		[cell.endtime selectItemAtIndex:index];
 		return cell;
 	}
 	
 	// Define cells in frequency column
 	else if ([tableColumn.identifier isEqualToString:@"frequency_col"]) {
 		StationFrequencyTableCellView *cell = (StationFrequencyTableCellView *)[tableView makeViewWithIdentifier:@"frequency_cell" owner:self];
-		[cell.frequency selectItemAtIndex:0]; // DEFAULT
+		NSInteger index = [[sharedManager.frequencyEntries objectForKey:self.model.stationFrequencyData[row]] integerValue];
+		[cell.frequency selectItemAtIndex:index];
 		return cell;
 	}
 	

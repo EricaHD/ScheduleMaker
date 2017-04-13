@@ -7,7 +7,10 @@
 //
 
 // MAJOR GOALS:
-// 1. Revisit DEFAULTs flags and actually implement NSUserDefaults
+// 1. Implement NSUserDefaults
+//      Load NSUserDefaults in AppDelegate.m's method setUpModelsArrays()
+//      Update NSUserDefaults in ScheduleViewController.m's method makeSchedule()
+//      Update NSUserDefaults in AppDelegate.m's method applicationWillTerminate()
 // 2. Actually do the data processing and making of the schedule in Model.m
 //      If we still have staff after all checked stations are assigned, excess staff get put on Float
 //      What if *no one* is qualified to do said post (e.g. birthday party)?  Display alert
