@@ -55,17 +55,16 @@
 	NSError *error;
 	NSArray *matches = [context executeFetchRequest:request error:&error];
 	
-	// If there are already database entries with that first name...
-	if (matches && matches.count > 0) {
-		// ...report error via return value
-		return -1;
-	}
-	
-	// If there are other errors...
-	else if (!matches || error) {
+	// If there is an error...
+	if (!matches || error) {
 		// ...report error
 		NSLog(@"Error: couldn't find staff member in database (in editStaffMemberFromDictionary).");
 		return 0;
+	}
+	
+	// If there are already database entries with that first name...
+	else if (matches.count > 0) {
+		return -1;
 	}
 	
 	// If there are no database entries with that first name...

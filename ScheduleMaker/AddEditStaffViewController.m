@@ -55,13 +55,10 @@
 									  @"other": (self.other.state) ? @YES : @NO,
 									  @"fireguard": (self.fireguard.state) ? @YES : @NO};
 	
-	// Alter arrays in model using entered data
+	// Add staff member, send notification telling DatabaseViewController to reload table, close window
 	if ([sender.title isEqualToString:@"Save"]) {
-		
-		// Add staff member
 		int result = [StaffMember addStaffMemberFromDictionary:staffMemberInfo];
-		
-		// Return value tells us that staff member with that name already exists in the database
+		// If result is -1, show alert because staff member with that name already exists in database
 		if (result == -1) {
 			NSAlert *alert = [[NSAlert alloc] init];
 			[alert addButtonWithTitle:@"OK"];
@@ -71,20 +68,17 @@
 			NSWindow *window = [[NSApplication sharedApplication] mainWindow];
 			[alert beginSheetModalForWindow:window completionHandler:nil];
 		}
-	
+		else {
+			[[NSNotificationCenter defaultCenter] postNotificationName:@"NeedDatabaseTableReload" object:self];
+			[self.view.window close];
+		}
 	}
 	
+	// Edit staff member, send notification telling DatabaseViewController to reload table, close window
 	else { // [sender.title isEqualToString:@"Change"]
-		
-		// Edit staff member
 		[StaffMember editStaffMemberFromDictionary:staffMemberInfo];
-		
-		// Send notification telling DatabaseViewController to reload table now that new staff member has been added
 		[[NSNotificationCenter defaultCenter] postNotificationName:@"NeedDatabaseTableReload" object:self];
-		
-		// Close window
 		[self.view.window close];
-		
 	}
 	
 }

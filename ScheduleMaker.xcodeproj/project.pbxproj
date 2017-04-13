@@ -116,6 +116,9 @@
 		07A730181E9EF02E00305E2B /* Core Data */ = {
 			isa = PBXGroup;
 			children = (
+				072B7B281E9D2BAC00ED274C /* ScheduleMaker.xcdatamodeld */,
+				072B7B2D1E9D303E00ED274C /* StaffMember.h */,
+				072B7B2E1E9D303E00ED274C /* StaffMember.m */,
 				072B7B2B1E9D303E00ED274C /* StaffMember+CoreDataProperties.h */,
 				072B7B2C1E9D303E00ED274C /* StaffMember+CoreDataProperties.m */,
 			);
@@ -189,9 +192,6 @@
 				0786B95A1E954C7500DC39A1 /* Helper Classes for Model */,
 				07AB2BA11E93118E00C81258 /* Table Cell Views */,
 				07FA1C5F1E120DB6007E81E8 /* Supporting Files */,
-				072B7B281E9D2BAC00ED274C /* ScheduleMaker.xcdatamodeld */,
-				072B7B2D1E9D303E00ED274C /* StaffMember.h */,
-				072B7B2E1E9D303E00ED274C /* StaffMember.m */,
 			);
 			path = ScheduleMaker;
 			sourceTree = "<group>";
