@@ -157,7 +157,7 @@
 	self.model.stackLunchesData[3] = [NSNumber numberWithInteger:self.fourthLunch.state];
 	self.model.stackLunchesData[4] = [NSNumber numberWithInteger:self.fifthLunch.state];
 	self.model.stackLunchesData[5] = [NSNumber numberWithInteger:self.sixthLunch.state];
-		
+	
 }
 
 #pragma mark NSTableViewDelegate, NSTableViewDataSource Methods ################

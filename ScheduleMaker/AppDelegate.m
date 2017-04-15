@@ -69,15 +69,15 @@
 									   [NSMutableArray arrayWithObjects:@"", @"", @"", @"", @"", @"", @"", @"", @"", nil], nil];
 	self.model.lunchData = [NSMutableArray arrayWithObjects:[NSNumber numberWithInt:0], [NSNumber numberWithInt:0], [NSNumber numberWithInt:0], [NSNumber numberWithInt:0], nil];
 	
-	// Set up RequirementsViewController table and checkboxes on the right side of the view (from NSUserDefaults)
+	// Set up RequirementsViewController table and checkboxes on the right side of the view (copies of NSUserDefaults)
 	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-	self.model.stationList = [defaults objectForKey:@"stationList"];
-	self.model.stationData = [defaults objectForKey:@"stationData"];
-	self.model.stationStartTimeData = [defaults objectForKey:@"stationStartTimeData"];
-	self.model.stationEndTimeData = [defaults objectForKey:@"stationEndTimeData"];
-	self.model.stationFrequencyData = [defaults objectForKey:@"stationFrequencyData"];
-	self.model.halfHourData = [defaults objectForKey:@"halfHourData"];
-	self.model.stackLunchesData = [defaults objectForKey:@"stackLunchesData"];
+	self.model.stationList = [NSMutableArray arrayWithArray:[defaults objectForKey:@"stationList"]];
+	self.model.stationData = [NSMutableArray arrayWithArray:[defaults objectForKey:@"stationData"]];
+	self.model.stationStartTimeData = [NSMutableArray arrayWithArray:[defaults objectForKey:@"stationStartTimeData"]];
+	self.model.stationEndTimeData = [NSMutableArray arrayWithArray:[defaults objectForKey:@"stationEndTimeData"]];
+	self.model.stationFrequencyData = [NSMutableArray arrayWithArray:[defaults objectForKey:@"stationFrequencyData"]];
+	self.model.halfHourData = [NSMutableArray arrayWithArray:[defaults objectForKey:@"halfHourData"]];
+	self.model.stackLunchesData = [NSMutableArray arrayWithArray:[defaults objectForKey:@"stackLunchesData"]];
 	
 }
 
