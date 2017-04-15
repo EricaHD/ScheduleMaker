@@ -10,7 +10,6 @@
 // 1. Implement NSUserDefaults
 //      Load NSUserDefaults in AppDelegate.m's method setUpModelsArrays()
 //      Update NSUserDefaults in ScheduleViewController.m's method makeSchedule()
-//      Update NSUserDefaults in AppDelegate.m's method applicationWillTerminate()
 // 2. Actually do the data processing and making of the schedule in Model.m
 //      If we still have staff after all checked stations are assigned, excess staff get put on Float
 //      What if *no one* is qualified to do said post (e.g. birthday party)?  Display alert
@@ -38,19 +37,11 @@
 
 #import <Cocoa/Cocoa.h>
 #import "Model.h"
-#import "DatabaseViewController.h"
-#import "RequirementsViewController.h"
-#import "ScheduleViewController.h"
 
 @interface AppDelegate : NSObject <NSApplicationDelegate>
 
 // Reference to model that all view controllers will use
 @property (strong) Model *model;
-
-// References to three view controllers
-@property DatabaseViewController *database;
-@property RequirementsViewController *requirements;
-@property ScheduleViewController *schedule;
 
 // Core data properties
 @property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;

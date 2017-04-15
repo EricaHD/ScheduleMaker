@@ -7,6 +7,9 @@
 //
 
 #import "AppDelegate.h"
+#import "DatabaseViewController.h"
+#import "RequirementsViewController.h"
+#import "ScheduleViewController.h"
 
 @interface AppDelegate ()
 
@@ -95,14 +98,17 @@
 		window.title = @"MoMath Floor Schedule Generator";
 		
 		// Find the three view controllers (hardcoded to be three)
+		DatabaseViewController *database;
+		RequirementsViewController *requirements;
+		ScheduleViewController *schedule;
 		NSDate* date = [NSDate date];
 		while (TRUE) {
 			// Ready to do the work
 			if (window.contentViewController.childViewControllers.count == 3) {
 				NSArray *viewControllerArray = window.contentViewController.childViewControllers;
-				self.database = (DatabaseViewController *) viewControllerArray[0];
-				self.requirements = (RequirementsViewController *) viewControllerArray[1];
-				self.schedule = (ScheduleViewController *) viewControllerArray[2];
+				database = (DatabaseViewController *) viewControllerArray[0];
+				requirements = (RequirementsViewController *) viewControllerArray[1];
+				schedule = (ScheduleViewController *) viewControllerArray[2];
 				break;
 			}
 			// Condition is not reached before timeout (giving program 600 seconds = 10 minutes to get this while loop done)
@@ -115,40 +121,25 @@
 		}
 
 		// Point each controller to the model created above
-		self.database.model = self.model;
-		self.requirements.model = self.model;
-		self.schedule.model = self.model;
+		database.model = self.model;
+		requirements.model = self.model;
+		schedule.model = self.model;
 		
 		// Reload tables now that the view controllers are hooked up to the model
 		// So that numberOfRowsInTableView method can return something > 0
 		// Also reload checkboxes on the side of the requirements view controller
-		[self.schedule.table reloadData];
-		[self.requirements.table reloadData];
-		[self.database.table reloadData];
-		[self.requirements reloadHalfHourData];
-		[self.requirements reloadStackLunchesData];
+		[schedule.table reloadData];
+		[requirements.table reloadData];
+		[database.table reloadData];
+		[requirements reloadHalfHourData];
+		[requirements reloadStackLunchesData];
 		
 	}
 	
 }
 
-// Ensure applicationWillTerminate() is called when window is closed
-- (BOOL)applicationShouldTerminateAfterLastWindowClosed:(NSApplication *)sender {
-	return true;
-}
-
 // Insert code here to tear down your application
 - (void)applicationWillTerminate:(NSNotification *)aNotification {
-	
-//	// Gather updates on NSUserDefaults
-//	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-//	[defaults setObject:self.model.stationList forKey:@"stationList"];
-//	[defaults setObject:self.model.stationData forKey:@"stationData"];
-//	[defaults setObject:self.model.stationStartTimeData forKey:@"stationStartTimeData"];
-//	[defaults setObject:self.model.stationEndTimeData forKey:@"stationEndTimeData"];
-//	[defaults setObject:self.model.stationFrequencyData forKey:@"stationFrequencyData"];
-//	[defaults setObject:self.model.halfHourData forKey:@"halfHourData"];
-//	[defaults setObject:self.model.stackLunchesData forKey:@"stackLunchesData"];
 	
 }
 
