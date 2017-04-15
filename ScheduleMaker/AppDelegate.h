@@ -19,7 +19,7 @@
 // Change color of selected row in DatabaseViewController (so it's not dark blue)
 // Allow requirements view controller to specify multiple time periods for each station, i.e. gallery 10-11 and 2-5
 // README/instruction booklet describing use of software
-// Further error checking?  Like entering only a space " " will count as a valid entry
+// Further error checking?  E.g. entering only a space " " will count as a valid entry.  E.g. you can force two people on trike simultaneously
 // Add "lunch" or "no lunch" option in case someone wants a lunch but is working < 5.5 hours
 // Could display messages on the results, i.e. "Gallery must be closed 12-1 pm" or "Only one person stationed on floor -1 during 11-5 pm"
 // Schedule could specify different stations for floor 0 given sufficient staff (e.g. HYHY, MOSC)
