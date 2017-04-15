@@ -7,9 +7,6 @@
 //
 
 #import "AppDelegate.h"
-#import "DatabaseViewController.h"
-#import "RequirementsViewController.h"
-#import "ScheduleViewController.h"
 
 @interface AppDelegate ()
 
@@ -19,7 +16,40 @@
 
 // Insert code here to initialize your application
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
-
+	
+	// Set up NSUserDefaults for RequirementsViewController (if they have never been set before)
+	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+	if (![defaults objectForKey:@"stationList"]) {
+		NSMutableArray *stationList = [NSMutableArray arrayWithObjects:@"Trike", @"Coro", @"Gallery", @"-1", @"-1", @"-1", @"0", @"0", @"0", @"Float", @"Float", @"Project", @"Project", @"Greeting", @"Security", @"Tours", @"Lesson", @"Manager", @"Birthday", @"Other", nil];
+		[defaults setObject:stationList forKey:@"stationList"];
+	}
+	if (![defaults objectForKey:@"stationData"]) {
+		NSMutableArray *stationData = [NSMutableArray arrayWithObjects:[NSNumber numberWithInt:0], [NSNumber numberWithInt:0], [NSNumber numberWithInt:0], [NSNumber numberWithInt:0], [NSNumber numberWithInt:0], [NSNumber numberWithInt:0], [NSNumber numberWithInt:0], [NSNumber numberWithInt:0], [NSNumber numberWithInt:0], [NSNumber numberWithInt:0], [NSNumber numberWithInt:0], [NSNumber numberWithInt:0], [NSNumber numberWithInt:0], [NSNumber numberWithInt:0], [NSNumber numberWithInt:0], [NSNumber numberWithInt:0], [NSNumber numberWithInt:0], [NSNumber numberWithInt:0], [NSNumber numberWithInt:0], [NSNumber numberWithInt:0], nil];
+		[defaults setObject:stationData forKey:@"stationData"];
+	}
+	if (![defaults objectForKey:@"stationStartTimeData"]) {
+		NSMutableArray *stationStartTimeData = [NSMutableArray arrayWithObjects:@"10:00 am", @"10:00 am", @"10:00 am", @"10:00 am", @"10:00 am", @"10:00 am", @"10:00 am", @"10:00 am", @"10:00 am", @"10:00 am", @"10:00 am", @"10:00 am", @"10:00 am", @"10:00 am", @"10:00 am", @"10:00 am", @"10:00 am", @"10:00 am", @"10:00 am", @"10:00 am", nil];
+		[defaults setObject:stationStartTimeData forKey:@"stationStartTimeData"];
+	}
+	if (![defaults objectForKey:@"stationEndTimeData"]) {
+		NSMutableArray *stationEndTimeData = [NSMutableArray arrayWithObjects:@"5:00 pm", @"5:00 pm", @"5:00 pm", @"5:00 pm", @"5:00 pm", @"5:00 pm", @"5:00 pm", @"5:00 pm", @"5:00 pm", @"5:00 pm", @"5:00 pm", @"5:00 pm", @"5:00 pm", @"5:00 pm", @"5:00 pm", @"5:00 pm", @"5:00 pm", @"5:00 pm", @"5:00 pm", @"5:00 pm", nil];
+		[defaults setObject:stationEndTimeData forKey:@"stationEndTimeData"];
+	}
+	if (![defaults objectForKey:@"stationFrequencyData"]) {
+		NSMutableArray *stationFrequencyData = [NSMutableArray arrayWithObjects:@"With schedule", @"With schedule", @"With schedule", @"With schedule", @"With schedule", @"With schedule", @"With schedule", @"With schedule", @"With schedule", @"With schedule", @"With schedule", @"With schedule", @"With schedule", @"With schedule", @"With schedule", @"With schedule", @"With schedule", @"With schedule", @"With schedule", @"With schedule", nil];
+		[defaults setObject:stationFrequencyData forKey:@"stationFrequencyData"];
+	}
+	if (![defaults objectForKey:@"halfHourData"]) {
+		NSMutableArray *halfHourData = [NSMutableArray arrayWithObjects:[NSNumber numberWithInt:0], [NSNumber numberWithInt:0], [NSNumber numberWithInt:0], [NSNumber numberWithInt:1], [NSNumber numberWithInt:1], [NSNumber numberWithInt:1], [NSNumber numberWithInt:1], nil];
+		[defaults setObject:halfHourData forKey:@"halfHourData"];
+	}
+	if (![defaults objectForKey:@"stackLunchesData"]) {
+		NSMutableArray *stackLunchesData = [NSMutableArray arrayWithObjects:[NSNumber numberWithInt:0], [NSNumber numberWithInt:0], [NSNumber numberWithInt:0], [NSNumber numberWithInt:0], [NSNumber numberWithInt:0], [NSNumber numberWithInt:0], nil];
+		[defaults setObject:stackLunchesData forKey:@"stackLunchesData"];
+	}
+	
+	[defaults synchronize];
+	
 }
 
 // Set up arrays in model
@@ -36,17 +66,15 @@
 									   [NSMutableArray arrayWithObjects:@"", @"", @"", @"", @"", @"", @"", @"", @"", nil], nil];
 	self.model.lunchData = [NSMutableArray arrayWithObjects:[NSNumber numberWithInt:0], [NSNumber numberWithInt:0], [NSNumber numberWithInt:0], [NSNumber numberWithInt:0], nil];
 	
-	// Set up RequirementsViewController table
-	//self.model.stationList = [NSMutableArray arrayWithObjects:@"Trike", @"-1", @"Coro", @"Gallery", @"-1", @"0", @"Greeting", @"Lesson", @"Project", @"Security", @"Tours", @"Manager", @"Birthday", @"Other", nil];
-	self.model.stationList = [NSMutableArray arrayWithObjects:@"Trike", @"Coro", @"Gallery", @"-1", @"-1", @"-1", @"0", @"0", @"0", @"Float", @"Float", @"Project", @"Project", @"Greeting", @"Security", @"Tours", @"Lesson", @"Manager", @"Birthday", @"Other", nil]; // DEFAULTS (order)
-	self.model.stationData = [NSMutableArray arrayWithObjects:[NSNumber numberWithInt:0], [NSNumber numberWithInt:0], [NSNumber numberWithInt:0], [NSNumber numberWithInt:0], [NSNumber numberWithInt:0], [NSNumber numberWithInt:0], [NSNumber numberWithInt:0], [NSNumber numberWithInt:0], [NSNumber numberWithInt:0], [NSNumber numberWithInt:0], [NSNumber numberWithInt:0], [NSNumber numberWithInt:0], [NSNumber numberWithInt:0], [NSNumber numberWithInt:0], [NSNumber numberWithInt:0], [NSNumber numberWithInt:0], [NSNumber numberWithInt:0], [NSNumber numberWithInt:0], [NSNumber numberWithInt:0], [NSNumber numberWithInt:0], nil]; // DEFAULTS
-	self.model.stationStartTimeData = [NSMutableArray arrayWithObjects:@"10:00 am", @"10:00 am", @"10:00 am", @"10:00 am", @"10:00 am", @"10:00 am", @"10:00 am", @"10:00 am", @"10:00 am", @"10:00 am", @"10:00 am", @"10:00 am", @"10:00 am", @"10:00 am", @"10:00 am", @"10:00 am", @"10:00 am", @"10:00 am", @"10:00 am", @"10:00 am", nil]; // DEFAULTS
-	self.model.stationEndTimeData = [NSMutableArray arrayWithObjects:@"5:00 pm", @"5:00 pm", @"5:00 pm", @"5:00 pm", @"5:00 pm", @"5:00 pm", @"5:00 pm", @"5:00 pm", @"5:00 pm", @"5:00 pm", @"5:00 pm", @"5:00 pm", @"5:00 pm", @"5:00 pm", @"5:00 pm", @"5:00 pm", @"5:00 pm", @"5:00 pm", @"5:00 pm", @"5:00 pm", nil]; // DEFAULTS
-	self.model.stationFrequencyData = [NSMutableArray arrayWithObjects:@"With schedule", @"With schedule", @"With schedule", @"With schedule", @"With schedule", @"With schedule", @"With schedule", @"With schedule", @"With schedule", @"With schedule", @"With schedule", @"With schedule", @"With schedule", @"With schedule", @"With schedule", @"With schedule", @"With schedule", @"With schedule", @"With schedule", @"With schedule", nil]; // DEFAULTS
-	
-	// Set up checkboxes on the right side of RequirementsViewController
-	self.model.halfHourData = [NSMutableArray arrayWithObjects:[NSNumber numberWithInt:0], [NSNumber numberWithInt:0], [NSNumber numberWithInt:0], [NSNumber numberWithInt:1], [NSNumber numberWithInt:1], [NSNumber numberWithInt:1], [NSNumber numberWithInt:1], nil]; // DEFAULTS
-	self.model.stackLunchesData = [NSMutableArray arrayWithObjects:[NSNumber numberWithInt:0], [NSNumber numberWithInt:0], [NSNumber numberWithInt:0], [NSNumber numberWithInt:0], [NSNumber numberWithInt:0], [NSNumber numberWithInt:0], nil]; // DEFAULTS
+	// Set up RequirementsViewController table and checkboxes on the right side of the view (from NSUserDefaults)
+	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+	self.model.stationList = [defaults objectForKey:@"stationList"];
+	self.model.stationData = [defaults objectForKey:@"stationData"];
+	self.model.stationStartTimeData = [defaults objectForKey:@"stationStartTimeData"];
+	self.model.stationEndTimeData = [defaults objectForKey:@"stationEndTimeData"];
+	self.model.stationFrequencyData = [defaults objectForKey:@"stationFrequencyData"];
+	self.model.halfHourData = [defaults objectForKey:@"halfHourData"];
+	self.model.stackLunchesData = [defaults objectForKey:@"stackLunchesData"];
 	
 }
 
@@ -67,47 +95,60 @@
 		window.title = @"MoMath Floor Schedule Generator";
 		
 		// Find the three view controllers (hardcoded to be three)
-		DatabaseViewController *database;
-		RequirementsViewController *requirements;
-		ScheduleViewController *schedule;
-		//NSDate* date = [NSDate date];
+		NSDate* date = [NSDate date];
 		while (TRUE) {
 			// Ready to do the work
 			if (window.contentViewController.childViewControllers.count == 3) {
 				NSArray *viewControllerArray = window.contentViewController.childViewControllers;
-				database = (DatabaseViewController *) viewControllerArray[0];
-				requirements = (RequirementsViewController *) viewControllerArray[1];
-				schedule = (ScheduleViewController *) viewControllerArray[2];
+				self.database = (DatabaseViewController *) viewControllerArray[0];
+				self.requirements = (RequirementsViewController *) viewControllerArray[1];
+				self.schedule = (ScheduleViewController *) viewControllerArray[2];
 				break;
 			}
-			// Condition is not reached before timeout (giving program 60 seconds to get this while loop done)
-			//if ([date timeIntervalSinceNow] < -60) {
-				//break;
-			//}
+			// Condition is not reached before timeout (giving program 600 seconds = 10 minutes to get this while loop done)
+			if ([date timeIntervalSinceNow] < -600) {
+				NSLog(@"Error: program timed out");
+				break;
+			}
 			// Suspend thread execution for 10,000 microseconds = 0.01 seconds
 			usleep(10000);
 		}
 
 		// Point each controller to the model created above
-		database.model = self.model;
-		requirements.model = self.model;
-		schedule.model = self.model;
+		self.database.model = self.model;
+		self.requirements.model = self.model;
+		self.schedule.model = self.model;
 		
 		// Reload tables now that the view controllers are hooked up to the model
 		// So that numberOfRowsInTableView method can return something > 0
 		// Also reload checkboxes on the side of the requirements view controller
-		[schedule.table reloadData];
-		[requirements.table reloadData];
-		[database.table reloadData];
-		[requirements reloadHalfHourData];
-		[requirements reloadStackLunchesData];
+		[self.schedule.table reloadData];
+		[self.requirements.table reloadData];
+		[self.database.table reloadData];
+		[self.requirements reloadHalfHourData];
+		[self.requirements reloadStackLunchesData];
 		
 	}
 	
 }
 
+// Ensure applicationWillTerminate() is called when window is closed
+- (BOOL)applicationShouldTerminateAfterLastWindowClosed:(NSApplication *)sender {
+	return true;
+}
+
 // Insert code here to tear down your application
 - (void)applicationWillTerminate:(NSNotification *)aNotification {
+	
+//	// Gather updates on NSUserDefaults
+//	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+//	[defaults setObject:self.model.stationList forKey:@"stationList"];
+//	[defaults setObject:self.model.stationData forKey:@"stationData"];
+//	[defaults setObject:self.model.stationStartTimeData forKey:@"stationStartTimeData"];
+//	[defaults setObject:self.model.stationEndTimeData forKey:@"stationEndTimeData"];
+//	[defaults setObject:self.model.stationFrequencyData forKey:@"stationFrequencyData"];
+//	[defaults setObject:self.model.halfHourData forKey:@"halfHourData"];
+//	[defaults setObject:self.model.stackLunchesData forKey:@"stackLunchesData"];
 	
 }
 

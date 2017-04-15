@@ -65,7 +65,7 @@
 	
 }
 
-// Autocomplete code: if table cell is selected, use that string in text field TODO
+// Autocomplete code: if table cell is selected, use that string in text field
 - (void)tableViewSelectionDidChange:(NSNotification *)notification {
 	
 	// Find which table sent notification, find row/string selected by user, then put it into text field

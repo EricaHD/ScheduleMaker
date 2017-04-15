@@ -38,11 +38,19 @@
 
 #import <Cocoa/Cocoa.h>
 #import "Model.h"
+#import "DatabaseViewController.h"
+#import "RequirementsViewController.h"
+#import "ScheduleViewController.h"
 
 @interface AppDelegate : NSObject <NSApplicationDelegate>
 
 // Reference to model that all view controllers will use
 @property (strong) Model *model;
+
+// References to three view controllers
+@property DatabaseViewController *database;
+@property RequirementsViewController *requirements;
+@property ScheduleViewController *schedule;
 
 // Core data properties
 @property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;

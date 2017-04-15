@@ -103,34 +103,9 @@
 // Scrape data that is displayed in table right now
 - (void)scrapeData {
 	
-	// Find position of each column (so columns can be rearranged by clicking and dragging, and everything will still function)
-	NSInteger reorder_col_pos = -1;
-	NSInteger station_col_pos = -1;
-	NSInteger station_start_col_pos = -1;
-	NSInteger station_end_col_pos = -1;
-	NSInteger frequency_col_pos = -1;
-	for (int i = 0; i < self.table.numberOfColumns; i++) {
-		NSString *identifier = self.table.tableColumns[i].identifier;
-		if ([identifier isEqualToString:@"reorder_col"]) {
-			reorder_col_pos = i;
-		}
-		else if ([identifier isEqualToString:@"station_col"]) {
-			station_col_pos = i;
-		}
-		else if ([identifier isEqualToString:@"station_start_col"]) {
-			station_start_col_pos = i;
-		}
-		else if ([identifier isEqualToString:@"station_end_col"]) {
-			station_end_col_pos = i;
-		}
-		else if ([identifier isEqualToString:@"frequency_col"]) {
-			frequency_col_pos = i;
-		}
-	}
-	
 	// Update array of stations (with checkboxes)
 	for (int i = 0; i < self.model.stationList.count; i++) {
-		StationTableCellView *cell = (StationTableCellView *) [self.table viewAtColumn:station_col_pos row:i makeIfNecessary:NO];
+		StationTableCellView *cell = (StationTableCellView *) [self.table viewAtColumn:1 row:i makeIfNecessary:NO];
 		NSString *station = cell.station.title;
 		if (station) { // do not insert nil object into array
 			self.model.stationList[i] = station;
@@ -141,7 +116,7 @@
 	
 	// Update array of station start times
 	for (int i = 0; i < self.model.stationStartTimeData.count; i++) {
-		StationStartTableCellView *cell = (StationStartTableCellView *) [self.table viewAtColumn:station_start_col_pos row:i makeIfNecessary:NO];
+		StationStartTableCellView *cell = (StationStartTableCellView *) [self.table viewAtColumn:2 row:i makeIfNecessary:NO];
 		NSString *starttime = cell.starttime.selectedItem.title;
 		if (starttime) { // do not insert nil object into array
 			self.model.stationStartTimeData[i] = starttime;
@@ -150,7 +125,7 @@
 	
 	// Update array of station end times
 	for (int i = 0; i < self.model.stationEndTimeData.count; i++) {
-		StationEndTableCellView *cell = (StationEndTableCellView *) [self.table viewAtColumn:station_end_col_pos row:i makeIfNecessary:NO];
+		StationEndTableCellView *cell = (StationEndTableCellView *) [self.table viewAtColumn:3 row:i makeIfNecessary:NO];
 		NSString *endtime = cell.endtime.selectedItem.title;
 		if (endtime) { // do not insert nil object into array
 			self.model.stationEndTimeData[i] = endtime;
@@ -159,7 +134,7 @@
 	
 	// Update array of station frequencies
 	for (int i = 0; i < self.model.stationFrequencyData.count; i++) {
-		StationFrequencyTableCellView *cell = (StationFrequencyTableCellView *) [self.table viewAtColumn:frequency_col_pos row:i makeIfNecessary:NO];
+		StationFrequencyTableCellView *cell = (StationFrequencyTableCellView *) [self.table viewAtColumn:4 row:i makeIfNecessary:NO];
 		NSString *frequency = cell.frequency.selectedItem.title;
 		if (frequency) { // do not insert nil object into array
 			self.model.stationFrequencyData[i] = frequency;
@@ -182,7 +157,7 @@
 	self.model.stackLunchesData[3] = [NSNumber numberWithInteger:self.fourthLunch.state];
 	self.model.stackLunchesData[4] = [NSNumber numberWithInteger:self.fifthLunch.state];
 	self.model.stackLunchesData[5] = [NSNumber numberWithInteger:self.sixthLunch.state];
-	
+		
 }
 
 #pragma mark NSTableViewDelegate, NSTableViewDataSource Methods ################
