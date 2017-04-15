@@ -102,7 +102,7 @@
 
 // Scrape data that is displayed in table right now
 - (void)scrapeData {
-	
+		
 	// Update array of stations (with checkboxes)
 	for (int i = 0; i < self.model.stationList.count; i++) {
 		StationTableCellView *cell = (StationTableCellView *) [self.table viewAtColumn:1 row:i makeIfNecessary:NO];

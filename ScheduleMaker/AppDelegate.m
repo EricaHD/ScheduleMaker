@@ -138,8 +138,24 @@
 	
 }
 
+// Ensure applicationWillTerminate() is called when window is closed
+- (BOOL)applicationShouldTerminateAfterLastWindowClosed:(NSApplication *)sender {
+	return true;
+}
+
 // Insert code here to tear down your application
 - (void)applicationWillTerminate:(NSNotification *)aNotification {
+	
+	// scrapeData() in RequirementsViewController was automatically called already
+	// Gather updates on NSUserDefaults
+	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+	[defaults setObject:self.model.stationList forKey:@"stationList"];
+	[defaults setObject:self.model.stationData forKey:@"stationData"];
+	[defaults setObject:self.model.stationStartTimeData forKey:@"stationStartTimeData"];
+	[defaults setObject:self.model.stationEndTimeData forKey:@"stationEndTimeData"];
+	[defaults setObject:self.model.stationFrequencyData forKey:@"stationFrequencyData"];
+	[defaults setObject:self.model.halfHourData forKey:@"halfHourData"];
+	[defaults setObject:self.model.stackLunchesData forKey:@"stackLunchesData"];
 	
 }
 
