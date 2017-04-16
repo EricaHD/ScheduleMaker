@@ -93,9 +93,9 @@
 			for (int j = start_num; j < end_num; j++) {
 				self.schedule[i][j] = cell_data[0];
 			}
-		}
-		if (end_num < 14 && [self.schedule[i][end_num] isEqualToString:@"SAME"]) {
-			self.schedule[i][end_num] = @"";
+			if (end_num < 14 && [self.schedule[i][end_num] isEqualToString:@"SAME"]) {
+				self.schedule[i][end_num] = @"";
+			}
 		}
 		
 		// Insert specific station #2 into schedule (if nonempty)
@@ -105,11 +105,10 @@
 			for (int j = start_num; j < end_num; j++) {
 				self.schedule[i][j] = cell_data[3];
 			}
+			if (end_num < 14 && [self.schedule[i][end_num] isEqualToString:@"SAME"]) {
+				self.schedule[i][end_num] = @"";
+			}
 		}
-		if (end_num < 14 && [self.schedule[i][end_num] isEqualToString:@"SAME"]) {
-			self.schedule[i][end_num] = @"";
-		}
-		
 
 		// Insert specific station #2 into schedule (if nonempty)
 		if (![cell_data[6] isEqualToString:@""]) {
@@ -118,11 +117,10 @@
 			for (int j = start_num; j < end_num; j++) {
 				self.schedule[i][j] = cell_data[6];
 			}
+			if (end_num < 14 && [self.schedule[i][end_num] isEqualToString:@"SAME"]) {
+				self.schedule[i][end_num] = @"";
+			}
 		}
-		if (end_num < 14 && [self.schedule[i][end_num] isEqualToString:@"SAME"]) {
-			self.schedule[i][end_num] = @"";
-		}
-
 	}
 	
 	return;
@@ -238,7 +236,7 @@
 
 // Does the calculations needed to actually make the schedule; data already collected
 - (void)makeSchedule {
-		
+	
 	// Take rows out of ScheduleViewController table that have no name in the name column
 	NSMutableIndexSet *indexes = [[NSMutableIndexSet alloc] init];
 	for (int i = 0; i < self.nameData.count; i++) {
@@ -286,7 +284,7 @@
 	[self assignSpecificStations];
 	
 	// Assign lunches on schedule using self.lunchData, self.stackLunchesData (and self.endTimeData - self.startTimeData > 5.5 check)
-	[self assignLunches];
+	//[self assignLunches];
 	
 	// DEBUGGING
 	[Printing printSchedule:self.schedule withNames:self.nameData];
