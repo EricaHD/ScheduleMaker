@@ -288,8 +288,7 @@
 	
 	// DEBUGGING
 	//[Printing printScheduleData:self.nameData withStart:self.startTimeData withEnd:self.endTimeData withSpecifics:self.specificStationsData withLunch:self.lunchData];
-	
-	// DEBUGGING
+	//[Printing printRequirementsData:self.stationList withChecks:self.stationData withStart:self.stationStartTimeData withEnd:self.stationEndTimeData withFrequency:self.stationFrequencyData withHalfHours:self.halfHourData withStackLunches:self.stackLunchesData];
 	[Printing printSchedule:self.schedule withNames:self.nameData];
 	
 }
