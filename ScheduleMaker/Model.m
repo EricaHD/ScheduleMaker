@@ -287,6 +287,9 @@
 	//[self assignLunches];
 	
 	// DEBUGGING
+	//[Printing printScheduleData:self.nameData withStart:self.startTimeData withEnd:self.endTimeData withSpecifics:self.specificStationsData withLunch:self.lunchData];
+	
+	// DEBUGGING
 	[Printing printSchedule:self.schedule withNames:self.nameData];
 	
 }

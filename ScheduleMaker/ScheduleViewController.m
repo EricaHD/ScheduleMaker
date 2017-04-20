@@ -221,7 +221,7 @@
 
 // Scrape data that is displayed in table right now
 - (void)scrapeData {
-	
+		
 	// Update array of names
 	for (int i = 0; i < self.model.nameData.count; i++) {
 		NameTableCellView *cell = (NameTableCellView *) [self.table viewAtColumn:0 row:i makeIfNecessary:NO];
@@ -331,15 +331,8 @@
 	// Update arrays of information from table rows
 	[self scrapeData];
 	
-	// Debugging
-	//[self.model printScheduleData];
-	//[self.model printRequirementsData];
-	
 	// Make schedule
 	[self.model makeSchedule];
-	
-	// Debugging
-	//[self.model printSchedule];
 	
 }
 
