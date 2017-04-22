@@ -41,6 +41,34 @@
 	
 }
 
+// When "+" add row button is pressed on ScheduleViewController
+- (void)addRow {
+	
+	[self.nameData addObject:@""];
+	[self.startTimeData addObject:@""];
+	[self.endTimeData addObject:@""];
+	[self.specificStationsData addObject:[NSMutableArray arrayWithObjects:@"", @"", @"", @"", @"", @"", @"", @"", @"", nil]];
+	[self.lunchData addObject:[NSNumber numberWithInt:0]];
+	
+}
+
+// When "-" delete row button is pressed on ScheduleViewController
+- (void)deleteRow {
+	
+	if (self.nameData.count == 0) {
+		return;
+	}
+	
+	[self.nameData removeLastObject];
+	[self.startTimeData removeLastObject];
+	[self.endTimeData removeLastObject];
+	[self.specificStationsData removeLastObject];
+	[self.lunchData removeLastObject];
+	
+}
+
+#pragma mark Methods that Make Schedule ########################################
+
 // Set up hours/half hours on schedule using self.halfHourData
 - (void)setHalfHours {
 	
@@ -135,112 +163,61 @@
 	
 }
 
-// When "+" add row button is pressed on ScheduleViewController
-- (void)addRow {
+// Assign lunches on schedule using self.lunchData, self.stackLunchesData (and self.endTimeData - self.startTimeData > 5.5 check)
+- (void)assignLunches {
 	
-	[self.nameData addObject:@""];
-	[self.startTimeData addObject:@""];
-	[self.endTimeData addObject:@""];
-	[self.specificStationsData addObject:[NSMutableArray arrayWithObjects:@"", @"", @"", @"", @"", @"", @"", @"", @"", nil]];
-	[self.lunchData addObject:[NSNumber numberWithInt:0]];
+	// Create sharedManager here so we can reference timeEntries dictionary
+	MyManager *sharedManager = [MyManager sharedManager];
 	
-}
-
-// When "-" delete row button is pressed on ScheduleViewController
-- (void)deleteRow {
+	// Lunch lists
+	NSMutableArray *earlyLunch;
+	NSMutableArray *standardLunch;
+	NSMutableArray *lateLunch;
+	NSMutableArray *earlyHourLunch;
+	NSMutableArray *standardHourLunch;
+	NSMutableArray *lateHourLunch;
 	
-	if (self.nameData.count == 0) {
-		return;
+	// For each staff member...
+	for (int i = 0; i < self.starts.count; i++) {
+		
+		// Figure out number of hours worked
+		int start_num = [[sharedManager.timeEntries objectForKey:self.starts[i]] intValue];
+		int end_num = [[sharedManager.timeEntries objectForKey:self.ends[i]] intValue];
+		float hours_worked = ((float)(end_num - start_num)) / 2.0;
+		
+		// If staff member works >= 5.5 hours, add to lunch list
+		if (hours_worked >= 5.5) {
+			if (4 & [self.lunches[i] intValue]) {
+				if (1 & [self.lunches[i] intValue]) {
+					[earlyHourLunch addObject:[NSNumber numberWithInt:i]]; // early hour lunch
+				}
+				else if (2 & [self.lunches[i] intValue]) {
+					[lateHourLunch addObject:[NSNumber numberWithInt:i]]; // late hour lunch
+				}
+				else {
+					[standardHourLunch addObject:[NSNumber numberWithInt:i]]; // standard hour lunch
+				}
+			}
+			else {
+				if (1 & [self.lunches[i] intValue]) {
+					[earlyLunch addObject:[NSNumber numberWithInt:i]]; // early half hour lunch
+				}
+				else if (2 & [self.lunches[i] intValue]) {
+					[lateLunch addObject:[NSNumber numberWithInt:i]]; // late half hour lunch
+				}
+				else {
+					[standardLunch addObject:[NSNumber numberWithInt:i]]; // standard half hour lunch
+				}
+			}
+		}
+		
 	}
 	
-	[self.nameData removeLastObject];
-	[self.startTimeData removeLastObject];
-	[self.endTimeData removeLastObject];
-	[self.specificStationsData removeLastObject];
-	[self.lunchData removeLastObject];
+	// Now we have those lunch lists...
+	
+	return;
 	
 }
-
-// Assign lunches on schedule using self.lunchData, self.stackLunchesData (and self.endTimeData - self.startTimeData > 5.5 check)
-//- (void)assignLunches {
-//
-//	// Create sharedManager here so we can reference timeEntries dictionary
-//	MyManager *sharedManager = [MyManager sharedManager];
-//
-//	// Early, late, and standard lunch lists
-//	// Lists contain ordered pairs: (person/row number, hour lunch state)
-//	NSMutableArray *earlyLunchList;
-//	NSMutableArray *standardLunchList;
-//	NSMutableArray *lateLunchList;
-//
-//	// Go through all staff; compile data into above lunch lists
-//	for (int i = 0; i < self.nameData.count; i++) {
-//		int start_num = [[sharedManager.timeEntries objectForKey:self.startTimeData[i]] intValue]; // MAX(A, B) if necessary
-//		int end_num = [[sharedManager.timeEntries objectForKey:self.endTimeData[i]] intValue];
-//
-//		// Only needs a lunch if on duty for 5 or more hours (10 half hours) or more
-//		if (end_num - start_num >= 10) {
-//			NSNumber *cell_Data = self.lunchData[i];
-//			int early_lunch_state = 1 & [cell_Data integerValue];
-//			int late_lunch_state = 2 & [cell_Data integerValue];
-//			int hour_lunch_state = 4 & [cell_Data integerValue];
-//			if (early_lunch_state) {
-//				[earlyLunchList addObject:[NSMutableArray arrayWithObjects:[NSNumber numberWithInt:i], [NSNumber numberWithInt:hour_lunch_state], nil]];
-//			}
-//			else if (late_lunch_state) {
-//				[lateLunchList addObject:[NSMutableArray arrayWithObjects:[NSNumber numberWithInt:i], [NSNumber numberWithInt:hour_lunch_state], nil]];
-//			}
-//			else {
-//				[standardLunchList addObject:[NSMutableArray arrayWithObjects:[NSNumber numberWithInt:i], [NSNumber numberWithInt:hour_lunch_state], nil]];
-//			}
-//		}
-//	}
-//
-//	// Assign early lunches from earlyLunchList
-//	for (int j = 0; j < earlyLunchList.count; j++) {
-//		NSNumber *person = earlyLunchList[j][0];
-//		NSNumber *hour_lunch_state = earlyLunchList[j][1];
-//		if (hour_lunch_state) {
-//			// Person (row variable) wants early hour lunch
-//			int row = [person intValue];
-//		}
-//		else {
-//			// Person (row variable) wants early half-hour lunch
-//			int row = [person intValue];
-//		}
-//	}
-//
-//	// Assign late lunches from lateLunchList
-//	for (int j = 0; j < lateLunchList.count; j++) {
-//		NSNumber *person = lateLunchList[j][0];
-//		NSNumber *hour_lunch_state = lateLunchList[j][1];
-//		if (hour_lunch_state) {
-//			// Person (row variable) wants late hour lunch
-//			int row = [person intValue];
-//		}
-//		else {
-//			// Person (row variable) wants late half-hour lunch
-//			int row = [person intValue];
-//		}
-//	}
-//
-//	// Assign rest of the lunches from standardLunchList
-//	for (int j = 0; j < standardLunchList.count; j++) {
-//		NSNumber *person = standardLunchList[j][0];
-//		NSNumber *hour_lunch_state = standardLunchList[j][1];
-//		if (hour_lunch_state) {
-//			// Person (row variable) wants hour lunch
-//			int row = [person intValue];
-//		}
-//		else {
-//			// Person (row variable) wants half-hour lunch!!!!!!!!!!!!!!!!!!!!!!!!!
-//			int row = [person intValue];
-//		}
-//	}
-//
-//	return;
-//
-//}
 
 // Does the calculations needed to actually make the schedule; data already collected
 - (void)makeSchedule {
@@ -291,17 +268,17 @@
 		return;
 	}
 	
-	// Set up hours/half hours on schedule using self.halfHourData
+	// Set up hours/half hours on schedule
 	[self setHalfHours];
 	
-	// X out hours that are outside a staff member's shift using self.startTimeData and self.endTimeData
+	// X out hours that are outside a staff member's shift
 	[self blockOutNonShiftHours];
 	
-	// Assign specific stations on schedule using self.specificStationsData
+	// Assign specific stations on schedule
 	[self assignSpecificStations];
 	
-	// Assign lunches on schedule using self.lunchData, self.stackLunchesData (and self.endTimeData - self.startTimeData > 5.5 check)
-	//[self assignLunches];
+	// Assign lunches on schedule
+	[self assignLunches];
 	
 	// DEBUGGING
 	//[Printing printScheduleData:self.nameData withStart:self.startTimeData withEnd:self.endTimeData withSpecifics:self.specificStationsData withLunch:self.lunchData];
