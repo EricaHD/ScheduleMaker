@@ -170,15 +170,16 @@
 	MyManager *sharedManager = [MyManager sharedManager];
 	
 	// Lunch lists
-	NSMutableArray *earlyLunch;
-	NSMutableArray *standardLunch;
-	NSMutableArray *lateLunch;
-	NSMutableArray *earlyHourLunch;
-	NSMutableArray *standardHourLunch;
-	NSMutableArray *lateHourLunch;
+//	NSMutableArray *earlyLunch;
+//	NSMutableArray *standardLunch;
+//	NSMutableArray *lateLunch;
+//	NSMutableArray *earlyHourLunch;
+//	NSMutableArray *standardHourLunch;
+//	NSMutableArray *lateHourLunch;
 	
 	// For each staff member...
 	for (int i = 0; i < self.starts.count; i++) {
+
 		
 		// Figure out number of hours worked
 		int start_num = [[sharedManager.timeEntries objectForKey:self.starts[i]] intValue];
@@ -187,28 +188,33 @@
 		
 		// If staff member works >= 5.5 hours, add to lunch list
 		if (hours_worked >= 5.5) {
-			if (4 & [self.lunches[i] intValue]) {
-				if (1 & [self.lunches[i] intValue]) {
-					[earlyHourLunch addObject:[NSNumber numberWithInt:i]]; // early hour lunch
-				}
-				else if (2 & [self.lunches[i] intValue]) {
-					[lateHourLunch addObject:[NSNumber numberWithInt:i]]; // late hour lunch
-				}
-				else {
-					[standardHourLunch addObject:[NSNumber numberWithInt:i]]; // standard hour lunch
-				}
-			}
-			else {
-				if (1 & [self.lunches[i] intValue]) {
-					[earlyLunch addObject:[NSNumber numberWithInt:i]]; // early half hour lunch
-				}
-				else if (2 & [self.lunches[i] intValue]) {
-					[lateLunch addObject:[NSNumber numberWithInt:i]]; // late half hour lunch
-				}
-				else {
-					[standardLunch addObject:[NSNumber numberWithInt:i]]; // standard half hour lunch
-				}
-			}
+			
+			// Is lunch already scheduled?
+			
+//			if (4 & [self.lunches[i] intValue]) {
+//				if (1 & [self.lunches[i] intValue]) {
+//					[earlyHourLunch addObject:[NSNumber numberWithInt:i]]; // early hour lunch
+//				}
+//				else if (2 & [self.lunches[i] intValue]) {
+//					[lateHourLunch addObject:[NSNumber numberWithInt:i]]; // late hour lunch
+//				}
+//				else {
+//					[standardHourLunch addObject:[NSNumber numberWithInt:i]]; // standard hour lunch
+//				}
+//			}
+//			else {
+//				if (1 & [self.lunches[i] intValue]) {
+//					[earlyLunch addObject:[NSNumber numberWithInt:i]]; // early half hour lunch
+//				}
+//				else if (2 & [self.lunches[i] intValue]) {
+//					[lateLunch addObject:[NSNumber numberWithInt:i]]; // late half hour lunch
+//				}
+//				else {
+//					[standardLunch addObject:[NSNumber numberWithInt:i]]; // standard half hour lunch
+//				}
+//			}
+			
+			
 		}
 		
 	}

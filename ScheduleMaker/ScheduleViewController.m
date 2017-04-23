@@ -71,7 +71,7 @@
 	self.autocompleteOptions = [[NSMutableArray alloc] init];
 	
 	// Autocomplete code: make positions dictionary for specific stations autocomplete functionality
-	self.positionsDictionary = [[NSMutableArray alloc] initWithObjects:@"Trike", @"Coro", @"Gallery", @"-1", @"0", @"Float", @"Project",@"Greeting", @"Security", @"Tours", @"Lesson", @"Manager", @"Birthday", @"Other", nil];
+	self.positionsDictionary = [[NSMutableArray alloc] initWithObjects:@"Trike", @"Coro", @"Gallery", @"-1", @"0", @"Float", @"Project",@"Greeting", @"Security", @"Tours", @"Lesson", @"Manager", @"Birthday", @"Other", @"Lunch", nil];
 	
 	// Make it impossible to select/highlight a row in the table
 	[self.table setSelectionHighlightStyle:NSTableViewSelectionHighlightStyleNone];
@@ -365,15 +365,20 @@
 		// Get NameTableViewCell: column = 0, row = editedTextField.tag
 		NameTableCellView *cell = (NameTableCellView *) [self.table viewAtColumn:0 row:editedTextField.tag makeIfNecessary:NO];
 	
-		// Cell's autocomplete table should display items from self.autocompleteOptions; populate table; unhide scroll view
+		// If there are autocomplete suggestions, cell's autocomplete table should display items from self.autocompleteOptions; populate table; unhide scroll view
 		cell.autocompleteOptions = self.autocompleteOptions;
 		[cell.autocompleteTable reloadData];
-		[cell.autocompleteScroll setHidden:NO];
-		if ([cell.autocompleteScroll hasVerticalScroller]) {
-			cell.autocompleteScroll.verticalScroller.floatValue = 0.0;
+		if (self.autocompleteOptions.count > 0) {
+			[cell.autocompleteScroll setHidden:NO];
+			if ([cell.autocompleteScroll hasVerticalScroller]) {
+				cell.autocompleteScroll.verticalScroller.floatValue = 0.0;
+			}
+			[cell.autocompleteScroll.contentView scrollToPoint:NSMakePoint(0.0, 0.0)];
+			[cell.autocompleteScroll scrollPoint:NSMakePoint(0.0, 0.0)];
 		}
-		[cell.autocompleteScroll.contentView scrollToPoint:NSMakePoint(0.0, 0.0)];
-		[cell.autocompleteScroll scrollPoint:NSMakePoint(0.0, 0.0)];
+		else {
+			[cell.autocompleteScroll setHidden:YES];
+		}
 	
 	}
 	
@@ -416,12 +421,17 @@
 		// Autocomplete table should display items from self.autocompleteOptions; populate table; unhide scroll view
 		cell.autocompleteOptions = self.autocompleteOptions;
 		[whichTableInCell reloadData];
-		[whichScrollInCell setHidden:NO];
-		if ([whichScrollInCell hasVerticalScroller]) {
-			whichScrollInCell.verticalScroller.floatValue = 0.0;
+		if (self.autocompleteOptions.count > 0) {
+			[whichScrollInCell setHidden:NO];
+			if ([whichScrollInCell hasVerticalScroller]) {
+				whichScrollInCell.verticalScroller.floatValue = 0.0;
+			}
+			[whichScrollInCell.contentView scrollToPoint:NSMakePoint(0.0, 0.0)];
+			[whichScrollInCell scrollPoint:NSMakePoint(0.0, 0.0)];
 		}
-		[whichScrollInCell.contentView scrollToPoint:NSMakePoint(0.0, 0.0)];
-		[whichScrollInCell scrollPoint:NSMakePoint(0.0, 0.0)];
+		else {
+			[whichScrollInCell setHidden:YES];
+		}
 		
 	}
 	
