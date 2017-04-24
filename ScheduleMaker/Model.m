@@ -169,51 +169,34 @@
 	// Create sharedManager here so we can reference timeEntries dictionary
 	MyManager *sharedManager = [MyManager sharedManager];
 	
-	// Lunch lists
-//	NSMutableArray *earlyLunch;
-//	NSMutableArray *standardLunch;
-//	NSMutableArray *lateLunch;
-//	NSMutableArray *earlyHourLunch;
-//	NSMutableArray *standardHourLunch;
-//	NSMutableArray *lateHourLunch;
-	
 	// For each staff member...
 	for (int i = 0; i < self.starts.count; i++) {
-
 		
 		// Figure out number of hours worked
 		int start_num = [[sharedManager.timeEntries objectForKey:self.starts[i]] intValue];
 		int end_num = [[sharedManager.timeEntries objectForKey:self.ends[i]] intValue];
 		float hours_worked = ((float)(end_num - start_num)) / 2.0;
 		
-		// If staff member works >= 5.5 hours, add to lunch list
-		if (hours_worked >= 5.5) {
+		// Figure out if lunch has been scheduled already
+		BOOL scheduled_already = [self.schedule[i][2] isEqualToString:@"Lunch"] || [self.schedule[i][3] isEqualToString:@"Lunch"] ||
+								 [self.schedule[i][4] isEqualToString:@"Lunch"] || [self.schedule[i][5] isEqualToString:@"Lunch"] ||
+								 [self.schedule[i][6] isEqualToString:@"Lunch"] || [self.schedule[i][7] isEqualToString:@"Lunch"];
+		
+		// If staff member works >= 5.5 hours and lunch is not already scheduled...
+		if (hours_worked >= 5.5 && !scheduled_already) {
 			
-			// Is lunch already scheduled?
+			// Gather lunch slot probabilities
+			int lunchSlots[6] = {0, 0, 0, 0, 0, 0};
+			for (int j = 0; j < 6; j++) {
+				if (![self.schedule[i][j+2] isEqualToString:@""]) {
+					lunchSlots[j] = -1;
+				}
+			}
 			
-//			if (4 & [self.lunches[i] intValue]) {
-//				if (1 & [self.lunches[i] intValue]) {
-//					[earlyHourLunch addObject:[NSNumber numberWithInt:i]]; // early hour lunch
-//				}
-//				else if (2 & [self.lunches[i] intValue]) {
-//					[lateHourLunch addObject:[NSNumber numberWithInt:i]]; // late hour lunch
-//				}
-//				else {
-//					[standardHourLunch addObject:[NSNumber numberWithInt:i]]; // standard hour lunch
-//				}
-//			}
-//			else {
-//				if (1 & [self.lunches[i] intValue]) {
-//					[earlyLunch addObject:[NSNumber numberWithInt:i]]; // early half hour lunch
-//				}
-//				else if (2 & [self.lunches[i] intValue]) {
-//					[lateLunch addObject:[NSNumber numberWithInt:i]]; // late half hour lunch
-//				}
-//				else {
-//					[standardLunch addObject:[NSNumber numberWithInt:i]]; // standard half hour lunch
-//				}
-//			}
-			
+			// {0, 0, 0, 0, 0, -1}
+			//[cell.early_lunch setState:(1 & [self.model.lunchData[row] integerValue])];
+			//[cell.late_lunch setState:(2 & [self.model.lunchData[row] integerValue])];
+			//[cell.hour_lunch setState:(4 & [self.model.lunchData[row] integerValue])];
 			
 		}
 		
