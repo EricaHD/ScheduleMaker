@@ -187,22 +187,56 @@
 			
 			// Gather lunch slot probabilities
 			int lunchSlots[6] = {0, 0, 0, 0, 0, 0};
+			// Early lunch preference (weight: 1)
+			if (1 & [self.lunches[i] integerValue]) {
+				lunchSlots[0] += 1;
+				lunchSlots[1] += 1;
+			}
+			// Late lunch preference (weight: 1)
+			if (2 & [self.lunches[i] integerValue]) {
+				lunchSlots[4] += 1;
+				lunchSlots[5] += 1;
+			}
+			// Stacked lunches preferences (weight: 3)
 			for (int j = 0; j < 6; j++) {
-				if (![self.schedule[i][j+2] isEqualToString:@""]) {
-					lunchSlots[j] = -1;
+				if ([self.stackLunchesData[j] integerValue]) {
+					lunchSlots[j] += 3;
 				}
 			}
-			
-			// {0, 0, 0, 0, 0, -1}
-			//[cell.early_lunch setState:(1 & [self.model.lunchData[row] integerValue])];
-			//[cell.late_lunch setState:(2 & [self.model.lunchData[row] integerValue])];
-			//[cell.hour_lunch setState:(4 & [self.model.lunchData[row] integerValue])];
+			// Busy at that time
+			for (int j = 0; j < 6; j++) {
+				if (![self.schedule[i][j+2] isEqualToString:@""]) {
+					lunchSlots[j] = 0;
+				}
+			}
+			// Calculate total
+			int total = 0;
+			for (int j = 0; j < 6; j++) {
+				total += lunchSlots[j];
+			}
+			// Generate random integer in [1, total]
+			NSInteger random = arc4random_uniform(total) + 1;
+			NSLog(@"Random: %lu", random);
+			// Turn lunch slot array into cummulative array
+			int so_far = 0;
+			for (int j = 0; j < 6; j++) {
+				so_far += lunchSlots[j];
+				lunchSlots[j] = so_far;
+			}
+			// Calculate which lunch slot {0, 1, 2, 3, 4, 5} the random integer points to
+			int slot = 0;
+			while (lunchSlots[slot] < random) {
+				slot++;
+			}
+			// Assign lunch at that slot for that employee
+			self.schedule[i][slot + 2] = @"Lumch";
 			
 		}
-		
+	
 	}
 	
-	// Now we have those lunch lists...
+	// TODO: now that all employees have been assigned a lunch, check global stats against global expectations
+	// TODO: Take hour lunch option into account (4 & [self.lunches[i] integerValue])
 	
 	return;
 	
